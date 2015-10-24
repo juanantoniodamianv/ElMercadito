@@ -16,7 +16,9 @@ public class ElMercadito {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        System.out.println("modificacion de Controlador");
+        System.out.println("modificacion 2");
+        
     }
     
 }
