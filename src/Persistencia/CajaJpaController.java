@@ -21,12 +21,16 @@ import model.Caja;
  *
  * @author daniel
  */
-public class CajaJpaController1 implements Serializable {
+public class CajaJpaController implements Serializable {
 
-    public CajaJpaController1(EntityManagerFactory emf) {
+    public CajaJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
+
+    CajaJpaController() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
