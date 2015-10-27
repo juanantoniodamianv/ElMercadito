@@ -5,7 +5,7 @@
  */
 package Persistencia;
 import java.util.ArrayList;
-import ElMercadito.Mercadito;
+import ElMercadito.ElMercadito;
 import model.Articulo;
 import model.Bulto;
 import model.Caja;
