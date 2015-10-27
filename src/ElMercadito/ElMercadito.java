@@ -60,16 +60,16 @@ private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","ra
         CajaJpaController jpaCaja = new CajaJpaController(objFactory);
         List<Caja> listaCaja = jpaCaja.findCajaEntities();
         
-                
+         //que loco       
         Articulo art = new Articulo();
-        art.setNroArticulo(15922);
+        art.setNroArticulo(15926);
         art.setLote("22-09-2015");
         art.setFechaElabora("22-09-2015");
         art.setFechaExpira("15-11-2016");
         jpa.create(art);
         
         Caja caj = new Caja();
-        caj.setNroCaja(125);
+        caj.setNroCaja(128);
         jpaCaja.create(caj);
     }
 
