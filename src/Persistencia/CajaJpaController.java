@@ -11,32 +11,31 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
-import model.Articulo;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import model.Caja;
 
 /**
  *
  * @author daniel
  */
-public class CajaJpaController implements Serializable{
-    
-   //constructor
+public class CajaJpaController implements Serializable {
+
     public CajaJpaController(EntityManagerFactory emf) {
-    this.emf = emf;
-}
-    private EntityManagerFactory emf = null;
-    public CajaJpaController() {
-   emf= Persistence.createEntityManagerFactory("ElMercaditoPU");
+        this.emf = emf;
     }
-    
+    private EntityManagerFactory emf = null;
+
+    CajaJpaController() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-//metodo de jpaController. Create
     public void create(Caja caja) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
@@ -53,23 +52,22 @@ public class CajaJpaController implements Serializable{
             if (em != null) {
                 em.close();
             }
-        
         }
     }
-//    metodo de jpaController. edit
+
     public void edit(Caja caja) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            caja= em.merge(caja);
+            caja = em.merge(caja);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
                 int id = caja.getNroCaja();
                 if (findCaja(id) == null) {
-                    throw new NonexistentEntityException("The caja with id " + id+ " no longer exists.");
+                    throw new NonexistentEntityException("The caja with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -79,16 +77,6 @@ public class CajaJpaController implements Serializable{
             }
         }
     }
-//    método de jpaController: obtener un elemento
-    public Caja findCaja(int id) {
-        EntityManager em = getEntityManager();
-        try {
-            return em.find(Caja.class, id);
-        } finally {
-            em.close();
-        }
-    }
-
 
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
@@ -100,7 +88,7 @@ public class CajaJpaController implements Serializable{
                 caja = em.getReference(Caja.class, id);
                 caja.getNroCaja();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The caja with nroCaja " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The caja with id " + id + " no longer exists.", enfe);
             }
             em.remove(caja);
             em.getTransaction().commit();
@@ -110,8 +98,7 @@ public class CajaJpaController implements Serializable{
             }
         }
     }
-    
-//método de jpa controller: obtener varios elementos
+
     public List<Caja> findCajaEntities() {
         return findCajaEntities(true, -1, -1);
     }
@@ -123,7 +110,9 @@ public class CajaJpaController implements Serializable{
     private List<Caja> findCajaEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select object(o) from Caja as o");
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            cq.select(cq.from(Caja.class));
+            Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
                 q.setFirstResult(firstResult);
@@ -134,21 +123,26 @@ public class CajaJpaController implements Serializable{
         }
     }
 
-
-//metodo de jpaController: obtener cantidad de elementos persistidos
-    public int getCajaCount() {
+    public Caja findCaja(int id) {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select count(o) from Caja as o");
-            return ((Long) q.getSingleResult()).intValue();
+            return em.find(Caja.class, id);
         } finally {
             em.close();
         }
     }
 
-    Articulo findArticulo(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int getCajaCount() {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            Root<Caja> rt = cq.from(Caja.class);
+            cq.select(em.getCriteriaBuilder().count(rt));
+            Query q = em.createQuery(cq);
+            return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
     }
     
 }
-
