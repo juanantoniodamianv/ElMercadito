@@ -18,6 +18,7 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Persona implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
       private String dni;
     @Basic
@@ -29,17 +30,23 @@ public class Persona implements Serializable {
     @Basic
     private String telefono;
     @OneToOne
+    private Direccion unaDireccion;
+    @OneToOne
     private SituacionTributaria unaSituacionTributaria;
+    @OneToOne 
+    //en la viste podría i un desplegable para la provincia y otro desplegable para la localidad.(combos)
+    private Provincia unaProvincia;
     
     public Persona(){}
 
-    public Persona(String dni, String apellido, String nombre, String fechaNac, String telefono, SituacionTributaria unaSituacionTributaria) {
+    public Persona(String dni, String apellido, String nombre, String fechaNac, String telefono, SituacionTributaria unaSituacionTributaria, Provincia unaProvincia) {
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
         this.fechaNac = fechaNac;
         this.telefono = telefono;
         this.unaSituacionTributaria = unaSituacionTributaria;
+        this.unaProvincia = unaProvincia;
     }
 
     public String getDni() {
@@ -88,6 +95,22 @@ public class Persona implements Serializable {
 
     public void setUnaSituacionTributaria(SituacionTributaria unaSituacionTributaria) {
         this.unaSituacionTributaria = unaSituacionTributaria;
+    }
+
+    public Direccion getUnaDireccion() {
+        return unaDireccion;
+    }
+
+    public Provincia getUnaProvincia() {
+        return unaProvincia;
+    }
+
+    public void setUnaDireccion(Direccion unaDireccion) {
+        this.unaDireccion = unaDireccion;
+    }
+
+    public void setUnaProvincia(Provincia unaProvincia) {
+        this.unaProvincia = unaProvincia;
     }
 
     
