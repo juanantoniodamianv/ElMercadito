@@ -5,7 +5,7 @@
  */
 package Persistencia;
 import java.util.ArrayList;
-import ElMercadito.Mercadito;
+import ElMercadito.ElMercadito;
 import model.Articulo;
 import model.Bulto;
 import model.Caja;
@@ -59,8 +59,9 @@ import java.util.List;
 
 public class ControladoraPersistencia {
     public ControladoraPersistencia() {
+        this.articuloPersistencia = new ArticuloJpaController1();
     }
-    ArticuloJpaController articuloPersistencia = new ArticuloJpaController();
+    ArticuloJpaController1 articuloPersistencia;
     BultoJpaController bultoPersistencia=new BultoJpaController();
     CajaJpaController cajaPersistencia = new CajaJpaController();
     CajeroJpaController cajeroPersistencia = new CajeroJpaController();
@@ -118,9 +119,9 @@ public class ControladoraPersistencia {
     public ArrayList BuscarListaArticulos(){
        return (ArrayList) this.articuloPersistencia.findArticuloEntities();
     }
-    public Articulo BuscarUnArticulo(String id){
+    /*public Articulo BuscarUnArticulo(String id){
         return this.articuloPersistencia.findArticulo(id);
-    }
+    }*/
     //Bulto////
     public void AgregarBultoPersis(Bulto bul) throws PreexistingEntityException, Exception{
        this.bultoPersistencia.create(bul);

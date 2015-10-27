@@ -7,12 +7,14 @@
 package ElMercadito;
 import view.*;
 import Persistencia.ArticuloJpaController1;
+import Persistencia.CajaJpaController1;
 import Persistencia.ControladoraPersistencia;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import model.Articulo;
+import model.Caja;
 import model.Sucursal;
 
 /**
@@ -53,17 +55,22 @@ private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","ra
         EntityManagerFactory objFactory;
         objFactory = Persistence.createEntityManagerFactory("El_mercaditoPU");
         EntityManager manager = objFactory.createEntityManager();
-        //ArticuloJpaController1 jpa = new ArticuloJpaController1(objFactory);
-        //List<Articulo> lista = jpa.findArticuloEntities();
+        ArticuloJpaController1 jpa = new ArticuloJpaController1(objFactory);
+        List<Articulo> lista = jpa.findArticuloEntities();
+        CajaJpaController1 jpaCaja = new CajaJpaController1(objFactory);
+        List<Caja> listaCaja = jpaCaja.findCajaEntities();
         
                 
-        /*Articulo art = new Articulo();
-        art.setNroArticulo(15916);
+        Articulo art = new Articulo();
+        art.setNroArticulo(15920);
         art.setLote("22-09-2015");
         art.setFechaElabora("22-09-2015");
         art.setFechaExpira("15-11-2016");
-        jpa.create(art*/
+        jpa.create(art);
         
+        Caja caj = new Caja();
+        caj.setNroCaja(123);
+        jpaCaja.create(caj);
     }
 
     
