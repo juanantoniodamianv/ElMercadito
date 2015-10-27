@@ -17,21 +17,42 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Proveedor extends Persona implements Serializable{
+    private static final long serialVersionUID = 1L;
+//porqué me pide esto?
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
     @Basic
     private String razonSocial;
-    @OneToOne
     
+    @Basic 
+    private String nroCiut;
+    
+    @Basic 
+    private String nombreFantasia;
+    
+    @OneToOne
     private SituacionTributaria unaSituaciontributaria;
    
  public Proveedor(){}
 
-    public Proveedor(String razonSocial, SituacionTributaria unaSituaciontributaria) {
+    public Proveedor(String razonSocial, String nroCiut, String nombreFantasia, SituacionTributaria unaSituaciontributaria) {
         this.razonSocial = razonSocial;
+        this.nroCiut = nroCiut;
+        this.nombreFantasia = nombreFantasia;
         this.unaSituaciontributaria = unaSituaciontributaria;
     }
 
     public String getRazonSocial() {
         return razonSocial;
+    }
+
+    public String getNroCiut() {
+        return nroCiut;
+    }
+
+    public String getNombreFantasia() {
+        return nombreFantasia;
     }
 
     public SituacionTributaria getUnaSituaciontributaria() {
@@ -42,8 +63,16 @@ public class Proveedor extends Persona implements Serializable{
         this.razonSocial = razonSocial;
     }
 
+    public void setNroCiut(String nroCiut) {
+        this.nroCiut = nroCiut;
+    }
+
+    public void setNombreFantasia(String nombreFantasia) {
+        this.nombreFantasia = nombreFantasia;
+    }
+
     public void setUnaSituaciontributaria(SituacionTributaria unaSituaciontributaria) {
         this.unaSituaciontributaria = unaSituaciontributaria;
     }
- 
+
 }
