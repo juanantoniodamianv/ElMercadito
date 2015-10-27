@@ -11,31 +11,31 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import model.Proveedor;
 
+/**
+ *
+ * @author daniel
+ */
+public class ProveedorJpaController implements Serializable {
 
-
-public class ProveedorJpaController implements Serializable{
-    
-
-   //constructor
     public ProveedorJpaController(EntityManagerFactory emf) {
-    this.emf = emf;
-}
-    private EntityManagerFactory emf = null;
-    
-    public ProveedorJpaController() {
-   emf= Persistence.createEntityManagerFactory("ElMercaditoPU");
+        this.emf = emf;
     }
-    
+    private EntityManagerFactory emf = null;
+
+    ProveedorJpaController() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-//metodo de jpaController. Create
     public void create(Proveedor proveedor) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
@@ -45,30 +45,29 @@ public class ProveedorJpaController implements Serializable{
             em.getTransaction().commit();
         } catch (Exception ex) {
             if (findProveedor(proveedor.getDni()) != null) {
-                throw new PreexistingEntityException("proveedor" + proveedor + " already exists.", ex);
+                throw new PreexistingEntityException("Proveedor " + proveedor + " already exists.", ex);
             }
             throw ex;
         } finally {
             if (em != null) {
                 em.close();
             }
-        
         }
     }
-//    metodo de jpaController. edit
+
     public void edit(Proveedor proveedor) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            proveedor= em.merge(proveedor);
+            proveedor = em.merge(proveedor);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
                 String id = proveedor.getDni();
                 if (findProveedor(id) == null) {
-                    throw new NonexistentEntityException("The proveedor with id " + id+ " no longer exists.");
+                    throw new NonexistentEntityException("The proveedor with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -78,16 +77,6 @@ public class ProveedorJpaController implements Serializable{
             }
         }
     }
-//    método de jpaController: obtener un elemento
-    public Proveedor findProveedor(int id) {
-        EntityManager em = getEntityManager();
-        try {
-            return em.find(Proveedor.class, id);
-        } finally {
-            em.close();
-        }
-    }
-
 
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
@@ -99,7 +88,7 @@ public class ProveedorJpaController implements Serializable{
                 proveedor = em.getReference(Proveedor.class, id);
                 proveedor.getDni();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The proveedor with nroCuil " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The proveedor with id " + id + " no longer exists.", enfe);
             }
             em.remove(proveedor);
             em.getTransaction().commit();
@@ -109,7 +98,7 @@ public class ProveedorJpaController implements Serializable{
             }
         }
     }
-///método de jpa controller: obtener varios elementos
+
     public List<Proveedor> findProveedorEntities() {
         return findProveedorEntities(true, -1, -1);
     }
@@ -121,7 +110,9 @@ public class ProveedorJpaController implements Serializable{
     private List<Proveedor> findProveedorEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select object(o) from Proveedor as o");
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            cq.select(cq.from(Proveedor.class));
+            Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
                 q.setFirstResult(firstResult);
@@ -132,28 +123,30 @@ public class ProveedorJpaController implements Serializable{
         }
     }
 
+    public Proveedor findProveedor(String id) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(Proveedor.class, id);
+        } finally {
+            em.close();
+        }
+    }
 
-//metodo de jpaController: obtener cantidad de elementos persistidos
     public int getProveedorCount() {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select count(o) from Proveedor as o");
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            Root<Proveedor> rt = cq.from(Proveedor.class);
+            cq.select(em.getCriteriaBuilder().count(rt));
+            Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();
         }
     }
-//    private Object findProveedor(String id) {
+
+//    void destroy(int id) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    }
-
-   
-    public Object findProveedor(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
     
 }
-
-

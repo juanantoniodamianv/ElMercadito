@@ -11,31 +11,31 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import model.Cliente;
 
 /**
  *
  * @author daniel
  */
-public class ClienteJpaController implements Serializable{
-    
-   //constructor
+public class ClienteJpaController implements Serializable {
+
     public ClienteJpaController(EntityManagerFactory emf) {
-    this.emf = emf;
-}
-    private EntityManagerFactory emf = null;
-    public ClienteJpaController() {
-   emf= Persistence.createEntityManagerFactory("ElMercaditoPU");
+        this.emf = emf;
     }
-    
+    private EntityManagerFactory emf = null;
+
+    ClienteJpaController() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-//metodo de jpaController. Create
     public void create(Cliente cliente) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
@@ -44,7 +44,7 @@ public class ClienteJpaController implements Serializable{
             em.persist(cliente);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (null != findCliente(cliente.getDni())) {
+            if (findCliente(cliente.getDni()) != null) {
                 throw new PreexistingEntityException("Cliente " + cliente + " already exists.", ex);
             }
             throw ex;
@@ -52,23 +52,22 @@ public class ClienteJpaController implements Serializable{
             if (em != null) {
                 em.close();
             }
-        
         }
     }
-//    metodo de jpaController. edit
+
     public void edit(Cliente cliente) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            cliente= em.merge(cliente);
+            cliente = em.merge(cliente);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
                 String id = cliente.getDni();
                 if (findCliente(id) == null) {
-                    throw new NonexistentEntityException("The cliente with id " + id+ " no longer exists.");
+                    throw new NonexistentEntityException("The cliente with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -78,18 +77,8 @@ public class ClienteJpaController implements Serializable{
             }
         }
     }
-//    método de jpaController: obtener un elemento
-    public Cliente findCliente(int id) {
-        EntityManager em = getEntityManager();
-        try {
-            return em.find(Cliente.class, id);
-        } finally {
-            em.close();
-        }
-    }
 
-
-    public void destroy(int id) throws NonexistentEntityException {
+    public void destroy(String id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -99,7 +88,7 @@ public class ClienteJpaController implements Serializable{
                 cliente = em.getReference(Cliente.class, id);
                 cliente.getDni();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The cliente with dni " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The cliente with id " + id + " no longer exists.", enfe);
             }
             em.remove(cliente);
             em.getTransaction().commit();
@@ -109,7 +98,7 @@ public class ClienteJpaController implements Serializable{
             }
         }
     }
-///método de jpa controller: obtener varios elementos
+
     public List<Cliente> findClienteEntities() {
         return findClienteEntities(true, -1, -1);
     }
@@ -121,7 +110,9 @@ public class ClienteJpaController implements Serializable{
     private List<Cliente> findClienteEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select object(o) from Cliente as o");
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            cq.select(cq.from(Cliente.class));
+            Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
                 q.setFirstResult(firstResult);
@@ -132,20 +123,30 @@ public class ClienteJpaController implements Serializable{
         }
     }
 
-
-//metodo de jpaController: obtener cantidad de elementos persistidos
-    public int getArticuloCount() {
+    public Cliente findCliente(String id) {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select count(o) from Articulo as o");
+            return em.find(Cliente.class, id);
+        } finally {
+            em.close();
+        }
+    }
+
+    public int getClienteCount() {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            Root<Cliente> rt = cq.from(Cliente.class);
+            cq.select(em.getCriteriaBuilder().count(rt));
+            Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();
         }
     }
 
-    public Object findCliente(String id) {
+    void destroy(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-   
+    
 }

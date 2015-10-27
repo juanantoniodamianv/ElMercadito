@@ -8,34 +8,34 @@ package Persistencia;
 import Persistencia.exceptions.NonexistentEntityException;
 import Persistencia.exceptions.PreexistingEntityException;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import model.Gondola;
 
 /**
  *
  * @author daniel
  */
+public class GondolaJpaController implements Serializable {
 
-public class GondolaJpaController implements Serializable{
-     
-   //constructor
     public GondolaJpaController(EntityManagerFactory emf) {
-    this.emf = emf;
-}
-    private EntityManagerFactory emf = null;
-    
-    public GondolaJpaController() {
-   emf= Persistence.createEntityManagerFactory("ElMercaditoPU");
+        this.emf = emf;
     }
-    
+    private EntityManagerFactory emf = null;
+
+    GondolaJpaController() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-//metodo de jpaController. Create
     public void create(Gondola gondola) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
@@ -52,23 +52,22 @@ public class GondolaJpaController implements Serializable{
             if (em != null) {
                 em.close();
             }
-        
         }
     }
-//    metodo de jpaController. edit
+
     public void edit(Gondola gondola) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            gondola= em.merge(gondola);
+            gondola = em.merge(gondola);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
                 int id = gondola.getNroGondola();
                 if (findGondola(id) == null) {
-                    throw new NonexistentEntityException("The gondola with id " + id+ " no longer exists.");
+                    throw new NonexistentEntityException("The gondola with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -78,16 +77,6 @@ public class GondolaJpaController implements Serializable{
             }
         }
     }
-//    método de jpaController: obtener un elemento
-    public Gondola findDGondola(int id) {
-        EntityManager em = getEntityManager();
-        try {
-            return em.find(Gondola.class, id);
-        } finally {
-            em.close();
-        }
-    }
-
 
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
@@ -99,7 +88,7 @@ public class GondolaJpaController implements Serializable{
                 gondola = em.getReference(Gondola.class, id);
                 gondola.getNroGondola();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The facturaVta with nroComprobante " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The gondola with id " + id + " no longer exists.", enfe);
             }
             em.remove(gondola);
             em.getTransaction().commit();
@@ -110,11 +99,50 @@ public class GondolaJpaController implements Serializable{
         }
     }
 
-    private Object findGondola(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Gondola> findGondolaEntities() {
+        return findGondolaEntities(true, -1, -1);
     }
 
+    public List<Gondola> findGondolaEntities(int maxResults, int firstResult) {
+        return findGondolaEntities(false, maxResults, firstResult);
+    }
+
+    private List<Gondola> findGondolaEntities(boolean all, int maxResults, int firstResult) {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            cq.select(cq.from(Gondola.class));
+            Query q = em.createQuery(cq);
+            if (!all) {
+                q.setMaxResults(maxResults);
+                q.setFirstResult(firstResult);
+            }
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    public Gondola findGondola(int id) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(Gondola.class, id);
+        } finally {
+            em.close();
+        }
+    }
+
+    public int getGondolaCount() {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            Root<Gondola> rt = cq.from(Gondola.class);
+            cq.select(em.getCriteriaBuilder().count(rt));
+            Query q = em.createQuery(cq);
+            return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+    }
     
 }
-
-
