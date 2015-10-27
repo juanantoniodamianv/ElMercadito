@@ -32,10 +32,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
+        btnFinanza = new javax.swing.JButton();
         btnTranferencia = new javax.swing.JButton();
-        btnDeposito = new javax.swing.JButton();
-        btnCaja = new javax.swing.JButton();
-        btnAdministracion1 = new javax.swing.JButton();
+        btnCompra = new javax.swing.JButton();
+        btnVenta = new javax.swing.JButton();
+        btnAdministracion = new javax.swing.JButton();
         escritorio = new javax.swing.JDesktopPane();
         jMenuBarPrincipal = new javax.swing.JMenuBar();
         menuArchivo = new javax.swing.JMenu();
@@ -49,6 +50,25 @@ public class JFramePrincipal extends javax.swing.JFrame {
         setTitle("El Mercadito");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btnFinanza.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnFinanza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/finanza2.png"))); // NOI18N
+        btnFinanza.setText("Finanzas");
+        btnFinanza.setBorder(null);
+        btnFinanza.setBorderPainted(false);
+        btnFinanza.setContentAreaFilled(false);
+        btnFinanza.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinanza.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnFinanza.setIconTextGap(2);
+        btnFinanza.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/finanza3.png"))); // NOI18N
+        btnFinanza.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/finanza1.png"))); // NOI18N
+        btnFinanza.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnFinanza.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnFinanza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinanzaActionPerformed(evt);
+            }
+        });
 
         btnTranferencia.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnTranferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/tranferir2.png"))); // NOI18N
@@ -69,66 +89,66 @@ public class JFramePrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnDeposito.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnDeposito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/deposito2.png"))); // NOI18N
-        btnDeposito.setText("Deposito");
-        btnDeposito.setBorder(null);
-        btnDeposito.setBorderPainted(false);
-        btnDeposito.setContentAreaFilled(false);
-        btnDeposito.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnDeposito.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnDeposito.setIconTextGap(2);
-        btnDeposito.setMaximumSize(new java.awt.Dimension(91, 97));
-        btnDeposito.setMinimumSize(new java.awt.Dimension(91, 97));
-        btnDeposito.setPreferredSize(new java.awt.Dimension(91, 97));
-        btnDeposito.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/deposito3.png"))); // NOI18N
-        btnDeposito.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/deposito1.png"))); // NOI18N
-        btnDeposito.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnDeposito.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnDeposito.addActionListener(new java.awt.event.ActionListener() {
+        btnCompra.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/comprar2.png"))); // NOI18N
+        btnCompra.setText("Compras");
+        btnCompra.setBorder(null);
+        btnCompra.setBorderPainted(false);
+        btnCompra.setContentAreaFilled(false);
+        btnCompra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCompra.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCompra.setIconTextGap(2);
+        btnCompra.setMaximumSize(new java.awt.Dimension(91, 97));
+        btnCompra.setMinimumSize(new java.awt.Dimension(91, 97));
+        btnCompra.setPreferredSize(new java.awt.Dimension(91, 97));
+        btnCompra.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/comprar3.png"))); // NOI18N
+        btnCompra.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/comprar1.png"))); // NOI18N
+        btnCompra.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnCompra.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDepositoActionPerformed(evt);
+                btnCompraActionPerformed(evt);
             }
         });
 
-        btnCaja.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/vender2.png"))); // NOI18N
-        btnCaja.setText("Caja");
-        btnCaja.setBorder(null);
-        btnCaja.setBorderPainted(false);
-        btnCaja.setContentAreaFilled(false);
-        btnCaja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCaja.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnCaja.setIconTextGap(2);
-        btnCaja.setMaximumSize(new java.awt.Dimension(91, 97));
-        btnCaja.setMinimumSize(new java.awt.Dimension(91, 97));
-        btnCaja.setPreferredSize(new java.awt.Dimension(91, 97));
-        btnCaja.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/vender3.png"))); // NOI18N
-        btnCaja.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/vender1.png"))); // NOI18N
-        btnCaja.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnCaja.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnCaja.addActionListener(new java.awt.event.ActionListener() {
+        btnVenta.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/vender2.png"))); // NOI18N
+        btnVenta.setText("Ventas");
+        btnVenta.setBorder(null);
+        btnVenta.setBorderPainted(false);
+        btnVenta.setContentAreaFilled(false);
+        btnVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVenta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVenta.setIconTextGap(2);
+        btnVenta.setMaximumSize(new java.awt.Dimension(91, 97));
+        btnVenta.setMinimumSize(new java.awt.Dimension(91, 97));
+        btnVenta.setPreferredSize(new java.awt.Dimension(91, 97));
+        btnVenta.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/vender3.png"))); // NOI18N
+        btnVenta.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/vender1.png"))); // NOI18N
+        btnVenta.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnVenta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCajaActionPerformed(evt);
+                btnVentaActionPerformed(evt);
             }
         });
 
-        btnAdministracion1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnAdministracion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/administrar2.png"))); // NOI18N
-        btnAdministracion1.setText("Administración");
-        btnAdministracion1.setBorder(null);
-        btnAdministracion1.setBorderPainted(false);
-        btnAdministracion1.setContentAreaFilled(false);
-        btnAdministracion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAdministracion1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnAdministracion1.setIconTextGap(2);
-        btnAdministracion1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/administrar3.png"))); // NOI18N
-        btnAdministracion1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/administrar1.png"))); // NOI18N
-        btnAdministracion1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnAdministracion1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnAdministracion1.addActionListener(new java.awt.event.ActionListener() {
+        btnAdministracion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnAdministracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/administrar2.png"))); // NOI18N
+        btnAdministracion.setText("Administración");
+        btnAdministracion.setBorder(null);
+        btnAdministracion.setBorderPainted(false);
+        btnAdministracion.setContentAreaFilled(false);
+        btnAdministracion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdministracion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAdministracion.setIconTextGap(2);
+        btnAdministracion.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/administrar3.png"))); // NOI18N
+        btnAdministracion.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/administrar1.png"))); // NOI18N
+        btnAdministracion.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnAdministracion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAdministracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdministracion1ActionPerformed(evt);
+                btnAdministracionActionPerformed(evt);
             }
         });
 
@@ -139,46 +159,38 @@ public class JFramePrincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 10, Short.MAX_VALUE))
-                    .addComponent(btnCaja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnTranferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnFinanza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTranferencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVenta, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                    .addComponent(btnAdministracion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(20, Short.MAX_VALUE)
-                    .addComponent(btnAdministracion1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(133, Short.MAX_VALUE)
+                .addGap(45, 45, 45)
+                .addComponent(btnAdministracion, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnTranferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82)
-                .addComponent(btnCaja, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(21, 21, 21)
-                    .addComponent(btnAdministracion1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(423, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnFinanza, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 692, Short.MAX_VALUE)
+            .addGap(0, 739, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 604, Short.MAX_VALUE)
         );
 
         jMenuBarPrincipal.setBackground(new java.awt.Color(204, 204, 255));
@@ -235,12 +247,13 @@ public class JFramePrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(escritorio)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(escritorio)
                 .addContainerGap())
@@ -262,31 +275,35 @@ public class JFramePrincipal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenuItemSalirActionPerformed
 
-    private void btnCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCajaActionPerformed
+    private void btnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentaActionPerformed
         // TODO add your handling code here:
        InternalFrameCaja ventanaCaja = new InternalFrameCaja();
        escritorio.add(ventanaCaja);
        ventanaCaja.show();
-    }//GEN-LAST:event_btnCajaActionPerformed
+    }//GEN-LAST:event_btnVentaActionPerformed
 
-    private void btnTranferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTranferenciaActionPerformed
+    private void btnFinanzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinanzaActionPerformed
         // TODO add your handling code here:
-       InternalFrameAdministracion ventanaAdministracion = new InternalFrameAdministracion();
-       escritorio.add(ventanaAdministracion);
-       ventanaAdministracion.show();
-    }//GEN-LAST:event_btnTranferenciaActionPerformed
+    }//GEN-LAST:event_btnFinanzaActionPerformed
 
-    private void btnDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositoActionPerformed
+    private void btnCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnDepositoActionPerformed
+    }//GEN-LAST:event_btnCompraActionPerformed
 
     private void menuArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuArchivoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuArchivoActionPerformed
 
-    private void btnAdministracion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministracion1ActionPerformed
+    private void btnAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministracionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdministracion1ActionPerformed
+       InternalFrameAdministracion ventanaAdministracion = new InternalFrameAdministracion();
+       escritorio.add(ventanaAdministracion);
+       ventanaAdministracion.show();
+    }//GEN-LAST:event_btnAdministracionActionPerformed
+
+    private void btnTranferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTranferenciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTranferenciaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,10 +342,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
     //}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdministracion1;
-    private javax.swing.JButton btnCaja;
-    private javax.swing.JButton btnDeposito;
+    private javax.swing.JButton btnAdministracion;
+    private javax.swing.JButton btnCompra;
+    private javax.swing.JButton btnFinanza;
     private javax.swing.JButton btnTranferencia;
+    private javax.swing.JButton btnVenta;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuBar jMenuBarPrincipal;
     private javax.swing.JMenuItem jMenuItem4;

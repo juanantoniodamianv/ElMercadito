@@ -62,14 +62,14 @@ private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","ra
         
          //que loco       
         Articulo art = new Articulo();
-        art.setNroArticulo(15926);
+        art.setNroArticulo(15929);
         art.setLote("22-09-2015");
         art.setFechaElabora("22-09-2015");
         art.setFechaExpira("15-11-2016");
         jpa.create(art);
         
         Caja caj = new Caja();
-        caj.setNroCaja(128);
+        caj.setNroCaja(131);
         jpaCaja.create(caj);
     }
 
