@@ -31,7 +31,7 @@ public class FacturaVta extends Comprobante implements Serializable{
  @Basic
   private float importe;
  @Basic
-  private Date fechaVencimiento;
+  private Date fechaVencimiento;//???????
  @Basic
   private Date fechaEmision;
  //segun modelo que paso el profesor Koch y consultas que se realizaron sería asi la parte de abajo
