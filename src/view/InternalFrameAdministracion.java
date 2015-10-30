@@ -37,8 +37,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         jPanel12 = new javax.swing.JPanel();
         lblRazonSocialProveedor = new javax.swing.JLabel();
         txtRazonSocialProveedor = new javax.swing.JTextField();
-        lblNomFantasiaProveedor = new javax.swing.JLabel();
-        txtNomFantasiaProveedor = new javax.swing.JTextField();
         lblSituacTribProveedor = new javax.swing.JLabel();
         lblCuitProveedor = new javax.swing.JLabel();
         txtCuitProveedor = new javax.swing.JTextField();
@@ -53,11 +51,13 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         lblPisoProveedor = new javax.swing.JLabel();
         txtPisoProveedor = new javax.swing.JTextField();
         lblProvinciaProveedor = new javax.swing.JLabel();
-        txtProvinciaProveedor = new javax.swing.JTextField();
         lblLocalidadProveedor = new javax.swing.JLabel();
-        txtLocalidadProveedor = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox();
+        jComboBox2 = new javax.swing.JComboBox();
         lblTelProveedor = new javax.swing.JLabel();
         txtTelProveedor = new javax.swing.JTextField();
+        lblTipoProveeduriaProveedor = new javax.swing.JLabel();
+        txtTipoProveeduriaProveedor = new javax.swing.JTextField();
         btnNuevoProveedor = new javax.swing.JButton();
         btnEditarProveedor = new javax.swing.JButton();
         btnGuardarProveedor = new javax.swing.JButton();
@@ -84,8 +84,16 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         txtFechaNacCliente = new javax.swing.JFormattedTextField();
         lblDniCliente = new javax.swing.JLabel();
         txtlNroDniCliente = new javax.swing.JTextField();
-        lblSituacTribCliente = new javax.swing.JLabel();
-        cmbSituacTribCliente = new javax.swing.JComboBox();
+        lblTipoCliente = new javax.swing.JLabel();
+        cmbTipoCliente = new javax.swing.JComboBox();
+        lblCuitCliente = new javax.swing.JLabel();
+        txtCuitCliente = new javax.swing.JTextField();
+        lblRazonSocialCliente = new javax.swing.JLabel();
+        ttRazonSocialCliente = new javax.swing.JTextField();
+        lblCondIva = new javax.swing.JLabel();
+        cmbCondIva = new javax.swing.JComboBox();
+        lblTelCliente = new javax.swing.JLabel();
+        txtTelCliente = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         lblCalleCliente = new javax.swing.JLabel();
         txtCalleCliente = new javax.swing.JTextField();
@@ -96,15 +104,9 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         lblPisoCliente = new javax.swing.JLabel();
         txtPisoCliente = new javax.swing.JTextField();
         lblProvinciaCliente = new javax.swing.JLabel();
-        txtProvinciaCliente = new javax.swing.JTextField();
         lblLocalidadCliente = new javax.swing.JLabel();
-        txtLocalidadCliente = new javax.swing.JTextField();
-        jPanel6 = new javax.swing.JPanel();
-        chkMayoristaCliente = new javax.swing.JCheckBox();
-        lblCuitCliente = new javax.swing.JLabel();
-        txtCuitCliente = new javax.swing.JTextField();
-        lblRazonSocialCliente = new javax.swing.JLabel();
-        ttRazonSocialCliente = new javax.swing.JTextField();
+        cmbProvinciaCliente = new javax.swing.JComboBox();
+        cmbLocalidadCliente = new javax.swing.JComboBox();
         btnGuardarCliente = new javax.swing.JButton();
         btnNuevoCliente = new javax.swing.JButton();
         btnEditarCliente = new javax.swing.JButton();
@@ -181,14 +183,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             }
         });
 
-        lblNomFantasiaProveedor.setText("Nombre fantasía:");
-
-        txtNomFantasiaProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomFantasiaProveedorActionPerformed(evt);
-            }
-        });
-
         lblSituacTribProveedor.setText("Situación tributaria:");
 
         lblCuitProveedor.setText("N° CUIT:");
@@ -242,19 +236,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         lblProvinciaProveedor.setText("Provincia:");
 
-        txtProvinciaProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtProvinciaProveedorActionPerformed(evt);
-            }
-        });
-
         lblLocalidadProveedor.setText("Localidad:");
-
-        txtLocalidadProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLocalidadProveedorActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -262,20 +244,20 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addComponent(lblCalleProveedor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCalleProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addComponent(lblProvinciaProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtProvinciaProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblLocalidadProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
+                        .addGap(16, 16, 16)
                         .addComponent(lblNroCalleProveedor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNroCalleProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,10 +269,11 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                         .addComponent(lblPisoProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtPisoProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel14Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                        .addComponent(lblLocalidadProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtLocalidadProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(152, Short.MAX_VALUE))
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,14 +288,14 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addComponent(txtDptoProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPisoProveedor)
                     .addComponent(txtPisoProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblProvinciaProveedor)
-                        .addComponent(txtProvinciaProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblLocalidadProveedor))
                     .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblLocalidadProveedor)
-                        .addComponent(txtLocalidadProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblProvinciaProveedor)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -321,6 +304,14 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         txtTelProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelProveedorActionPerformed(evt);
+            }
+        });
+
+        lblTipoProveeduriaProveedor.setText("Tipo de proveeduría:");
+
+        txtTipoProveeduriaProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTipoProveeduriaProveedorActionPerformed(evt);
             }
         });
 
@@ -337,20 +328,23 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(lblRazonSocialProveedor)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtRazonSocialProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblNomFantasiaProveedor)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNomFantasiaProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtRazonSocialProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addComponent(lblTipoProveeduriaProveedor)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtTipoProveeduriaProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblCuitProveedor)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtCuitProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(lblSituacTribProveedor)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbSituacTribProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cmbSituacTribProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
                                 .addComponent(lblTelProveedor)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtTelProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -364,20 +358,19 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRazonSocialProveedor)
                     .addComponent(txtRazonSocialProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNomFantasiaProveedor)
-                    .addComponent(txtNomFantasiaProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCuitProveedor)
+                    .addComponent(txtCuitProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSituacTribProveedor)
+                    .addComponent(cmbSituacTribProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTipoProveeduriaProveedor)
+                    .addComponent(txtTipoProveeduriaProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblTelProveedor)
-                        .addComponent(txtTelProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblCuitProveedor)
-                        .addComponent(txtCuitProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblSituacTribProveedor)
-                        .addComponent(cmbSituacTribProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtTelProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -421,7 +414,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 204, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardarProveedor)
@@ -514,7 +507,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         jTabbedPaneAdministracion.addTab("Proveedores", jPanelProveedores);
@@ -608,7 +601,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         txtFechaNacCliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
 
-        lblDniCliente.setText("N° DNI");
+        lblDniCliente.setText("N° DNI:");
 
         txtlNroDniCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -616,12 +609,35 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             }
         });
 
-        lblSituacTribCliente.setText("Situación tributaria:");
+        lblTipoCliente.setText("Tipo cliente:");
 
-        cmbSituacTribCliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Resp. inscripto", "Consumidor final", "Exento", "Monotributista" }));
-        cmbSituacTribCliente.addActionListener(new java.awt.event.ActionListener() {
+        cmbTipoCliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Minorista", "Mayorista" }));
+
+        lblCuitCliente.setText("N° CUIT:");
+
+        txtCuitCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbSituacTribClienteActionPerformed(evt);
+                txtCuitClienteActionPerformed(evt);
+            }
+        });
+
+        lblRazonSocialCliente.setText("Razón Social:");
+
+        ttRazonSocialCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ttRazonSocialClienteActionPerformed(evt);
+            }
+        });
+
+        lblCondIva.setText("Condición ante el IVA:");
+
+        cmbCondIva.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Monotributista", "Exento", "Cons. Final", "No Categorizado" }));
+
+        lblTelCliente.setText("Telefono:");
+
+        txtTelCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelClienteActionPerformed(evt);
             }
         });
 
@@ -631,49 +647,79 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(lblApellidoCliente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(lblDniCliente)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtlNroDniCliente)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(lblNombreCliente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(lblTipoCliente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cmbTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(lblDniCliente)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtlNroDniCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(lblApellidoCliente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(lblCuitCliente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCuitCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(16, 16, 16)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblRazonSocialCliente)
+                            .addComponent(lblNombreCliente))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombreCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(ttRazonSocialCliente)
+                                .addGap(65, 65, 65))))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(lblFechaNacCliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtFechaNacCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(lblSituacTribCliente)
+                        .addComponent(txtFechaNacCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblCondIva)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbSituacTribCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(75, Short.MAX_VALUE))
+                        .addComponent(cmbCondIva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblTelCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtTelCliente)))
+                .addGap(38, 38, 38))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(3, 3, 3)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTipoCliente)
+                    .addComponent(cmbTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCuitCliente)
+                    .addComponent(txtCuitCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRazonSocialCliente)
+                    .addComponent(ttRazonSocialCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblApellidoCliente)
                     .addComponent(txtApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNombreCliente)
                     .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFechaNacCliente)
-                    .addComponent(txtFechaNacCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombreCliente)
                     .addComponent(lblDniCliente)
-                    .addComponent(txtlNroDniCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSituacTribCliente)
-                    .addComponent(cmbSituacTribCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(76, 76, 76))
+                    .addComponent(txtlNroDniCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFechaNacCliente)
+                    .addComponent(txtFechaNacCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCondIva)
+                    .addComponent(cmbCondIva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTelCliente)
+                    .addComponent(txtTelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Domicilio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
@@ -712,17 +758,11 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         lblProvinciaCliente.setText("Provincia:");
 
-        txtProvinciaCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtProvinciaClienteActionPerformed(evt);
-            }
-        });
-
         lblLocalidadCliente.setText("Localidad:");
 
-        txtLocalidadCliente.addActionListener(new java.awt.event.ActionListener() {
+        cmbProvinciaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLocalidadClienteActionPerformed(evt);
+                cmbProvinciaClienteActionPerformed(evt);
             }
         });
 
@@ -744,7 +784,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addComponent(lblProvinciaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtProvinciaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbProvinciaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblLocalidadCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -757,8 +797,8 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                         .addComponent(lblPisoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtPisoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtLocalidadCliente))
-                .addContainerGap(193, Short.MAX_VALUE))
+                    .addComponent(cmbLocalidadCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -773,69 +813,15 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addComponent(txtDptoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPisoCliente)
                     .addComponent(txtPisoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblProvinciaCliente)
-                        .addComponent(txtProvinciaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbProvinciaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblLocalidadCliente)
-                        .addComponent(txtLocalidadCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Mayorista", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
-
-        chkMayoristaCliente.setText("Mayorista");
-        chkMayoristaCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkMayoristaClienteActionPerformed(evt);
-            }
-        });
-
-        lblCuitCliente.setText("N° CUIT:");
-
-        txtCuitCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCuitClienteActionPerformed(evt);
-            }
-        });
-
-        lblRazonSocialCliente.setText("Razón Social");
-
-        ttRazonSocialCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ttRazonSocialClienteActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(chkMayoristaCliente)
-                .addGap(18, 18, 18)
-                .addComponent(lblCuitCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCuitCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblRazonSocialCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ttRazonSocialCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chkMayoristaCliente)
-                    .addComponent(lblCuitCliente)
-                    .addComponent(txtCuitCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRazonSocialCliente)
-                    .addComponent(ttRazonSocialCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 14, Short.MAX_VALUE))
+                        .addComponent(cmbLocalidadCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         btnGuardarCliente.setText("Guardar");
@@ -853,35 +839,35 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(193, 193, 193)
+                        .addComponent(btnNuevoCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEditarCliente)
+                        .addGap(8, 8, 8)
+                        .addComponent(btnGuardarCliente)
+                        .addGap(10, 10, 10)
+                        .addComponent(btnEliminarCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCancelarCliente)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(193, 193, 193)
-                .addComponent(btnNuevoCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEditarCliente)
-                .addGap(8, 8, 8)
-                .addComponent(btnGuardarCliente)
-                .addGap(10, 10, 10)
-                .addComponent(btnEliminarCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCancelarCliente)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardarCliente)
                     .addComponent(btnNuevoCliente)
@@ -1417,18 +1403,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCuitClienteActionPerformed
 
-    private void chkMayoristaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkMayoristaClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkMayoristaClienteActionPerformed
-
-    private void txtLocalidadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocalidadClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLocalidadClienteActionPerformed
-
-    private void txtProvinciaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProvinciaClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtProvinciaClienteActionPerformed
-
     private void txtPisoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPisoClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPisoClienteActionPerformed
@@ -1444,10 +1418,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private void txtCalleClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCalleClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCalleClienteActionPerformed
-
-    private void cmbSituacTribClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSituacTribClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbSituacTribClienteActionPerformed
 
     private void txtlNroDniClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlNroDniClienteActionPerformed
         // TODO add your handling code here:
@@ -1477,14 +1447,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelProveedorActionPerformed
 
-    private void txtLocalidadProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocalidadProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLocalidadProveedorActionPerformed
-
-    private void txtProvinciaProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProvinciaProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtProvinciaProveedorActionPerformed
-
     private void txtPisoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPisoProveedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPisoProveedorActionPerformed
@@ -1509,10 +1471,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCuitProveedorActionPerformed
 
-    private void txtNomFantasiaProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomFantasiaProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomFantasiaProveedorActionPerformed
-
     private void txtRazonSocialProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRazonSocialProveedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRazonSocialProveedorActionPerformed
@@ -1520,6 +1478,18 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private void btnCancelarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarEmpleadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarEmpleadoActionPerformed
+
+    private void cmbProvinciaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProvinciaClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbProvinciaClienteActionPerformed
+
+    private void txtTelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelClienteActionPerformed
+
+    private void txtTipoProveeduriaProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoProveeduriaProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTipoProveeduriaProveedorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1538,11 +1508,15 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnNuevoCliente;
     private javax.swing.JButton btnNuevoEmpleado;
     private javax.swing.JButton btnNuevoProveedor;
-    private javax.swing.JCheckBox chkMayoristaCliente;
+    private javax.swing.JComboBox cmbCondIva;
     private javax.swing.JComboBox cmbEstadoCivilEmpleado;
+    private javax.swing.JComboBox cmbLocalidadCliente;
+    private javax.swing.JComboBox cmbProvinciaCliente;
     private javax.swing.JComboBox cmbSexoEmpleado;
-    private javax.swing.JComboBox cmbSituacTribCliente;
     private javax.swing.JComboBox cmbSituacTribProveedor;
+    private javax.swing.JComboBox cmbTipoCliente;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -1554,7 +1528,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel25;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
@@ -1575,6 +1548,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblCalleEmpleado2;
     private javax.swing.JLabel lblCalleProveedor;
     private javax.swing.JLabel lblCargoEmpleado;
+    private javax.swing.JLabel lblCondIva;
     private javax.swing.JLabel lblCuilEmpleado;
     private javax.swing.JLabel lblCuitCliente;
     private javax.swing.JLabel lblCuitProveedor;
@@ -1590,7 +1564,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblLocalidadCliente;
     private javax.swing.JLabel lblLocalidadEmpleado2;
     private javax.swing.JLabel lblLocalidadProveedor;
-    private javax.swing.JLabel lblNomFantasiaProveedor;
     private javax.swing.JLabel lblNombreCliente;
     private javax.swing.JLabel lblNombreEmpleado;
     private javax.swing.JLabel lblNroCalleCliente;
@@ -1606,9 +1579,11 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblRazonSocialCliente;
     private javax.swing.JLabel lblRazonSocialProveedor;
     private javax.swing.JLabel lblSexoEmpleado;
-    private javax.swing.JLabel lblSituacTribCliente;
     private javax.swing.JLabel lblSituacTribProveedor;
+    private javax.swing.JLabel lblTelCliente;
     private javax.swing.JLabel lblTelProveedor;
+    private javax.swing.JLabel lblTipoCliente;
+    private javax.swing.JLabel lblTipoProveeduriaProveedor;
     private javax.swing.JTable tblCliente;
     private javax.swing.JTable tblEmpleado;
     private javax.swing.JTable tblProveedor;
@@ -1632,10 +1607,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtEdadEmpleado;
     private javax.swing.JFormattedTextField txtFechaNacCliente;
     private javax.swing.JFormattedTextField txtFechaNacEmpleado;
-    private javax.swing.JTextField txtLocalidadCliente;
     private javax.swing.JTextField txtLocalidadEmpleado2;
-    private javax.swing.JTextField txtLocalidadProveedor;
-    private javax.swing.JTextField txtNomFantasiaProveedor;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtNombreEmpleado;
     private javax.swing.JTextField txtNroCalleCliente;
@@ -1645,11 +1617,11 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtPisoCliente;
     private javax.swing.JTextField txtPisoEmpleado2;
     private javax.swing.JTextField txtPisoProveedor;
-    private javax.swing.JTextField txtProvinciaCliente;
     private javax.swing.JTextField txtProvinciaEmpleado2;
-    private javax.swing.JTextField txtProvinciaProveedor;
     private javax.swing.JTextField txtRazonSocialProveedor;
+    private javax.swing.JTextField txtTelCliente;
     private javax.swing.JTextField txtTelProveedor;
+    private javax.swing.JTextField txtTipoProveeduriaProveedor;
     private javax.swing.JFormattedTextField txtlFechaIngEmpleado;
     private javax.swing.JTextField txtlNroDniCliente;
     // End of variables declaration//GEN-END:variables

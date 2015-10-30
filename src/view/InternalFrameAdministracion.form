@@ -90,7 +90,7 @@
                       <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="jPanel17" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="81" max="32767" attributes="0"/>
+                      <EmptySpace pref="88" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -132,7 +132,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel12" max="32767" attributes="0"/>
+                          <Component id="jPanel12" pref="204" max="32767" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnGuardarProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -167,24 +167,30 @@
                                   <Component id="jPanel14" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
                                               <Component id="lblRazonSocialProveedor" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="txtRazonSocialProveedor" min="-2" pref="144" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="lblNomFantasiaProveedor" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="txtNomFantasiaProveedor" min="-2" pref="144" max="-2" attributes="0"/>
+                                              <Component id="txtRazonSocialProveedor" min="-2" pref="148" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblTipoProveeduriaProveedor" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="txtTipoProveeduriaProveedor" min="-2" pref="155" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
                                               <Component id="lblCuitProveedor" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="txtCuitProveedor" min="-2" pref="90" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="lblSituacTribProveedor" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="cmbSituacTribProveedor" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                               <Component id="lblTelProveedor" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="txtTelProveedor" min="-2" pref="144" max="-2" attributes="0"/>
@@ -204,24 +210,22 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblRazonSocialProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtRazonSocialProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNomFantasiaProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNomFantasiaProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCuitProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCuitProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSituacTribProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbSituacTribProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblTipoProveeduriaProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtTipoProveeduriaProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
                                       <Component id="lblTelProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtTelProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblCuitProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtCuitProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblSituacTribProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cmbSituacTribProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
+                              <Component id="jPanel14" min="-2" pref="96" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -236,16 +240,6 @@
                     <Component class="javax.swing.JTextField" name="txtRazonSocialProveedor">
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRazonSocialProveedorActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="lblNomFantasiaProveedor">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Nombre fantas&#xed;a:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtNomFantasiaProveedor">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomFantasiaProveedorActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblSituacTribProveedor">
@@ -292,23 +286,23 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Component id="lblCalleProveedor" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="txtCalleProveedor" min="-2" pref="149" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                           <Component id="lblProvinciaProveedor" min="-2" pref="61" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtProvinciaProveedor" min="-2" pref="100" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="lblLocalidadProveedor" min="-2" pref="59" max="-2" attributes="0"/>
+                                          <Component id="jComboBox1" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                           <Component id="lblNroCalleProveedor" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="txtNroCalleProveedor" min="-2" pref="33" max="-2" attributes="0"/>
@@ -321,12 +315,13 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="txtPisoProveedor" min="-2" pref="30" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="lblLocalidadProveedor" min="-2" pref="59" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="txtLocalidadProveedor" min="-2" pref="116" max="-2" attributes="0"/>
+                                          <Component id="jComboBox2" min="-2" pref="133" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="152" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -344,15 +339,15 @@
                                       <Component id="lblPisoProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtPisoProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="lblProvinciaProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtProvinciaProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblLocalidadProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="lblLocalidadProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtLocalidadProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblProvinciaProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
@@ -406,20 +401,24 @@
                             <Property name="text" type="java.lang.String" value="Provincia:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtProvinciaProveedor">
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtProvinciaProveedorActionPerformed"/>
-                          </Events>
-                        </Component>
                         <Component class="javax.swing.JLabel" name="lblLocalidadProveedor">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Localidad:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtLocalidadProveedor">
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLocalidadProveedorActionPerformed"/>
-                          </Events>
+                        <Component class="javax.swing.JComboBox" name="jComboBox1">
+                          <Properties>
+                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                              <StringArray count="0"/>
+                            </Property>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JComboBox" name="jComboBox2">
+                          <Properties>
+                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                              <StringArray count="0"/>
+                            </Property>
+                          </Properties>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -431,6 +430,16 @@
                     <Component class="javax.swing.JTextField" name="txtTelProveedor">
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTelProveedorActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblTipoProveeduriaProveedor">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Tipo de proveedur&#xed;a:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtTipoProveeduriaProveedor">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTipoProveeduriaProveedorActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -733,26 +742,30 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel11" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jPanel10" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jPanel6" alignment="1" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
+                                  <Component id="btnNuevoCliente" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnEditarCliente" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                  <Component id="btnGuardarCliente" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Component id="btnEliminarCliente" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnCancelarCliente" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jPanel10" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jPanel11" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
-                          <Component id="btnNuevoCliente" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnEditarCliente" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                          <Component id="btnGuardarCliente" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="btnEliminarCliente" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnCancelarCliente" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -760,12 +773,10 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Component id="jPanel10" min="-2" pref="102" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnGuardarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnNuevoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -793,61 +804,98 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblApellidoCliente" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtApellidoCliente" min="-2" pref="108" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblDniCliente" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtlNroDniCliente" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="lblNombreCliente" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblTipoCliente" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="cmbTipoCliente" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblDniCliente" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="txtlNroDniCliente" min="-2" pref="106" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblApellidoCliente" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="txtApellidoCliente" min="-2" pref="108" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblCuitCliente" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="txtCuitCliente" min="-2" pref="110" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblRazonSocialCliente" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNombreCliente" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtNombreCliente" min="-2" pref="160" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtNombreCliente" pref="175" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="ttRazonSocialCliente" max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblFechaNacCliente" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="txtFechaNacCliente" min="-2" pref="62" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblSituacTribCliente" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lblCondIva" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="cmbSituacTribCliente" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmbCondIva" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lblTelCliente" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="txtTelCliente" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="75" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblTipoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbTipoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCuitCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCuitCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblRazonSocialCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ttRazonSocialCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblApellidoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtApellidoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNombreCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtNombreCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblFechaNacCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtFechaNacCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblNombreCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblDniCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtlNroDniCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblSituacTribCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cmbSituacTribCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblFechaNacCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtFechaNacCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCondIva" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbCondIva" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblTelCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtTelCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="22" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -887,7 +935,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDniCliente">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="N&#xb0; DNI"/>
+                        <Property name="text" type="java.lang.String" value="N&#xb0; DNI:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtlNroDniCliente">
@@ -895,24 +943,66 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtlNroDniClienteActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblSituacTribCliente">
+                    <Component class="javax.swing.JLabel" name="lblTipoCliente">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Situaci&#xf3;n tributaria:"/>
+                        <Property name="text" type="java.lang.String" value="Tipo cliente:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="cmbSituacTribCliente">
+                    <Component class="javax.swing.JComboBox" name="cmbTipoCliente">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Resp. inscripto"/>
-                            <StringItem index="1" value="Consumidor final"/>
-                            <StringItem index="2" value="Exento"/>
-                            <StringItem index="3" value="Monotributista"/>
+                          <StringArray count="2">
+                            <StringItem index="0" value="Minorista"/>
+                            <StringItem index="1" value="Mayorista"/>
                           </StringArray>
                         </Property>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblCuitCliente">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="N&#xb0; CUIT:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtCuitCliente">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbSituacTribClienteActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCuitClienteActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblRazonSocialCliente">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Raz&#xf3;n Social:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="ttRazonSocialCliente">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ttRazonSocialClienteActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblCondIva">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Condici&#xf3;n ante el IVA:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="cmbCondIva">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Monotributista"/>
+                            <StringItem index="1" value="Exento"/>
+                            <StringItem index="2" value="Cons. Final"/>
+                            <StringItem index="3" value="No Categorizado"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblTelCliente">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Telefono:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtTelCliente">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTelClienteActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -934,7 +1024,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Component id="lblCalleCliente" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="txtCalleCliente" min="-2" pref="149" max="-2" attributes="0"/>
@@ -946,7 +1036,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="lblProvinciaCliente" min="-2" pref="61" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtProvinciaCliente" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="cmbProvinciaCliente" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="lblLocalidadCliente" min="-2" pref="59" max="-2" attributes="0"/>
                                   </Group>
@@ -962,9 +1052,9 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="txtPisoCliente" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="txtLocalidadCliente" max="32767" attributes="0"/>
+                                  <Component id="cmbLocalidadCliente" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="193" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -982,18 +1072,18 @@
                                   <Component id="lblPisoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtPisoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="lblProvinciaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtProvinciaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmbProvinciaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="lblLocalidadCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtLocalidadCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmbLocalidadCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="18" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1044,95 +1134,27 @@
                         <Property name="text" type="java.lang.String" value="Provincia:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtProvinciaCliente">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtProvinciaClienteActionPerformed"/>
-                      </Events>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="lblLocalidadCliente">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Localidad:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtLocalidadCliente">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLocalidadClienteActionPerformed"/>
-                      </Events>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Container class="javax.swing.JPanel" name="jPanel6">
-                  <Properties>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="Mayorista">
-                          <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
-                        </TitledBorder>
-                      </Border>
-                    </Property>
-                  </Properties>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="chkMayoristaCliente" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lblCuitCliente" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtCuitCliente" min="-2" pref="90" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lblRazonSocialCliente" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="ttRazonSocialCliente" min="-2" pref="138" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="chkMayoristaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCuitCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtCuitCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblRazonSocialCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ttRazonSocialCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="0" pref="14" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-                    <Component class="javax.swing.JCheckBox" name="chkMayoristaCliente">
+                    <Component class="javax.swing.JComboBox" name="cmbProvinciaCliente">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Mayorista"/>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="0"/>
+                        </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkMayoristaClienteActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbProvinciaClienteActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCuitCliente">
+                    <Component class="javax.swing.JComboBox" name="cmbLocalidadCliente">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="N&#xb0; CUIT:"/>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="0"/>
+                        </Property>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtCuitCliente">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCuitClienteActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="lblRazonSocialCliente">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Raz&#xf3;n Social"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="ttRazonSocialCliente">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ttRazonSocialClienteActionPerformed"/>
-                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

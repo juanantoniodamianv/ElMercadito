@@ -29,12 +29,13 @@ public class Cliente extends Persona implements Serializable{
     public Cliente() {
     }
 
-    public Cliente(String nroCliente, String tipoCliente, String razonSocial, String cuit, String ivaCondicion, String dni, String apellido, String nombre, String fechaNac, String telefono, String situacionTributaria, Provincia unaProvincia) {
-        //super(dni, apellido, nombre, fechaNac, telefono, situacionTributaria, unaProvincia);
+    public Cliente(String nroCliente, String tipoCliente, String razonSocial, String cuit, String ivaCondicion, String dni, String apellido, String nombre, String fechaNac, String telefono, Direccion unaDireccion, Localidad unaLocalidad, Provincia unaProvincia) {
+        super(dni, apellido, nombre, fechaNac, telefono, unaDireccion, unaLocalidad, unaProvincia);
         this.nroCliente = nroCliente;
         this.tipoCliente = tipoCliente;
         this.razonSocial = razonSocial;
         this.cuit = cuit;
+        this.ivaCondicion = ivaCondicion;
     }
 
     public String getNroCliente() {
@@ -67,7 +68,7 @@ public class Cliente extends Persona implements Serializable{
 
     public void setCuit(String cuit) {
         this.cuit = cuit;
-    }  
+    }
 
     public String getIvaCondicion() {
         return ivaCondicion;
@@ -76,5 +77,7 @@ public class Cliente extends Persona implements Serializable{
     public void setIvaCondicion(String ivaCondicion) {
         this.ivaCondicion = ivaCondicion;
     }
+
+    
     
 }

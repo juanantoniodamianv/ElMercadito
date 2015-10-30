@@ -18,61 +18,61 @@ import javax.persistence.OneToOne;
 @Entity
 public class Proveedor extends Persona implements Serializable{
     private static final long serialVersionUID = 1L;
-//porqué me pide esto?
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
+    private String nroProveedor;
     @Basic
     private String razonSocial;
     
     @Basic 
-    private String nroCiut;
+    private String cuit;
     
-    @Basic 
-    private String nombreFantasia;
     
-    @OneToOne
-    private SituacionTributaria unaSituaciontributaria;
+    @Basic
+    private String situacionTributaria;
    
  public Proveedor(){}
 
-    public Proveedor(String razonSocial, String nroCiut, String nombreFantasia, SituacionTributaria unaSituaciontributaria) {
+    public Proveedor(String nroProveedor, String razonSocial, String cuit, String situacionTributaria, String dni, String apellido, String nombre, String fechaNac, String telefono, Direccion unaDireccion, Localidad unaLocalidad, Provincia unaProvincia) {
+        super(dni, apellido, nombre, fechaNac, telefono, unaDireccion, unaLocalidad, unaProvincia);
+        this.nroProveedor = nroProveedor;
         this.razonSocial = razonSocial;
-        this.nroCiut = nroCiut;
-        this.nombreFantasia = nombreFantasia;
-        this.unaSituaciontributaria = unaSituaciontributaria;
+        this.cuit = cuit;
+        this.situacionTributaria = situacionTributaria;
+    }
+
+    public String getNroProveedor() {
+        return nroProveedor;
+    }
+
+    public void setNroProveedor(String nroProveedor) {
+        this.nroProveedor = nroProveedor;
     }
 
     public String getRazonSocial() {
         return razonSocial;
     }
 
-    public String getNroCiut() {
-        return nroCiut;
-    }
-
-    public String getNombreFantasia() {
-        return nombreFantasia;
-    }
-
-    public SituacionTributaria getUnaSituaciontributaria() {
-        return unaSituaciontributaria;
-    }
-
     public void setRazonSocial(String razonSocial) {
         this.razonSocial = razonSocial;
     }
 
-    public void setNroCiut(String nroCiut) {
-        this.nroCiut = nroCiut;
+    public String getCuit() {
+        return cuit;
     }
 
-    public void setNombreFantasia(String nombreFantasia) {
-        this.nombreFantasia = nombreFantasia;
+    public void setCuit(String cuit) {
+        this.cuit = cuit;
     }
 
-    public void setUnaSituaciontributaria(SituacionTributaria unaSituaciontributaria) {
-        this.unaSituaciontributaria = unaSituaciontributaria;
+    public String getSituacionTributaria() {
+        return situacionTributaria;
     }
+
+    public void setSituacionTributaria(String situacionTributaria) {
+        this.situacionTributaria = situacionTributaria;
+    }
+   
 
 }
