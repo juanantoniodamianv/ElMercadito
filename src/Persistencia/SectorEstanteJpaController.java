@@ -8,36 +8,30 @@ package Persistencia;
 import Persistencia.exceptions.NonexistentEntityException;
 import Persistencia.exceptions.PreexistingEntityException;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import model.SectorEstante;
-
-
-
 
 /**
  *
  * @author daniel
  */
-   
-public class SectorEstanteJpaController implements Serializable{
-    
-   //constructor
+public class SectorEstanteJpaController implements Serializable {
+
     public SectorEstanteJpaController(EntityManagerFactory emf) {
-    this.emf = emf;
-}
-    private EntityManagerFactory emf = null;
-    public SectorEstanteJpaController() {
-   emf= Persistence.createEntityManagerFactory("ElMercaditoPU");
+        this.emf = emf;
     }
-    
+    private EntityManagerFactory emf = null;
+
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-//metodo de jpaController. Create
     public void create(SectorEstante sectorEstante) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
@@ -46,7 +40,7 @@ public class SectorEstanteJpaController implements Serializable{
             em.persist(sectorEstante);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (null != findSectorEstante(sectorEstante.getNroSectorEstante())) {
+            if (findSectorEstante(sectorEstante.getNroSectorEstante()) != null) {
                 throw new PreexistingEntityException("SectorEstante " + sectorEstante + " already exists.", ex);
             }
             throw ex;
@@ -54,23 +48,22 @@ public class SectorEstanteJpaController implements Serializable{
             if (em != null) {
                 em.close();
             }
-        
         }
     }
-//    metodo de jpaController. edit
+
     public void edit(SectorEstante sectorEstante) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            sectorEstante= em.merge(sectorEstante);
+            sectorEstante = em.merge(sectorEstante);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
                 int id = sectorEstante.getNroSectorEstante();
                 if (findSectorEstante(id) == null) {
-                    throw new NonexistentEntityException("The sectorEstante with id " + id+ " no longer exists.");
+                    throw new NonexistentEntityException("The sectorEstante with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -80,16 +73,6 @@ public class SectorEstanteJpaController implements Serializable{
             }
         }
     }
-//    método de jpaController: obtener un elemento
-    public SectorEstante findSectorEstante(int id) {
-        EntityManager em = getEntityManager();
-        try {
-            return em.find(SectorEstante.class, id);
-        } finally {
-            em.close();
-        }
-    }
-
 
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
@@ -101,7 +84,7 @@ public class SectorEstanteJpaController implements Serializable{
                 sectorEstante = em.getReference(SectorEstante.class, id);
                 sectorEstante.getNroSectorEstante();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The sectorEstante with nroSectorEstante " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The sectorEstante with id " + id + " no longer exists.", enfe);
             }
             em.remove(sectorEstante);
             em.getTransaction().commit();
@@ -112,5 +95,50 @@ public class SectorEstanteJpaController implements Serializable{
         }
     }
 
+    public List<SectorEstante> findSectorEstanteEntities() {
+        return findSectorEstanteEntities(true, -1, -1);
+    }
+
+    public List<SectorEstante> findSectorEstanteEntities(int maxResults, int firstResult) {
+        return findSectorEstanteEntities(false, maxResults, firstResult);
+    }
+
+    private List<SectorEstante> findSectorEstanteEntities(boolean all, int maxResults, int firstResult) {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            cq.select(cq.from(SectorEstante.class));
+            Query q = em.createQuery(cq);
+            if (!all) {
+                q.setMaxResults(maxResults);
+                q.setFirstResult(firstResult);
+            }
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    public SectorEstante findSectorEstante(int id) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(SectorEstante.class, id);
+        } finally {
+            em.close();
+        }
+    }
+
+    public int getSectorEstanteCount() {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            Root<SectorEstante> rt = cq.from(SectorEstante.class);
+            cq.select(em.getCriteriaBuilder().count(rt));
+            Query q = em.createQuery(cq);
+            return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+    }
     
 }

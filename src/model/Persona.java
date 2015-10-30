@@ -19,6 +19,10 @@ import javax.persistence.OneToOne;
 @Entity
 public class Persona implements Serializable {
     private static final long serialVersionUID = 1L;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
     @Id
       private String dni;
     @Basic
@@ -31,20 +35,22 @@ public class Persona implements Serializable {
     private String telefono;
     @OneToOne
     private Direccion unaDireccion;
+    @OneToOne 
+    //en la viste podría ir un desplegable para la provincia y otro desplegable para la localidad.(combos)
+    private Provincia unaProvincia;
     @OneToOne
     private SituacionTributaria unaSituacionTributaria;
-    @OneToOne 
-    //en la viste podría i un desplegable para la provincia y otro desplegable para la localidad.(combos)
-    private Provincia unaProvincia;
+    
     
     public Persona(){}
 
-    public Persona(String dni, String apellido, String nombre, String fechaNac, String telefono, SituacionTributaria unaSituacionTributaria, Provincia unaProvincia) {
+    public Persona(String dni, String apellido, String nombre, String fechaNac, String telefono, Direccion unaDireccion, Provincia unaProvincia,SituacionTributaria unaSituacionTributaria) {
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
         this.fechaNac = fechaNac;
         this.telefono = telefono;
+        this.unaDireccion = unaDireccion;
         this.unaSituacionTributaria = unaSituacionTributaria;
         this.unaProvincia = unaProvincia;
     }
@@ -69,8 +75,16 @@ public class Persona implements Serializable {
         return telefono;
     }
 
+    public Direccion getUnaDireccion() {
+        return unaDireccion;
+    }
+
     public SituacionTributaria getUnaSituacionTributaria() {
         return unaSituacionTributaria;
+    }
+
+    public Provincia getUnaProvincia() {
+        return unaProvincia;
     }
 
     public void setDni(String dni) {
@@ -93,25 +107,18 @@ public class Persona implements Serializable {
         this.telefono = telefono;
     }
 
-    public void setUnaSituacionTributaria(SituacionTributaria unaSituacionTributaria) {
-        this.unaSituacionTributaria = unaSituacionTributaria;
-    }
-
-    public Direccion getUnaDireccion() {
-        return unaDireccion;
-    }
-
-    public Provincia getUnaProvincia() {
-        return unaProvincia;
-    }
-
     public void setUnaDireccion(Direccion unaDireccion) {
         this.unaDireccion = unaDireccion;
+    }
+
+    public void setUnaSituacionTributaria(SituacionTributaria unaSituacionTributaria) {
+        this.unaSituacionTributaria = unaSituacionTributaria;
     }
 
     public void setUnaProvincia(Provincia unaProvincia) {
         this.unaProvincia = unaProvincia;
     }
 
+   
     
 }

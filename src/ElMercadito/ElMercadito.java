@@ -22,7 +22,11 @@ import model.Sucursal;
  * @author Antonio
  */
 public class ElMercadito {
-private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","razon social");
+private Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","razon social");
+
+    public Sucursal getUnaSucursal() {
+        return unaSucursal;
+    }
     private ControladoraPersistencia unaControlPersistencia;
     
     public static void main(String[] args) throws Exception{
@@ -47,6 +51,7 @@ private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","ra
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new JFramePrincipal().setVisible(true);
                 
@@ -62,14 +67,14 @@ private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","ra
         
          //que loco       
         Articulo art = new Articulo();
-        art.setNroArticulo(15941);
+        art.setNroArticulo(15957);
         art.setLote("22-09-2015");
         art.setFechaElabora("22-09-2015");
         art.setFechaExpira("15-11-2016");
         jpa.create(art);
         
         Caja caj = new Caja();
-        caj.setNroCaja(141);
+        caj.setNroCaja(148);
         jpaCaja.create(caj);
     }
 
@@ -86,6 +91,10 @@ private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","ra
 
     public void setUnaControlPersistencia(ControladoraPersistencia unaControlPersistencia) {
         this.unaControlPersistencia = unaControlPersistencia;
+    }
+
+    public Object getSucursal() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

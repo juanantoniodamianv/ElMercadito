@@ -22,25 +22,31 @@ public class Proveedor extends Persona implements Serializable{
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
+    @Basic 
+    private int nroProveedor;
     @Basic
     private String razonSocial;
     
     @Basic 
     private String nroCiut;
     
-    @Basic 
-    private String nombreFantasia;
-    
-    @OneToOne
-    private SituacionTributaria unaSituaciontributaria;
+   
    
  public Proveedor(){}
 
-    public Proveedor(String razonSocial, String nroCiut, String nombreFantasia, SituacionTributaria unaSituaciontributaria) {
+    public Proveedor(int nroProveedor, String razonSocial, String nroCiut, String dni, String apellido, String nombre, String fechaNac, String telefono, Direccion unaDireccion, Provincia unaProvincia, SituacionTributaria unaSituacionTributaria) {
+//        super(dni, apellido, nombre, fechaNac, telefono, unaDireccion, unaProvincia, unaSituacionTributaria);
+        this.nroProveedor = nroProveedor;
         this.razonSocial = razonSocial;
         this.nroCiut = nroCiut;
-        this.nombreFantasia = nombreFantasia;
-        this.unaSituaciontributaria = unaSituaciontributaria;
+    }
+
+  
+
+    
+
+    public int getNroProveedor() {
+        return nroProveedor;
     }
 
     public String getRazonSocial() {
@@ -51,12 +57,8 @@ public class Proveedor extends Persona implements Serializable{
         return nroCiut;
     }
 
-    public String getNombreFantasia() {
-        return nombreFantasia;
-    }
-
-    public SituacionTributaria getUnaSituaciontributaria() {
-        return unaSituaciontributaria;
+    public void setNroProveedor(int nroProveedor) {
+        this.nroProveedor = nroProveedor;
     }
 
     public void setRazonSocial(String razonSocial) {
@@ -67,12 +69,5 @@ public class Proveedor extends Persona implements Serializable{
         this.nroCiut = nroCiut;
     }
 
-    public void setNombreFantasia(String nombreFantasia) {
-        this.nombreFantasia = nombreFantasia;
-    }
-
-    public void setUnaSituaciontributaria(SituacionTributaria unaSituaciontributaria) {
-        this.unaSituaciontributaria = unaSituaciontributaria;
-    }
-
+   
 }
