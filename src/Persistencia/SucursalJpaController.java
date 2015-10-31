@@ -28,6 +28,10 @@ public class SucursalJpaController implements Serializable {
     }
     private EntityManagerFactory emf = null;
 
+    SucursalJpaController() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }

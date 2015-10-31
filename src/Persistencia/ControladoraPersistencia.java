@@ -94,7 +94,6 @@ public class ControladoraPersistencia {
     RepositorJpaController repositorPersistencia = new RepositorJpaController();  
     SeccionJpaController seccionPersistencia = new SeccionJpaController();
     SectorEstanteJpaController sectorEstantePersistencia = new SectorEstanteJpaController();
-    SituacionTributariaJpaController situacionTributariaPersistencia = new SituacionTributariaJpaController();
     SucursalJpaController sucursalPersistencia = new SucursalJpaController();
     TicketVtaJpaController  ticketVtaPersistencia = new TicketVtaJpaController();
     TransferenciaJpaController transferenciaPersistencia= new TransferenciaJpaController ();

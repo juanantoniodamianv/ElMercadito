@@ -28,6 +28,10 @@ public class SectorEstanteJpaController implements Serializable {
     }
     private EntityManagerFactory emf = null;
 
+    SectorEstanteJpaController() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
