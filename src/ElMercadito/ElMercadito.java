@@ -6,7 +6,7 @@
 
 package ElMercadito;
 import view.*;
-import Persistencia.ArticuloJpaController1;
+import Persistencia.ArticuloJpaController;
 import Persistencia.CajaJpaController;
 import Persistencia.ControladoraPersistencia;
 import java.util.List;
@@ -60,7 +60,7 @@ private Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","razon social");
         EntityManagerFactory objFactory;
         objFactory = Persistence.createEntityManagerFactory("El_mercaditoPU");
         EntityManager manager = objFactory.createEntityManager();
-        ArticuloJpaController1 jpa = new ArticuloJpaController1(objFactory);
+        ArticuloJpaController jpa = new ArticuloJpaController(objFactory);
         List<Articulo> lista = jpa.findArticuloEntities();
         CajaJpaController jpaCaja = new CajaJpaController(objFactory);
         List<Caja> listaCaja = jpaCaja.findCajaEntities();
