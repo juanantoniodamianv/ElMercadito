@@ -3,8 +3,32 @@
   <persistence-unit name="El_mercaditoPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>model.Articulo</class>
+    <class>model.Bulto</class>
     <class>model.Caja</class>
+    <class>model.Cajero</class>
+    <class>model.Cliente</class>
+    <class>model.ClienteMayorista</class>
+    <class>model.ClienteMinorista</class>
+    <class>model.Compra</class>
+    <class>model.Comprobante</class>
+    <class>model.Deposito</class>
+    <class>model.DescripcionArticulo</class>
+    <class>model.Direccion</class>
+    <class>model.Empleado</class>
+    <class>model.Encargado</class>
+    <class>model.Estante</class>
+    <class>model.FacturaVta</class>
+    <class>model.Gondola</class>
+    <class>model.ListaDePrecio</class>
+    <class>model.Localidad</class>
     <class>model.Pago</class>
+    <class>model.Persona</class>
+    <class>model.Proveedor</class>
+    <class>model.Provincia</class>
+    <class>model.Seccion</class>
+    <class>model.SectorEstante</class>
+    <class>model.Sucursal</class>
+    <class>model.Zona</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/ElMercaditoPU"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
