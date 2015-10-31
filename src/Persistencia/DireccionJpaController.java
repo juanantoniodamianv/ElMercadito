@@ -6,69 +6,62 @@
 package Persistencia;
 
 import Persistencia.exceptions.NonexistentEntityException;
-import Persistencia.exceptions.PreexistingEntityException;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import model.Direccion;
 
 /**
  *
  * @author daniel
  */
+public class DireccionJpaController implements Serializable {
 
-public class DireccionJpaController implements Serializable{
-     
-   //constructor
     public DireccionJpaController(EntityManagerFactory emf) {
-    this.emf = emf;
-}
-    private EntityManagerFactory emf = null;
-    
-    public DireccionJpaController() {
-   emf= Persistence.createEntityManagerFactory("ElMercaditoPU");
+        this.emf = emf;
     }
-    
+    private EntityManagerFactory emf = null;
+
+    DireccionJpaController() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-//metodo de jpaController. Create
-    public void create(Direccion direccion) throws PreexistingEntityException, Exception {
+    public void create(Direccion direccion) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             em.persist(direccion);
             em.getTransaction().commit();
-        } catch (Exception ex) {
-            if (findDireccion(direccion.getCodigo()) != null) {
-                throw new PreexistingEntityException("Direccion" + direccion + " already exists.", ex);
-            }
-            throw ex;
         } finally {
             if (em != null) {
                 em.close();
             }
-        
         }
     }
-//    metodo de jpaController. edit
+
     public void edit(Direccion direccion) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            direccion= em.merge(direccion);
+            direccion = em.merge(direccion);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
                 int id = direccion.getCodigo();
                 if (findDireccion(id) == null) {
-                    throw new NonexistentEntityException("The Direccion with id " + id+ " no longer exists.");
+                    throw new NonexistentEntityException("The direccion with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -78,16 +71,6 @@ public class DireccionJpaController implements Serializable{
             }
         }
     }
-//    método de jpaController: obtener un elemento
-    public Direccion findDireccion(int id) {
-        EntityManager em = getEntityManager();
-        try {
-            return em.find(Direccion.class, id);
-        } finally {
-            em.close();
-        }
-    }
-
 
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
@@ -99,7 +82,7 @@ public class DireccionJpaController implements Serializable{
                 direccion = em.getReference(Direccion.class, id);
                 direccion.getCodigo();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The direccion with codigo " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The direccion with id " + id + " no longer exists.", enfe);
             }
             em.remove(direccion);
             em.getTransaction().commit();
@@ -109,4 +92,51 @@ public class DireccionJpaController implements Serializable{
             }
         }
     }
+
+    public List<Direccion> findDireccionEntities() {
+        return findDireccionEntities(true, -1, -1);
+    }
+
+    public List<Direccion> findDireccionEntities(int maxResults, int firstResult) {
+        return findDireccionEntities(false, maxResults, firstResult);
+    }
+
+    private List<Direccion> findDireccionEntities(boolean all, int maxResults, int firstResult) {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            cq.select(cq.from(Direccion.class));
+            Query q = em.createQuery(cq);
+            if (!all) {
+                q.setMaxResults(maxResults);
+                q.setFirstResult(firstResult);
+            }
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    public Direccion findDireccion(int id) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(Direccion.class, id);
+        } finally {
+            em.close();
+        }
+    }
+
+    public int getDireccionCount() {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            Root<Direccion> rt = cq.from(Direccion.class);
+            cq.select(em.getCriteriaBuilder().count(rt));
+            Query q = em.createQuery(cq);
+            return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+    }
+    
 }

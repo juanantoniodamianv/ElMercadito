@@ -59,9 +59,9 @@ import java.util.List;
 
 public class ControladoraPersistencia {
     public ControladoraPersistencia() {
-        this.articuloPersistencia = new ArticuloJpaController1();
+        this.articuloPersistencia = new ArticuloJpaController();
     }
-    ArticuloJpaController1 articuloPersistencia;
+    ArticuloJpaController articuloPersistencia;
     BultoJpaController bultoPersistencia=new BultoJpaController();
     CajaJpaController cajaPersistencia = new CajaJpaController();
     CajeroJpaController cajeroPersistencia = new CajeroJpaController();
@@ -94,7 +94,6 @@ public class ControladoraPersistencia {
     RepositorJpaController repositorPersistencia = new RepositorJpaController();  
     SeccionJpaController seccionPersistencia = new SeccionJpaController();
     SectorEstanteJpaController sectorEstantePersistencia = new SectorEstanteJpaController();
-    SituacionTributariaJpaController situacionTributariaPersistencia = new SituacionTributariaJpaController();
     SucursalJpaController sucursalPersistencia = new SucursalJpaController();
     TicketVtaJpaController  ticketVtaPersistencia = new TicketVtaJpaController();
     TransferenciaJpaController transferenciaPersistencia= new TransferenciaJpaController ();

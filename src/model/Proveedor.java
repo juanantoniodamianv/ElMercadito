@@ -17,33 +17,65 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Proveedor extends Persona implements Serializable{
+    private static final long serialVersionUID = 1L;
+//porqué me pide esto?
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+    @Basic 
+    private int nroProveedor;
     @Basic
     private String razonSocial;
-    @OneToOne
     
-    private SituacionTributaria unaSituaciontributaria;
+    @Basic 
+    private String nroCiut;
+    
+   
    
  public Proveedor(){}
 
-    public Proveedor(String razonSocial, SituacionTributaria unaSituaciontributaria) {
+    public Proveedor(int nroProveedor, String razonSocial, String nroCiut) {
+        this.nroProveedor = nroProveedor;
         this.razonSocial = razonSocial;
-        this.unaSituaciontributaria = unaSituaciontributaria;
+        this.nroCiut = nroCiut;
+    }
+
+    public Proveedor(int nroProveedor, String razonSocial, String nroCiut, String dni, String apellido, String nombre, String fechaNac, String telefono, Direccion unaDireccion, Provincia unaProvincia, SituacionTributaria unaSituacionTributaria) {
+        super(dni, apellido, nombre, fechaNac, telefono, unaDireccion, unaProvincia, unaSituacionTributaria);
+        this.nroProveedor = nroProveedor;
+        this.razonSocial = razonSocial;
+        this.nroCiut = nroCiut;
+    }
+
+  
+
+  
+
+    
+
+    public int getNroProveedor() {
+        return nroProveedor;
     }
 
     public String getRazonSocial() {
         return razonSocial;
     }
 
-    public SituacionTributaria getUnaSituaciontributaria() {
-        return unaSituaciontributaria;
+    public String getNroCiut() {
+        return nroCiut;
+    }
+
+    public void setNroProveedor(int nroProveedor) {
+        this.nroProveedor = nroProveedor;
     }
 
     public void setRazonSocial(String razonSocial) {
         this.razonSocial = razonSocial;
     }
 
-    public void setUnaSituaciontributaria(SituacionTributaria unaSituaciontributaria) {
-        this.unaSituaciontributaria = unaSituaciontributaria;
+    public void setNroCiut(String nroCiut) {
+        this.nroCiut = nroCiut;
     }
- 
+
+   
 }

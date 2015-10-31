@@ -8,33 +8,34 @@ package Persistencia;
 import Persistencia.exceptions.NonexistentEntityException;
 import Persistencia.exceptions.PreexistingEntityException;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import model.ClienteMayorista;
 
 /**
  *
  * @author daniel
  */
-public class ClienteMayoristaJpaController implements Serializable{
-    
-   //constructor
+public class ClienteMayoristaJpaController implements Serializable {
+
     public ClienteMayoristaJpaController(EntityManagerFactory emf) {
-    this.emf = emf;
-}
-    private EntityManagerFactory emf = null;
-    
-    public ClienteMayoristaJpaController() {
-   emf= Persistence.createEntityManagerFactory("ElMercaditoPU");
+        this.emf = emf;
     }
-    
+    private EntityManagerFactory emf = null;
+
+    ClienteMayoristaJpaController() {
+        
+    }
+
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-//metodo de jpaController. Create
     public void create(ClienteMayorista clienteMayorista) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
@@ -44,30 +45,29 @@ public class ClienteMayoristaJpaController implements Serializable{
             em.getTransaction().commit();
         } catch (Exception ex) {
             if (findClienteMayorista(clienteMayorista.getDni()) != null) {
-                throw new PreexistingEntityException("Cliente Mayorista " + clienteMayorista + " already exists.", ex);
+                throw new PreexistingEntityException("ClienteMayorista " + clienteMayorista + " already exists.", ex);
             }
             throw ex;
         } finally {
             if (em != null) {
                 em.close();
             }
-        
         }
     }
-//    metodo de jpaController. edit
+
     public void edit(ClienteMayorista clienteMayorista) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            clienteMayorista= em.merge(clienteMayorista);
+            clienteMayorista = em.merge(clienteMayorista);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
                 String id = clienteMayorista.getDni();
                 if (findClienteMayorista(id) == null) {
-                    throw new NonexistentEntityException("The cliente mayorista with id " + id+ " no longer exists.");
+                    throw new NonexistentEntityException("The clienteMayorista with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -77,18 +77,8 @@ public class ClienteMayoristaJpaController implements Serializable{
             }
         }
     }
-//    método de jpaController: obtener un elemento
-    public ClienteMayorista findClienteMayorista(int id) {
-        EntityManager em = getEntityManager();
-        try {
-            return em.find(ClienteMayorista.class, id);
-        } finally {
-            em.close();
-        }
-    }
 
-
-    public void destroy(int id) throws NonexistentEntityException {
+    public void destroy(String id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -98,7 +88,7 @@ public class ClienteMayoristaJpaController implements Serializable{
                 clienteMayorista = em.getReference(ClienteMayorista.class, id);
                 clienteMayorista.getDni();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The cliente mayorista with dni " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The clienteMayorista with id " + id + " no longer exists.", enfe);
             }
             em.remove(clienteMayorista);
             em.getTransaction().commit();
@@ -109,7 +99,50 @@ public class ClienteMayoristaJpaController implements Serializable{
         }
     }
 
-    private Object findClienteMayorista(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<ClienteMayorista> findClienteMayoristaEntities() {
+        return findClienteMayoristaEntities(true, -1, -1);
     }
+
+    public List<ClienteMayorista> findClienteMayoristaEntities(int maxResults, int firstResult) {
+        return findClienteMayoristaEntities(false, maxResults, firstResult);
+    }
+
+    private List<ClienteMayorista> findClienteMayoristaEntities(boolean all, int maxResults, int firstResult) {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            cq.select(cq.from(ClienteMayorista.class));
+            Query q = em.createQuery(cq);
+            if (!all) {
+                q.setMaxResults(maxResults);
+                q.setFirstResult(firstResult);
+            }
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    public ClienteMayorista findClienteMayorista(String id) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(ClienteMayorista.class, id);
+        } finally {
+            em.close();
+        }
+    }
+
+    public int getClienteMayoristaCount() {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            Root<ClienteMayorista> rt = cq.from(ClienteMayorista.class);
+            cq.select(em.getCriteriaBuilder().count(rt));
+            Query q = em.createQuery(cq);
+            return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+    }
+    
 }

@@ -11,31 +11,31 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import model.Bulto;
 
 /**
  *
  * @author daniel
  */
-public class BultoJpaController implements Serializable{
-    
-   //constructor
+public class BultoJpaController implements Serializable {
+
     public BultoJpaController(EntityManagerFactory emf) {
-    this.emf = emf;
-}
-    private EntityManagerFactory emf = null;
-    public BultoJpaController() {
-   emf= Persistence.createEntityManagerFactory("ElMercaditoPU");
+        this.emf = emf;
     }
-    
+    private EntityManagerFactory emf = null;
+
+    BultoJpaController() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-//metodo de jpaController. Create
     public void create(Bulto bulto) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
@@ -52,23 +52,22 @@ public class BultoJpaController implements Serializable{
             if (em != null) {
                 em.close();
             }
-        
         }
     }
-//    metodo de jpaController. edit
+
     public void edit(Bulto bulto) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            bulto= em.merge(bulto);
+            bulto = em.merge(bulto);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
                 int id = bulto.getNroBulto();
                 if (findBulto(id) == null) {
-                    throw new NonexistentEntityException("The bulto with id " + id+ " no longer exists.");
+                    throw new NonexistentEntityException("The bulto with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -78,16 +77,6 @@ public class BultoJpaController implements Serializable{
             }
         }
     }
-//    método de jpaController: obtener un elemento
-    public Bulto findBulto(int id) {
-        EntityManager em = getEntityManager();
-        try {
-            return em.find(Bulto.class, id);
-        } finally {
-            em.close();
-        }
-    }
-
 
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
@@ -99,7 +88,7 @@ public class BultoJpaController implements Serializable{
                 bulto = em.getReference(Bulto.class, id);
                 bulto.getNroBulto();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The bulto with nroBulto " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The bulto with id " + id + " no longer exists.", enfe);
             }
             em.remove(bulto);
             em.getTransaction().commit();
@@ -110,8 +99,6 @@ public class BultoJpaController implements Serializable{
         }
     }
 
-
-//método de jpa controller: obtener varios elementos
     public List<Bulto> findBultoEntities() {
         return findBultoEntities(true, -1, -1);
     }
@@ -123,7 +110,9 @@ public class BultoJpaController implements Serializable{
     private List<Bulto> findBultoEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select object(o) from Bulto as o");
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            cq.select(cq.from(Bulto.class));
+            Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
                 q.setFirstResult(firstResult);
@@ -134,12 +123,22 @@ public class BultoJpaController implements Serializable{
         }
     }
 
+    public Bulto findBulto(int id) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(Bulto.class, id);
+        } finally {
+            em.close();
+        }
+    }
 
-//metodo de jpaController: obtener cantidad de elementos persistidos
     public int getBultoCount() {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select count(o) from Bulto as o");
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            Root<Bulto> rt = cq.from(Bulto.class);
+            cq.select(em.getCriteriaBuilder().count(rt));
+            Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();

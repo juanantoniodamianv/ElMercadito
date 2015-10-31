@@ -15,6 +15,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import Persistencia.ControladoraPersistencia;
 
 
 /**
@@ -36,27 +37,26 @@ public class Sucursal implements Serializable {
      @OneToOne
     private Direccion unaDireccion;
      @OneToMany
-    private ArrayList<Persona> listaPersonas;
+    private ArrayList<Proveedor> listaProveedores;
      @OneToMany
     private ArrayList<Caja> listaCajas;
      @OneToMany
     private ArrayList<ListaDePrecio> ListaDePrecios;
 //    constructor nulo
     public Sucursal(){}
+    public static final ControladoraPersistencia persistencia= new ControladoraPersistencia();
     
 //    constructor con parámetros
+
     public Sucursal(int nroSucursal, String cuil, String telefono, String razonSocial) {
         this.nroSucursal = nroSucursal;
         this.cuil = cuil;
         this.telefono = telefono;
         this.razonSocial = razonSocial;
-//        this.unDeposito = unDeposito;
-//        this.unaDireccion = unaDireccion;
-//        está bien asi?
-//        this.listaPersonas = listaPersonas;
-//        o asi?
-        this.listaCajas = new ArrayList();
-        this.ListaDePrecios = new ArrayList();
+        this.unaDireccion = unaDireccion;
+        this.listaProveedores = listaProveedores;
+        this.listaCajas = listaCajas;
+        this.ListaDePrecios = ListaDePrecios;
     }
 
     public int getNroSucursal() {
@@ -83,8 +83,8 @@ public class Sucursal implements Serializable {
         return unaDireccion;
     }
 
-    public ArrayList<Persona> getListaPersonas() {
-        return listaPersonas;
+    public ArrayList<Proveedor> getListaProveedores() {
+        return listaProveedores;
     }
 
     public ArrayList<Caja> getListaCajas() {
@@ -119,8 +119,8 @@ public class Sucursal implements Serializable {
         this.unaDireccion = unaDireccion;
     }
 
-    public void setListaPersonas(ArrayList<Persona> listaPersonas) {
-        this.listaPersonas = listaPersonas;
+    public void setListaProveedores(ArrayList<Proveedor> listaProveedores) {
+        this.listaProveedores = listaProveedores;
     }
 
     public void setListaCajas(ArrayList<Caja> listaCajas) {
@@ -130,5 +130,29 @@ public class Sucursal implements Serializable {
     public void setListaDePrecios(ArrayList<ListaDePrecio> ListaDePrecios) {
         this.ListaDePrecios = ListaDePrecios;
     }
+
+    public void nuevoProveedor(int nroProv, String razonSocial, String cuit, String dni, String apellido, String nombre, String fecha, String telefono, Direccion direccion, Provincia provincia, SituacionTributaria situacTrib) throws Exception {
+    Proveedor prov= new Proveedor(nroProv,razonSocial,cuit,dni,apellido,nombre,fecha,telefono,direccion, provincia, situacTrib);
+//    this.listaProveedores.add(prov);
+    Sucursal.persistencia.AgregarProveedorPersis(prov);
+        
+    }
+//    public void getListaProveedores(Proveedor prov) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
     
-}
+    
+    }
+//    
+//       this.listaProveedores.add(prov);
+//    Empresa.persistencia.AgregarProveedorPersis(prov);
+    
+
+
+    
+
+   
+
+    
+    
+
