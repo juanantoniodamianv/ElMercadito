@@ -33,25 +33,27 @@ public class Persona implements Serializable {
     private String fechaNac;
     @Basic
     private String telefono;
+     @Basic
+    private String condicionIva;
     @OneToOne
     private Direccion unaDireccion;
     @OneToOne 
     //en la viste podría ir un desplegable para la provincia y otro desplegable para la localidad.(combos)
     private Provincia unaProvincia;
-    @OneToOne
-    private SituacionTributaria unaSituacionTributaria;
+    
+    
     
     
     public Persona(){}
 
-    public Persona(String dni, String apellido, String nombre, String fechaNac, String telefono, Direccion unaDireccion, Provincia unaProvincia,SituacionTributaria unaSituacionTributaria) {
+    public Persona(String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, Direccion unaDireccion, Provincia unaProvincia) {
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
         this.fechaNac = fechaNac;
         this.telefono = telefono;
+        this.condicionIva = condicionIva;
         this.unaDireccion = unaDireccion;
-        this.unaSituacionTributaria = unaSituacionTributaria;
         this.unaProvincia = unaProvincia;
     }
 
@@ -75,12 +77,12 @@ public class Persona implements Serializable {
         return telefono;
     }
 
-    public Direccion getUnaDireccion() {
-        return unaDireccion;
+    public String getCondicionIva() {
+        return condicionIva;
     }
 
-    public SituacionTributaria getUnaSituacionTributaria() {
-        return unaSituacionTributaria;
+    public Direccion getUnaDireccion() {
+        return unaDireccion;
     }
 
     public Provincia getUnaProvincia() {
@@ -107,18 +109,18 @@ public class Persona implements Serializable {
         this.telefono = telefono;
     }
 
-    public void setUnaDireccion(Direccion unaDireccion) {
-        this.unaDireccion = unaDireccion;
+    public void setCondicionIva(String condicionIva) {
+        this.condicionIva = condicionIva;
     }
 
-    public void setUnaSituacionTributaria(SituacionTributaria unaSituacionTributaria) {
-        this.unaSituacionTributaria = unaSituacionTributaria;
+    public void setUnaDireccion(Direccion unaDireccion) {
+        this.unaDireccion = unaDireccion;
     }
 
     public void setUnaProvincia(Provincia unaProvincia) {
         this.unaProvincia = unaProvincia;
     }
 
-   
+    
     
 }

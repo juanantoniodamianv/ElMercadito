@@ -341,9 +341,9 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         cmbZona.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "hola", "chau", "Item 3", "Item 4" }));
 
-        cmbProvincia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbProvincia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "chau" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "volvé" }));
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
