@@ -24,12 +24,12 @@ import model.Zona;
  *
  * @author Antonio
  */
-public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
+public class InternalFrameAdministracion1 extends javax.swing.JInternalFrame {
 
     ElMercadito unMercadito;
     private Object ListProveedor;
 //    private DefaultListModel modeloProveedor = new DefaultListModel();
-    public InternalFrameAdministracion(javax.swing.JInternalFrame parent, boolean modal, ElMercadito unMercadito) {
+    public InternalFrameAdministracion1(javax.swing.JInternalFrame parent, boolean modal, ElMercadito unMercadito) {
      
 //        super(parent, modal);
         this.unMercadito=unMercadito;
@@ -39,7 +39,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     }
 
     
-    public InternalFrameAdministracion() {
+    public InternalFrameAdministracion1() {
         initComponents();
     }
 
@@ -189,15 +189,12 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         lblProvinciaEmpleado2 = new javax.swing.JLabel();
         txtProvinciaEmpleado2 = new javax.swing.JTextField();
         lblLocalidadEmpleado2 = new javax.swing.JLabel();
-        txtLocalidadEmpleado2 = new javax.swing.JTextField();
-        btnNuevoEmpleado = new javax.swing.JButton();
-        btnEditarEmpleado = new javax.swing.JButton();
-        btnGuardarEmpleado = new javax.swing.JButton();
         jPanel23 = new javax.swing.JPanel();
         lblBuscarEmpleado = new javax.swing.JLabel();
         txtBuscarEmpleado = new javax.swing.JTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblEmpleado = new javax.swing.JTable();
+        scrollPane1 = new java.awt.ScrollPane();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -403,16 +400,17 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addComponent(lblPisoProveedor)
                     .addComponent(txtPisoProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLocalidadProveedor)
-                    .addComponent(lblProvinciaProveedor)
-                    .addComponent(lblZona)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblCp)
                         .addComponent(txtCp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cmbZona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblLocalidadProveedor)
+                        .addComponent(lblProvinciaProveedor)
+                        .addComponent(lblZona)
+                        .addComponent(cmbZona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -440,7 +438,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                                 .addComponent(lblRazonSocialProveedor)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtRazonSocialProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(207, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel12Layout.setVerticalGroup(
@@ -603,18 +601,20 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(36, Short.MAX_VALUE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 202, Short.MAX_VALUE)
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -672,7 +672,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
                     .addGroup(jPanel17Layout.createSequentialGroup()
                         .addComponent(lblBuscarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -688,7 +688,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addComponent(lblBuscarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBuscarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
                 .addGap(24, 24, 24))
         );
 
@@ -698,17 +698,17 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelProveedoresLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanelProveedoresLayout.setVerticalGroup(
             jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelProveedoresLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(37, 37, 37)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(101, 101, 101)
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1353,12 +1353,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         lblLocalidadEmpleado2.setText("Localidad:");
 
-        txtLocalidadEmpleado2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLocalidadEmpleadoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
         jPanel25Layout.setHorizontalGroup(
@@ -1376,23 +1370,18 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                         .addComponent(txtProvinciaEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblLocalidadEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel25Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(lblNroCalleEmpleado2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNroCalleEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblDptoEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDptoEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblPisoEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPisoEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel25Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtLocalidadEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(9, 9, 9)
+                .addComponent(lblNroCalleEmpleado2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNroCalleEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDptoEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDptoEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblPisoEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPisoEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel25Layout.setVerticalGroup(
@@ -1413,17 +1402,9 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblProvinciaEmpleado2)
                         .addComponent(txtProvinciaEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblLocalidadEmpleado2)
-                        .addComponent(txtLocalidadEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblLocalidadEmpleado2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        btnNuevoEmpleado.setText("Nuevo");
-
-        btnEditarEmpleado.setText("Editar");
-
-        btnGuardarEmpleado.setText("Guardar");
 
         jPanel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1486,7 +1467,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addComponent(lblBuscarEmpleado)
                     .addComponent(txtBuscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1504,14 +1485,10 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             .addGroup(jPanelEmpleadosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanelEmpleadosLayout.createSequentialGroup()
-                .addGap(232, 232, 232)
-                .addComponent(btnNuevoEmpleado)
-                .addGap(18, 18, 18)
-                .addComponent(btnEditarEmpleado)
-                .addGap(8, 8, 8)
-                .addComponent(btnGuardarEmpleado)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEmpleadosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84))
         );
         jPanelEmpleadosLayout.setVerticalGroup(
             jPanelEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1519,15 +1496,12 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardarEmpleado)
-                    .addComponent(btnNuevoEmpleado)
-                    .addComponent(btnEditarEmpleado))
-                .addGap(18, 18, 18)
+                .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115)
                 .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPaneAdministracion.addTab("Empleados", jPanelEmpleados);
@@ -1614,50 +1588,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarProveedorActionPerformed
 
-    private void txtNombreContactoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreContactoProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreContactoProveedorActionPerformed
-
-    private void txtApellidoContactoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoContactoProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellidoContactoProveedorActionPerformed
-
-    private void txtTelProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelProveedorActionPerformed
-
-    private void txtPisoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPisoProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPisoProveedorActionPerformed
-
-    private void txtDptoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDptoProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDptoProveedorActionPerformed
-
-    private void txtNroCalleProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNroCalleProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNroCalleProveedorActionPerformed
-
-    private void txtCalleProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCalleProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCalleProveedorActionPerformed
-
-    private void cmbSituacTribProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSituacTribProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbSituacTribProveedorActionPerformed
-
-    private void txtCuitProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCuitProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCuitProveedorActionPerformed
-
-    private void txtNroProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNroProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNroProveedorActionPerformed
-
-    private void txtRazonSocialProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRazonSocialProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRazonSocialProveedorActionPerformed
-
     
     
     private void txtBuscarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarEmpleadoActionPerformed
@@ -1704,10 +1634,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoEmpleadoActionPerformed
 
-    private void txtLocalidadEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocalidadEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLocalidadEmpleadoActionPerformed
-
     private void txtProvinciaEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProvinciaEmpleadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtProvinciaEmpleadoActionPerformed
@@ -1728,45 +1654,43 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCalleEmpleadoActionPerformed
 
-    private void btnNuevoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProveedorActionPerformed
-////try {
-//        Proveedor prov = new Proveedor;
-      
-                    
-    }//GEN-LAST:event_btnNuevoProveedorActionPerformed
-
-    private void btnEditarEmpleado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEmpleado1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditarEmpleado1ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnGuardarEmpleado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEmpleado1ActionPerformed
-  Zona zona = new Zona();
+        Zona zona = new Zona();
         Provincia misiones =new Provincia();
         Localidad posadas = new Localidad();
         Direccion d1 = new Direccion();
         SituacionTributaria sitTribprov=new SituacionTributaria();
 
-
         try {
             //
             this.unMercadito.getUnaSucursal().nuevoProveedor(Integer.parseInt(this.txtNroProveedor.getText()),this.txtRazonSocialProveedor.getText(),this.txtCuitProveedor.getText(),this.txtDni.getText(),this.txtApellidoContactoProveedor.getText(),this.txtNombreContactoProveedor.getText(),this.txtFechaNac.getText(),this.txtTelProveedor.getText(),d1, misiones,sitTribprov);
-//                this.listaProveedor.SetModel(modeloProveedor);
-//                JOptionPane.showMessageDialog(this, "Se ha agregado satisfactoriamente");
-//            } catch (PreexistingEntityException ex) {
-//                Logger.getLogger(FormProveedor.class.getName()).log(Level.SEVERE, null, ex);
-//                JOptionPane.showMessageDialog(this, "Error con la base de datos, ya existe");
-//            } catch (Exception ex) {
-//                Logger.getLogger(FormProveedor.class.getName()).log(Level.SEVERE, null, ex);
-//                JOptionPane.showMessageDialog(this, "Error con la base de datos");
+            //                this.listaProveedor.SetModel(modeloProveedor);
+            //                JOptionPane.showMessageDialog(this, "Se ha agregado satisfactoriamente");
+            //            } catch (PreexistingEntityException ex) {
+            //                Logger.getLogger(FormProveedor.class.getName()).log(Level.SEVERE, null, ex);
+            //                JOptionPane.showMessageDialog(this, "Error con la base de datos, ya existe");
+            //            } catch (Exception ex) {
+            //                Logger.getLogger(FormProveedor.class.getName()).log(Level.SEVERE, null, ex);
+            //                JOptionPane.showMessageDialog(this, "Error con la base de datos");
         } catch (Exception ex) {
-            Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InternalFrameAdministracion1.class.getName()).log(Level.SEVERE, null, ex);
         }
-               
+
     }//GEN-LAST:event_btnGuardarEmpleado1ActionPerformed
 
-    private void cmbSituacTribProveedorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbSituacTribProveedorItemStateChanged
+    private void btnEditarEmpleado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEmpleado1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbSituacTribProveedorItemStateChanged
+    }//GEN-LAST:event_btnEditarEmpleado1ActionPerformed
+
+    private void btnNuevoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProveedorActionPerformed
+        ////try {
+            //        Proveedor prov = new Proveedor;
+
+    }//GEN-LAST:event_btnNuevoProveedorActionPerformed
 
     private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
         // TODO add your handling code here:
@@ -1776,24 +1700,65 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaNacActionPerformed
 
+    private void txtTelProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelProveedorActionPerformed
+
+    private void txtNombreContactoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreContactoProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreContactoProveedorActionPerformed
+
+    private void txtApellidoContactoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoContactoProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellidoContactoProveedorActionPerformed
+
     private void txtCpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCpActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void txtPisoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPisoProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPisoProveedorActionPerformed
+
+    private void txtDptoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDptoProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDptoProveedorActionPerformed
+
+    private void txtNroCalleProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNroCalleProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNroCalleProveedorActionPerformed
+
+    private void txtCalleProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCalleProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCalleProveedorActionPerformed
+
+    private void cmbSituacTribProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSituacTribProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbSituacTribProveedorActionPerformed
+
+    private void cmbSituacTribProveedorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbSituacTribProveedorItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbSituacTribProveedorItemStateChanged
+
+    private void txtCuitProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCuitProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCuitProveedorActionPerformed
+
+    private void txtNroProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNroProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNroProveedorActionPerformed
+
+    private void txtRazonSocialProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRazonSocialProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRazonSocialProveedorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditarCliente;
-    private javax.swing.JButton btnEditarEmpleado;
     private javax.swing.JButton btnEditarEmpleado1;
     private javax.swing.JButton btnGuardarCliente;
-    private javax.swing.JButton btnGuardarEmpleado;
     private javax.swing.JButton btnGuardarEmpleado1;
     private javax.swing.JButton btnNuevoCliente;
-    private javax.swing.JButton btnNuevoEmpleado;
     private javax.swing.JButton btnNuevoProveedor;
     private javax.swing.JCheckBox chkMayoristaCliente;
     private javax.swing.JComboBox cmbEstadoCivilEmpleado;
@@ -1885,6 +1850,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblTipoDocCliente;
     private javax.swing.JLabel lblTipoDocEmpleado;
     private javax.swing.JLabel lblZona;
+    private java.awt.ScrollPane scrollPane1;
     private javax.swing.JTable tblCliente;
     private javax.swing.JTable tblEmpleado;
     private javax.swing.JTable tblProveedor;
@@ -1914,7 +1880,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField txtFechaNacCliente;
     private javax.swing.JFormattedTextField txtFechaNacEmpleado;
     private javax.swing.JTextField txtLocalidadCliente;
-    private javax.swing.JTextField txtLocalidadEmpleado2;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtNombreContactoProveedor;
     private javax.swing.JTextField txtNombreEmpleado;

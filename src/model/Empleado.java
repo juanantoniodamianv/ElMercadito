@@ -27,16 +27,20 @@ public class Empleado extends Persona implements Serializable{
     
     public Empleado(){}
 
-
-
-    public Empleado(String sexo, int edad, String estadoCivil, String antiguedadAños, String apellido, String nombre, String cuil, String fechaNac, SituacionTributaria unaSituacionTributaria) {
-//        super(apellido, nombre, dni, fechaNac, unaSituacionTributaria);
+    public Empleado(String sexo, int edad, String estadoCivil, String antiguedadAños) {
         this.sexo = sexo;
         this.edad = edad;
         this.estadoCivil = estadoCivil;
         this.antiguedadAños = antiguedadAños;
     }
 
+    public Empleado(String sexo, int edad, String estadoCivil, String antiguedadAños, String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, Direccion unaDireccion, Provincia unaProvincia) {
+        super(dni, apellido, nombre, fechaNac, telefono, condicionIva, unaDireccion, unaProvincia);
+        this.sexo = sexo;
+        this.edad = edad;
+        this.estadoCivil = estadoCivil;
+        this.antiguedadAños = antiguedadAños;
+    }
     public String getSexo() {
         return sexo;
     }

@@ -47,6 +47,10 @@ public class Proveedor extends Persona implements Serializable{
         this.nroCiut = nroCiut;
     }
 
+    Proveedor(int nroProv, String razonSocial, String cuit, String dni, String apellido, String nombre, String fecha, String telefono, Direccion direccion, Provincia provincia) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
  
 
     public int getNroProveedor() {

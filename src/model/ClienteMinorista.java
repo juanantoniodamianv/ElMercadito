@@ -16,11 +16,18 @@ import javax.persistence.Entity;
 @Entity
 public class ClienteMinorista extends Cliente implements Serializable{
     
-    public ClienteMinorista(){}
 
-    public ClienteMinorista(int nroCliente, String apellido, String nombre, String cuil, String fechaNac, SituacionTributaria unaSituacionTributaria) {
-        super(nroCliente, apellido, nombre, cuil, fechaNac, unaSituacionTributaria);
+    public ClienteMinorista() {
     }
 
+    public ClienteMinorista(int nroCliente) {
+        super(nroCliente);
+    }
+
+    public ClienteMinorista(int nroCliente, String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, Direccion unaDireccion, Provincia unaProvincia) {
+        super(nroCliente, dni, apellido, nombre, fechaNac, telefono, condicionIva, unaDireccion, unaProvincia);
+    }
+
+   
 }
 

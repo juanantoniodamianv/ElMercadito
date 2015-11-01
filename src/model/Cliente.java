@@ -19,10 +19,17 @@ public class Cliente extends Persona implements Serializable{
     private int nroCliente;
     public Cliente(){}
 
-    public Cliente(int nroCliente, String apellido, String nombre, String dni, String fechaNac, SituacionTributaria unaSituacionTributaria) {
-        
+    public Cliente(int nroCliente) {
         this.nroCliente = nroCliente;
     }
+
+    public Cliente(int nroCliente, String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, Direccion unaDireccion, Provincia unaProvincia) {
+        super(dni, apellido, nombre, fechaNac, telefono, condicionIva, unaDireccion, unaProvincia);
+        this.nroCliente = nroCliente;
+    }
+
+    
+    
     public int getNroCliente() {
         return nroCliente;
     }

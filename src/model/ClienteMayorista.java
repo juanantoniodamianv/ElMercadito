@@ -16,15 +16,27 @@ import javax.persistence.Entity;
  */
 @Entity
 public class ClienteMayorista extends Cliente implements Serializable{
+    private static final long serialVersionUID = 1L;
     @Basic
     private String razonSocial;
     
     public ClienteMayorista(){}
 
-    public ClienteMayorista(String razonSocial, int nroCliente, String apellido, String nombre, String cuil, String fechaNac, SituacionTributaria unaSituacionTributaria) {
-        super(nroCliente, apellido, nombre, cuil, fechaNac, unaSituacionTributaria);
+    public ClienteMayorista(String razonSocial) {
         this.razonSocial = razonSocial;
     }
+
+    public ClienteMayorista(String razonSocial, int nroCliente) {
+        super(nroCliente);
+        this.razonSocial = razonSocial;
+    }
+
+    public ClienteMayorista(String razonSocial, int nroCliente, String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, Direccion unaDireccion, Provincia unaProvincia) {
+        super(nroCliente, dni, apellido, nombre, fechaNac, telefono, condicionIva, unaDireccion, unaProvincia);
+        this.razonSocial = razonSocial;
+    }
+
+   
 
     public String getRazonSocial() {
         return razonSocial;

@@ -24,8 +24,6 @@ private int nroSucursal;
 private Direccion unaDireccion;
 @Basic
 private String telefono;
-@OneToOne
-private SituacionTributaria unaSituacionTributaria;
 @Basic
 private String nroCiut;
 //aca no estoy seguro si va un nroIbrutosReg o que es//
@@ -36,16 +34,17 @@ private Date inicioActividades;
     
 public Encabezado(){}
 
-    public Encabezado(String nombreEmpresa, int nroSucursal, Direccion unaDireccion, String telefono, SituacionTributaria unaSituacionTributaria, String nroCiut, String nroIBrutosReg, Date inicioActividades) {
+    public Encabezado(String nombreEmpresa, int nroSucursal, Direccion unaDireccion, String telefono, String nroCiut, String nroIBrutosReg, Date inicioActividades) {
         this.nombreEmpresa = nombreEmpresa;
         this.nroSucursal = nroSucursal;
         this.unaDireccion = unaDireccion;
         this.telefono = telefono;
-        this.unaSituacionTributaria = unaSituacionTributaria;
         this.nroCiut = nroCiut;
         this.nroIBrutosReg = nroIBrutosReg;
         this.inicioActividades = inicioActividades;
     }
+
+    
 
     public String getNombreEmpresa() {
         return nombreEmpresa;
@@ -61,10 +60,6 @@ public Encabezado(){}
 
     public String getTelefono() {
         return telefono;
-    }
-
-    public SituacionTributaria getUnaSituacionTributaria() {
-        return unaSituacionTributaria;
     }
 
     public String getNroCiut() {
@@ -95,9 +90,7 @@ public Encabezado(){}
         this.telefono = telefono;
     }
 
-    public void setUnaSituacionTributaria(SituacionTributaria unaSituacionTributaria) {
-        this.unaSituacionTributaria = unaSituacionTributaria;
-    }
+    
 
     public void setNroCiut(String nroCiut) {
         this.nroCiut = nroCiut;

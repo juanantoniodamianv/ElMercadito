@@ -5,6 +5,7 @@
  */
 package model;
 
+import javax.persistence.Basic;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,8 +17,11 @@ import javax.persistence.Id;
 public class Venta {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Basic
     private int codigoVta;
+    @Basic
     private String fecha;
+    @Basic
     private String hora;
     
     public Venta(){}
