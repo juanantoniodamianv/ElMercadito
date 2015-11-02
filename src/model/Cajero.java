@@ -30,22 +30,12 @@ public class Cajero extends Empleado implements Serializable{
         this.nroCajaAsignada = nroCajaAsignada;
     }
 
-    public Cajero(int nroCajero, int nroCajaAsignada, String sexo, int edad, String estadoCivil, String antiguedadAños) {
-        super(sexo, edad, estadoCivil, antiguedadAños);
-        this.nroCajero = nroCajero;
-        this.nroCajaAsignada = nroCajaAsignada;
-    }
-
-    public Cajero(int nroCajero, int nroCajaAsignada, String sexo, int edad, String estadoCivil, String antiguedadAños, String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, Direccion unaDireccion, Provincia unaProvincia) {
-        super(sexo, edad, estadoCivil, antiguedadAños, dni, apellido, nombre, fechaNac, telefono, condicionIva, unaDireccion, unaProvincia);
-        this.nroCajero = nroCajero;
-        this.nroCajaAsignada = nroCajaAsignada;
-    }
-
-
-    
-    
    
+    public Cajero(int nroCajero, int nroCajaAsignada, String sexo, int edad, String estadoCivil, String antiguedadAños, String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, String direccion, String provincia, String localidad) {
+        super(sexo, edad, estadoCivil, antiguedadAños, dni, apellido, nombre, fechaNac, telefono, condicionIva, direccion, provincia, localidad);
+        this.nroCajero = nroCajero;
+        this.nroCajaAsignada = nroCajaAsignada;
+    }
 
     public int getNroCajero() {
         return nroCajero;
@@ -62,5 +52,6 @@ public class Cajero extends Empleado implements Serializable{
     public void setNroCajaAsignada(int nroCajaAsignada) {
         this.nroCajaAsignada = nroCajaAsignada;
     }
+
     
 }

@@ -16,6 +16,7 @@ import javax.persistence.Entity;
  */
  @Entity
 public class Empleado extends Persona implements Serializable{
+    private static final long serialVersionUID = 1L;
      @Basic
     private String sexo;
      @Basic
@@ -27,20 +28,16 @@ public class Empleado extends Persona implements Serializable{
     
     public Empleado(){}
 
-    public Empleado(String sexo, int edad, String estadoCivil, String antiguedadAños) {
+    
+
+    public Empleado(String sexo, int edad, String estadoCivil, String antiguedadAños, String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, String direccion, String provincia, String localidad) {
+        super(dni, apellido, nombre, fechaNac, telefono, condicionIva, direccion, provincia, localidad);
         this.sexo = sexo;
         this.edad = edad;
         this.estadoCivil = estadoCivil;
         this.antiguedadAños = antiguedadAños;
     }
 
-    public Empleado(String sexo, int edad, String estadoCivil, String antiguedadAños, String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, Direccion unaDireccion, Provincia unaProvincia) {
-        super(dni, apellido, nombre, fechaNac, telefono, condicionIva, unaDireccion, unaProvincia);
-        this.sexo = sexo;
-        this.edad = edad;
-        this.estadoCivil = estadoCivil;
-        this.antiguedadAños = antiguedadAños;
-    }
     public String getSexo() {
         return sexo;
     }
@@ -72,6 +69,12 @@ public class Empleado extends Persona implements Serializable{
     public void setAntiguedadAños(String antiguedadAños) {
         this.antiguedadAños = antiguedadAños;
     }
+
     
+
+   
+    }
+
+   
     
-}
+

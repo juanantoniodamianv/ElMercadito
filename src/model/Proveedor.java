@@ -40,18 +40,12 @@ public class Proveedor extends Persona implements Serializable{
         this.nroCiut = nroCiut;
     }
 
-    public Proveedor(int nroProveedor, String razonSocial, String nroCiut, String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, Direccion unaDireccion, Provincia unaProvincia) {
-        super(dni, apellido, nombre, fechaNac, telefono, condicionIva, unaDireccion, unaProvincia);
+    public Proveedor(int nroProveedor, String razonSocial, String nroCiut, String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, String direccion, String provincia, String localidad) {
+        super(dni, apellido, nombre, fechaNac, telefono, condicionIva, direccion, provincia, localidad);
         this.nroProveedor = nroProveedor;
         this.razonSocial = razonSocial;
         this.nroCiut = nroCiut;
     }
-
-    Proveedor(int nroProv, String razonSocial, String cuit, String dni, String apellido, String nombre, String fecha, String telefono, Direccion direccion, Provincia provincia) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
- 
 
     public int getNroProveedor() {
         return nroProveedor;
@@ -76,6 +70,5 @@ public class Proveedor extends Persona implements Serializable{
     public void setNroCiut(String nroCiut) {
         this.nroCiut = nroCiut;
     }
-
    
 }

@@ -5,6 +5,8 @@
     <class>model.Articulo</class>
     <class>model.Caja</class>
     <class>model.DescripcionArticulo</class>
+    <class>model.Proveedor</class>
+    <class>model.Persona</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/ElMercaditoPU"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>

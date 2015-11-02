@@ -35,26 +35,28 @@ public class Persona implements Serializable {
     private String telefono;
      @Basic
     private String condicionIva;
-    @OneToOne
-    private Direccion unaDireccion;
-    @OneToOne 
-    //en la viste podría ir un desplegable para la provincia y otro desplegable para la localidad.(combos)
-    private Provincia unaProvincia;
+    @Basic
+    private String direccion;
+    @Basic
+    private String provincia;
+    @Basic
+    private String localidad;
     
     
     
     
     public Persona(){}
 
-    public Persona(String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, Direccion unaDireccion, Provincia unaProvincia) {
+    public Persona(String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, String direccion, String provincia, String localidad) {
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
         this.fechaNac = fechaNac;
         this.telefono = telefono;
         this.condicionIva = condicionIva;
-        this.unaDireccion = unaDireccion;
-        this.unaProvincia = unaProvincia;
+        this.direccion = direccion;
+        this.provincia = provincia;
+        this.localidad = localidad;
     }
 
     public String getDni() {
@@ -81,12 +83,16 @@ public class Persona implements Serializable {
         return condicionIva;
     }
 
-    public Direccion getUnaDireccion() {
-        return unaDireccion;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public Provincia getUnaProvincia() {
-        return unaProvincia;
+    public String getProvincia() {
+        return provincia;
+    }
+
+    public String getLocalidad() {
+        return localidad;
     }
 
     public void setDni(String dni) {
@@ -113,14 +119,19 @@ public class Persona implements Serializable {
         this.condicionIva = condicionIva;
     }
 
-    public void setUnaDireccion(Direccion unaDireccion) {
-        this.unaDireccion = unaDireccion;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public void setUnaProvincia(Provincia unaProvincia) {
-        this.unaProvincia = unaProvincia;
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
+    }
+
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
+    }
+
+  
     }
 
     
-    
-}

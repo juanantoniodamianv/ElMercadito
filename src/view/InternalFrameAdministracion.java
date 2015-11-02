@@ -13,12 +13,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import model.Direccion;
-import model.Localidad;
-import model.Proveedor;
-import model.Provincia;
-import model.SituacionTributaria;
-import model.Zona;
+//import model.Direccion;
+//import model.Localidad;
+//import model.Proveedor;
+//import model.Provincia;
+//import model.SituacionTributaria;
+//import model.Zona;
 
 /**
  *

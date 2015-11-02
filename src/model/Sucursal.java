@@ -131,8 +131,8 @@ public class Sucursal implements Serializable {
         this.ListaDePrecios = ListaDePrecios;
     }
 
-    public void nuevoProveedor(int nroProv, String razonSocial, String cuit, String dni, String apellido, String nombre, String fecha, String telefono, Direccion direccion, Provincia provincia, SituacionTributaria situacTrib) throws Exception {
-    Proveedor prov= new Proveedor(nroProv,razonSocial,cuit,dni,apellido,nombre,fecha,telefono,direccion, provincia, situacTrib);
+    public void nuevoProveedor(int nroProv, String razonSocial, String cuit, String dni, String apellido, String nombre, String fecha, String telefono) throws Exception {
+    Proveedor prov= new Proveedor(nroProv,razonSocial,cuit,dni,apellido,nombre,fecha,telefono);
 //    this.listaProveedores.add(prov);
     Sucursal.persistencia.AgregarProveedorPersis(prov);
         
@@ -140,8 +140,29 @@ public class Sucursal implements Serializable {
 //    public void getListaProveedores(Proveedor prov) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    }
+
+    public void agregarProveedor(int parseInt, String text, String text0, String text1, String text2, String text3, String text4) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void modificarProveedor(int parseInt, String text, String text0, String text1, String text2, String text3, String text4) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public Proveedor BuscarProveedorCuit(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
+    public void BuscarProveedorCuit(int parseInt, String text, String text0, String text1, String text2, String text3, String text4) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
+    public void BorrarProveedor(int parseInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void ModificarProveedor(Proveedor unPro, int parseInt, String text, String text0, String text1, String text2, String text3, String text4) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     }
 //    
 //       this.listaProveedores.add(prov);

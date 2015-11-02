@@ -67,14 +67,14 @@ private Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","razon social");
         
          //que loco       
         Articulo art = new Articulo();
-        art.setNroArticulo(15961);
+        art.setNroArticulo(15962);
         art.setLote("22-09-2015");
         art.setFechaElabora("22-09-2015");
         art.setFechaExpira("15-11-2016");
         jpa.create(art);
         
         Caja caj = new Caja();
-        caj.setNroCaja(152);
+        caj.setNroCaja(153);
         jpaCaja.create(caj);
     }
 
@@ -93,9 +93,7 @@ private Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","razon social");
         this.unaControlPersistencia = unaControlPersistencia;
     }
 
-    public Object getSucursal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     
     }

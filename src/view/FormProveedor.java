@@ -1,25 +1,25 @@
 
 package view;
 
-import App.Aplicacion;
+import ElMercadito.ElMercadito;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import pkgLogica.Proveedor;
-import pkgPersistencia.exceptions.NonexistentEntityException;
-import pkgPersistencia.exceptions.PreexistingEntityException;
+import model.Proveedor;
+import Persistencia.exceptions.NonexistentEntityException;
+import Persistencia.exceptions.PreexistingEntityException;
 
 
 public class FormProveedor extends javax.swing.JDialog {
 
-    Aplicacion unaAplicacion;
+    ElMercadito unMercadito;
     private DefaultListModel modeloProveedor = new DefaultListModel();
-    public FormProveedor(java.awt.Frame parent, boolean modal, Aplicacion unaAplicacion) {
+    public FormProveedor(java.awt.Frame parent, boolean modal, ElMercadito unMercadito) {
         super(parent, modal);
-        this.unaAplicacion=unaAplicacion;
+        this.unMercadito=unMercadito;
         initComponents();
         this.setVisible(true);
         this.ListProveedor.setModel(modeloProveedor);
@@ -30,6 +30,7 @@ public class FormProveedor extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         btnBorrar = new javax.swing.JButton();
         btnSl = new javax.swing.JButton();
@@ -51,29 +52,21 @@ public class FormProveedor extends javax.swing.JDialog {
         lblCuit = new javax.swing.JLabel();
         txtFechaNac = new javax.swing.JTextField();
         lblCondIva = new javax.swing.JLabel();
-        txtCondIva = new javax.swing.JTextField();
         Dirección = new javax.swing.JPanel();
-        txtCodigoProv = new javax.swing.JTextField();
-        txtCalle = new javax.swing.JTextField();
-        txtNumero = new javax.swing.JTextField();
-        txtDepart = new javax.swing.JTextField();
-        txtPiso = new javax.swing.JTextField();
-        cmbZona = new javax.swing.JComboBox();
-        cmbProvincia = new javax.swing.JComboBox();
-        cmbLocalidad = new javax.swing.JComboBox();
-        lblCódigo = new javax.swing.JLabel();
-        lblCalle = new javax.swing.JLabel();
-        lblNumero = new javax.swing.JLabel();
-        lblDepart = new javax.swing.JLabel();
-        lblPiso = new javax.swing.JLabel();
-        lblZona = new javax.swing.JLabel();
+        txtDireccion = new javax.swing.JTextField();
+        txtProvincia = new javax.swing.JTextField();
+        txtLocalidad = new javax.swing.JTextField();
+        lblDireccion = new javax.swing.JLabel();
         lblProvincia = new javax.swing.JLabel();
         lblLocalidad = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtRazonSocial = new javax.swing.JTextField();
+        cmbCondicionIva = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         ListProveedor = new javax.swing.JList();
         btnBuscarPorClave = new javax.swing.JButton();
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -131,31 +124,15 @@ public class FormProveedor extends javax.swing.JDialog {
 
         lblCondIva.setText("Condición IVA");
 
-        Dirección.setBorder(javax.swing.BorderFactory.createTitledBorder("Dirección Proveedor"));
+        Dirección.setBorder(javax.swing.BorderFactory.createTitledBorder("Ubicación"));
 
-        txtCodigoProv.addActionListener(new java.awt.event.ActionListener() {
+        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoProvActionPerformed(evt);
+                txtDireccionActionPerformed(evt);
             }
         });
 
-        cmbProvincia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbProvinciaActionPerformed(evt);
-            }
-        });
-
-        lblCódigo.setText("Código");
-
-        lblCalle.setText("Calle");
-
-        lblNumero.setText("Número");
-
-        lblDepart.setText("Departamento");
-
-        lblPiso.setText("Piso");
-
-        lblZona.setText("Zona");
+        lblDireccion.setText("Dirección");
 
         lblProvincia.setText("Provincia");
 
@@ -168,78 +145,42 @@ public class FormProveedor extends javax.swing.JDialog {
             .addGroup(DirecciónLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDepart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DirecciónLayout.createSequentialGroup()
-                        .addGap(0, 2, Short.MAX_VALUE)
-                        .addGroup(DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblCódigo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(DirecciónLayout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(lblCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(lblNumero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPiso, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblProvincia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblLocalidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblZona, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPiso, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDepart, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNumero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCodigoProv, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCalle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbZona, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(cmbLocalidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cmbProvincia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(lblProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtProvincia, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                        .addComponent(txtLocalidad))
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         DirecciónLayout.setVerticalGroup(
             DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DirecciónLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCodigoProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCódigo))
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDireccion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCalle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNumero))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDepart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDepart))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPiso))
-                .addGap(18, 18, 18)
-                .addGroup(DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbZona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblZona))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblProvincia, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cmbProvincia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblProvincia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(DirecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblLocalidad)
-                    .addComponent(cmbLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLocalidad))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel4.setText("Nro. Prov");
+
+        cmbCondicionIva.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Resp. Insc.", "Monotrib.", "Exento", "C.Final" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Dirección, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -257,7 +198,7 @@ public class FormProveedor extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(lblCondIva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCondIva, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbCondicionIva, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -284,6 +225,7 @@ public class FormProveedor extends javax.swing.JDialog {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addGap(2, 2, 2)
                                     .addComponent(txtTelefonoProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+            .addComponent(Dirección, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,8 +251,8 @@ public class FormProveedor extends javax.swing.JDialog {
                     .addComponent(lblTelefono))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCondIva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCondIva))
+                    .addComponent(lblCondIva)
+                    .addComponent(cmbCondicionIva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNroProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -324,7 +266,8 @@ public class FormProveedor extends javax.swing.JDialog {
                     .addComponent(lblRazonSocial)
                     .addComponent(txtRazonSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(Dirección, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Dirección, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         ListProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -364,7 +307,7 @@ public class FormProveedor extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -374,10 +317,10 @@ public class FormProveedor extends javax.swing.JDialog {
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 12, Short.MAX_VALUE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarProveedor)
@@ -400,12 +343,9 @@ public class FormProveedor extends javax.swing.JDialog {
         confirmar=JOptionPane.showConfirmDialog(this, "Esta accion modificará los datos del Proveedor ¿Desea continuar?", "Modificar",  JOptionPane.YES_NO_OPTION);
         if(confirmar==JOptionPane.YES_OPTION){
             try {
-                Proveedor unPro= this.unaAplicacion.getUnaEmpresa().BuscarProveedorCuit(this.txtNroProv.getText());
-                this.unaAplicacion.getUnaEmpresa().ModificarProveedor(unPro,Integer.parseInt(this.txtRazonSocial.getText()),this.txtCuit.getText(),this.txtDniProveedor.getText(), this.txtNombreProveedor.getText(), this.txtApellidoProveedor.getText(), this.txtNroProv.getText(), this.txtTelefonoProveedor.getText());
+                Proveedor unPro= this.unMercadito.getUnaSucursal().BuscarProveedorCuit(this.txtNroProv.getText());
+                this.unMercadito.getUnaSucursal().ModificarProveedor(unPro,Integer.parseInt(this.txtRazonSocial.getText()),this.txtCuit.getText(),this.txtDniProveedor.getText(), this.txtNombreProveedor.getText(), this.txtApellidoProveedor.getText(), this.txtNroProv.getText(), this.txtTelefonoProveedor.getText());
                 JOptionPane.showMessageDialog(this, "Se modificaron correctamente los datos");
-            } catch (NonexistentEntityException ex) {
-                Logger.getLogger(FormProveedor.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(this, "Error con la base de datos, no existe");
             } catch (Exception ex) {
                 Logger.getLogger(FormProveedor.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(this, "Error con la base de datos");
@@ -413,17 +353,15 @@ public class FormProveedor extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnModificarProveedorActionPerformed
 
+    @SuppressWarnings("unchecked")
     private void btnAgregarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProveedorActionPerformed
         
         
             try {
-                this.unaAplicacion.getUnaEmpresa().agregarProveedor(Integer.parseInt(this.txtRazonSocial.getText()),this.txtCuit.getText(),this.txtDniProveedor.getText(),this.txtNombreProveedor.getText(),this.txtApellidoProveedor.getText(), this.txtNroProv.getText(),this.txtTelefonoProveedor.getText());
+                this.unMercadito.getUnaSucursal().agregarProveedor(Integer.parseInt(this.txtRazonSocial.getText()),this.txtCuit.getText(),this.txtDniProveedor.getText(),this.txtNombreProveedor.getText(),this.txtApellidoProveedor.getText(), this.txtNroProv.getText(),this.txtTelefonoProveedor.getText());
                 this.ListProveedor.setModel(modeloProveedor);
-                this.CargarListaProveedor(this.unaAplicacion.getUnaEmpresa().getListaProveedores());
+                this.CargarListaProveedor(this.unMercadito.getUnaSucursal().getListaProveedores());
                 JOptionPane.showMessageDialog(this, "Se ha agregado satisfactoriamente");
-            } catch (PreexistingEntityException ex) {
-                Logger.getLogger(FormProveedor.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(this, "Error con la base de datos, ya existe");
             } catch (Exception ex) {
                 Logger.getLogger(FormProveedor.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(this, "Error con la base de datos");
@@ -444,13 +382,13 @@ public class FormProveedor extends javax.swing.JDialog {
 
     private void btnBuscarPorClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPorClaveActionPerformed
         Proveedor unProveedor;
-        unProveedor=unaAplicacion.getUnaEmpresa().BuscarProveedorCuit(this.txtNroProv.getText());
+        unProveedor=unMercadito.getUnaSucursal().BuscarProveedorCuit(this.txtNroProv.getText());
         this.txtDniProveedor.setText(unProveedor.getDni());
         this.txtNombreProveedor.setText(unProveedor.getNombre());
         this.txtApellidoProveedor.setText(unProveedor.getApellido());
         this.txtCuit.setText(unProveedor.getRazonSocial());
         this.txtTelefonoProveedor.setText(unProveedor.getTelefono());
-        this.txtNroProv.setText(unProveedor.getCuit());
+        this.txtNroProv.setText(unProveedor.getNroCiut());
     }//GEN-LAST:event_btnBuscarPorClaveActionPerformed
 
     private void ListProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListProveedorMouseClicked
@@ -460,26 +398,16 @@ public class FormProveedor extends javax.swing.JDialog {
         this.txtApellidoProveedor.setText(unProveedor.getApellido());
         this.txtCuit.setText(unProveedor.getRazonSocial());
         this.txtTelefonoProveedor.setText(unProveedor.getTelefono());
-        this.txtNroProv.setText(unProveedor.getCuit());
+        this.txtNroProv.setText(unProveedor.getNroCiut());
     }//GEN-LAST:event_ListProveedorMouseClicked
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
-        try {
-        
-            this.unaAplicacion.getUnaEmpresa().BorrarProveedor(Integer.parseInt(this.txtRazonSocial.getText()));
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(FormProveedor.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, "Error con la base de datos, no existe proveedor");
-        }
+        this.unMercadito.getUnaSucursal().BorrarProveedor(Integer.parseInt(this.txtRazonSocial.getText()));
     }//GEN-LAST:event_btnBorrarActionPerformed
 
-    private void txtCodigoProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoProvActionPerformed
+    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoProvActionPerformed
-
-    private void cmbProvinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProvinciaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbProvinciaActionPerformed
+    }//GEN-LAST:event_txtDireccionActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -490,9 +418,8 @@ public class FormProveedor extends javax.swing.JDialog {
     private javax.swing.JButton btnBuscarPorClave;
     private javax.swing.JButton btnModificarProveedor;
     private javax.swing.JButton btnSl;
-    private javax.swing.JComboBox cmbLocalidad;
-    private javax.swing.JComboBox cmbProvincia;
-    private javax.swing.JComboBox cmbZona;
+    private javax.swing.JComboBox cmbCondicionIva;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -500,31 +427,23 @@ public class FormProveedor extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCalle;
     private javax.swing.JLabel lblCondIva;
     private javax.swing.JLabel lblCuit;
-    private javax.swing.JLabel lblCódigo;
-    private javax.swing.JLabel lblDepart;
+    private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblFechaNac;
     private javax.swing.JLabel lblLocalidad;
-    private javax.swing.JLabel lblNumero;
-    private javax.swing.JLabel lblPiso;
     private javax.swing.JLabel lblProvincia;
     private javax.swing.JLabel lblRazonSocial;
     private javax.swing.JLabel lblTelefono;
-    private javax.swing.JLabel lblZona;
     private javax.swing.JTextField txtApellidoProveedor;
-    private javax.swing.JTextField txtCalle;
-    private javax.swing.JTextField txtCodigoProv;
-    private javax.swing.JTextField txtCondIva;
     private javax.swing.JTextField txtCuit;
-    private javax.swing.JTextField txtDepart;
+    private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtDniProveedor;
     private javax.swing.JTextField txtFechaNac;
+    private javax.swing.JTextField txtLocalidad;
     private javax.swing.JTextField txtNombreProveedor;
     private javax.swing.JTextField txtNroProv;
-    private javax.swing.JTextField txtNumero;
-    private javax.swing.JTextField txtPiso;
+    private javax.swing.JTextField txtProvincia;
     private javax.swing.JTextField txtRazonSocial;
     private javax.swing.JTextField txtTelefonoProveedor;
     // End of variables declaration//GEN-END:variables

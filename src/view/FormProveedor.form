@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JComboBox" name="jComboBox1">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
@@ -44,7 +58,7 @@
           <Group type="102" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="248" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="204" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -56,11 +70,11 @@
               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="562" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
-                  </Group>
                   <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="427" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -125,7 +139,6 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="Dirección" alignment="0" min="-2" max="-2" attributes="0"/>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -146,7 +159,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="lblCondIva" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtCondIva" min="-2" pref="112" max="-2" attributes="0"/>
+                          <Component id="cmbCondicionIva" min="-2" pref="112" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -188,6 +201,7 @@
                       </Group>
                   </Group>
               </Group>
+              <Component id="Dirección" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -219,8 +233,8 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtCondIva" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCondIva" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbCondicionIva" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -238,7 +252,8 @@
                       <Component id="txtRazonSocial" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="Dirección" max="32767" attributes="0"/>
+                  <Component id="Dirección" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -301,13 +316,11 @@
             <Property name="text" type="java.lang.String" value="Condici&#xf3;n IVA"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCondIva">
-        </Component>
         <Container class="javax.swing.JPanel" name="Direcci&#xf3;n">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Direcci&#xf3;n Proveedor"/>
+                <TitledBorder title="Ubicaci&#xf3;n"/>
               </Border>
             </Property>
           </Properties>
@@ -318,41 +331,18 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblDepart" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Component id="lblCódigo" min="-2" pref="67" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                          <Component id="lblCalle" min="-2" pref="67" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="lblNumero" alignment="1" min="-2" pref="67" max="-2" attributes="0"/>
-                                  <Component id="lblPiso" alignment="1" min="-2" pref="67" max="-2" attributes="0"/>
-                                  <Component id="lblProvincia" alignment="1" min="-2" pref="67" max="-2" attributes="0"/>
-                                  <Component id="lblLocalidad" alignment="1" min="-2" pref="67" max="-2" attributes="0"/>
-                                  <Component id="lblZona" alignment="1" min="-2" pref="67" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="lblProvincia" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
+                          <Component id="lblLocalidad" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
+                          <Component id="lblDireccion" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtPiso" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
-                                  <Component id="txtDepart" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
-                                  <Component id="txtNumero" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
-                                  <Component id="txtCodigoProv" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
-                                  <Component id="txtCalle" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
-                                  <Component id="cmbZona" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="cmbLocalidad" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtProvincia" alignment="0" pref="147" max="32767" attributes="0"/>
+                              <Component id="txtLocalidad" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="cmbProvincia" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
+                          <Component id="txtDireccion" min="-2" pref="215" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -361,114 +351,37 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtCodigoProv" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblCódigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtCalle" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblCalle" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtProvincia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblProvincia" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtNumero" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblNumero" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtDepart" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblDepart" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtPiso" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblPiso" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cmbZona" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblZona" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtLocalidad" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLocalidad" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblProvincia" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="cmbProvincia" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblLocalidad" min="-2" max="-2" attributes="0"/>
-                          <Component id="cmbLocalidad" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="txtCodigoProv">
+            <Component class="javax.swing.JTextField" name="txtDireccion">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodigoProvActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDireccionActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtCalle">
+            <Component class="javax.swing.JTextField" name="txtProvincia">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtNumero">
+            <Component class="javax.swing.JTextField" name="txtLocalidad">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtDepart">
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtPiso">
-            </Component>
-            <Component class="javax.swing.JComboBox" name="cmbZona">
+            <Component class="javax.swing.JLabel" name="lblDireccion">
               <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="0"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="cmbProvincia">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="0"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbProvinciaActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="cmbLocalidad">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="0"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblC&#xf3;digo">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblCalle">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Calle"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblNumero">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="N&#xfa;mero"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblDepart">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Departamento"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblPiso">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Piso"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblZona">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Zona"/>
+                <Property name="text" type="java.lang.String" value="Direcci&#xf3;n"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblProvincia">
@@ -489,6 +402,18 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtRazonSocial">
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cmbCondicionIva">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Resp. Insc."/>
+                <StringItem index="1" value="Monotrib."/>
+                <StringItem index="2" value="Exento"/>
+                <StringItem index="3" value="C.Final"/>
+              </StringArray>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

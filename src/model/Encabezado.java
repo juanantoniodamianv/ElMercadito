@@ -21,12 +21,11 @@ private String nombreEmpresa;
 @Basic
 private int nroSucursal;
 @Basic
-private Direccion unaDireccion;
+private String direccion;
 @Basic
 private String telefono;
 @Basic
 private String nroCiut;
-//aca no estoy seguro si va un nroIbrutosReg o que es//
 @Basic
 private String nroIBrutosReg;
 @Basic
@@ -34,17 +33,15 @@ private Date inicioActividades;
     
 public Encabezado(){}
 
-    public Encabezado(String nombreEmpresa, int nroSucursal, Direccion unaDireccion, String telefono, String nroCiut, String nroIBrutosReg, Date inicioActividades) {
+    public Encabezado(String nombreEmpresa, int nroSucursal, String direccion, String telefono, String nroCiut, String nroIBrutosReg, Date inicioActividades) {
         this.nombreEmpresa = nombreEmpresa;
         this.nroSucursal = nroSucursal;
-        this.unaDireccion = unaDireccion;
+        this.direccion = direccion;
         this.telefono = telefono;
         this.nroCiut = nroCiut;
         this.nroIBrutosReg = nroIBrutosReg;
         this.inicioActividades = inicioActividades;
     }
-
-    
 
     public String getNombreEmpresa() {
         return nombreEmpresa;
@@ -54,8 +51,8 @@ public Encabezado(){}
         return nroSucursal;
     }
 
-    public Direccion getUnaDireccion() {
-        return unaDireccion;
+    public String getDireccion() {
+        return direccion;
     }
 
     public String getTelefono() {
@@ -82,15 +79,13 @@ public Encabezado(){}
         this.nroSucursal = nroSucursal;
     }
 
-    public void setUnaDireccion(Direccion unaDireccion) {
-        this.unaDireccion = unaDireccion;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
-    
 
     public void setNroCiut(String nroCiut) {
         this.nroCiut = nroCiut;
@@ -104,5 +99,6 @@ public Encabezado(){}
         this.inicioActividades = inicioActividades;
     }
 
-
 }
+
+    
