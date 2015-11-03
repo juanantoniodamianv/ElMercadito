@@ -17,34 +17,31 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Proveedor extends Persona implements Serializable{
-    private static final long serialVersionUID = 1L;
-//porqué me pide esto?
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
+//    private static final long serialVersionUID = 1L;
+////porqué me pide esto?
+//    public static long getSerialVersionUID() {
+//        return serialVersionUID;
+//    }
     @Basic 
     private int nroProveedor;
     @Basic
     private String razonSocial;
     
     @Basic 
-    private String nroCiut;
+    private String nroCuit;
     
    
    
  public Proveedor(){}
 
-    public Proveedor(int nroProveedor, String razonSocial, String nroCiut) {
-        this.nroProveedor = nroProveedor;
-        this.razonSocial = razonSocial;
-        this.nroCiut = nroCiut;
-    }
+    
+    
 
     public Proveedor(int nroProveedor, String razonSocial, String nroCiut, String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, String direccion, String provincia, String localidad) {
         super(dni, apellido, nombre, fechaNac, telefono, condicionIva, direccion, provincia, localidad);
         this.nroProveedor = nroProveedor;
         this.razonSocial = razonSocial;
-        this.nroCiut = nroCiut;
+        this.nroCuit = nroCiut;
     }
 
     public int getNroProveedor() {
@@ -56,7 +53,7 @@ public class Proveedor extends Persona implements Serializable{
     }
 
     public String getNroCiut() {
-        return nroCiut;
+        return nroCuit;
     }
 
     public void setNroProveedor(int nroProveedor) {
@@ -68,7 +65,7 @@ public class Proveedor extends Persona implements Serializable{
     }
 
     public void setNroCiut(String nroCiut) {
-        this.nroCiut = nroCiut;
+        this.nroCuit = nroCiut;
     }
    
 }

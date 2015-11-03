@@ -10,6 +10,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
 /**
@@ -17,12 +19,13 @@ import javax.persistence.OneToOne;
  * @author Antonio
  */
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Persona implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
+//    private static final long serialVersionUID = 1L;
+//
+//    public static long getSerialVersionUID() {
+//        return serialVersionUID;
+//    }
     @Id
       private String dni;
     @Basic

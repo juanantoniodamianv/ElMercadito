@@ -35,7 +35,7 @@ public class Sucursal implements Serializable {
     @OneToOne
     private Deposito unDeposito;
      @OneToOne
-    private Direccion unaDireccion;
+    private String direccion;
      @OneToMany
     private ArrayList<Proveedor> listaProveedores;
      @OneToMany
@@ -53,7 +53,7 @@ public class Sucursal implements Serializable {
         this.cuil = cuil;
         this.telefono = telefono;
         this.razonSocial = razonSocial;
-        this.unaDireccion = unaDireccion;
+        this.direccion = direccion;
         this.listaProveedores = listaProveedores;
         this.listaCajas = listaCajas;
         this.ListaDePrecios = ListaDePrecios;
@@ -79,8 +79,8 @@ public class Sucursal implements Serializable {
         return unDeposito;
     }
 
-    public Direccion getUnaDireccion() {
-        return unaDireccion;
+    public String getUnaDireccion() {
+        return direccion;
     }
 
     public ArrayList<Proveedor> getListaProveedores() {
@@ -115,8 +115,8 @@ public class Sucursal implements Serializable {
         this.unDeposito = unDeposito;
     }
 
-    public void setUnaDireccion(Direccion unaDireccion) {
-        this.unaDireccion = unaDireccion;
+    public void setUnaDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public void setListaProveedores(ArrayList<Proveedor> listaProveedores) {
@@ -131,19 +131,22 @@ public class Sucursal implements Serializable {
         this.ListaDePrecios = ListaDePrecios;
     }
 
-    public void nuevoProveedor(int nroProv, String razonSocial, String cuit, String dni, String apellido, String nombre, String fecha, String telefono) throws Exception {
-    Proveedor prov= new Proveedor(nroProv,razonSocial,cuit,dni,apellido,nombre,fecha,telefono);
+//    public void nuevoProveedor(int nroProv, String razonSocial, String nroCuit, String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, String direccion, String provincia, String localidad) throws Exception {
+//    Proveedor prov= new Proveedor(nroProv,razonSocial,nroCuit,dni,apellido,nombre,fechaNac,telefono,condicionIva,direccion,provincia,localidad);
 //    this.listaProveedores.add(prov);
-    Sucursal.persistencia.AgregarProveedorPersis(prov);
+//    Sucursal.persistencia.AgregarProveedorPersis(prov);
+        
+//    }
+    public void getListaProveedores(Proveedor prov) {
         
     }
-//    public void getListaProveedores(Proveedor prov) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
 
-    public void agregarProveedor(int parseInt, String text, String text0, String text1, String text2, String text3, String text4) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+      public void agregarProveedor(int nroProv, String razonSocial, String nroCuit, String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, String direccion, String provincia, String localidad) throws Exception {
+    Proveedor prov= new Proveedor(nroProv,razonSocial,nroCuit,dni,apellido,nombre,fechaNac,telefono,condicionIva,direccion,provincia,localidad);
+    this.listaProveedores.add(prov);
+    Sucursal.persistencia.AgregarProveedorPersis(prov);
+     }
+
 
     public void modificarProveedor(int parseInt, String text, String text0, String text1, String text2, String text3, String text4) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -163,11 +166,14 @@ public class Sucursal implements Serializable {
     public void ModificarProveedor(Proveedor unPro, int parseInt, String text, String text0, String text1, String text2, String text3, String text4) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    }
-//    
+    
+    
 //       this.listaProveedores.add(prov);
 //    Empresa.persistencia.AgregarProveedorPersis(prov);
+
     
+    
+}
 
 
     

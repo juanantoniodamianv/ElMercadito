@@ -355,10 +355,9 @@ public class FormProveedor extends javax.swing.JDialog {
 
     @SuppressWarnings("unchecked")
     private void btnAgregarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProveedorActionPerformed
-        
-        
+
             try {
-                this.unMercadito.getUnaSucursal().agregarProveedor(Integer.parseInt(this.txtRazonSocial.getText()),this.txtCuit.getText(),this.txtDniProveedor.getText(),this.txtNombreProveedor.getText(),this.txtApellidoProveedor.getText(), this.txtNroProv.getText(),this.txtTelefonoProveedor.getText());
+                this.unMercadito.getUnaSucursal().agregarProveedor(Integer.parseInt(this.txtNroProv.getText()),this.txtRazonSocial.getText(),this.txtCuit.getText(),this.txtDniProveedor.getText(),this.txtApellidoProveedor.getText(),this.txtNombreProveedor.getText(),this.txtFechaNac.getText(),this.txtTelefonoProveedor.getText(),String.valueOf(this.cmbCondicionIva.getSelectedIndex()),this.txtDireccion.getText(),this.txtProvincia.getText(),this.txtLocalidad.getText());
                 this.ListProveedor.setModel(modeloProveedor);
                 this.CargarListaProveedor(this.unMercadito.getUnaSucursal().getListaProveedores());
                 JOptionPane.showMessageDialog(this, "Se ha agregado satisfactoriamente");

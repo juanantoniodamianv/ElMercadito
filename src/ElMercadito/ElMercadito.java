@@ -28,35 +28,35 @@ private Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","razon social");
         return unaSucursal;
     }
     private ControladoraPersistencia unaControlPersistencia;
-    
+    private ControladoraVisual unaControladoraVisual = new ControladoraVisual();
     public static void main(String[] args) throws Exception{
-        //Carga el estilo look and feel
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+//        //Carga el estilo look and feel
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new JFramePrincipal().setVisible(true);
-                
-            }
-        });
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            @Override
+//            public void run() {
+//                new JFramePrincipal().setVisible(true);
+//                
+//            }
+//        });
         EntityManagerFactory objFactory;
         objFactory = Persistence.createEntityManagerFactory("El_mercaditoPU");
         EntityManager manager = objFactory.createEntityManager();
@@ -67,14 +67,14 @@ private Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","razon social");
         
          //que loco       
         Articulo art = new Articulo();
-        art.setNroArticulo(15962);
+        art.setNroArticulo(15970);
         art.setLote("22-09-2015");
         art.setFechaElabora("22-09-2015");
         art.setFechaExpira("15-11-2016");
         jpa.create(art);
         
         Caja caj = new Caja();
-        caj.setNroCaja(153);
+        caj.setNroCaja(160);
         jpaCaja.create(caj);
     }
 
@@ -91,6 +91,18 @@ private Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","razon social");
 
     public void setUnaControlPersistencia(ControladoraPersistencia unaControlPersistencia) {
         this.unaControlPersistencia = unaControlPersistencia;
+    }
+
+    public ControladoraVisual getUnaControladoraVisual() {
+        return unaControladoraVisual;
+    }
+
+    public void setUnaSucursal(Sucursal unaSucursal) {
+        this.unaSucursal = unaSucursal;
+    }
+
+    public void setUnaControlVisual(ControladoraVisual unaControladoraVisual) {
+        this.unaControladoraVisual = unaControladoraVisual;
     }
 
     

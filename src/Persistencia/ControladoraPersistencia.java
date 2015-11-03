@@ -18,7 +18,7 @@ import model.Comprobante;
 //import model.ControladoraVisual;
 import model.Deposito;
 import model.DescripcionArticulo;
-import model.Direccion;
+
 import model.Empleado;
 import model.Encabezado;
 import model.Encargado;
@@ -29,12 +29,12 @@ import model.LineaDeCompra;
 import model.LineaDeTransferencia;
 import model.LineaVtaMay;
 import model.LineaVtaMin;
-import model.Localidad;
+
 import model.OrdenCompra;
 import model.Pago;
 import model.Persona;
 import model.Proveedor;
-import model.Provincia;
+
 import model.RegistroCompra;
 import model.RegistroTransferencia;
 import model.RegistroVtaMay;
@@ -50,7 +50,7 @@ import model.Transferencia;
 import model.Venta;
 import model.VentaMayorista;
 import model.VentaMinorista;
-import model.Zona;
+
 import Persistencia.exceptions.NonexistentEntityException;
 import Persistencia.exceptions.PreexistingEntityException;
 import java.util.List;
@@ -71,7 +71,7 @@ public class ControladoraPersistencia {
     ComprobanteJpaController comprobantePersistencia = new ComprobanteJpaController();
     DepositoJpaController depositoPersistencia = new DepositoJpaController();
     DescripcionArticuloJpaController descripcionArticuloPersistencia=new DescripcionArticuloJpaController();
-    DireccionJpaController direccionPersistencia = new DireccionJpaController();
+    
     EmpleadoJpaController empleadoPersistencia = new EmpleadoJpaController();
     EncabezadoJpaController encabezadoPersistencia= new EncabezadoJpaController();
     EncargadoJpaController encargadoPersistencia = new EncargadoJpaController();
@@ -82,12 +82,12 @@ public class ControladoraPersistencia {
     LineaDeTransferenciaJpaController lineaDeTransferenciaPersistencia = new LineaDeTransferenciaJpaController();  
     LineaVtaMayJpaController lineaVtaMayPersistencia = new LineaVtaMayJpaController();
     LineaVtaMinJpaController lineaVtaMinPersistencia = new LineaVtaMinJpaController();  
-    LocalidadJpaController localidadPersistencia = new LocalidadJpaController();
+    
     OrdenCompraJpaController ordenCompraPersistencia = new OrdenCompraJpaController();
     PagoJpaController pagoPersistencia = new PagoJpaController();
     PersonaJpaController personaPersistencia = new PersonaJpaController();
     ProveedorJpaController proveedorPersistencia = new ProveedorJpaController();
-    ProvinciaJpaController provinciaPersistencia = new ProvinciaJpaController();
+   
     RemitoTransferenciaJpaController remitoTransferenciaPersistencia = new RemitoTransferenciaJpaController();
     RemitoVtaJpaController remitoVtaPersistencia = new RemitoVtaJpaController(); 
     RepositorJpaController repositorPersistencia = new RepositorJpaController();  
@@ -99,7 +99,7 @@ public class ControladoraPersistencia {
     VentaJpaController ventaPersistencia = new VentaJpaController();
     VentaMayoristaJpaController  ventaMayoristaPersistencia = new VentaMayoristaJpaController();
     VentaMinoristaJpaController ventaMinoristaPersistencia = new VentaMinoristaJpaController();
-    ZonaJpaController zonaPersistencia = new ZonaJpaController();
+  
     
      
 
