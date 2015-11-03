@@ -6,11 +6,16 @@
 
 package view;
 
+import Persistencia.ArticuloJpaController;
+import javax.persistence.EntityManagerFactory;
+import model.Articulo;
+
 /**
  *
  * @author Antonio
  */
 public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
+    private EntityManagerFactory objFactory;
 
     /**
      * Creates new form InternalFrameAdministracion
@@ -159,6 +164,17 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         tblEmpleado = new javax.swing.JTable();
         btnCancelarEmpleado = new javax.swing.JButton();
         btnEliminarEmpleado = new javax.swing.JButton();
+        jPanelArticulo = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtNroArt = new javax.swing.JTextField();
+        txtLoteArt = new javax.swing.JTextField();
+        txtFechaExpiraArt = new javax.swing.JTextField();
+        txtFechaElaboraArt = new javax.swing.JTextField();
+        btnGuardarArt = new javax.swing.JButton();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -254,7 +270,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                         .addComponent(lblProvinciaProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
@@ -363,12 +378,13 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addComponent(lblSituacTribProveedor)
                     .addComponent(cmbSituacTribProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTipoProveeduriaProveedor)
-                    .addComponent(txtTipoProveeduriaProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblTelProveedor)
-                        .addComponent(txtTelProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtTelProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblTipoProveeduriaProveedor)
+                        .addComponent(txtTipoProveeduriaProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1191,6 +1207,11 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         btnEditarEmpleado.setText("Editar");
 
         btnGuardarEmpleado.setText("Guardar");
+        btnGuardarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarEmpleadoActionPerformed(evt);
+            }
+        });
 
         jPanel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1314,6 +1335,91 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         );
 
         jTabbedPaneAdministracion.addTab("Empleados", jPanelEmpleados);
+
+        jLabel1.setText("Nro. Articulo:");
+
+        jLabel2.setText("Lote:");
+
+        jLabel3.setText("Fecha Expira: ");
+
+        jLabel4.setText("Fecha Elabora:");
+
+        btnGuardarArt.setText("Guardar");
+        btnGuardarArt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarArtActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnGuardarArt)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtFechaElaboraArt, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtFechaExpiraArt))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtLoteArt))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtNroArt))))
+                .addContainerGap(459, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtNroArt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtLoteArt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtFechaExpiraArt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtFechaElaboraArt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addComponent(btnGuardarArt)
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanelArticuloLayout = new javax.swing.GroupLayout(jPanelArticulo);
+        jPanelArticulo.setLayout(jPanelArticuloLayout);
+        jPanelArticuloLayout.setHorizontalGroup(
+            jPanelArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelArticuloLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelArticuloLayout.setVerticalGroup(
+            jPanelArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelArticuloLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(304, Short.MAX_VALUE))
+        );
+
+        jTabbedPaneAdministracion.addTab("Articulos", jPanelArticulo);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1491,6 +1597,25 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTipoProveeduriaProveedorActionPerformed
 
+    private void btnGuardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEmpleadoActionPerformed
+        // TODO add your handling code here:
+                
+    }//GEN-LAST:event_btnGuardarEmpleadoActionPerformed
+
+    private void btnGuardarArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarArtActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnGuardarArtActionPerformed
+    public void agregarArticulo() throws Exception{
+            ArticuloJpaController jpa = new ArticuloJpaController(objFactory);
+            Articulo art = new Articulo();
+            art.setNroArticulo(Integer.parseInt(txtNroArt.getText()));
+            art.setLote(txtLoteArt.getText());
+            art.setFechaElabora(txtFechaElaboraArt.getText());
+            art.setFechaExpira(txtFechaExpiraArt.getText());
+            jpa.create(art);
+            System.out.println("NroArt = " + txtNroArt);
+    }    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarCliente;
@@ -1502,6 +1627,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnEliminarEmpleado;
     private javax.swing.JButton btnEliminarProveedor;
+    private javax.swing.JButton btnGuardarArt;
     private javax.swing.JButton btnGuardarCliente;
     private javax.swing.JButton btnGuardarEmpleado;
     private javax.swing.JButton btnGuardarProveedor;
@@ -1517,9 +1643,14 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox cmbTipoCliente;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
@@ -1531,6 +1662,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel jPanelArticulo;
     private javax.swing.JPanel jPanelClientes;
     private javax.swing.JPanel jPanelEmpleados;
     private javax.swing.JPanel jPanelProveedores;
@@ -1605,11 +1737,15 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtDptoEmpleado2;
     private javax.swing.JTextField txtDptoProveedor;
     private javax.swing.JTextField txtEdadEmpleado;
+    private javax.swing.JTextField txtFechaElaboraArt;
+    private javax.swing.JTextField txtFechaExpiraArt;
     private javax.swing.JFormattedTextField txtFechaNacCliente;
     private javax.swing.JFormattedTextField txtFechaNacEmpleado;
     private javax.swing.JTextField txtLocalidadEmpleado2;
+    private javax.swing.JTextField txtLoteArt;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtNombreEmpleado;
+    private javax.swing.JTextField txtNroArt;
     private javax.swing.JTextField txtNroCalleCliente;
     private javax.swing.JTextField txtNroCalleEmpleado2;
     private javax.swing.JTextField txtNroCalleProveedor;

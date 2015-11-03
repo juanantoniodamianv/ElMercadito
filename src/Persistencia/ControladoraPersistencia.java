@@ -67,8 +67,6 @@ public class ControladoraPersistencia {
     CajaJpaController cajaPersistencia = new CajaJpaController();
     CajeroJpaController cajeroPersistencia = new CajeroJpaController();
     ClienteJpaController clientePersistencia = new ClienteJpaController();
-    //ClienteMayoristaJpaController clienteMayoristaPersistencia = new ClienteMayoristaJpaController();
-    //ClienteMinoristaJpaController clienteMinoristaPersistencia = new ClienteMinoristaJpaController();
     CompraJpaController compra=new CompraJpaController();
     ComprobanteJpaController comprobantePersistencia = new ComprobanteJpaController();
     DepositoJpaController depositoPersistencia = new DepositoJpaController();

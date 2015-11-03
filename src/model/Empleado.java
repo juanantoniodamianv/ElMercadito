@@ -23,18 +23,21 @@ public class Empleado extends Persona implements Serializable{
      @Basic
     private String estadoCivil;
      @Basic
-    private String antiguedadAños;
+    private String antiguedadAnos;
+     @Basic
+    private String situacionTrib;
     
     public Empleado(){}
 
 
 
-    public Empleado(String sexo, int edad, String estadoCivil, String antiguedadAños, String apellido, String nombre, String cuil, String fechaNac, SituacionTributaria unaSituacionTributaria) {
+    public Empleado(String sexo, int edad, String estadoCivil, String antiguedadAnos, String apellido, String nombre, String cuil, String fechaNac, String situacionTrib) {
 //        super(apellido, nombre, dni, fechaNac, unaSituacionTributaria);
         this.sexo = sexo;
         this.edad = edad;
         this.estadoCivil = estadoCivil;
-        this.antiguedadAños = antiguedadAños;
+        this.antiguedadAnos = antiguedadAnos;
+        this.situacionTrib = situacionTrib;
     }
 
     public String getSexo() {
@@ -49,8 +52,8 @@ public class Empleado extends Persona implements Serializable{
         return estadoCivil;
     }
 
-    public String getAntiguedadAños() {
-        return antiguedadAños;
+    public String getAntiguedadAnos() {
+        return antiguedadAnos;
     }
 
     public void setSexo(String sexo) {
@@ -65,8 +68,16 @@ public class Empleado extends Persona implements Serializable{
         this.estadoCivil = estadoCivil;
     }
 
-    public void setAntiguedadAños(String antiguedadAños) {
-        this.antiguedadAños = antiguedadAños;
+    public void setAntiguedadAnos(String antiguedadAnos) {
+        this.antiguedadAnos = antiguedadAnos;
+    }
+
+    public String getSituacionTrib() {
+        return situacionTrib;
+    }
+
+    public void setSituacionTrib(String situacionTrib) {
+        this.situacionTrib = situacionTrib;
     }
     
     
