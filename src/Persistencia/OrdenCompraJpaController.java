@@ -19,16 +19,19 @@ import model.OrdenCompra;
  * @author daniel
  */
 
-public class OrdenCompraJpaController implements Serializable{
-    
-   //constructor
+
+   public class OrdenCompraJpaController implements Serializable {
+        private static final long serialVersionUID = 1L;
+
     public OrdenCompraJpaController(EntityManagerFactory emf) {
-    this.emf = emf;
-}
-    private EntityManagerFactory emf = null;
-    public OrdenCompraJpaController() {
-   emf= Persistence.createEntityManagerFactory("ElMercaditoPU");
+        this.emf = emf;
     }
+    private EntityManagerFactory emf = null;
+
+    OrdenCompraJpaController() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     
     public EntityManager getEntityManager() {
         return emf.createEntityManager();

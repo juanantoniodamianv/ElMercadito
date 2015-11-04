@@ -6,7 +6,7 @@
 package view;
 
 import ElMercadito.ElMercadito;
-import model.Sucursal;
+import model.*;
 
 /**
  *

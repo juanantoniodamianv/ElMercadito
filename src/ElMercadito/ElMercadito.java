@@ -22,14 +22,16 @@ import model.Sucursal;
  * @author Antonio
  */
 public class ElMercadito {
-private Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","razon social");
+private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","razon social","d");
 
-    public Sucursal getUnaSucursal() {
-        return unaSucursal;
-    }
-    private ControladoraPersistencia unaControlPersistencia;
-    private ControladoraVisual unaControladoraVisual = new ControladoraVisual();
-    public static void main(String[] args) throws Exception{
+   
+     private ControladoraVisual unaControladoraVisual = new ControladoraVisual();
+    private  ControladoraPersistencia unaControladoraPersistencia = new ControladoraPersistencia();
+    
+    public static void main(String[] args){
+   ElMercadito unMercadito=new ElMercadito();
+        unMercadito.getUnaControladoraVisual().crearMenu(unMercadito);
+//        unMercadito.getUnaControladoraVisual().crearMenu(unMercadito);
 //        //Carga el estilo look and feel
 //        try {
 //            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -66,44 +68,55 @@ private Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","razon social");
         List<Caja> listaCaja = jpaCaja.findCajaEntities();
         
          //que loco       
-        Articulo art = new Articulo();
-        art.setNroArticulo(15970);
-        art.setLote("22-09-2015");
-        art.setFechaElabora("22-09-2015");
-        art.setFechaExpira("15-11-2016");
-        jpa.create(art);
-        
-        Caja caj = new Caja();
-        caj.setNroCaja(160);
-        jpaCaja.create(caj);
+//        Articulo art = new Articulo();
+//        art.setNroArticulo(15964);
+//        art.setLote("22-09-2015");
+//        art.setFechaElabora("22-09-2015");
+//        art.setFechaExpira("15-11-2016");
+//        jpa.create(art);
+//        
+//        Caja caj = new Caja();
+//        caj.setNroCaja(154);
+//        jpaCaja.create(caj);
     }
 
-    
-    public ElMercadito(ControladoraPersistencia unaControlPersistencia) {
-        this.unaControlPersistencia = unaControlPersistencia;
+    private ElMercadito() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+ public Sucursal getUnaSucursal() {
+        return unaSucursal;
+    }
+    
+    public ElMercadito(ControladoraPersistencia unaControladoraPersistencia) {
+        this.unaControladoraPersistencia = unaControladoraPersistencia;
+    }
+
+  
 
 
     public ControladoraPersistencia getUnaControlPersistencia() {
-        return unaControlPersistencia;
+        return unaControladoraPersistencia;
     }
 
 
-    public void setUnaControlPersistencia(ControladoraPersistencia unaControlPersistencia) {
-        this.unaControlPersistencia = unaControlPersistencia;
+    public void setUnaControladoraPersistencia(ControladoraPersistencia unaControlPersistencia) {
+        this.unaControladoraPersistencia = unaControlPersistencia;
     }
 
     public ControladoraVisual getUnaControladoraVisual() {
         return unaControladoraVisual;
     }
 
-    public void setUnaSucursal(Sucursal unaSucursal) {
-        this.unaSucursal = unaSucursal;
-    }
-
-    public void setUnaControlVisual(ControladoraVisual unaControladoraVisual) {
+   
+    public void setUnaControladoraVisual(ControladoraVisual unaControladoraVisual) {
         this.unaControladoraVisual = unaControladoraVisual;
     }
+
+    public void setUnaControlPersistencia(ControladoraPersistencia unaControlPersistencia) {
+        this.unaControladoraPersistencia = unaControlPersistencia;
+    }
+
+    
 
     
 

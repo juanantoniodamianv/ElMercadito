@@ -30,7 +30,7 @@ public class ComprobanteJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     ComprobanteJpaController() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public EntityManager getEntityManager() {
