@@ -67,6 +67,7 @@ private  ControladoraPersistencia unaControladoraPersistencia = new Controladora
         List<Caja> listaCaja = jpaCaja.findCajaEntities();
         
          //que loco       
+<<<<<<< HEAD
 //        Articulo art = new Articulo();
 //        art.setNroArticulo(15964);
 //        art.setLote("22-09-2015");
@@ -77,6 +78,18 @@ private  ControladoraPersistencia unaControladoraPersistencia = new Controladora
 //        Caja caj = new Caja();
 //        caj.setNroCaja(154);
 //        jpaCaja.create(caj);
+=======
+        Articulo art = new Articulo();
+        art.setNroArticulo(15937);
+        art.setLote("22-09-2015");
+        art.setFechaElabora("22-09-2015");
+        art.setFechaExpira("15-11-2016");
+        jpa.create(art);
+        
+        Caja caj = new Caja();
+        caj.setNroCaja(138);
+        jpaCaja.create(caj);
+>>>>>>> refs/remotes/origin/RamaA
     }
 
   

@@ -29,7 +29,11 @@ public class DescripcionArticuloJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     DescripcionArticuloJpaController() {
+<<<<<<< HEAD
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> refs/remotes/origin/RamaA
     }
 
     public EntityManager getEntityManager() {
@@ -101,12 +105,21 @@ public class DescripcionArticuloJpaController implements Serializable {
 
     public List<DescripcionArticulo> findDescripcionArticuloEntities() {
         return findDescripcionArticuloEntities(true, -1, -1);
+<<<<<<< HEAD
     }
 
     public List<DescripcionArticulo> findDescripcionArticuloEntities(int maxResults, int firstResult) {
         return findDescripcionArticuloEntities(false, maxResults, firstResult);
     }
 
+=======
+    }
+
+    public List<DescripcionArticulo> findDescripcionArticuloEntities(int maxResults, int firstResult) {
+        return findDescripcionArticuloEntities(false, maxResults, firstResult);
+    }
+
+>>>>>>> refs/remotes/origin/RamaA
     private List<DescripcionArticulo> findDescripcionArticuloEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {

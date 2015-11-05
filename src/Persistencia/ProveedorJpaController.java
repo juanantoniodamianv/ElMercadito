@@ -29,7 +29,11 @@ public class ProveedorJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     ProveedorJpaController() {
+<<<<<<< HEAD
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> refs/remotes/origin/RamaA
     }
 
     public EntityManager getEntityManager() {
@@ -78,7 +82,11 @@ public class ProveedorJpaController implements Serializable {
         }
     }
 
+<<<<<<< HEAD
     public void destroy(String id) throws NonexistentEntityException {
+=======
+    public void destroy(int id) throws NonexistentEntityException {
+>>>>>>> refs/remotes/origin/RamaA
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -145,8 +153,14 @@ public class ProveedorJpaController implements Serializable {
         }
     }
 
+<<<<<<< HEAD
     void destroy(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+=======
+//    void destroy(int id) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+>>>>>>> refs/remotes/origin/RamaA
     
 }

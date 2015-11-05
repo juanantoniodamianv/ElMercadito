@@ -31,7 +31,11 @@ public class FacturaVtaJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     FacturaVtaJpaController() {
+<<<<<<< HEAD
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> refs/remotes/origin/RamaA
     }
 
     public EntityManager getEntityManager() {
@@ -143,6 +147,7 @@ public class FacturaVtaJpaController implements Serializable {
 
     public List<FacturaVta> findFacturaVtaEntities() {
         return findFacturaVtaEntities(true, -1, -1);
+<<<<<<< HEAD
     }
 
     public List<FacturaVta> findFacturaVtaEntities(int maxResults, int firstResult) {
@@ -165,6 +170,30 @@ public class FacturaVtaJpaController implements Serializable {
         }
     }
 
+=======
+    }
+
+    public List<FacturaVta> findFacturaVtaEntities(int maxResults, int firstResult) {
+        return findFacturaVtaEntities(false, maxResults, firstResult);
+    }
+
+    private List<FacturaVta> findFacturaVtaEntities(boolean all, int maxResults, int firstResult) {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            cq.select(cq.from(FacturaVta.class));
+            Query q = em.createQuery(cq);
+            if (!all) {
+                q.setMaxResults(maxResults);
+                q.setFirstResult(firstResult);
+            }
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+>>>>>>> refs/remotes/origin/RamaA
     public FacturaVta findFacturaVta(int id) {
         EntityManager em = getEntityManager();
         try {

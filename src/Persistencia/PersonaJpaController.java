@@ -29,7 +29,11 @@ public class PersonaJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     PersonaJpaController() {
+<<<<<<< HEAD
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> refs/remotes/origin/RamaA
     }
 
     public EntityManager getEntityManager() {
@@ -78,7 +82,11 @@ public class PersonaJpaController implements Serializable {
         }
     }
 
+<<<<<<< HEAD
     public void destroy(String id) throws NonexistentEntityException {
+=======
+    public void destroy(int id) throws NonexistentEntityException {
+>>>>>>> refs/remotes/origin/RamaA
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -124,6 +132,7 @@ public class PersonaJpaController implements Serializable {
     }
 
     public Persona findPersona(String id) {
+<<<<<<< HEAD
         EntityManager em = getEntityManager();
         try {
             return em.find(Persona.class, id);
@@ -140,13 +149,32 @@ public class PersonaJpaController implements Serializable {
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
+=======
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(Persona.class, id);
+>>>>>>> refs/remotes/origin/RamaA
         } finally {
             em.close();
         }
     }
 
+<<<<<<< HEAD
     void destroy(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+    public int getPersonaCount() {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            Root<Persona> rt = cq.from(Persona.class);
+            cq.select(em.getCriteriaBuilder().count(rt));
+            Query q = em.createQuery(cq);
+            return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+>>>>>>> refs/remotes/origin/RamaA
     }
     
 }

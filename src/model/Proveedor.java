@@ -17,6 +17,7 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Proveedor extends Persona implements Serializable{
+<<<<<<< HEAD
 //    private static final long serialVersionUID = 1L;
 ////porqué me pide esto?
 //    public static long getSerialVersionUID() {
@@ -24,10 +25,18 @@ public class Proveedor extends Persona implements Serializable{
 //    }
     @Basic 
     private int nroProveedor;
+=======
+    private static final long serialVersionUID = 1L;
+//porqué me pide esto?
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+>>>>>>> refs/remotes/origin/RamaA
     @Basic
     private String razonSocial;
     
     @Basic 
+<<<<<<< HEAD
     private String nroCuit;
     
    
@@ -46,6 +55,23 @@ public class Proveedor extends Persona implements Serializable{
 
     public int getNroProveedor() {
         return nroProveedor;
+=======
+    private String nroCiut;
+    
+    @Basic 
+    private String nombreFantasia;
+    
+    @OneToOne
+    private SituacionTributaria unaSituaciontributaria;
+   
+ public Proveedor(){}
+
+    public Proveedor(String razonSocial, String nroCiut, String nombreFantasia, SituacionTributaria unaSituaciontributaria) {
+        this.razonSocial = razonSocial;
+        this.nroCiut = nroCiut;
+        this.nombreFantasia = nombreFantasia;
+        this.unaSituaciontributaria = unaSituaciontributaria;
+>>>>>>> refs/remotes/origin/RamaA
     }
 
     public String getRazonSocial() {
@@ -53,11 +79,23 @@ public class Proveedor extends Persona implements Serializable{
     }
 
     public String getNroCiut() {
+<<<<<<< HEAD
         return nroCuit;
     }
 
     public void setNroProveedor(int nroProveedor) {
         this.nroProveedor = nroProveedor;
+=======
+        return nroCiut;
+    }
+
+    public String getNombreFantasia() {
+        return nombreFantasia;
+    }
+
+    public SituacionTributaria getUnaSituaciontributaria() {
+        return unaSituaciontributaria;
+>>>>>>> refs/remotes/origin/RamaA
     }
 
     public void setRazonSocial(String razonSocial) {
@@ -65,7 +103,22 @@ public class Proveedor extends Persona implements Serializable{
     }
 
     public void setNroCiut(String nroCiut) {
+<<<<<<< HEAD
         this.nroCuit = nroCiut;
     }
    
 }
+=======
+        this.nroCiut = nroCiut;
+    }
+
+    public void setNombreFantasia(String nombreFantasia) {
+        this.nombreFantasia = nombreFantasia;
+    }
+
+    public void setUnaSituaciontributaria(SituacionTributaria unaSituaciontributaria) {
+        this.unaSituaciontributaria = unaSituaciontributaria;
+    }
+
+}
+>>>>>>> refs/remotes/origin/RamaA

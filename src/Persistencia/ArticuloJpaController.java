@@ -29,7 +29,11 @@ public class ArticuloJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     ArticuloJpaController() {
+<<<<<<< HEAD
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> refs/remotes/origin/RamaA
     }
 
     public EntityManager getEntityManager() {

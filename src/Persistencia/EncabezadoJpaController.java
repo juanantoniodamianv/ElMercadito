@@ -9,6 +9,6 @@ package Persistencia;
  *
  * @author daniel
  */
-public class EncabezadoJpaController {
+class EncabezadoJpaController {
     
 }

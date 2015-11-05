@@ -22,6 +22,10 @@ import model.Cajero;
  * @author daniel
  */
 public class CajeroJpaController implements Serializable {
+<<<<<<< HEAD
+=======
+    private static final long serialVersionUID = 1L;
+>>>>>>> refs/remotes/origin/RamaA
 
     public CajeroJpaController(EntityManagerFactory emf) {
         this.emf = emf;
@@ -29,7 +33,11 @@ public class CajeroJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     CajeroJpaController() {
+<<<<<<< HEAD
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> refs/remotes/origin/RamaA
     }
 
     public EntityManager getEntityManager() {

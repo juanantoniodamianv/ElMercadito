@@ -28,7 +28,11 @@ public class PagoJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     PagoJpaController() {
+<<<<<<< HEAD
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> refs/remotes/origin/RamaA
     }
 
     public EntityManager getEntityManager() {
@@ -124,6 +128,7 @@ public class PagoJpaController implements Serializable {
         } finally {
             em.close();
         }
+<<<<<<< HEAD
     }
 
     public int getPagoCount() {
@@ -138,5 +143,21 @@ public class PagoJpaController implements Serializable {
             em.close();
         }
     }
+=======
+    }
+
+    public int getPagoCount() {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            Root<Pago> rt = cq.from(Pago.class);
+            cq.select(em.getCriteriaBuilder().count(rt));
+            Query q = em.createQuery(cq);
+            return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+    }
+>>>>>>> refs/remotes/origin/RamaA
     
 }

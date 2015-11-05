@@ -21,11 +21,15 @@ import javax.persistence.OneToOne;
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Persona implements Serializable {
+<<<<<<< HEAD
 //    private static final long serialVersionUID = 1L;
 //
 //    public static long getSerialVersionUID() {
 //        return serialVersionUID;
 //    }
+=======
+    private static final long serialVersionUID = 1L;
+>>>>>>> refs/remotes/origin/RamaA
     @Id
       private String dni;
     @Basic
@@ -36,6 +40,7 @@ public class Persona implements Serializable {
     private String fechaNac;
     @Basic
     private String telefono;
+<<<<<<< HEAD
      @Basic
     private String condicionIva;
     @Basic
@@ -51,15 +56,33 @@ public class Persona implements Serializable {
     public Persona(){}
 
     public Persona(String dni, String apellido, String nombre, String fechaNac, String telefono, String condicionIva, String direccion, String provincia, String localidad) {
+=======
+    @OneToOne
+    private Direccion unaDireccion;
+    @OneToOne
+    private SituacionTributaria unaSituacionTributaria;
+    @OneToOne 
+    //en la viste podría i un desplegable para la provincia y otro desplegable para la localidad.(combos)
+    private Provincia unaProvincia;
+    
+    public Persona(){}
+
+    public Persona(String dni, String apellido, String nombre, String fechaNac, String telefono, SituacionTributaria unaSituacionTributaria, Provincia unaProvincia) {
+>>>>>>> refs/remotes/origin/RamaA
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
         this.fechaNac = fechaNac;
         this.telefono = telefono;
+<<<<<<< HEAD
         this.condicionIva = condicionIva;
         this.direccion = direccion;
         this.provincia = provincia;
         this.localidad = localidad;
+=======
+        this.unaSituacionTributaria = unaSituacionTributaria;
+        this.unaProvincia = unaProvincia;
+>>>>>>> refs/remotes/origin/RamaA
     }
 
     public String getDni() {
@@ -122,6 +145,7 @@ public class Persona implements Serializable {
         this.condicionIva = condicionIva;
     }
 
+<<<<<<< HEAD
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
@@ -138,3 +162,23 @@ public class Persona implements Serializable {
     }
 
     
+=======
+    public Direccion getUnaDireccion() {
+        return unaDireccion;
+    }
+
+    public Provincia getUnaProvincia() {
+        return unaProvincia;
+    }
+
+    public void setUnaDireccion(Direccion unaDireccion) {
+        this.unaDireccion = unaDireccion;
+    }
+
+    public void setUnaProvincia(Provincia unaProvincia) {
+        this.unaProvincia = unaProvincia;
+    }
+
+    
+}
+>>>>>>> refs/remotes/origin/RamaA

@@ -29,7 +29,11 @@ public class EmpleadoJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     EmpleadoJpaController() {
+<<<<<<< HEAD
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> refs/remotes/origin/RamaA
     }
 
     public EntityManager getEntityManager() {
@@ -130,6 +134,7 @@ public class EmpleadoJpaController implements Serializable {
         } finally {
             em.close();
         }
+<<<<<<< HEAD
     }
 
     public int getEmpleadoCount() {
@@ -144,5 +149,21 @@ public class EmpleadoJpaController implements Serializable {
             em.close();
         }
     }
+=======
+    }
+
+    public int getEmpleadoCount() {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            Root<Empleado> rt = cq.from(Empleado.class);
+            cq.select(em.getCriteriaBuilder().count(rt));
+            Query q = em.createQuery(cq);
+            return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+    }
+>>>>>>> refs/remotes/origin/RamaA
     
 }

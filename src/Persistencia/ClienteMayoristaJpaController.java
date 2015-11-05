@@ -29,7 +29,11 @@ public class ClienteMayoristaJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     ClienteMayoristaJpaController() {
+<<<<<<< HEAD
         
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> refs/remotes/origin/RamaA
     }
 
     public EntityManager getEntityManager() {

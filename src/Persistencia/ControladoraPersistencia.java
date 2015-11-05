@@ -53,13 +53,18 @@ import model.VentaMinorista;
 
 import Persistencia.exceptions.NonexistentEntityException;
 import Persistencia.exceptions.PreexistingEntityException;
+import java.util.LinkedList;
 import java.util.List;
 // * @author daniel
 
 public class ControladoraPersistencia {
     
     public ControladoraPersistencia() {
+<<<<<<< HEAD
 //        this.articuloPersistencia = new ArticuloJpaController();
+=======
+        this.articuloPersistencia = new ArticuloJpaController();
+>>>>>>> refs/remotes/origin/RamaA
     }
     ArticuloJpaController articuloPersistencia;
     BultoJpaController bultoPersistencia=new BultoJpaController();
@@ -115,8 +120,8 @@ public class ControladoraPersistencia {
     public void BorrarArticuloPersis(int id) throws NonexistentEntityException{
         this.articuloPersistencia.destroy(id);
     }
-    public ArrayList BuscarListaArticulos(){
-       return (ArrayList) this.articuloPersistencia.findArticuloEntities();
+    public List<Articulo> BuscarListaArticulos(){
+       return this.articuloPersistencia.findArticuloEntities();
     }
     /*public Articulo BuscarUnArticulo(String id){
         return this.articuloPersistencia.findArticulo(id);
@@ -131,7 +136,7 @@ public class ControladoraPersistencia {
     public void BorrarBultoPersis(String id) throws NonexistentEntityException{
         this.bultoPersistencia.destroy(id);
     }
-    public List BuscarListaBultos(){
+    public List<Bulto> BuscarListaBultos(){
        return this.bultoPersistencia.findBultoEntities();
     }
     public Bulto BuscarUnBulto(String id){
@@ -149,7 +154,7 @@ public class ControladoraPersistencia {
     public void BorrarCajaPersis(int id) throws NonexistentEntityException{
         this.cajaPersistencia.destroy(id);
     }
-    public List BuscarListaCajas(){
+    public List<Caja> BuscarListaCajas(){
        return this.cajaPersistencia.findCajaEntities();
     }
     public Caja BuscarUnaCaja(int id){
@@ -167,7 +172,7 @@ public class ControladoraPersistencia {
     public void BorrarCajeroPersis(int id) throws NonexistentEntityException{
         this.cajeroPersistencia.destroy(id);
     }
-    public List BuscarListaCajeros(){
+    public List<Cajero> BuscarListaCajeros(){
        return this.cajeroPersistencia.findCajeroEntities();
     }
     public Cajero BuscarUnCajero(String id){
@@ -184,7 +189,7 @@ public class ControladoraPersistencia {
     public void BorrarClientePersis(int id) throws NonexistentEntityException{
         this.clientePersistencia.destroy(id);
     }
-    public List BuscarListaClientes(){
+    public List<Cliente> BuscarListaClientes(){
        return this.clientePersistencia.findClienteEntities();
     }
     public Object BuscarUnCliente(String id){
@@ -203,7 +208,7 @@ public class ControladoraPersistencia {
     public void BorrarProveedorPersis(int id) throws NonexistentEntityException{
         this.proveedorPersistencia.destroy(id);
     }
-    public List BuscarListaProveedores(){
+    public List<Proveedor> BuscarListaProveedores(){
        return this.proveedorPersistencia.findProveedorEntities();
     }
     public Object BuscarUnProveedor(String id){
@@ -220,7 +225,7 @@ public class ControladoraPersistencia {
     public void BorrarPersonaPersis(int id) throws NonexistentEntityException{
         this.personaPersistencia.destroy(id);
     }
-    public List BuscarListapersonas(){
+    public List<Persona> BuscarListaPersonas(){
        return this.personaPersistencia.findPersonaEntities();
     }
     public Object BuscarUnPersona(String id){

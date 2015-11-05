@@ -29,7 +29,11 @@ public class ClienteMinoristaJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     ClienteMinoristaJpaController() {
+<<<<<<< HEAD
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> refs/remotes/origin/RamaA
     }
 
     public EntityManager getEntityManager() {
@@ -101,12 +105,21 @@ public class ClienteMinoristaJpaController implements Serializable {
 
     public List<ClienteMinorista> findClienteMinoristaEntities() {
         return findClienteMinoristaEntities(true, -1, -1);
+<<<<<<< HEAD
     }
 
     public List<ClienteMinorista> findClienteMinoristaEntities(int maxResults, int firstResult) {
         return findClienteMinoristaEntities(false, maxResults, firstResult);
     }
 
+=======
+    }
+
+    public List<ClienteMinorista> findClienteMinoristaEntities(int maxResults, int firstResult) {
+        return findClienteMinoristaEntities(false, maxResults, firstResult);
+    }
+
+>>>>>>> refs/remotes/origin/RamaA
     private List<ClienteMinorista> findClienteMinoristaEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {

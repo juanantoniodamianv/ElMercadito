@@ -29,7 +29,11 @@ public class GondolaJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     GondolaJpaController() {
+<<<<<<< HEAD
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> refs/remotes/origin/RamaA
     }
 
     public EntityManager getEntityManager() {
@@ -122,6 +126,7 @@ public class GondolaJpaController implements Serializable {
             em.close();
         }
     }
+<<<<<<< HEAD
 
     public Gondola findGondola(int id) {
         EntityManager em = getEntityManager();
@@ -132,6 +137,18 @@ public class GondolaJpaController implements Serializable {
         }
     }
 
+=======
+
+    public Gondola findGondola(int id) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(Gondola.class, id);
+        } finally {
+            em.close();
+        }
+    }
+
+>>>>>>> refs/remotes/origin/RamaA
     public int getGondolaCount() {
         EntityManager em = getEntityManager();
         try {

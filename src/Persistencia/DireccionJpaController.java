@@ -6,7 +6,6 @@
 package Persistencia;
 
 import Persistencia.exceptions.NonexistentEntityException;
-import Persistencia.exceptions.PreexistingEntityException;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -15,43 +14,35 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import model.SectorEstante;
+import model.Direccion;
 
 /**
  *
  * @author daniel
  */
-public class SectorEstanteJpaController implements Serializable {
+public class DireccionJpaController implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-    public SectorEstanteJpaController(EntityManagerFactory emf) {
+    public DireccionJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
 
-    SectorEstanteJpaController() {
-<<<<<<< HEAD
+    DireccionJpaController() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> refs/remotes/origin/RamaA
     }
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-    public void create(SectorEstante sectorEstante) throws PreexistingEntityException, Exception {
+    public void create(Direccion direccion) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(sectorEstante);
+            em.persist(direccion);
             em.getTransaction().commit();
-        } catch (Exception ex) {
-            if (findSectorEstante(sectorEstante.getNroSectorEstante()) != null) {
-                throw new PreexistingEntityException("SectorEstante " + sectorEstante + " already exists.", ex);
-            }
-            throw ex;
         } finally {
             if (em != null) {
                 em.close();
@@ -59,19 +50,19 @@ public class SectorEstanteJpaController implements Serializable {
         }
     }
 
-    public void edit(SectorEstante sectorEstante) throws NonexistentEntityException, Exception {
+    public void edit(Direccion direccion) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            sectorEstante = em.merge(sectorEstante);
+            direccion = em.merge(direccion);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                int id = sectorEstante.getNroSectorEstante();
-                if (findSectorEstante(id) == null) {
-                    throw new NonexistentEntityException("The sectorEstante with id " + id + " no longer exists.");
+                int id = direccion.getCodigo();
+                if (findDireccion(id) == null) {
+                    throw new NonexistentEntityException("The direccion with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -87,14 +78,14 @@ public class SectorEstanteJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            SectorEstante sectorEstante;
+            Direccion direccion;
             try {
-                sectorEstante = em.getReference(SectorEstante.class, id);
-                sectorEstante.getNroSectorEstante();
+                direccion = em.getReference(Direccion.class, id);
+                direccion.getCodigo();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The sectorEstante with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The direccion with id " + id + " no longer exists.", enfe);
             }
-            em.remove(sectorEstante);
+            em.remove(direccion);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -103,19 +94,19 @@ public class SectorEstanteJpaController implements Serializable {
         }
     }
 
-    public List<SectorEstante> findSectorEstanteEntities() {
-        return findSectorEstanteEntities(true, -1, -1);
+    public List<Direccion> findDireccionEntities() {
+        return findDireccionEntities(true, -1, -1);
     }
 
-    public List<SectorEstante> findSectorEstanteEntities(int maxResults, int firstResult) {
-        return findSectorEstanteEntities(false, maxResults, firstResult);
+    public List<Direccion> findDireccionEntities(int maxResults, int firstResult) {
+        return findDireccionEntities(false, maxResults, firstResult);
     }
 
-    private List<SectorEstante> findSectorEstanteEntities(boolean all, int maxResults, int firstResult) {
+    private List<Direccion> findDireccionEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(SectorEstante.class));
+            cq.select(cq.from(Direccion.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -127,20 +118,20 @@ public class SectorEstanteJpaController implements Serializable {
         }
     }
 
-    public SectorEstante findSectorEstante(int id) {
+    public Direccion findDireccion(int id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(SectorEstante.class, id);
+            return em.find(Direccion.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getSectorEstanteCount() {
+    public int getDireccionCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<SectorEstante> rt = cq.from(SectorEstante.class);
+            Root<Direccion> rt = cq.from(Direccion.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
