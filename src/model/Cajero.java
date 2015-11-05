@@ -9,7 +9,6 @@ package model;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 
 /**
  *
@@ -17,33 +16,33 @@ import javax.persistence.Id;
  */
 @Entity
 public class Cajero extends Empleado implements Serializable{
-    @Id
-    private int nroCajero;
     @Basic
     private int nroCajaAsignada;
     
     public Cajero(){}
 
-    public Cajero(int nroCajero, int nroCajaAsignada, String sexo, int edad, String estadoCivil, String antiguedadAños, String apellido, String nombre, String cuil, String fechaNac, SituacionTributaria unaSituacionTributaria) {
-        super(sexo, edad, estadoCivil, antiguedadAños, apellido, nombre, cuil, fechaNac, unaSituacionTributaria);
-        this.nroCajero = nroCajero;
+    public Cajero(int nroCajaAsignada) {
         this.nroCajaAsignada = nroCajaAsignada;
     }
 
-    public int getNroCajero() {
-        return nroCajero;
+    public Cajero(int nroCajaAsignada, String apellido, String nombre, String fechaNac, String sexo, String estadoCivil, String fechaIngreso, String cargo) {
+        super(apellido, nombre, fechaNac, sexo, estadoCivil, fechaIngreso, cargo);
+        this.nroCajaAsignada = nroCajaAsignada;
+    }
+
+    public Cajero(int nroCajaAsignada, String apellido, String nombre, String fechaNac, String sexo, String estadoCivil, String fechaIngreso, String cargo, String idPersona, String telefono, String direccion, String localidad, String provincia) {
+        super(apellido, nombre, fechaNac, sexo, estadoCivil, fechaIngreso, cargo, idPersona, telefono, direccion, localidad, provincia);
+        this.nroCajaAsignada = nroCajaAsignada;
     }
 
     public int getNroCajaAsignada() {
         return nroCajaAsignada;
     }
 
-    public void setNroCajero(int nroCajero) {
-        this.nroCajero = nroCajero;
-    }
-
     public void setNroCajaAsignada(int nroCajaAsignada) {
         this.nroCajaAsignada = nroCajaAsignada;
     }
+    
+    
     
 }

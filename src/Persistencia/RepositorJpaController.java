@@ -44,7 +44,7 @@ public class RepositorJpaController implements Serializable{
             em.persist(repositor);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (null != findRepositor(repositor.getDni())) {
+            if (null != findRepositor(repositor.getIdPersona())) {
                 throw new PreexistingEntityException("Repositor " + repositor + " already exists.", ex);
             }
             throw ex;
@@ -66,7 +66,7 @@ public class RepositorJpaController implements Serializable{
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                String id = repositor.getDni();
+                String id = repositor.getIdPersona();
                 if (findRepositor(id) == null) {
                     throw new NonexistentEntityException("The repositor with id " + id+ " no longer exists.");
                 }
@@ -97,7 +97,7 @@ public class RepositorJpaController implements Serializable{
             Repositor repositor;
             try {
                 repositor = em.getReference(Repositor.class, id);
-                repositor.getDni();
+                repositor.getIdPersona();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The repositor with nroCliente " + id + " no longer exists.", enfe);
             }

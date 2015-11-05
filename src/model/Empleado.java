@@ -16,68 +16,98 @@ import javax.persistence.Entity;
  */
  @Entity
 public class Empleado extends Persona implements Serializable{
-     @Basic
+    @Basic
+    private String apellido;
+    @Basic
+    private String nombre;
+    @Basic
+    private String fechaNac;
+    @Basic
     private String sexo;
-     @Basic
-    private int edad;
-     @Basic
+    @Basic
     private String estadoCivil;
-     @Basic
-    private String antiguedadAnos;
-     @Basic
-    private String situacionTrib;
+    @Basic
+    private String fechaIngreso;
+    @Basic
+    private String cargo;
     
     public Empleado(){}
 
-
-
-    public Empleado(String sexo, int edad, String estadoCivil, String antiguedadAnos, String apellido, String nombre, String cuil, String fechaNac, String situacionTrib) {
-//        super(apellido, nombre, dni, fechaNac, unaSituacionTributaria);
+    public Empleado(String apellido, String nombre, String fechaNac, String sexo, String estadoCivil, String fechaIngreso, String cargo) {
+        this.apellido = apellido;
+        this.nombre = nombre;
+        this.fechaNac = fechaNac;
         this.sexo = sexo;
-        this.edad = edad;
         this.estadoCivil = estadoCivil;
-        this.antiguedadAnos = antiguedadAnos;
-        this.situacionTrib = situacionTrib;
+        this.fechaIngreso = fechaIngreso;
+        this.cargo = cargo;
+    }
+
+    public Empleado(String apellido, String nombre, String fechaNac, String sexo, String estadoCivil, String fechaIngreso, String cargo, String idPersona, String telefono, String direccion, String localidad, String provincia) {
+        super(idPersona, telefono, direccion, localidad, provincia);
+        this.apellido = apellido;
+        this.nombre = nombre;
+        this.fechaNac = fechaNac;
+        this.sexo = sexo;
+        this.estadoCivil = estadoCivil;
+        this.fechaIngreso = fechaIngreso;
+        this.cargo = cargo;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getFechaNac() {
+        return fechaNac;
+    }
+
+    public void setFechaNac(String fechaNac) {
+        this.fechaNac = fechaNac;
     }
 
     public String getSexo() {
         return sexo;
     }
 
-    public int getEdad() {
-        return edad;
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     public String getEstadoCivil() {
         return estadoCivil;
     }
 
-    public String getAntiguedadAnos() {
-        return antiguedadAnos;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
     public void setEstadoCivil(String estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
 
-    public void setAntiguedadAnos(String antiguedadAnos) {
-        this.antiguedadAnos = antiguedadAnos;
+    public String getFechaIngreso() {
+        return fechaIngreso;
     }
 
-    public String getSituacionTrib() {
-        return situacionTrib;
+    public void setFechaIngreso(String fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
     }
 
-    public void setSituacionTrib(String situacionTrib) {
-        this.situacionTrib = situacionTrib;
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
     
     

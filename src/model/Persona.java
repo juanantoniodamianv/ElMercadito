@@ -21,67 +21,33 @@ import javax.persistence.Inheritance;
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Persona implements Serializable {
-    private static final long serialVersionUID = 1L;
     @Id
-      private String dni;
-    @Basic
-    private String apellido;
-    @Basic
-    private String nombre;
-    @Basic
-    private String fechaNac;
+    private String idPersona;
     @Basic
     private String telefono;
-    @OneToOne
+    @Basic
     private String direccion;
-    @OneToOne
+    @Basic
     private String localidad;
-    @OneToOne 
+    @Basic 
     private String provincia;
     
     public Persona(){}
 
-    public Persona(String dni, String apellido, String nombre, String fechaNac, String telefono, String direccion, String localidad, String provincia) {
-        this.dni = dni;
-        this.apellido = apellido;
-        this.nombre = nombre;
-        this.fechaNac = fechaNac;
+    public Persona(String idPersona, String telefono, String direccion, String localidad, String provincia) {
+        this.idPersona = idPersona;
         this.telefono = telefono;
         this.direccion = direccion;
         this.localidad = localidad;
         this.provincia = provincia;
     }
 
-    public String getDni() {
-        return dni;
+    public String getIdPersona() {
+        return idPersona;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getFechaNac() {
-        return fechaNac;
-    }
-
-    public void setFechaNac(String fechaNac) {
-        this.fechaNac = fechaNac;
+    public void setIdPersona(String idPersona) {
+        this.idPersona = idPersona;
     }
 
     public String getTelefono() {
@@ -115,5 +81,6 @@ public class Persona implements Serializable {
     public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
+    
 
 }

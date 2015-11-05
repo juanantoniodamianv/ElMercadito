@@ -16,34 +16,51 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Cliente extends Persona implements Serializable{
-        private String nroCliente;
+    @Basic
+        private String apellido;
+    @Basic
+        private String nombre;
     @Basic
         private String tipoCliente;
     @Basic
-        private String razonSocial;
-    @Basic
-        private String cuit;
+        private String razonSocial; //Predeterminado es NULL si es tipoCliente: Minorista
     @Basic
         private String ivaCondicion;
 
     public Cliente() {
     }
 
-    public Cliente(String nroCliente, String tipoCliente, String razonSocial, String cuit, String ivaCondicion, String dni, String apellido, String nombre, String fechaNac, String telefono, Direccion unaDireccion, Localidad unaLocalidad, Provincia unaProvincia) {
-        super(dni, apellido, nombre, fechaNac, telefono, unaDireccion, unaLocalidad, unaProvincia);
-        this.nroCliente = nroCliente;
+    public Cliente(String apellido, String nombre, String tipoCliente, String razonSocial, String ivaCondicion) {
+        this.apellido = apellido;
+        this.nombre = nombre;
         this.tipoCliente = tipoCliente;
         this.razonSocial = razonSocial;
-        this.cuit = cuit;
         this.ivaCondicion = ivaCondicion;
     }
 
-    public String getNroCliente() {
-        return nroCliente;
+    public Cliente(String apellido, String nombre, String tipoCliente, String razonSocial, String ivaCondicion, String idPersona, String telefono, String direccion, String localidad, String provincia) {
+        super(idPersona, telefono, direccion, localidad, provincia);
+        this.apellido = apellido;
+        this.nombre = nombre;
+        this.tipoCliente = tipoCliente;
+        this.razonSocial = razonSocial;
+        this.ivaCondicion = ivaCondicion;
     }
 
-    public void setNroCliente(String nroCliente) {
-        this.nroCliente = nroCliente;
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getTipoCliente() {
@@ -62,14 +79,6 @@ public class Cliente extends Persona implements Serializable{
         this.razonSocial = razonSocial;
     }
 
-    public String getCuit() {
-        return cuit;
-    }
-
-    public void setCuit(String cuit) {
-        this.cuit = cuit;
-    }
-
     public String getIvaCondicion() {
         return ivaCondicion;
     }
@@ -78,6 +87,7 @@ public class Cliente extends Persona implements Serializable{
         this.ivaCondicion = ivaCondicion;
     }
 
+    
     
     
 }

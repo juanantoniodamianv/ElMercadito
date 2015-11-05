@@ -34,7 +34,7 @@ public class Sucursal implements Serializable {
     @OneToOne
     private Deposito unDeposito;
      @OneToOne
-    private Direccion unaDireccion;
+    private String direccion;
      @OneToMany
     private ArrayList<Persona> listaPersonas;
      @OneToMany
@@ -79,8 +79,8 @@ public class Sucursal implements Serializable {
         return unDeposito;
     }
 
-    public Direccion getUnaDireccion() {
-        return unaDireccion;
+    public String getDireccion() {
+        return direccion;
     }
 
     public ArrayList<Persona> getListaPersonas() {
@@ -115,8 +115,8 @@ public class Sucursal implements Serializable {
         this.unDeposito = unDeposito;
     }
 
-    public void setUnaDireccion(Direccion unaDireccion) {
-        this.unaDireccion = unaDireccion;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public void setListaPersonas(ArrayList<Persona> listaPersonas) {

@@ -77,8 +77,8 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPanel17" max="32767" attributes="0"/>
-                          <Component id="jPanel8" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jPanel8" max="32767" attributes="0"/>
+                          <Component id="jPanel17" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -88,9 +88,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jPanel17" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="88" max="32767" attributes="0"/>
+                      <EmptySpace pref="42" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -131,9 +131,9 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel12" pref="204" max="32767" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="jPanel12" pref="230" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnGuardarProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnNuevoProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -152,6 +152,9 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="Datos del proveedor">
+                          <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                            <MatteColorBorder/>
+                          </Border>
                           <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                         </TitledBorder>
                       </Border>
@@ -166,36 +169,30 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jPanel14" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="lblCuitProveedor" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="txtCuitProveedor" min="-2" pref="90" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="lblRazonSocialProveedor" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="txtRazonSocialProveedor" min="-2" pref="148" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="lblSituacTribProveedor" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
                                               <Component id="lblTipoProveeduriaProveedor" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="txtTipoProveeduriaProveedor" min="-2" pref="155" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="lblCuitProveedor" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="txtCuitProveedor" min="-2" pref="90" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="lblSituacTribProveedor" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="cmbSituacTribProveedor" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
                                               <Component id="lblTelProveedor" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="txtTelProveedor" min="-2" pref="144" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="cmbSituacTribProveedor" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -206,12 +203,12 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtCuitProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCuitProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblRazonSocialProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtRazonSocialProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCuitProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtCuitProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblSituacTribProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cmbSituacTribProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -226,9 +223,9 @@
                                       <Component id="txtTipoProveeduriaProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Component id="jPanel14" min="-2" pref="96" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -278,7 +275,11 @@
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                            <TitledBorder title="Domicilio"/>
+                            <TitledBorder title="Domicilio">
+                              <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                                <MatteColorBorder/>
+                              </Border>
+                            </TitledBorder>
                           </Border>
                         </Property>
                       </Properties>
@@ -288,41 +289,24 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="lblCalleProveedor" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtCalleProveedor" min="-2" pref="149" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                           <Component id="lblProvinciaProveedor" min="-2" pref="61" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jComboBox1" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                          <Component id="lblNroCalleProveedor" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtNroCalleProveedor" min="-2" pref="33" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblDptoProveedor" min="-2" pref="33" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtDptoProveedor" min="-2" pref="30" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="lblPisoProveedor" min="-2" pref="33" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtPisoProveedor" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="txtProvinciaProveedor" min="-2" pref="125" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="lblLocalidadProveedor" min="-2" pref="59" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtLocalidadProveedor" min="-2" pref="141" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="lblLocalidadProveedor" min="-2" pref="59" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jComboBox2" min="-2" pref="133" max="-2" attributes="0"/>
+                                          <Component id="lblDireccionProveedor" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="txtDireccionProveedor" min="-2" pref="363" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="209" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -331,24 +315,18 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblCalleProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtCalleProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblNroCalleProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtNroCalleProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblDptoProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtDptoProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblPisoProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtPisoProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblDireccionProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtDireccionProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblLocalidadProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtLocalidadProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblProvinciaProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtProvinciaProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
@@ -357,44 +335,14 @@
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JLabel" name="lblCalleProveedor">
+                        <Component class="javax.swing.JLabel" name="lblDireccionProveedor">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="Calle/Avenida:"/>
+                            <Property name="text" type="java.lang.String" value="Direcci&#xf3;n:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtCalleProveedor">
+                        <Component class="javax.swing.JTextField" name="txtDireccionProveedor">
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCalleProveedorActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="txtNroCalleProveedor">
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNroCalleProveedorActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="lblNroCalleProveedor">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Nro:"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="lblDptoProveedor">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Dpto:"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="txtDptoProveedor">
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDptoProveedorActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="lblPisoProveedor">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Piso:"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="txtPisoProveedor">
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPisoProveedorActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDireccionProveedorActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="lblProvinciaProveedor">
@@ -407,19 +355,9 @@
                             <Property name="text" type="java.lang.String" value="Localidad:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="jComboBox1">
-                          <Properties>
-                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="0"/>
-                            </Property>
-                          </Properties>
+                        <Component class="javax.swing.JTextField" name="txtProvinciaProveedor">
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="jComboBox2">
-                          <Properties>
-                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="0"/>
-                            </Property>
-                          </Properties>
+                        <Component class="javax.swing.JTextField" name="txtLocalidadProveedor">
                         </Component>
                       </SubComponents>
                     </Container>
@@ -495,7 +433,9 @@
                                   <Component id="lblBuscarProveedor" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="txtBuscarProveedor" min="-2" pref="193" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="424" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -509,9 +449,10 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtBuscarProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblBuscarProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane4" pref="157" max="32767" attributes="0"/>
+                          <Component id="jScrollPane4" pref="247" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -538,42 +479,10 @@
                     <Component class="javax.swing.JTable" name="tblProveedor">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="8">
-                            <Column editable="false" title="#" type="java.lang.Object"/>
-                            <Column editable="true" title="Apellido" type="java.lang.Object"/>
-                            <Column editable="true" title="Nombre" type="java.lang.Object"/>
-                            <Column editable="false" title="DNI" type="java.lang.Object"/>
-                            <Column editable="true" title="Razon Social" type="java.lang.Object"/>
-                          </Table>
+                          <Table columnCount="0" rowCount="8"/>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                          <TableColumnModel selectionModel="0">
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                          </TableColumnModel>
+                          <TableColumnModel selectionModel="0"/>
                         </Property>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -582,6 +491,14 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JButton" name="jButton1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cargar Proveedores"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -602,7 +519,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel9" max="32767" attributes="0"/>
-                          <Component id="jPanel7" max="32767" attributes="0"/>
+                          <Component id="jPanel7" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -613,9 +530,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace pref="34" max="32767" attributes="0"/>
                       <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -755,7 +672,7 @@
                                   <Component id="btnEliminarCliente" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btnCancelarCliente" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="121" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
@@ -785,7 +702,7 @@
                               <Component id="btnCancelarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnEliminarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="22" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -796,6 +713,9 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="Datos personales">
+                          <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                            <MatteColorBorder/>
+                          </Border>
                           <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                         </TitledBorder>
                       </Border>
@@ -807,62 +727,46 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="lblTipoCliente" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="cmbTipoCliente" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="lblDniCliente" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="txtlNroDniCliente" min="-2" pref="106" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lblTipoCliente" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="cmbTipoCliente" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                      <Component id="lblCuitCliente" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtCuitCliente" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                      <Component id="lblRazonSocialCliente" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="ttRazonSocialCliente" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="lblApellidoCliente" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="txtApellidoCliente" min="-2" pref="108" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="txtApellidoCliente" min="-2" pref="160" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="lblCuitCliente" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblCondIva" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="txtCuitCliente" min="-2" pref="110" max="-2" attributes="0"/>
+                                              <Component id="cmbCondIva" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblRazonSocialCliente" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblNombreCliente" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblTelCliente" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtNombreCliente" pref="175" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="ttRazonSocialCliente" max="32767" attributes="0"/>
-                                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                                          </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="txtTelCliente" max="32767" attributes="0"/>
+                                          <Component id="txtNombreCliente" max="32767" attributes="0"/>
                                       </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblFechaNacCliente" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtFechaNacCliente" min="-2" pref="62" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lblCondIva" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="cmbCondIva" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lblTelCliente" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtTelCliente" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -884,13 +788,9 @@
                                   <Component id="txtApellidoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtNombreCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblNombreCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblDniCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtlNroDniCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblFechaNacCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtFechaNacCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblCondIva" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cmbCondIva" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblTelCliente" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -922,28 +822,6 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreClienteActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblFechaNacCliente">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Fecha de nacimiento:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JFormattedTextField" name="txtFechaNacCliente">
-                      <Properties>
-                        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                          <Format subtype="0" type="1"/>
-                        </Property>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="lblDniCliente">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="N&#xb0; DNI:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtlNroDniCliente">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtlNroDniClienteActionPerformed"/>
-                      </Events>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="lblTipoCliente">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Tipo cliente:"/>
@@ -961,7 +839,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblCuitCliente">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="N&#xb0; CUIT:"/>
+                        <Property name="text" type="java.lang.String" value="N&#xb0; DNI/CUIT:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCuitCliente">
@@ -1013,6 +891,9 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="Domicilio">
+                          <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                            <MatteColorBorder/>
+                          </Border>
                           <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                         </TitledBorder>
                       </Border>
@@ -1024,37 +905,22 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="lblCalleCliente" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblDireccionCliente" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="txtCalleCliente" min="-2" pref="149" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                      <Component id="lblNroCalleCliente" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtNroCalleCliente" min="-2" pref="33" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="lblProvinciaCliente" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="cmbProvinciaCliente" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtProvinciaCliente" min="-2" pref="148" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="lblLocalidadCliente" min="-2" pref="59" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblDptoCliente" min="-2" pref="33" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtDptoCliente" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lblPisoCliente" min="-2" pref="33" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtPisoCliente" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="cmbLocalidadCliente" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="txtLocalidadCliente" min="-2" pref="148" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1064,70 +930,34 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblCalleCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDireccionCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtCalleCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNroCalleCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNroCalleCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblDptoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtDptoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblPisoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtPisoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="lblProvinciaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cmbProvinciaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtProvinciaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="lblLocalidadCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cmbLocalidadCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtLocalidadCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="18" max="32767" attributes="0"/>
+                              <EmptySpace pref="21" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="lblCalleCliente">
+                    <Component class="javax.swing.JLabel" name="lblDireccionCliente">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Calle/Avenida:"/>
+                        <Property name="text" type="java.lang.String" value="Direccion:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCalleCliente">
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCalleClienteActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtNroCalleCliente">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNroCalleClienteActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="lblNroCalleCliente">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Nro:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="lblDptoCliente">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Dpto:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtDptoCliente">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDptoClienteActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="lblPisoCliente">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Piso:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtPisoCliente">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPisoClienteActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblProvinciaCliente">
@@ -1140,22 +970,12 @@
                         <Property name="text" type="java.lang.String" value="Localidad:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="cmbProvinciaCliente">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="0"/>
-                        </Property>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="txtProvinciaCliente">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbProvinciaClienteActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtProvinciaClienteActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="cmbLocalidadCliente">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="0"/>
-                        </Property>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="txtLocalidadCliente">
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1203,30 +1023,10 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPanel21" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jPanel25" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jPanel23" max="32767" attributes="0"/>
+                          <Component id="jPanel21" max="32767" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel23" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
-                      <Component id="btnNuevoEmpleado" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnEditarEmpleado" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      <Component id="btnGuardarEmpleado" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="btnEliminarEmpleado" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnCancelarEmpleado" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1235,19 +1035,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Component id="jPanel21" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel25" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnGuardarEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnNuevoEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnEditarEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnCancelarEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnEliminarEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="jPanel23" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                      <EmptySpace pref="60" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1258,6 +1048,9 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="Datos personales">
+                      <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder/>
+                      </Border>
                       <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
@@ -1267,53 +1060,11 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblSexoEmpleado" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="cmbSexoEmpleado" min="-2" pref="85" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblNroDocEmpleado" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="txtNroDocEmpleado" min="-2" pref="110" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="lblEstadoCivilEmpleado" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="cmbEstadoCivilEmpleado" min="-2" pref="79" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                                                  <Component id="lblFechaIngEmpleado" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="txtlFechaIngEmpleado" min="-2" pref="70" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="lblAreaEmpleado" min="-2" pref="41" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="txtAreaEmpleado" min="-2" pref="152" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <Component id="lblCuilEmpleado" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblCargoEmpleado" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtCargoEmpleado" min="-2" pref="110" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="txtCuilEmpleado" alignment="1" min="-2" pref="161" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="lblApellidoEmpleado" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1322,19 +1073,56 @@
                                           <Component id="lblNombreEmpleado" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="txtNombreEmpleado" min="-2" pref="160" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="lblFechaNacEmpleado" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="txtFechaNacEmpleado" min="-2" pref="70" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="lblCargoEmpleado" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="txtCargoEmpleado" min="-2" pref="198" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="lblCuilEmpleado" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="txtCuilEmpleado" min="-2" pref="110" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="lblSexoEmpleado" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="cmbSexoEmpleado" min="-2" pref="85" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="lblEstadoCivilEmpleado" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="cmbEstadoCivilEmpleado" min="-2" pref="79" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="lblFechaIngEmpleado" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="txtlFechaIngEmpleado" min="-2" pref="70" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lblFechaNacEmpleado" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtFechaNacEmpleado" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblEdadEmpleado" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtEdadEmpleado" min="-2" pref="24" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
+                              <Component id="jPanel13" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="41" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
+                          <Component id="btnNuevoEmpleado" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnEditarEmpleado" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          <Component id="btnGuardarEmpleado" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Component id="btnEliminarEmpleado" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnCancelarEmpleado" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1349,17 +1137,8 @@
                               <Component id="txtNombreEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblFechaNacEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtFechaNacEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblEdadEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtEdadEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="13" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblNroDocEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtNroDocEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblCuilEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCuilEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblSexoEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="cmbSexoEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1367,15 +1146,25 @@
                               <Component id="cmbEstadoCivilEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblFechaIngEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtlFechaIngEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCuilEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCuilEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblCargoEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblAreaEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtAreaEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtCargoEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnGuardarEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnNuevoEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnEditarEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnCancelarEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnEliminarEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1413,16 +1202,6 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtNroDocEmpleado">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNroDocEmpleadoActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblNroDocEmpleado">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="N&#xb0; DNI:"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JLabel" name="lblCuilEmpleado">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="N&#xb0; CUIL:"/>
@@ -1447,16 +1226,6 @@
                       </StringArray>
                     </Property>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblEdadEmpleado">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Edad:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtEdadEmpleado">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEdadEmpleadoActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblEstadoCivilEmpleado">
                   <Properties>
@@ -1503,177 +1272,132 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCargoEmpleadoActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblAreaEmpleado">
+                <Container class="javax.swing.JPanel" name="jPanel13">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Area:"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Domicilio">
+                          <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                            <MatteColorBorder/>
+                          </Border>
+                          <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                        </TitledBorder>
+                      </Border>
+                    </Property>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtAreaEmpleado">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAreaEmpleadoActionPerformed"/>
-                  </Events>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanel25">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Domicilio">
-                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
-                    </TitledBorder>
-                  </Border>
-                </Property>
-              </Properties>
 
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblCalleEmpleado2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtCalleEmpleado2" min="-2" pref="149" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                  <Component id="lblNroCalleEmpleado2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtNroCalleEmpleado2" min="-2" pref="33" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="lblDptoEmpleado2" min="-2" pref="33" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtDptoEmpleado2" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lblPisoEmpleado2" min="-2" pref="33" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtPisoEmpleado2" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblDireccionEmpleado" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="txtDireccionEmpleado" min="-2" pref="149" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblProvinciaEmpleado" min="-2" pref="61" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtProvinciaEmpleado" min="-2" pref="148" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lblLocalidadEmpleado" min="-2" pref="59" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblProvinciaEmpleado2" min="-2" pref="61" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtProvinciaEmpleado2" min="-2" pref="139" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                                  <Component id="lblLocalidadEmpleado2" min="-2" pref="59" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtLocalidadEmpleado2" max="32767" attributes="0"/>
-                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtLocalidadEmpleado" min="-2" pref="148" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblCalleEmpleado2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCalleEmpleado2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblNroCalleEmpleado2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtNroCalleEmpleado2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblDptoEmpleado2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtDptoEmpleado2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblPisoEmpleado2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtPisoEmpleado2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="lblProvinciaEmpleado2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtProvinciaEmpleado2" alignment="3" min="-2" max="-2" attributes="0"/>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblDireccionEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtDireccionEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="lblLocalidadEmpleado2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtLocalidadEmpleado2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="lblProvinciaEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtProvinciaEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="lblLocalidadEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtLocalidadEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
+                              <EmptySpace pref="21" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="lblCalleEmpleado2">
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="lblDireccionEmpleado">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Direccion:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtDireccionEmpleado">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDireccionEmpleadoActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblProvinciaEmpleado">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Provincia:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblLocalidadEmpleado">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Localidad:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtProvinciaEmpleado">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtProvinciaEmpleadoActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtLocalidadEmpleado">
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JButton" name="btnNuevoEmpleado">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Calle/Avenida:"/>
+                    <Property name="text" type="java.lang.String" value="Nuevo"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCalleEmpleado2">
+                <Component class="javax.swing.JButton" name="btnEditarEmpleado">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Editar"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnGuardarEmpleado">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Guardar"/>
+                  </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCalleEmpleadoActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarEmpleadoActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtNroCalleEmpleado2">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNroCalleEmpleadoActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblNroCalleEmpleado2">
+                <Component class="javax.swing.JButton" name="btnEliminarEmpleado">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Nro:"/>
+                    <Property name="text" type="java.lang.String" value="Eliminar"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblDptoEmpleado2">
+                <Component class="javax.swing.JButton" name="btnCancelarEmpleado">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Dpto:"/>
+                    <Property name="text" type="java.lang.String" value="Cancelar"/>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtDptoEmpleado2">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDptoEmpleadoActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblPisoEmpleado2">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Piso:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtPisoEmpleado2">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPisoEmpleadoActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblProvinciaEmpleado2">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Provincia:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtProvinciaEmpleado2">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtProvinciaEmpleadoActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblLocalidadEmpleado2">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Localidad:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtLocalidadEmpleado2">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLocalidadEmpleadoActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarEmpleadoActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btnNuevoEmpleado">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nuevo"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnEditarEmpleado">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Editar"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnGuardarEmpleado">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Guardar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarEmpleadoActionPerformed"/>
-              </Events>
-            </Component>
             <Container class="javax.swing.JPanel" name="jPanel23">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1689,7 +1413,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane5" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jScrollPane5" alignment="0" pref="673" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblBuscarEmpleado" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1783,19 +1507,6 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btnCancelarEmpleado">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarEmpleadoActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnEliminarEmpleado">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Eliminar"/>
-              </Properties>
-            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelArticulo">
@@ -1822,7 +1533,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="304" max="32767" attributes="0"/>
+                      <EmptySpace pref="355" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1860,7 +1571,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="459" max="32767" attributes="0"/>
+                          <EmptySpace pref="469" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

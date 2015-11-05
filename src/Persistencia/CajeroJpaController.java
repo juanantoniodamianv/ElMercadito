@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Persistencia;
 
 import Persistencia.exceptions.NonexistentEntityException;
@@ -19,10 +20,9 @@ import model.Cajero;
 
 /**
  *
- * @author daniel
+ * @author Antonio
  */
 public class CajeroJpaController implements Serializable {
-    private static final long serialVersionUID = 1L;
 
     public CajeroJpaController(EntityManagerFactory emf) {
         this.emf = emf;
@@ -45,7 +45,7 @@ public class CajeroJpaController implements Serializable {
             em.persist(cajero);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findCajero(cajero.getNroCajero()) != null) {
+            if (findCajero(cajero.getIdPersona()) != null) {
                 throw new PreexistingEntityException("Cajero " + cajero + " already exists.", ex);
             }
             throw ex;
@@ -66,7 +66,7 @@ public class CajeroJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                int id = cajero.getNroCajero();
+                String id = cajero.getIdPersona();
                 if (findCajero(id) == null) {
                     throw new NonexistentEntityException("The cajero with id " + id + " no longer exists.");
                 }
@@ -79,7 +79,7 @@ public class CajeroJpaController implements Serializable {
         }
     }
 
-    public void destroy(int id) throws NonexistentEntityException {
+    public void destroy(String id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -87,7 +87,7 @@ public class CajeroJpaController implements Serializable {
             Cajero cajero;
             try {
                 cajero = em.getReference(Cajero.class, id);
-                cajero.getNroCajero();
+                cajero.getIdPersona();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The cajero with id " + id + " no longer exists.", enfe);
             }
@@ -124,7 +124,7 @@ public class CajeroJpaController implements Serializable {
         }
     }
 
-    public Cajero findCajero(int id) {
+    public Cajero findCajero(String id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Cajero.class, id);
@@ -144,10 +144,6 @@ public class CajeroJpaController implements Serializable {
         } finally {
             em.close();
         }
-    }
-
-    Cajero findCajero(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

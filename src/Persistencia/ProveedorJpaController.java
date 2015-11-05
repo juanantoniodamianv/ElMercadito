@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import model.Proveedor;
@@ -23,14 +24,12 @@ import model.Proveedor;
  */
 public class ProveedorJpaController implements Serializable {
 
-    public ProveedorJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public ProveedorJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("El_mercaditoPU");
     }
     private EntityManagerFactory emf = null;
 
-    ProveedorJpaController() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -44,7 +43,7 @@ public class ProveedorJpaController implements Serializable {
             em.persist(proveedor);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findProveedor(proveedor.getDni()) != null) {
+            if (findProveedor(proveedor.getIdPersona()) != null) {
                 throw new PreexistingEntityException("Proveedor " + proveedor + " already exists.", ex);
             }
             throw ex;
@@ -65,7 +64,7 @@ public class ProveedorJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                String id = proveedor.getDni();
+                String id = proveedor.getIdPersona();
                 if (findProveedor(id) == null) {
                     throw new NonexistentEntityException("The proveedor with id " + id + " no longer exists.");
                 }
@@ -86,7 +85,7 @@ public class ProveedorJpaController implements Serializable {
             Proveedor proveedor;
             try {
                 proveedor = em.getReference(Proveedor.class, id);
-                proveedor.getDni();
+                proveedor.getIdPersona();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The proveedor with id " + id + " no longer exists.", enfe);
             }
@@ -123,10 +122,10 @@ public class ProveedorJpaController implements Serializable {
         }
     }
 
-    public Proveedor findProveedor(String id) {
+    public Proveedor findProveedor(String dni) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Proveedor.class, id);
+            return em.find(Proveedor.class, dni);
         } finally {
             em.close();
         }
@@ -144,9 +143,5 @@ public class ProveedorJpaController implements Serializable {
             em.close();
         }
     }
-
-//    void destroy(int id) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
     
 }

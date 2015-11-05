@@ -7,6 +7,7 @@
 package ElMercadito;
 import Persistencia.ArticuloJpaController;
 import Persistencia.CajaJpaController;
+import Persistencia.CajeroJpaController;
 import Persistencia.ControladoraPersistencia;
 import Persistencia.PersonaJpaController;
 import Persistencia.ProveedorJpaController;
@@ -16,6 +17,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import model.Articulo;
 import model.Caja;
+import model.Cajero;
 import model.Persona;
 import model.Proveedor;
 import model.Sucursal;
@@ -59,54 +61,66 @@ private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","ra
         EntityManagerFactory objFactory;
         objFactory = Persistence.createEntityManagerFactory("El_mercaditoPU");
         EntityManager manager = objFactory.createEntityManager();
-        
+        CajeroJpaController jpaCajero = new CajeroJpaController(objFactory);
+        Cajero unCajero = new Cajero();
+        unCajero.setIdPersona("2034221189");
+        unCajero.setApellido("Vargas");
+        unCajero.setNombre("Marcelo");
+        unCajero.setFechaNac("31-01-1989");
+        unCajero.setSexo("Masculino");
+        unCajero.setEstadoCivil("Soltero");
+        unCajero.setFechaIngreso("04-11-2015");
+        unCajero.setCargo("Cajero");
+        unCajero.setNroCajaAsignada(1);
+        jpaCajero.create(unCajero);
+       /*
         ArticuloJpaController jpa = new ArticuloJpaController(objFactory);
         List<Articulo> lista = jpa.findArticuloEntities();
         CajaJpaController jpaCaja = new CajaJpaController(objFactory);
         List<Caja> listaCaja = jpaCaja.findCajaEntities();
-        /*
+        */
         PersonaJpaController jpaPersona = new PersonaJpaController(objFactory);
         List<Persona> listaPersona = jpaPersona.findPersonaEntities();
-        ProveedorJpaController jpaProveedor = new ProveedorJpaController(objFactory);
-        List<Proveedor> listaProveedor = jpaProveedor.findProveedorEntities();
-        
-        
-         
-        Persona pers = new Persona();
-        pers.setDni("34826083");
-        pers.setNombre("Antonio");
-        pers.setApellido("Vargas");
-        pers.setDireccion("Chile 5815");
-        pers.setProvincia("Misiones");
-        pers.setLocalidad("Posadas");
-        pers.setTelefono("3764658407");
-        pers.setFechaNac("28-03-1991");
-        jpaPersona.create(pers);
-        
+        ProveedorJpaController jpaProveedor = new ProveedorJpaController();
+        List<Proveedor> listaProveedor = jpaProveedor.findProveedorEntities();       
+       
         Proveedor prov = new Proveedor();
-        
-        prov.setCuit("23348260839");
-        prov.setNroProveedor("1");
-        prov.setRazonSocial("Corsica S.A.");
+        prov.setRazonSocial("Pomaco S.A.");
         prov.setSituacionTributaria("Monotributista");
-                
-        jpaProveedor.create(prov);*/
+        prov.setTipoProveduria("Materiales de construcción");
+        prov.setIdPersona("21148774589");
+        prov.setTelefono("3764658945");
+        prov.setDireccion("España 3415");
+        prov.setLocalidad("Posadas");
+        prov.setProvincia("Misiones");
+        jpaProveedor.create(prov);
+        
+        Proveedor prov2 = new Proveedor();
+        prov2.setRazonSocial("Aniway S.A.");
+        prov2.setSituacionTributaria("Monotributista");
+        prov2.setTipoProveduria("Insumos informáticos");
+        prov2.setIdPersona("23148765439");
+        prov2.setTelefono("3764764387");
+        prov2.setDireccion("Colón 2021");
+        prov2.setLocalidad("Posadas");
+        prov2.setProvincia("Misiones");
+        jpaProveedor.create(prov2);
         
                 
                 
-                
+         /*       
         Articulo art = new Articulo();
-        art.setNroArticulo(15939);
+        art.setNroArticulo(3);
         art.setLote("22-09-2015");
         art.setFechaElabora("22-09-2015");
         art.setFechaExpira("15-11-2016");
         jpa.create(art);
         
         Caja caj = new Caja();
-        caj.setNroCaja(143);
-        jpaCaja.create(caj);
+        caj.setNroCaja(3);
+        jpaCaja.create(caj);*/
     }
-
+               
     
     public ElMercadito(ControladoraPersistencia unaControlPersistencia) {
         this.unaControlPersistencia = unaControlPersistencia;
@@ -122,9 +136,8 @@ private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","ra
         this.unaControlPersistencia = unaControlPersistencia;
     }
 
-    
+      
     }
     
 
     
-//   

@@ -9,7 +9,6 @@ package model;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 
 /**
  *
@@ -17,36 +16,26 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Proveedor extends Persona implements Serializable{
-    private static final long serialVersionUID = 1L;
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-    private String nroProveedor;
     @Basic
-    private String razonSocial;
-    
-    @Basic 
-    private String cuit;
-    
-    
+    private String razonSocial;    
     @Basic
     private String situacionTributaria;
+    @Basic
+    private String tipoProveduria;
    
  public Proveedor(){}
 
-    public Proveedor(String nroProveedor, String razonSocial, String cuit, String situacionTributaria, String dni, String apellido, String nombre, String fechaNac, String telefono, Direccion unaDireccion, Localidad unaLocalidad, Provincia unaProvincia) {
-        this.nroProveedor = nroProveedor;
+    public Proveedor(String razonSocial, String situacionTributaria, String tipoProveduria) {
         this.razonSocial = razonSocial;
-        this.cuit = cuit;
         this.situacionTributaria = situacionTributaria;
+        this.tipoProveduria = tipoProveduria;
     }
 
-    public String getNroProveedor() {
-        return nroProveedor;
-    }
-
-    public void setNroProveedor(String nroProveedor) {
-        this.nroProveedor = nroProveedor;
+    public Proveedor(String razonSocial, String situacionTributaria, String tipoProveduria, String idPersona, String telefono, String direccion, String localidad, String provincia) {
+        super(idPersona, telefono, direccion, localidad, provincia);
+        this.razonSocial = razonSocial;
+        this.situacionTributaria = situacionTributaria;
+        this.tipoProveduria = tipoProveduria;
     }
 
     public String getRazonSocial() {
@@ -57,14 +46,6 @@ public class Proveedor extends Persona implements Serializable{
         this.razonSocial = razonSocial;
     }
 
-    public String getCuit() {
-        return cuit;
-    }
-
-    public void setCuit(String cuit) {
-        this.cuit = cuit;
-    }
-
     public String getSituacionTributaria() {
         return situacionTributaria;
     }
@@ -72,6 +53,16 @@ public class Proveedor extends Persona implements Serializable{
     public void setSituacionTributaria(String situacionTributaria) {
         this.situacionTributaria = situacionTributaria;
     }
+
+    public String getTipoProveduria() {
+        return tipoProveduria;
+    }
+
+    public void setTipoProveduria(String tipoProveduria) {
+        this.tipoProveduria = tipoProveduria;
+    }
+
+    
    
 
 }
