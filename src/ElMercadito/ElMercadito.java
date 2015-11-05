@@ -22,11 +22,10 @@ import model.Sucursal;
  * @author Antonio
  */
 public class ElMercadito {
-private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","razon social","d");
-
+private static final  Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","razon social","d");
+private ControladoraVisual unaControladoraVisual = new ControladoraVisual();
+private  ControladoraPersistencia unaControladoraPersistencia = new ControladoraPersistencia();
    
-     private ControladoraVisual unaControladoraVisual = new ControladoraVisual();
-    private  ControladoraPersistencia unaControladoraPersistencia = new ControladoraPersistencia();
     
     public static void main(String[] args){
    ElMercadito unMercadito=new ElMercadito();
@@ -80,27 +79,18 @@ private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","ra
 //        jpaCaja.create(caj);
     }
 
-    private ElMercadito() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
  public Sucursal getUnaSucursal() {
         return unaSucursal;
     }
     
-    public ElMercadito(ControladoraPersistencia unaControladoraPersistencia) {
-        this.unaControladoraPersistencia = unaControladoraPersistencia;
-    }
-
-  
-
-
-    public ControladoraPersistencia getUnaControlPersistencia() {
+    public ControladoraPersistencia getUnaControladoraPersistencia() {
         return unaControladoraPersistencia;
     }
 
 
-    public void setUnaControladoraPersistencia(ControladoraPersistencia unaControlPersistencia) {
-        this.unaControladoraPersistencia = unaControlPersistencia;
+    public void setUnaControladoraPersistencia(ControladoraPersistencia unaControladoraPersistencia) {
+        this.unaControladoraPersistencia = unaControladoraPersistencia;
     }
 
     public ControladoraVisual getUnaControladoraVisual() {
@@ -112,9 +102,7 @@ private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","ra
         this.unaControladoraVisual = unaControladoraVisual;
     }
 
-    public void setUnaControlPersistencia(ControladoraPersistencia unaControlPersistencia) {
-        this.unaControladoraPersistencia = unaControlPersistencia;
-    }
+   
 
     
 

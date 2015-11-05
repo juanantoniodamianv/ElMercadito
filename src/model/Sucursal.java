@@ -24,7 +24,7 @@ import Persistencia.ControladoraPersistencia;
  */
 //@Entity
 
-public class Sucursal implements Serializable{
+public class Sucursal{
     private static final long serialVersionUID = 1L;
   
 
@@ -51,11 +51,12 @@ public class Sucursal implements Serializable{
 //    constructor nulo
     public Sucursal() {}
    
-    private static final ControladoraPersistencia persistencia= new ControladoraPersistencia();
+    public static final ControladoraPersistencia persistencia= new ControladoraPersistencia();
     
 //    constructor con parámetros
 
     public Sucursal(int nroSucursal, String cuil, String telefono, String razonSocial, String direccion) {
+        this();
         this.nroSucursal = nroSucursal;
         this.cuil = cuil;
         this.telefono = telefono;

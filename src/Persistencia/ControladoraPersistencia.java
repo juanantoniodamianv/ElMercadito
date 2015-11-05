@@ -57,8 +57,9 @@ import java.util.List;
 // * @author daniel
 
 public class ControladoraPersistencia {
+    
     public ControladoraPersistencia() {
-        this.articuloPersistencia = new ArticuloJpaController();
+//        this.articuloPersistencia = new ArticuloJpaController();
     }
     ArticuloJpaController articuloPersistencia;
     BultoJpaController bultoPersistencia=new BultoJpaController();
