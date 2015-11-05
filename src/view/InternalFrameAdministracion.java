@@ -41,6 +41,11 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     
     public InternalFrameAdministracion() {
         initComponents();
+<<<<<<< HEAD
+=======
+        CrearModelo2();
+        
+>>>>>>> parent of a15d371... Cambio dia Jueves 5/11 en la biblioteca
     }
 
     /**
@@ -563,6 +568,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             }
         });
 
+<<<<<<< HEAD
         btnEditarEmpleado1.setText("Modificar");
         btnEditarEmpleado1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -578,6 +584,13 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         });
 
         jButton1.setText("Cancelar");
+=======
+        btnEditarProveedor.setText("Editar");
+
+        btnGuardarProveedor.setText("Guardar");
+
+        btnCancelarProveedor.setText("Cancelar");
+>>>>>>> parent of a15d371... Cambio dia Jueves 5/11 en la biblioteca
 
         jButton2.setText("Salir");
 
@@ -1610,6 +1623,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarProveedorActionPerformed
 
+<<<<<<< HEAD
     private void txtNombreContactoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreContactoProveedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreContactoProveedorActionPerformed
@@ -1617,6 +1631,11 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private void txtApellidoContactoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoContactoProveedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoContactoProveedorActionPerformed
+=======
+    private void btnNuevoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNuevoProveedorActionPerformed
+>>>>>>> parent of a15d371... Cambio dia Jueves 5/11 en la biblioteca
 
     private void txtTelProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelProveedorActionPerformed
         // TODO add your handling code here:
@@ -1707,6 +1726,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private void txtProvinciaEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProvinciaEmpleadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtProvinciaEmpleadoActionPerformed
+<<<<<<< HEAD
 
     private void txtPisoEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPisoEmpleadoActionPerformed
         // TODO add your handling code here:
@@ -1743,6 +1763,10 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         SituacionTributaria sitTribprov=new SituacionTributaria();
 
 
+=======
+public static DefaultTableModel modelo2;
+    private void CrearModelo2(){
+>>>>>>> parent of a15d371... Cambio dia Jueves 5/11 en la biblioteca
         try {
             //
             this.unMercadito.getUnaSucursal().nuevoProveedor(Integer.parseInt(this.txtNroProveedor.getText()),this.txtRazonSocialProveedor.getText(),this.txtCuitProveedor.getText(),this.txtDni.getText(),this.txtApellidoContactoProveedor.getText(),this.txtNombreContactoProveedor.getText(),this.txtFechaNac.getText(),this.txtTelProveedor.getText(),d1, misiones,sitTribprov);
@@ -1814,7 +1838,10 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel25;
+<<<<<<< HEAD
     private javax.swing.JPanel jPanel6;
+=======
+>>>>>>> parent of a15d371... Cambio dia Jueves 5/11 en la biblioteca
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
@@ -1833,30 +1860,46 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblBuscarCliente;
     private javax.swing.JLabel lblBuscarEmpleado;
     private javax.swing.JLabel lblBuscarProveedor;
+<<<<<<< HEAD
     private javax.swing.JLabel lblCalleCliente;
     private javax.swing.JLabel lblCalleEmpleado2;
     private javax.swing.JLabel lblCalleProveedor;
+=======
+    private javax.swing.JLabel lblCalleEmpleado2;
+>>>>>>> parent of a15d371... Cambio dia Jueves 5/11 en la biblioteca
     private javax.swing.JLabel lblCargoEmpleado;
     private javax.swing.JLabel lblCp;
     private javax.swing.JLabel lblCuilEmpleado;
     private javax.swing.JLabel lblCuitCliente;
     private javax.swing.JLabel lblCuitProveedor;
+<<<<<<< HEAD
     private javax.swing.JLabel lblDni;
     private javax.swing.JLabel lblDptoCliente;
     private javax.swing.JLabel lblDptoEmpleado2;
     private javax.swing.JLabel lblDptoProveedor;
     private javax.swing.JLabel lblEdadEmpleado;
+=======
+    private javax.swing.JLabel lblDireccionCliente;
+    private javax.swing.JLabel lblDireccionEmpleado;
+    private javax.swing.JLabel lblDireccionProveedor;
+    private javax.swing.JLabel lblDptoEmpleado2;
+>>>>>>> parent of a15d371... Cambio dia Jueves 5/11 en la biblioteca
     private javax.swing.JLabel lblEstadoCivilEmpleado;
     private javax.swing.JLabel lblFechaIngEmpleado;
     private javax.swing.JLabel lblFechaNacCliente;
     private javax.swing.JLabel lblFechaNacEmpleado;
     private javax.swing.JLabel lblLocalidadCliente;
+<<<<<<< HEAD
+=======
+    private javax.swing.JLabel lblLocalidadEmpleado;
+>>>>>>> parent of a15d371... Cambio dia Jueves 5/11 en la biblioteca
     private javax.swing.JLabel lblLocalidadEmpleado2;
     private javax.swing.JLabel lblLocalidadProveedor;
     private javax.swing.JLabel lblNomFantasiaProveedor;
     private javax.swing.JLabel lblNombreCliente;
     private javax.swing.JLabel lblNombreContactoProveedor;
     private javax.swing.JLabel lblNombreEmpleado;
+<<<<<<< HEAD
     private javax.swing.JLabel lblNroCalleCliente;
     private javax.swing.JLabel lblNroCalleEmpleado2;
     private javax.swing.JLabel lblNroCalleProveedor;
@@ -1866,6 +1909,12 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblPisoEmpleado2;
     private javax.swing.JLabel lblPisoProveedor;
     private javax.swing.JLabel lblProvinciaCliente;
+=======
+    private javax.swing.JLabel lblNroCalleEmpleado2;
+    private javax.swing.JLabel lblPisoEmpleado2;
+    private javax.swing.JLabel lblProvinciaCliente;
+    private javax.swing.JLabel lblProvinciaEmpleado;
+>>>>>>> parent of a15d371... Cambio dia Jueves 5/11 en la biblioteca
     private javax.swing.JLabel lblProvinciaEmpleado2;
     private javax.swing.JLabel lblProvinciaProveedor;
     private javax.swing.JLabel lblRazonSocialCliente;
@@ -1890,12 +1939,16 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtBuscarProveedor;
     private javax.swing.JTextField txtCalleCliente;
     private javax.swing.JTextField txtCalleEmpleado2;
+<<<<<<< HEAD
     private javax.swing.JTextField txtCalleProveedor;
+=======
+>>>>>>> parent of a15d371... Cambio dia Jueves 5/11 en la biblioteca
     private javax.swing.JTextField txtCargoEmpleado;
     private javax.swing.JTextField txtCp;
     private javax.swing.JTextField txtCuilEmpleado;
     private javax.swing.JTextField txtCuitCliente;
     private javax.swing.JTextField txtCuitProveedor;
+<<<<<<< HEAD
     private javax.swing.JTextField txtDni;
     private javax.swing.JTextField txtDptoCliente;
     private javax.swing.JTextField txtDptoEmpleado2;
@@ -1907,9 +1960,23 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField txtFechaNacEmpleado;
     private javax.swing.JTextField txtLocalidadCliente;
     private javax.swing.JTextField txtLocalidadEmpleado2;
+=======
+    private javax.swing.JTextField txtDireccionEmpleado;
+    private javax.swing.JTextField txtDireccionProveedor;
+    private javax.swing.JTextField txtDptoEmpleado2;
+    private javax.swing.JTextField txtFechaElaboraArt;
+    private javax.swing.JTextField txtFechaExpiraArt;
+    private javax.swing.JFormattedTextField txtFechaNacEmpleado;
+    private javax.swing.JTextField txtLocalidadCliente;
+    private javax.swing.JTextField txtLocalidadEmpleado;
+    private javax.swing.JTextField txtLocalidadEmpleado2;
+    private javax.swing.JTextField txtLocalidadProveedor;
+    private javax.swing.JTextField txtLoteArt;
+>>>>>>> parent of a15d371... Cambio dia Jueves 5/11 en la biblioteca
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtNombreContactoProveedor;
     private javax.swing.JTextField txtNombreEmpleado;
+<<<<<<< HEAD
     private javax.swing.JTextField txtNroCalleCliente;
     private javax.swing.JTextField txtNroCalleEmpleado2;
     private javax.swing.JTextField txtNroCalleProveedor;
@@ -1920,6 +1987,15 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtPisoProveedor;
     private javax.swing.JTextField txtProvinciaCliente;
     private javax.swing.JTextField txtProvinciaEmpleado2;
+=======
+    private javax.swing.JTextField txtNroArt;
+    private javax.swing.JTextField txtNroCalleEmpleado2;
+    private javax.swing.JTextField txtPisoEmpleado2;
+    private javax.swing.JTextField txtProvinciaCliente;
+    private javax.swing.JTextField txtProvinciaEmpleado;
+    private javax.swing.JTextField txtProvinciaEmpleado2;
+    private javax.swing.JTextField txtProvinciaProveedor;
+>>>>>>> parent of a15d371... Cambio dia Jueves 5/11 en la biblioteca
     private javax.swing.JTextField txtRazonSocialProveedor;
     private javax.swing.JTextField txtTelProveedor;
     private javax.swing.JFormattedTextField txtlFechaIngEmpleado;
