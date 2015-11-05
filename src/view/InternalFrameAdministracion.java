@@ -29,9 +29,32 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     public InternalFrameAdministracion() {
         initComponents();
         CrearModelo2();
-        
+        btnGuardarProveedor.setEnabled(false);
     }
-
+    //Hace editable los campos del formulario
+    public void txtEditableProveedor(boolean bool){
+        txtCuitProveedor.setEditable(bool);
+        txtRazonSocialProveedor.setEditable(bool);
+        cmbSituacTribProveedor.setEditable(bool);
+        txtTipoProveeduriaProveedor.setEditable(bool);
+        txtTelProveedor.setEditable(bool);
+        txtDireccionProveedor.setEditable(bool);
+        txtProvinciaProveedor.setEditable(bool);
+        txtProvinciaProveedor.setEditable(bool);
+        txtLocalidadProveedor.setEditable(bool);
+    }
+    public void limpiarTxtProveedor(){
+        txtCuitProveedor.setText("");
+        txtRazonSocialProveedor.setText("");
+        //cmbSituacTribProveedor.setText("");
+        txtTipoProveeduriaProveedor.setText("");
+        txtTelProveedor.setText("");
+        txtDireccionProveedor.setText("");
+        txtProvinciaProveedor.setText("");
+        txtProvinciaProveedor.setText("");
+        txtLocalidadProveedor.setText("");
+    }
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -332,10 +355,25 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         });
 
         btnEditarProveedor.setText("Editar");
+        btnEditarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarProveedorActionPerformed(evt);
+            }
+        });
 
         btnGuardarProveedor.setText("Guardar");
+        btnGuardarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarProveedorActionPerformed(evt);
+            }
+        });
 
         btnCancelarProveedor.setText("Cancelar");
+        btnCancelarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarProveedorActionPerformed(evt);
+            }
+        });
 
         btnEliminarProveedor.setText("Eliminar");
 
@@ -1259,7 +1297,10 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtBuscarProveedorActionPerformed
 
     private void btnNuevoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProveedorActionPerformed
-        // TODO add your handling code here:
+        txtEditableProveedor(true);
+        btnNuevoProveedor.setEnabled(false);
+        btnGuardarProveedor.setEnabled(true);
+        limpiarTxtProveedor();
     }//GEN-LAST:event_btnNuevoProveedorActionPerformed
 
     private void txtTelProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelProveedorActionPerformed
@@ -1319,6 +1360,26 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private void txtProvinciaEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProvinciaEmpleadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtProvinciaEmpleadoActionPerformed
+
+    private void btnGuardarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarProveedorActionPerformed
+        txtEditableProveedor(false);
+        btnNuevoProveedor.setEnabled(true);
+        btnGuardarProveedor.setEnabled(false);
+    }//GEN-LAST:event_btnGuardarProveedorActionPerformed
+
+    private void btnCancelarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarProveedorActionPerformed
+        txtEditableProveedor(false);
+        btnNuevoProveedor.setEnabled(true);
+        btnGuardarProveedor.setEnabled(false);
+    }//GEN-LAST:event_btnCancelarProveedorActionPerformed
+
+    private void btnEditarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarProveedorActionPerformed
+        txtEditableProveedor(true);
+        btnEditarProveedor.setEnabled(false);
+        btnNuevoProveedor.setEnabled(false);
+        btnGuardarProveedor.setEnabled(true);
+        btnCancelarProveedor.setEnabled(true);
+    }//GEN-LAST:event_btnEditarProveedorActionPerformed
 public static DefaultTableModel modelo2;
     private void CrearModelo2(){
         try {
@@ -1405,7 +1466,6 @@ public static DefaultTableModel modelo2;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
@@ -1422,7 +1482,6 @@ public static DefaultTableModel modelo2;
     private javax.swing.JLabel lblBuscarCliente;
     private javax.swing.JLabel lblBuscarEmpleado;
     private javax.swing.JLabel lblBuscarProveedor;
-    private javax.swing.JLabel lblCalleEmpleado2;
     private javax.swing.JLabel lblCargoEmpleado;
     private javax.swing.JLabel lblCondIva;
     private javax.swing.JLabel lblCuilEmpleado;
@@ -1431,21 +1490,16 @@ public static DefaultTableModel modelo2;
     private javax.swing.JLabel lblDireccionCliente;
     private javax.swing.JLabel lblDireccionEmpleado;
     private javax.swing.JLabel lblDireccionProveedor;
-    private javax.swing.JLabel lblDptoEmpleado2;
     private javax.swing.JLabel lblEstadoCivilEmpleado;
     private javax.swing.JLabel lblFechaIngEmpleado;
     private javax.swing.JLabel lblFechaNacEmpleado;
     private javax.swing.JLabel lblLocalidadCliente;
     private javax.swing.JLabel lblLocalidadEmpleado;
-    private javax.swing.JLabel lblLocalidadEmpleado2;
     private javax.swing.JLabel lblLocalidadProveedor;
     private javax.swing.JLabel lblNombreCliente;
     private javax.swing.JLabel lblNombreEmpleado;
-    private javax.swing.JLabel lblNroCalleEmpleado2;
-    private javax.swing.JLabel lblPisoEmpleado2;
     private javax.swing.JLabel lblProvinciaCliente;
     private javax.swing.JLabel lblProvinciaEmpleado;
-    private javax.swing.JLabel lblProvinciaEmpleado2;
     private javax.swing.JLabel lblProvinciaProveedor;
     private javax.swing.JLabel lblRazonSocialCliente;
     private javax.swing.JLabel lblRazonSocialProveedor;
@@ -1465,30 +1519,24 @@ public static DefaultTableModel modelo2;
     private javax.swing.JTextField txtBuscarEmpleado;
     private javax.swing.JTextField txtBuscarProveedor;
     private javax.swing.JTextField txtCalleCliente;
-    private javax.swing.JTextField txtCalleEmpleado2;
     private javax.swing.JTextField txtCargoEmpleado;
     private javax.swing.JTextField txtCuilEmpleado;
     private javax.swing.JTextField txtCuitCliente;
     private javax.swing.JTextField txtCuitProveedor;
     private javax.swing.JTextField txtDireccionEmpleado;
     private javax.swing.JTextField txtDireccionProveedor;
-    private javax.swing.JTextField txtDptoEmpleado2;
     private javax.swing.JTextField txtFechaElaboraArt;
     private javax.swing.JTextField txtFechaExpiraArt;
     private javax.swing.JFormattedTextField txtFechaNacEmpleado;
     private javax.swing.JTextField txtLocalidadCliente;
     private javax.swing.JTextField txtLocalidadEmpleado;
-    private javax.swing.JTextField txtLocalidadEmpleado2;
     private javax.swing.JTextField txtLocalidadProveedor;
     private javax.swing.JTextField txtLoteArt;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtNombreEmpleado;
     private javax.swing.JTextField txtNroArt;
-    private javax.swing.JTextField txtNroCalleEmpleado2;
-    private javax.swing.JTextField txtPisoEmpleado2;
     private javax.swing.JTextField txtProvinciaCliente;
     private javax.swing.JTextField txtProvinciaEmpleado;
-    private javax.swing.JTextField txtProvinciaEmpleado2;
     private javax.swing.JTextField txtProvinciaProveedor;
     private javax.swing.JTextField txtRazonSocialProveedor;
     private javax.swing.JTextField txtTelCliente;
