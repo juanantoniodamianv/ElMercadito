@@ -26,6 +26,7 @@ import view.*;
 /**
  *
  * @author Antonio
+ * autor autor autor
  */
 public class ElMercadito {
 private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","razon social");
