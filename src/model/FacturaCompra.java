@@ -6,15 +6,10 @@
 
 package model;
 
-import java.io.Serializable;
-import javax.persistence.Entity;
-
 /**
  *
  * @author Antonio
  */
-@Entity
-public class FacturaVta extends Comprobante implements Serializable{
-    
+public class FacturaCompra {
     
 }

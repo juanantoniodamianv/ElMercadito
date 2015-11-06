@@ -3,18 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model;
-
-import java.io.Serializable;
-import javax.persistence.Entity;
 
 /**
  *
- * @author Antonio
+ * @author daniel
  */
-@Entity
-public class FacturaVta extends Comprobante implements Serializable{
-    
+interface Serilizable {
     
 }

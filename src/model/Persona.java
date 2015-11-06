@@ -11,114 +11,76 @@ import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.InheritanceType;
+import javax.persistence.Inheritance;
 
 /**
  *
  * @author Antonio
  */
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Persona implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
     @Id
-      private String dni;
-    @Basic
-    private String apellido;
-    @Basic
-    private String nombre;
-    @Basic
-    private String fechaNac;
+    private String idPersona;
     @Basic
     private String telefono;
-    @OneToOne
-    private Direccion unaDireccion;
-    @OneToOne 
-    //en la viste podría ir un desplegable para la provincia y otro desplegable para la localidad.(combos)
-    private Provincia unaProvincia;
-    @OneToOne
-    private SituacionTributaria unaSituacionTributaria;
-    
+    @Basic
+    private String direccion;
+    @Basic
+    private String localidad;
+    @Basic 
+    private String provincia;
     
     public Persona(){}
 
-    public Persona(String dni, String apellido, String nombre, String fechaNac, String telefono, Direccion unaDireccion, Provincia unaProvincia,SituacionTributaria unaSituacionTributaria) {
-        this.dni = dni;
-        this.apellido = apellido;
-        this.nombre = nombre;
-        this.fechaNac = fechaNac;
+    public Persona(String idPersona, String telefono, String direccion, String localidad, String provincia) {
+        this.idPersona = idPersona;
         this.telefono = telefono;
-        this.unaDireccion = unaDireccion;
-        this.unaSituacionTributaria = unaSituacionTributaria;
-        this.unaProvincia = unaProvincia;
+        this.direccion = direccion;
+        this.localidad = localidad;
+        this.provincia = provincia;
     }
 
-    public String getDni() {
-        return dni;
+    public String getIdPersona() {
+        return idPersona;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getFechaNac() {
-        return fechaNac;
+    public void setIdPersona(String idPersona) {
+        this.idPersona = idPersona;
     }
 
     public String getTelefono() {
         return telefono;
     }
 
-    public Direccion getUnaDireccion() {
-        return unaDireccion;
-    }
-
-    public SituacionTributaria getUnaSituacionTributaria() {
-        return unaSituacionTributaria;
-    }
-
-    public Provincia getUnaProvincia() {
-        return unaProvincia;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setFechaNac(String fechaNac) {
-        this.fechaNac = fechaNac;
-    }
-
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
-    public void setUnaDireccion(Direccion unaDireccion) {
-        this.unaDireccion = unaDireccion;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setUnaSituacionTributaria(SituacionTributaria unaSituacionTributaria) {
-        this.unaSituacionTributaria = unaSituacionTributaria;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public void setUnaProvincia(Provincia unaProvincia) {
-        this.unaProvincia = unaProvincia;
+    public String getLocalidad() {
+        return localidad;
     }
 
-   
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
+    }
+
+    public String getProvincia() {
+        return provincia;
+    }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
+    }
     
+
 }

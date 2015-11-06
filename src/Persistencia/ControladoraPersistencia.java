@@ -11,14 +11,14 @@ import model.Bulto;
 import model.Caja;
 import model.Cajero;
 import model.Cliente;
-import model.ClienteMayorista;
-import model.ClienteMinorista;
+//import model.ClienteMayorista;
+//import model.ClienteMinorista;
 import model.Compra;
 import model.Comprobante;
 //import model.ControladoraVisual;
 import model.Deposito;
 import model.DescripcionArticulo;
-import model.Direccion;
+//import model.Direccion;
 import model.Empleado;
 import model.Encabezado;
 import model.Encargado;
@@ -29,12 +29,12 @@ import model.LineaDeCompra;
 import model.LineaDeTransferencia;
 import model.LineaVtaMay;
 import model.LineaVtaMin;
-import model.Localidad;
+//import model.Localidad;
 import model.OrdenCompra;
 import model.Pago;
 import model.Persona;
 import model.Proveedor;
-import model.Provincia;
+//import model.Provincia;
 import model.RegistroCompra;
 import model.RegistroTransferencia;
 import model.RegistroVtaMay;
@@ -51,9 +51,10 @@ import model.Transferencia;
 import model.Venta;
 import model.VentaMayorista;
 import model.VentaMinorista;
-import model.Zona;
+//import model.Zona;
 import Persistencia.exceptions.NonexistentEntityException;
 import Persistencia.exceptions.PreexistingEntityException;
+import java.util.LinkedList;
 import java.util.List;
 // * @author daniel
 
@@ -66,13 +67,11 @@ public class ControladoraPersistencia {
     CajaJpaController cajaPersistencia = new CajaJpaController();
     CajeroJpaController cajeroPersistencia = new CajeroJpaController();
     ClienteJpaController clientePersistencia = new ClienteJpaController();
-    ClienteMayoristaJpaController clienteMayoristaPersistencia = new ClienteMayoristaJpaController();
-    ClienteMinoristaJpaController clienteMinoristaPersistencia = new ClienteMinoristaJpaController();
     CompraJpaController compra=new CompraJpaController();
     ComprobanteJpaController comprobantePersistencia = new ComprobanteJpaController();
     DepositoJpaController depositoPersistencia = new DepositoJpaController();
     DescripcionArticuloJpaController descripcionArticuloPersistencia=new DescripcionArticuloJpaController();
-    DireccionJpaController direccionPersistencia = new DireccionJpaController();
+    //DireccionJpaController direccionPersistencia = new DireccionJpaController();
     EmpleadoJpaController empleadoPersistencia = new EmpleadoJpaController();
     EncabezadoJpaController encabezadoPersistencia= new EncabezadoJpaController();
     EncargadoJpaController encargadoPersistencia = new EncargadoJpaController();
@@ -83,24 +82,25 @@ public class ControladoraPersistencia {
     LineaDeTransferenciaJpaController lineaDeTransferenciaPersistencia = new LineaDeTransferenciaJpaController();  
     LineaVtaMayJpaController lineaVtaMayPersistencia = new LineaVtaMayJpaController();
     LineaVtaMinJpaController lineaVtaMinPersistencia = new LineaVtaMinJpaController();  
-    LocalidadJpaController localidadPersistencia = new LocalidadJpaController();
+    //LocalidadJpaController localidadPersistencia = new LocalidadJpaController();
     OrdenCompraJpaController ordenCompraPersistencia = new OrdenCompraJpaController();
     PagoJpaController pagoPersistencia = new PagoJpaController();
     PersonaJpaController personaPersistencia = new PersonaJpaController();
     ProveedorJpaController proveedorPersistencia = new ProveedorJpaController();
-    ProvinciaJpaController provinciaPersistencia = new ProvinciaJpaController();
+    //ProvinciaJpaController provinciaPersistencia = new ProvinciaJpaController();
     RemitoTransferenciaJpaController remitoTransferenciaPersistencia = new RemitoTransferenciaJpaController();
     RemitoVtaJpaController remitoVtaPersistencia = new RemitoVtaJpaController(); 
     RepositorJpaController repositorPersistencia = new RepositorJpaController();  
     SeccionJpaController seccionPersistencia = new SeccionJpaController();
     SectorEstanteJpaController sectorEstantePersistencia = new SectorEstanteJpaController();
+    SituacionTributariaJpaController situacionTributariaPersistencia = new SituacionTributariaJpaController();
     SucursalJpaController sucursalPersistencia = new SucursalJpaController();
     TicketVtaJpaController  ticketVtaPersistencia = new TicketVtaJpaController();
     TransferenciaJpaController transferenciaPersistencia= new TransferenciaJpaController ();
     VentaJpaController ventaPersistencia = new VentaJpaController();
     VentaMayoristaJpaController  ventaMayoristaPersistencia = new VentaMayoristaJpaController();
     VentaMinoristaJpaController ventaMinoristaPersistencia = new VentaMinoristaJpaController();
-    ZonaJpaController zonaPersistencia = new ZonaJpaController();
+    //ZonaJpaController zonaPersistencia = new ZonaJpaController();
     
      
 
@@ -115,8 +115,8 @@ public class ControladoraPersistencia {
     public void BorrarArticuloPersis(int id) throws NonexistentEntityException{
         this.articuloPersistencia.destroy(id);
     }
-    public ArrayList BuscarListaArticulos(){
-       return (ArrayList) this.articuloPersistencia.findArticuloEntities();
+    public List<Articulo> BuscarListaArticulos(){
+       return this.articuloPersistencia.findArticuloEntities();
     }
     /*public Articulo BuscarUnArticulo(String id){
         return this.articuloPersistencia.findArticulo(id);
@@ -131,7 +131,7 @@ public class ControladoraPersistencia {
     public void BorrarBultoPersis(String id) throws NonexistentEntityException{
         this.bultoPersistencia.destroy(id);
     }
-    public List BuscarListaBultos(){
+    public List<Bulto> BuscarListaBultos(){
        return this.bultoPersistencia.findBultoEntities();
     }
     public Bulto BuscarUnBulto(String id){
@@ -149,7 +149,7 @@ public class ControladoraPersistencia {
     public void BorrarCajaPersis(int id) throws NonexistentEntityException{
         this.cajaPersistencia.destroy(id);
     }
-    public List BuscarListaCajas(){
+    public List<Caja> BuscarListaCajas(){
        return this.cajaPersistencia.findCajaEntities();
     }
     public Caja BuscarUnaCaja(int id){
@@ -164,10 +164,10 @@ public class ControladoraPersistencia {
     public void ModificarCajeroPersis(Cajero cajero) throws NonexistentEntityException, Exception{
         this.cajeroPersistencia.edit(cajero);
     }
-    public void BorrarCajeroPersis(int id) throws NonexistentEntityException{
+    public void BorrarCajeroPersis(String id) throws NonexistentEntityException{
         this.cajeroPersistencia.destroy(id);
     }
-    public List BuscarListaCajeros(){
+    public List<Cajero> BuscarListaCajeros(){
        return this.cajeroPersistencia.findCajeroEntities();
     }
     public Cajero BuscarUnCajero(String id){
@@ -184,7 +184,7 @@ public class ControladoraPersistencia {
     public void BorrarClientePersis(int id) throws NonexistentEntityException{
         this.clientePersistencia.destroy(id);
     }
-    public List BuscarListaClientes(){
+    public List<Cliente> BuscarListaClientes(){
        return this.clientePersistencia.findClienteEntities();
     }
     public Object BuscarUnCliente(String id){
@@ -203,7 +203,7 @@ public class ControladoraPersistencia {
     public void BorrarProveedorPersis(int id) throws NonexistentEntityException{
         this.proveedorPersistencia.destroy(id);
     }
-    public List BuscarListaProveedores(){
+    public List<Proveedor> BuscarListaProveedores(){
        return this.proveedorPersistencia.findProveedorEntities();
     }
     public Object BuscarUnProveedor(String id){
@@ -220,7 +220,7 @@ public class ControladoraPersistencia {
     public void BorrarPersonaPersis(int id) throws NonexistentEntityException{
         this.personaPersistencia.destroy(id);
     }
-    public List BuscarListapersonas(){
+    public List<Persona> BuscarListaPersonas(){
        return this.personaPersistencia.findPersonaEntities();
     }
     public Object BuscarUnPersona(String id){

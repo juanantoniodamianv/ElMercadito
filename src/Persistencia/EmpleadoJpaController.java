@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import model.Empleado;
@@ -23,14 +24,12 @@ import model.Empleado;
  */
 public class EmpleadoJpaController implements Serializable {
 
-    public EmpleadoJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public EmpleadoJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("El_mercaditoPU");
     }
     private EntityManagerFactory emf = null;
 
-    EmpleadoJpaController() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -44,7 +43,7 @@ public class EmpleadoJpaController implements Serializable {
             em.persist(empleado);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findEmpleado(empleado.getDni()) != null) {
+            if (findEmpleado(empleado.getIdPersona()) != null) {
                 throw new PreexistingEntityException("Empleado " + empleado + " already exists.", ex);
             }
             throw ex;
@@ -65,7 +64,7 @@ public class EmpleadoJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                String id = empleado.getDni();
+                String id = empleado.getIdPersona();
                 if (findEmpleado(id) == null) {
                     throw new NonexistentEntityException("The empleado with id " + id + " no longer exists.");
                 }
@@ -86,7 +85,7 @@ public class EmpleadoJpaController implements Serializable {
             Empleado empleado;
             try {
                 empleado = em.getReference(Empleado.class, id);
-                empleado.getDni();
+                empleado.getIdPersona();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The empleado with id " + id + " no longer exists.", enfe);
             }

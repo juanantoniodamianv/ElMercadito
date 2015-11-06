@@ -44,7 +44,7 @@ public class PersonaJpaController implements Serializable {
             em.persist(persona);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findPersona(persona.getDni()) != null) {
+            if (findPersona(persona.getIdPersona()) != null) {
                 throw new PreexistingEntityException("Persona " + persona + " already exists.", ex);
             }
             throw ex;
@@ -65,7 +65,7 @@ public class PersonaJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                String id = persona.getDni();
+                String id = persona.getIdPersona();
                 if (findPersona(id) == null) {
                     throw new NonexistentEntityException("The persona with id " + id + " no longer exists.");
                 }
@@ -78,7 +78,7 @@ public class PersonaJpaController implements Serializable {
         }
     }
 
-    public void destroy(String id) throws NonexistentEntityException {
+    public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -86,7 +86,7 @@ public class PersonaJpaController implements Serializable {
             Persona persona;
             try {
                 persona = em.getReference(Persona.class, id);
-                persona.getDni();
+                persona.getIdPersona();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The persona with id " + id + " no longer exists.", enfe);
             }
@@ -143,10 +143,6 @@ public class PersonaJpaController implements Serializable {
         } finally {
             em.close();
         }
-    }
-
-    void destroy(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

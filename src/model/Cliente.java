@@ -7,6 +7,7 @@
 package model;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 
 /**
@@ -15,21 +16,77 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Cliente extends Persona implements Serializable{
-   
-    private int nroCliente;
-    public Cliente(){}
+    @Basic
+        private String apellido;
+    @Basic
+        private String nombre;
+    @Basic
+        private String tipoCliente;
+    @Basic
+        private String razonSocial; //Predeterminado es NULL si es tipoCliente: Minorista
+    @Basic
+        private String ivaCondicion;
 
-    public Cliente(int nroCliente, String apellido, String nombre, String dni, String fechaNac, SituacionTributaria unaSituacionTributaria) {
-        
-        this.nroCliente = nroCliente;
-    }
-    public int getNroCliente() {
-        return nroCliente;
+    public Cliente() {
     }
 
-    public void setNroCliente(int nroCliente) {
-        this.nroCliente = nroCliente;
+    public Cliente(String apellido, String nombre, String tipoCliente, String razonSocial, String ivaCondicion) {
+        this.apellido = apellido;
+        this.nombre = nombre;
+        this.tipoCliente = tipoCliente;
+        this.razonSocial = razonSocial;
+        this.ivaCondicion = ivaCondicion;
     }
+
+    public Cliente(String apellido, String nombre, String tipoCliente, String razonSocial, String ivaCondicion, String idPersona, String telefono, String direccion, String localidad, String provincia) {
+        super(idPersona, telefono, direccion, localidad, provincia);
+        this.apellido = apellido;
+        this.nombre = nombre;
+        this.tipoCliente = tipoCliente;
+        this.razonSocial = razonSocial;
+        this.ivaCondicion = ivaCondicion;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getTipoCliente() {
+        return tipoCliente;
+    }
+
+    public void setTipoCliente(String tipoCliente) {
+        this.tipoCliente = tipoCliente;
+    }
+
+    public String getRazonSocial() {
+        return razonSocial;
+    }
+
+    public void setRazonSocial(String razonSocial) {
+        this.razonSocial = razonSocial;
+    }
+
+    public String getIvaCondicion() {
+        return ivaCondicion;
+    }
+
+    public void setIvaCondicion(String ivaCondicion) {
+        this.ivaCondicion = ivaCondicion;
+    }
+
     
     
     
