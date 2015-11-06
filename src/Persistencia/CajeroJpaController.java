@@ -14,6 +14,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import model.Cajero;
@@ -24,14 +25,12 @@ import model.Cajero;
  */
 public class CajeroJpaController implements Serializable {
 
-    public CajeroJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public CajeroJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("El_mercaditoPU");
     }
     private EntityManagerFactory emf = null;
 
-    CajeroJpaController() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();

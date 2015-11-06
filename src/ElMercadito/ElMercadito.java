@@ -59,6 +59,7 @@ private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","ra
                 
             }
         });
+        /*
         EntityManagerFactory objFactory;
         objFactory = Persistence.createEntityManagerFactory("El_mercaditoPU");
         EntityManager manager = objFactory.createEntityManager();
@@ -74,12 +75,12 @@ private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","ra
         unCajero.setCargo("Cajero");
         unCajero.setNroCajaAsignada(1);
         jpaCajero.create(unCajero);
-       /*
+       
         ArticuloJpaController jpa = new ArticuloJpaController(objFactory);
         List<Articulo> lista = jpa.findArticuloEntities();
         CajaJpaController jpaCaja = new CajaJpaController(objFactory);
         List<Caja> listaCaja = jpaCaja.findCajaEntities();
-        */
+        
         PersonaJpaController jpaPersona = new PersonaJpaController(objFactory);
         List<Persona> listaPersona = jpaPersona.findPersonaEntities();
         ProveedorJpaController jpaProveedor = new ProveedorJpaController();
@@ -109,7 +110,7 @@ private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","ra
         
                 
                 
-         /*       
+                
         Articulo art = new Articulo();
         art.setNroArticulo(3);
         art.setLote("22-09-2015");

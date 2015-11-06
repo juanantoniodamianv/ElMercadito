@@ -6,12 +6,20 @@
 
 package view;
 
+import Persistencia.CajeroJpaController;
+import Persistencia.ClienteJpaController;
+import Persistencia.EmpleadoJpaController;
 import Persistencia.PersonaJpaController;
 import Persistencia.ProveedorJpaController;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManagerFactory;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.Cajero;
+import model.Cliente;
+import model.Empleado;
 import model.Persona;
 import model.Proveedor;
 
@@ -22,37 +30,110 @@ import model.Proveedor;
 public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     //private EntityManagerFactory objFactory;
     ProveedorJpaController jpaProv = new ProveedorJpaController();
+    ClienteJpaController jpaCli = new ClienteJpaController();
+    EmpleadoJpaController jpaEmp = new EmpleadoJpaController();
+    CajeroJpaController jpaCajero = new CajeroJpaController();
     /**
      * Creates new form InternalFrameAdministracion
      */
     
     public InternalFrameAdministracion() {
         initComponents();
-        CrearModelo2();
+        CrearModeloProveedor();
+        CrearModeloCliente();
+        CrearModeloEmpleado();
+        //Formulario PROVEEDOR
+        cargarTablaProveedor();
         btnGuardarProveedor.setEnabled(false);
+        btnNuevoProveedor.setEnabled(true);
+        btnEditarProveedor.setEnabled(false);
+        btnEliminarProveedor.setEnabled(false);
+        btnCancelarProveedor.setEnabled(false);
+        txtEditableProveedor(false);
+        //Formulario CLIENTE
+        cargarTablaCliente();
+        btnGuardarCliente.setEnabled(false);
+        btnNuevoCliente.setEnabled(true);
+        btnEditarCliente.setEnabled(false);
+        btnEliminarCliente.setEnabled(false);
+        btnCancelarCliente.setEnabled(false);
+        txtEditableCliente(false);
+        //Formulario EMPLEADO
+        cargarTablaEmpleado();
+        btnGuardarEmpleado.setEnabled(false);
+        btnNuevoEmpleado.setEnabled(true);
+        btnEditarEmpleado.setEnabled(false);
+        btnEliminarEmpleado.setEnabled(false);
+        btnCancelarEmpleado.setEnabled(false);
+        txtEditableEmpleado(false);
     }
-    //Hace editable los campos del formulario
+    //Hace editable los campos del formulario PROVEEDOR
     public void txtEditableProveedor(boolean bool){
         txtCuitProveedor.setEditable(bool);
         txtRazonSocialProveedor.setEditable(bool);
-        cmbSituacTribProveedor.setEditable(bool);
+        cmbSituacTribProveedor.setEnabled(bool);
         txtTipoProveeduriaProveedor.setEditable(bool);
         txtTelProveedor.setEditable(bool);
         txtDireccionProveedor.setEditable(bool);
-        txtProvinciaProveedor.setEditable(bool);
         txtProvinciaProveedor.setEditable(bool);
         txtLocalidadProveedor.setEditable(bool);
     }
     public void limpiarTxtProveedor(){
         txtCuitProveedor.setText("");
         txtRazonSocialProveedor.setText("");
-        //cmbSituacTribProveedor.setText("");
         txtTipoProveeduriaProveedor.setText("");
         txtTelProveedor.setText("");
         txtDireccionProveedor.setText("");
         txtProvinciaProveedor.setText("");
-        txtProvinciaProveedor.setText("");
         txtLocalidadProveedor.setText("");
+    }
+    //Hace editable los campos del formulario CLIENTE
+    public void txtEditableCliente(boolean bool){
+        cmbTipoCliente.setEnabled(bool);
+        txtCuitCliente.setEditable(bool);
+        txtRazonSocialCliente.setEditable(bool);
+        txtApellidoCliente.setEditable(bool);
+        txtNombreCliente.setEditable(bool);
+        cmbCondIvaCliente.setEnabled(bool);
+        txtTelCliente.setEditable(bool);
+        txtDireccionCliente.setEditable(bool);
+        txtProvinciaCliente.setEditable(bool);
+        txtLocalidadCliente.setEditable(bool);
+    }
+    public void limpiarTxtCliente(){
+        txtCuitCliente.setText("");
+        txtRazonSocialCliente.setText("");
+        txtApellidoCliente.setText("");
+        txtNombreCliente.setText("");
+        txtTelCliente.setText("");
+        txtDireccionCliente.setText("");
+        txtProvinciaCliente.setText("");
+        txtLocalidadCliente.setText("");
+    }
+    //Hace editable los campos del formulario EMPLEADO
+    public void txtEditableEmpleado(boolean bool){
+        txtApellidoEmpleado.setEditable(bool);
+        txtNombreEmpleado.setEditable(bool);
+        txtFechaNacEmpleado.setEditable(bool);
+        txtCuilEmpleado.setEditable(bool);
+        cmbSexoEmpleado.setEnabled(bool);
+        cmbEstadoCivilEmpleado.setEnabled(bool);
+        txtFechaIngEmpleado.setEditable(bool);
+        txtCargoEmpleado.setEditable(bool);
+        txtDireccionCliente.setEditable(bool);
+        txtProvinciaCliente.setEditable(bool);
+        txtLocalidadCliente.setEditable(bool);
+    }
+    public void limpiarTxtEmpleado(){
+        txtApellidoEmpleado.setText("");
+        txtNombreEmpleado.setText("");
+        txtFechaNacEmpleado.setText("");
+        txtCuilEmpleado.setText("");
+        txtFechaIngEmpleado.setText("");
+        txtCargoEmpleado.setText("");
+        txtDireccionEmpleado.setText("");
+        txtProvinciaEmpleado.setText("");
+        txtLocalidadEmpleado.setText("");
     }
  
     /**
@@ -98,7 +179,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         txtBuscarProveedor = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblProveedor = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         jPanelClientes = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         lblBuscarCliente = new javax.swing.JLabel();
@@ -116,14 +196,14 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         lblCuitCliente = new javax.swing.JLabel();
         txtCuitCliente = new javax.swing.JTextField();
         lblRazonSocialCliente = new javax.swing.JLabel();
-        ttRazonSocialCliente = new javax.swing.JTextField();
+        txtRazonSocialCliente = new javax.swing.JTextField();
         lblCondIva = new javax.swing.JLabel();
-        cmbCondIva = new javax.swing.JComboBox();
+        cmbCondIvaCliente = new javax.swing.JComboBox();
         lblTelCliente = new javax.swing.JLabel();
         txtTelCliente = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         lblDireccionCliente = new javax.swing.JLabel();
-        txtCalleCliente = new javax.swing.JTextField();
+        txtDireccionCliente = new javax.swing.JTextField();
         lblProvinciaCliente = new javax.swing.JLabel();
         lblLocalidadCliente = new javax.swing.JLabel();
         txtProvinciaCliente = new javax.swing.JTextField();
@@ -148,7 +228,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         lblEstadoCivilEmpleado = new javax.swing.JLabel();
         cmbEstadoCivilEmpleado = new javax.swing.JComboBox();
         lblFechaIngEmpleado = new javax.swing.JLabel();
-        txtlFechaIngEmpleado = new javax.swing.JFormattedTextField();
+        txtFechaIngEmpleado = new javax.swing.JFormattedTextField();
         lblCargoEmpleado = new javax.swing.JLabel();
         txtCargoEmpleado = new javax.swing.JTextField();
         jPanel13 = new javax.swing.JPanel();
@@ -197,38 +277,15 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         lblRazonSocialProveedor.setText("Razón social:");
 
-        txtRazonSocialProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRazonSocialProveedorActionPerformed(evt);
-            }
-        });
-
         lblSituacTribProveedor.setText("Situación tributaria:");
 
         lblCuitProveedor.setText("N° CUIT:");
 
-        txtCuitProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCuitProveedorActionPerformed(evt);
-            }
-        });
-
         cmbSituacTribProveedor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Resp. inscripto", "Consumidor final", "Exento", "Monotributista" }));
-        cmbSituacTribProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbSituacTribProveedorActionPerformed(evt);
-            }
-        });
 
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.MatteBorder(null), "Domicilio"));
 
         lblDireccionProveedor.setText("Dirección:");
-
-        txtDireccionProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccionProveedorActionPerformed(evt);
-            }
-        });
 
         lblProvinciaProveedor.setText("Provincia:");
 
@@ -276,19 +333,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         lblTelProveedor.setText("Telefono:");
 
-        txtTelProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelProveedorActionPerformed(evt);
-            }
-        });
-
         lblTipoProveeduriaProveedor.setText("Tipo de proveeduría:");
-
-        txtTipoProveeduriaProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTipoProveeduriaProveedorActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -425,27 +470,13 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         tblProveedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
+
             },
             new String [] {
 
             }
         ));
         jScrollPane4.setViewportView(tblProveedor);
-
-        jButton1.setText("Cargar Proveedores");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -454,13 +485,11 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 673, Short.MAX_VALUE)
                     .addGroup(jPanel17Layout.createSequentialGroup()
                         .addComponent(lblBuscarProveedor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtBuscarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(jButton1)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -470,8 +499,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtBuscarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblBuscarProveedor)
-                    .addComponent(jButton1))
+                    .addComponent(lblBuscarProveedor))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
                 .addContainerGap())
@@ -494,7 +522,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         jTabbedPaneAdministracion.addTab("Proveedores", jPanelProveedores);
@@ -511,31 +539,13 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         tblCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "#", "Apellido", "Nombre", "DNI", "Razon Social"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, true, true, false, true
-            };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
             }
-        });
+        ));
         jScrollPane1.setViewportView(tblCliente);
-        if (tblCliente.getColumnModel().getColumnCount() > 0) {
-            tblCliente.getColumnModel().getColumn(0).setResizable(false);
-        }
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -570,19 +580,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         lblApellidoCliente.setText("Apellido:");
 
-        txtApellidoCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellidoClienteActionPerformed(evt);
-            }
-        });
-
         lblNombreCliente.setText("Nombre:");
-
-        txtNombreCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreClienteActionPerformed(evt);
-            }
-        });
 
         lblTipoCliente.setText("Tipo cliente:");
 
@@ -590,31 +588,13 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         lblCuitCliente.setText("N° DNI/CUIT:");
 
-        txtCuitCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCuitClienteActionPerformed(evt);
-            }
-        });
-
         lblRazonSocialCliente.setText("Razón Social:");
-
-        ttRazonSocialCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ttRazonSocialClienteActionPerformed(evt);
-            }
-        });
 
         lblCondIva.setText("Condición ante el IVA:");
 
-        cmbCondIva.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Monotributista", "Exento", "Cons. Final", "No Categorizado" }));
+        cmbCondIvaCliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Monotributista", "Exento", "Cons. Final", "No Categorizado" }));
 
         lblTelCliente.setText("Telefono:");
-
-        txtTelCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelClienteActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -626,15 +606,15 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(lblTipoCliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmbTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
+                        .addComponent(cmbTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(lblCuitCliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCuitCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)
                         .addComponent(lblRazonSocialCliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ttRazonSocialCliente))
+                        .addComponent(txtRazonSocialCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
@@ -644,7 +624,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addComponent(lblCondIva)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbCondIva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(cmbCondIvaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNombreCliente)
@@ -665,7 +645,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addComponent(lblCuitCliente)
                     .addComponent(txtCuitCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblRazonSocialCliente)
-                    .addComponent(ttRazonSocialCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRazonSocialCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblApellidoCliente)
@@ -675,7 +655,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCondIva)
-                    .addComponent(cmbCondIva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbCondIvaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTelCliente)
                     .addComponent(txtTelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(22, Short.MAX_VALUE))
@@ -685,21 +665,9 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         lblDireccionCliente.setText("Direccion:");
 
-        txtCalleCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCalleClienteActionPerformed(evt);
-            }
-        });
-
         lblProvinciaCliente.setText("Provincia:");
 
         lblLocalidadCliente.setText("Localidad:");
-
-        txtProvinciaCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtProvinciaClienteActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -711,7 +679,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
                         .addComponent(lblDireccionCliente)
                         .addGap(18, 18, 18)
-                        .addComponent(txtCalleCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtDireccionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addComponent(lblProvinciaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -728,7 +696,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDireccionCliente)
-                    .addComponent(txtCalleCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDireccionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -741,14 +709,39 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         );
 
         btnGuardarCliente.setText("Guardar");
+        btnGuardarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarClienteActionPerformed(evt);
+            }
+        });
 
         btnNuevoCliente.setText("Nuevo");
+        btnNuevoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoClienteActionPerformed(evt);
+            }
+        });
 
         btnEditarCliente.setText("Editar");
+        btnEditarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarClienteActionPerformed(evt);
+            }
+        });
 
         btnCancelarCliente.setText("Cancelar");
+        btnCancelarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarClienteActionPerformed(evt);
+            }
+        });
 
         btnEliminarCliente.setText("Eliminar");
+        btnEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -820,31 +813,13 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         lblApellidoEmpleado.setText("Apellido:");
 
-        txtApellidoEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellidoEmpleadoActionPerformed(evt);
-            }
-        });
-
         lblNombreEmpleado.setText("Nombre:");
-
-        txtNombreEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreEmpleadoActionPerformed(evt);
-            }
-        });
 
         lblFechaNacEmpleado.setText("Fecha de nacimiento:");
 
         txtFechaNacEmpleado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
 
         lblCuilEmpleado.setText("N° CUIL:");
-
-        txtCuilEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCuilEmpleadoActionPerformed(evt);
-            }
-        });
 
         lblSexoEmpleado.setText("Sexo: ");
 
@@ -853,48 +828,20 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         lblEstadoCivilEmpleado.setText("Estado civil: ");
 
         cmbEstadoCivilEmpleado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Soltero", "Casado", "Viudo", "Divorciado" }));
-        cmbEstadoCivilEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbEstadoCivilEmpleadoActionPerformed(evt);
-            }
-        });
 
         lblFechaIngEmpleado.setText("Fecha de ingreso:");
 
-        txtlFechaIngEmpleado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-        txtlFechaIngEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtlFechaIngEmpleadoActionPerformed(evt);
-            }
-        });
+        txtFechaIngEmpleado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
 
         lblCargoEmpleado.setText("Cargo en la empresa:");
-
-        txtCargoEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCargoEmpleadoActionPerformed(evt);
-            }
-        });
 
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.MatteBorder(null), "Domicilio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         lblDireccionEmpleado.setText("Direccion:");
 
-        txtDireccionEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccionEmpleadoActionPerformed(evt);
-            }
-        });
-
         lblProvinciaEmpleado.setText("Provincia:");
 
         lblLocalidadEmpleado.setText("Localidad:");
-
-        txtProvinciaEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtProvinciaEmpleadoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -936,8 +883,18 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         );
 
         btnNuevoEmpleado.setText("Nuevo");
+        btnNuevoEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoEmpleadoActionPerformed(evt);
+            }
+        });
 
         btnEditarEmpleado.setText("Editar");
+        btnEditarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarEmpleadoActionPerformed(evt);
+            }
+        });
 
         btnGuardarEmpleado.setText("Guardar");
         btnGuardarEmpleado.addActionListener(new java.awt.event.ActionListener() {
@@ -997,7 +954,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblFechaIngEmpleado)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtlFechaIngEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtFechaIngEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -1032,7 +989,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addComponent(lblEstadoCivilEmpleado)
                     .addComponent(cmbEstadoCivilEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFechaIngEmpleado)
-                    .addComponent(txtlFechaIngEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFechaIngEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCuilEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCuilEmpleado))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1063,31 +1020,13 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         tblEmpleado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "#", "Apellido", "Nombre", "DNI", "Razon Social"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, true, true, false, true
-            };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
             }
-        });
+        ));
         jScrollPane5.setViewportView(tblEmpleado);
-        if (tblEmpleado.getColumnModel().getColumnCount() > 0) {
-            tblEmpleado.getColumnModel().getColumn(0).setResizable(false);
-        }
 
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
@@ -1244,50 +1183,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarEmpleadoActionPerformed
 
-    private void txtCargoEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCargoEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCargoEmpleadoActionPerformed
-
-    private void txtlFechaIngEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlFechaIngEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtlFechaIngEmpleadoActionPerformed
-
-    private void cmbEstadoCivilEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoCivilEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbEstadoCivilEmpleadoActionPerformed
-
-    private void txtCuilEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCuilEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCuilEmpleadoActionPerformed
-
-    private void txtNombreEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreEmpleadoActionPerformed
-
-    private void txtApellidoEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellidoEmpleadoActionPerformed
-
-    private void ttRazonSocialClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ttRazonSocialClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ttRazonSocialClienteActionPerformed
-
-    private void txtCuitClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCuitClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCuitClienteActionPerformed
-
-    private void txtCalleClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCalleClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCalleClienteActionPerformed
-
-    private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreClienteActionPerformed
-
-    private void txtApellidoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellidoClienteActionPerformed
-
     private void txtBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarClienteActionPerformed
@@ -1300,43 +1195,43 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         txtEditableProveedor(true);
         btnNuevoProveedor.setEnabled(false);
         btnGuardarProveedor.setEnabled(true);
+        btnCancelarProveedor.setEnabled(true);
         limpiarTxtProveedor();
     }//GEN-LAST:event_btnNuevoProveedorActionPerformed
 
-    private void txtTelProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelProveedorActionPerformed
-
-    private void txtDireccionProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDireccionProveedorActionPerformed
-
-    private void cmbSituacTribProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSituacTribProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbSituacTribProveedorActionPerformed
-
-    private void txtCuitProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCuitProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCuitProveedorActionPerformed
-
-    private void txtRazonSocialProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRazonSocialProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRazonSocialProveedorActionPerformed
-
     private void btnCancelarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarEmpleadoActionPerformed
-        // TODO add your handling code here:
+        txtEditableEmpleado(false);
+        limpiarTxtEmpleado();
+        btnCancelarEmpleado.setEnabled(false);
+        btnNuevoEmpleado.setEnabled(true);
+        btnGuardarEmpleado.setEnabled(false);
     }//GEN-LAST:event_btnCancelarEmpleadoActionPerformed
 
-    private void txtTelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelClienteActionPerformed
-
-    private void txtTipoProveeduriaProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoProveeduriaProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTipoProveeduriaProveedorActionPerformed
-
     private void btnGuardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEmpleadoActionPerformed
-        // TODO add your handling code here:
+        EmpleadoJpaController jpaEmpleado = new EmpleadoJpaController();
+        Empleado emp = new Empleado();
+        emp.setApellido(txtApellidoEmpleado.getText());
+        emp.setNombre(txtNombreEmpleado.getText());
+        emp.setFechaIngreso(txtFechaNacEmpleado.getText());
+        emp.setIdPersona(txtCuilEmpleado.getText());
+        emp.setSexo((String)cmbSexoEmpleado.getSelectedItem());
+        emp.setEstadoCivil((String)cmbEstadoCivilEmpleado.getSelectedItem());
+        emp.setFechaIngreso(txtFechaIngEmpleado.getText());
+        emp.setCargo(txtCargoEmpleado.getText());
+        emp.setDireccion(txtDireccionEmpleado.getText());
+        emp.setProvincia(txtProvinciaEmpleado.getText());
+        emp.setLocalidad(txtLocalidadEmpleado.getText());
+        try {
+            jpaEmpleado.create(emp);
+            cargarTablaEmpleado();
+            limpiarTxtEmpleado();
+            txtEditableEmpleado(false);
+            btnNuevoEmpleado.setEnabled(true);
+            btnGuardarEmpleado.setEnabled(false);
+            btnCancelarEmpleado.setEnabled(false);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.toString()+"Error al crear empleado.");
+        }
                 
     }//GEN-LAST:event_btnGuardarEmpleadoActionPerformed
 
@@ -1345,32 +1240,37 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnGuardarArtActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        cargarTablaProveedor();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void txtProvinciaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProvinciaClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtProvinciaClienteActionPerformed
-
-    private void txtDireccionEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDireccionEmpleadoActionPerformed
-
-    private void txtProvinciaEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProvinciaEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtProvinciaEmpleadoActionPerformed
-
     private void btnGuardarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarProveedorActionPerformed
-        txtEditableProveedor(false);
-        btnNuevoProveedor.setEnabled(true);
-        btnGuardarProveedor.setEnabled(false);
+        ProveedorJpaController jpaProveedor = new ProveedorJpaController();
+        Proveedor prov = new Proveedor();
+        prov.setIdPersona(txtCuitProveedor.getText());
+        prov.setSituacionTributaria((String)cmbSituacTribProveedor.getSelectedItem());
+        prov.setTipoProveduria(txtTipoProveeduriaProveedor.getText());
+        prov.setTelefono(txtTelProveedor.getText());
+        prov.setDireccion(txtDireccionProveedor.getText());
+        prov.setLocalidad(txtLocalidadProveedor.getText());
+        prov.setProvincia(txtProvinciaProveedor.getText());
+        prov.setRazonSocial(txtRazonSocialProveedor.getText());
+        try {
+            jpaProveedor.create(prov);
+            cargarTablaProveedor();
+            limpiarTxtProveedor();
+            txtEditableProveedor(false);
+            btnNuevoProveedor.setEnabled(true);
+            btnGuardarProveedor.setEnabled(false);
+            btnCancelarProveedor.setEnabled(false);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.toString()+"Error al crear proveedor.");
+        }
+        
     }//GEN-LAST:event_btnGuardarProveedorActionPerformed
 
     private void btnCancelarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarProveedorActionPerformed
         txtEditableProveedor(false);
+        limpiarTxtProveedor();
         btnNuevoProveedor.setEnabled(true);
         btnGuardarProveedor.setEnabled(false);
+        btnCancelarProveedor.setEnabled(false);
     }//GEN-LAST:event_btnCancelarProveedorActionPerformed
 
     private void btnEditarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarProveedorActionPerformed
@@ -1380,10 +1280,83 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         btnGuardarProveedor.setEnabled(true);
         btnCancelarProveedor.setEnabled(true);
     }//GEN-LAST:event_btnEditarProveedorActionPerformed
-public static DefaultTableModel modelo2;
-    private void CrearModelo2(){
+
+    private void btnNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoClienteActionPerformed
+        txtEditableCliente(true);
+        btnNuevoCliente.setEnabled(false);
+        btnGuardarCliente.setEnabled(true);
+        btnCancelarCliente.setEnabled(true);
+        limpiarTxtCliente();
+    }//GEN-LAST:event_btnNuevoClienteActionPerformed
+
+    private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
+        ClienteJpaController jpaCliente = new ClienteJpaController();
+        Cliente cli = new Cliente();
+        cli.setTipoCliente((String)cmbTipoCliente.getSelectedItem());
+        cli.setIdPersona(txtCuitCliente.getText());
+        cli.setRazonSocial(txtRazonSocialCliente.getText());
+        cli.setApellido(txtApellidoCliente.getText());
+        cli.setNombre(txtNombreCliente.getText());
+        cli.setIvaCondicion((String)cmbCondIvaCliente.getSelectedItem());
+        cli.setTelefono(txtTelCliente.getText());
+        cli.setDireccion(txtDireccionCliente.getText());
+        cli.setProvincia(txtProvinciaCliente.getText());
+        cli.setLocalidad(txtLocalidadCliente.getText());
         try {
-            modelo2 = (new DefaultTableModel(
+            jpaCliente.create(cli);
+            cargarTablaCliente();
+            limpiarTxtCliente();
+            txtEditableCliente(false);
+            btnNuevoCliente.setEnabled(true);
+            btnGuardarCliente.setEnabled(false);
+            btnCancelarCliente.setEnabled(false);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.toString()+"Error al crear cliente.");
+        }
+    }//GEN-LAST:event_btnGuardarClienteActionPerformed
+
+    private void btnEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClienteActionPerformed
+        txtEditableCliente(true);
+        btnEditarCliente.setEnabled(false);
+        btnNuevoCliente.setEnabled(false);
+        btnGuardarCliente.setEnabled(true);
+        btnCancelarCliente.setEnabled(true);
+    }//GEN-LAST:event_btnEditarClienteActionPerformed
+
+    private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarClienteActionPerformed
+
+    private void btnCancelarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarClienteActionPerformed
+        txtEditableCliente(false);
+        limpiarTxtCliente();
+        btnNuevoCliente.setEnabled(true);
+        btnGuardarCliente.setEnabled(false);
+        btnCancelarCliente.setEnabled(false);
+    }//GEN-LAST:event_btnCancelarClienteActionPerformed
+
+    private void btnNuevoEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoEmpleadoActionPerformed
+        txtEditableEmpleado(true);
+        btnNuevoEmpleado.setEnabled(false);
+        btnGuardarEmpleado.setEnabled(true);
+        btnCancelarEmpleado.setEnabled(true);
+        limpiarTxtEmpleado();
+    }//GEN-LAST:event_btnNuevoEmpleadoActionPerformed
+
+    private void btnEditarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEmpleadoActionPerformed
+        txtEditableCliente(true);
+        btnEditarCliente.setEnabled(false);
+        btnNuevoCliente.setEnabled(false);
+        btnGuardarCliente.setEnabled(true);
+        btnCancelarCliente.setEnabled(true);
+    }//GEN-LAST:event_btnEditarEmpleadoActionPerformed
+
+   //CARGAR LAS TABLAS/////////////////////////////////////////////////////
+   //P R O V E E D O R
+    public static DefaultTableModel modeloProveedor;
+    private void CrearModeloProveedor(){
+        try {
+            modeloProveedor = (new DefaultTableModel(
             null, new String [] {
             "CUIT","Razón Social",
             "Sit. Tributaria","Tipo Proveduria"}){
@@ -1405,21 +1378,127 @@ public static DefaultTableModel modelo2;
             return canEdit [colIndex];
             }
             });
-            tblProveedor.setModel(modelo2);
+            tblProveedor.setModel(modeloProveedor);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e.toString()+"error2");
+        }
     }
-}
     private void cargarTablaProveedor(){
         try{
             Object A[] = null;
             List<Proveedor> listaProveedor = jpaProv.findProveedorEntities();
             for (int i = 0; i < listaProveedor.size(); i++) {
-                modelo2.addRow(A);
-                modelo2.setValueAt(listaProveedor.get(i).getIdPersona(), i, 0);
-                modelo2.setValueAt(listaProveedor.get(i).getRazonSocial(), i, 1);
-                modelo2.setValueAt(listaProveedor.get(i).getSituacionTributaria(), i, 2);
-                modelo2.setValueAt(listaProveedor.get(i).getTipoProveduria(), i, 3);
+                modeloProveedor.addRow(A);
+                modeloProveedor.setValueAt(listaProveedor.get(i).getIdPersona(), i, 0);
+                modeloProveedor.setValueAt(listaProveedor.get(i).getRazonSocial(), i, 1);
+                modeloProveedor.setValueAt(listaProveedor.get(i).getSituacionTributaria(), i, 2);
+                modeloProveedor.setValueAt(listaProveedor.get(i).getTipoProveduria(), i, 3);
+            }
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }
+    //C L I E N T E/////////////////////////////////////
+    public static DefaultTableModel modeloCliente;
+    private void CrearModeloCliente(){
+        try {
+            modeloCliente = (new DefaultTableModel(
+            null, new String [] {
+            "DNI/CUIT","Apellido",
+            "Nombre","Razón Social","Tel.","Dirección"}){
+            Class[] types = new Class [] {
+            java.lang.String.class,
+            java.lang.String.class,
+            java.lang.String.class,
+            java.lang.String.class,
+            java.lang.String.class,
+            java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+            false,false,false,false,false,false
+            };
+            @Override
+            public Class getColumnClass(int columnIndex) {
+            return types [columnIndex];
+            }
+            @Override
+            public boolean isCellEditable(int rowIndex, int colIndex){
+            return canEdit [colIndex];
+            }
+            });
+            tblCliente.setModel(modeloCliente);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e.toString()+"error2");
+        }
+    }
+    private void cargarTablaCliente(){
+        try{
+            Object A[] = null;
+            List<Cliente> listaCliente = jpaCli.findClienteEntities();
+            for (int i = 0; i < listaCliente.size(); i++) {
+                modeloCliente.addRow(A);
+                modeloCliente.setValueAt(listaCliente.get(i).getIdPersona(), i, 0);
+                modeloCliente.setValueAt(listaCliente.get(i).getNombre(), i, 1);
+                modeloCliente.setValueAt(listaCliente.get(i).getApellido(), i, 2);
+                modeloCliente.setValueAt(listaCliente.get(i).getRazonSocial(), i, 3);
+                modeloCliente.setValueAt(listaCliente.get(i).getTelefono(), i, 4);
+                modeloCliente.setValueAt(listaCliente.get(i).getDireccion(), i, 5);
+                
+            }
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }
+    //E M P L E A D O
+    public static DefaultTableModel modeloEmpleado;
+    private void CrearModeloEmpleado(){
+        try {
+            modeloEmpleado = (new DefaultTableModel(
+            null, new String [] {
+            "CUIL","Apellido",
+            "Nombre","Fecha de Ingreso","Cargo","Tel.","Dirección"}){
+            Class[] types = new Class [] {
+            java.lang.String.class,
+            java.lang.String.class,
+            java.lang.String.class,
+            java.lang.String.class,
+            java.lang.String.class,
+            java.lang.String.class,
+            java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+            false,false,false,false,false,false,false
+            };
+            @Override
+            public Class getColumnClass(int columnIndex) {
+            return types [columnIndex];
+            }
+            @Override
+            public boolean isCellEditable(int rowIndex, int colIndex){
+            return canEdit [colIndex];
+            }
+            });
+            tblEmpleado.setModel(modeloEmpleado);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e.toString()+"error2");
+        }
+    }
+    private void cargarTablaEmpleado(){
+        try{
+            Object A[] = null;
+            List<Empleado> listaEmpleado = jpaEmp.findEmpleadoEntities();
+            for (int i = 0; i < listaEmpleado.size(); i++) {
+                modeloEmpleado.addRow(A);
+                modeloEmpleado.setValueAt(listaEmpleado.get(i).getIdPersona(), i, 0);
+                modeloEmpleado.setValueAt(listaEmpleado.get(i).getNombre(), i, 1);
+                modeloEmpleado.setValueAt(listaEmpleado.get(i).getApellido(), i, 2);
+                modeloEmpleado.setValueAt(listaEmpleado.get(i).getFechaIngreso(), i, 3);
+                modeloEmpleado.setValueAt(listaEmpleado.get(i).getCargo(), i, 4);
+                modeloEmpleado.setValueAt(listaEmpleado.get(i).getTelefono(), i, 5);
+                modeloEmpleado.setValueAt(listaEmpleado.get(i).getDireccion(), i, 6);
+                
             }
             
         }catch(Exception e){
@@ -1444,12 +1523,11 @@ public static DefaultTableModel modelo2;
     private javax.swing.JButton btnNuevoCliente;
     private javax.swing.JButton btnNuevoEmpleado;
     private javax.swing.JButton btnNuevoProveedor;
-    private javax.swing.JComboBox cmbCondIva;
+    private javax.swing.JComboBox cmbCondIvaCliente;
     private javax.swing.JComboBox cmbEstadoCivilEmpleado;
     private javax.swing.JComboBox cmbSexoEmpleado;
     private javax.swing.JComboBox cmbSituacTribProveedor;
     private javax.swing.JComboBox cmbTipoCliente;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1512,21 +1590,21 @@ public static DefaultTableModel modelo2;
     private javax.swing.JTable tblCliente;
     private javax.swing.JTable tblEmpleado;
     private javax.swing.JTable tblProveedor;
-    private javax.swing.JTextField ttRazonSocialCliente;
     private javax.swing.JTextField txtApellidoCliente;
     private javax.swing.JTextField txtApellidoEmpleado;
     private javax.swing.JTextField txtBuscarCliente;
     private javax.swing.JTextField txtBuscarEmpleado;
     private javax.swing.JTextField txtBuscarProveedor;
-    private javax.swing.JTextField txtCalleCliente;
     private javax.swing.JTextField txtCargoEmpleado;
     private javax.swing.JTextField txtCuilEmpleado;
     private javax.swing.JTextField txtCuitCliente;
     private javax.swing.JTextField txtCuitProveedor;
+    private javax.swing.JTextField txtDireccionCliente;
     private javax.swing.JTextField txtDireccionEmpleado;
     private javax.swing.JTextField txtDireccionProveedor;
     private javax.swing.JTextField txtFechaElaboraArt;
     private javax.swing.JTextField txtFechaExpiraArt;
+    private javax.swing.JFormattedTextField txtFechaIngEmpleado;
     private javax.swing.JFormattedTextField txtFechaNacEmpleado;
     private javax.swing.JTextField txtLocalidadCliente;
     private javax.swing.JTextField txtLocalidadEmpleado;
@@ -1538,10 +1616,10 @@ public static DefaultTableModel modelo2;
     private javax.swing.JTextField txtProvinciaCliente;
     private javax.swing.JTextField txtProvinciaEmpleado;
     private javax.swing.JTextField txtProvinciaProveedor;
+    private javax.swing.JTextField txtRazonSocialCliente;
     private javax.swing.JTextField txtRazonSocialProveedor;
     private javax.swing.JTextField txtTelCliente;
     private javax.swing.JTextField txtTelProveedor;
     private javax.swing.JTextField txtTipoProveeduriaProveedor;
-    private javax.swing.JFormattedTextField txtlFechaIngEmpleado;
     // End of variables declaration//GEN-END:variables
 }

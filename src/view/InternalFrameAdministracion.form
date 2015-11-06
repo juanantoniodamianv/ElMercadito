@@ -90,7 +90,7 @@
                       <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jPanel17" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="42" max="32767" attributes="0"/>
+                      <EmptySpace pref="49" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -237,9 +237,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtRazonSocialProveedor">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRazonSocialProveedorActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblSituacTribProveedor">
                       <Properties>
@@ -252,9 +249,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCuitProveedor">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCuitProveedorActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="cmbSituacTribProveedor">
                       <Properties>
@@ -267,9 +261,6 @@
                           </StringArray>
                         </Property>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbSituacTribProveedorActionPerformed"/>
-                      </Events>
                     </Component>
                     <Container class="javax.swing.JPanel" name="jPanel14">
                       <Properties>
@@ -341,9 +332,6 @@
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="txtDireccionProveedor">
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDireccionProveedorActionPerformed"/>
-                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="lblProvinciaProveedor">
                           <Properties>
@@ -367,9 +355,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTelProveedor">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTelProveedorActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTipoProveeduriaProveedor">
                       <Properties>
@@ -377,9 +362,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTipoProveeduriaProveedor">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTipoProveeduriaProveedorActionPerformed"/>
-                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -437,13 +419,11 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jScrollPane4" alignment="0" pref="673" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblBuscarProveedor" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="txtBuscarProveedor" min="-2" pref="193" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -458,7 +438,6 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtBuscarProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblBuscarProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane4" pref="247" max="32767" attributes="0"/>
@@ -488,7 +467,7 @@
                     <Component class="javax.swing.JTable" name="tblProveedor">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="0" rowCount="8"/>
+                          <Table columnCount="0" rowCount="0"/>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0"/>
@@ -500,14 +479,6 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="jButton1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Cargar Proveedores"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
-                  </Events>
-                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -610,42 +581,10 @@
                     <Component class="javax.swing.JTable" name="tblCliente">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="8">
-                            <Column editable="false" title="#" type="java.lang.Object"/>
-                            <Column editable="true" title="Apellido" type="java.lang.Object"/>
-                            <Column editable="true" title="Nombre" type="java.lang.Object"/>
-                            <Column editable="false" title="DNI" type="java.lang.Object"/>
-                            <Column editable="true" title="Razon Social" type="java.lang.Object"/>
-                          </Table>
+                          <Table columnCount="0" rowCount="0"/>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                          <TableColumnModel selectionModel="0">
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                          </TableColumnModel>
+                          <TableColumnModel selectionModel="0"/>
                         </Property>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -740,15 +679,15 @@
                                   <Group type="102" attributes="0">
                                       <Component id="lblTipoCliente" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="cmbTipoCliente" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                      <Component id="cmbTipoCliente" min="-2" pref="93" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="lblCuitCliente" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="txtCuitCliente" min="-2" pref="110" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                       <Component id="lblRazonSocialCliente" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="ttRazonSocialCliente" max="32767" attributes="0"/>
+                                      <Component id="txtRazonSocialCliente" pref="102" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -760,7 +699,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="lblCondIva" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="cmbCondIva" min="-2" max="-2" attributes="0"/>
+                                              <Component id="cmbCondIvaCliente" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -789,7 +728,7 @@
                                   <Component id="lblCuitCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtCuitCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblRazonSocialCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ttRazonSocialCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtRazonSocialCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -801,7 +740,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCondIva" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cmbCondIva" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbCondIvaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblTelCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtTelCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -817,9 +756,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtApellidoCliente">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtApellidoClienteActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblNombreCliente">
                       <Properties>
@@ -827,9 +763,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtNombreCliente">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreClienteActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTipoCliente">
                       <Properties>
@@ -852,26 +785,20 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCuitCliente">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCuitClienteActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblRazonSocialCliente">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Raz&#xf3;n Social:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="ttRazonSocialCliente">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ttRazonSocialClienteActionPerformed"/>
-                      </Events>
+                    <Component class="javax.swing.JTextField" name="txtRazonSocialCliente">
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblCondIva">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Condici&#xf3;n ante el IVA:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="cmbCondIva">
+                    <Component class="javax.swing.JComboBox" name="cmbCondIvaCliente">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -889,9 +816,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTelCliente">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTelClienteActionPerformed"/>
-                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -918,7 +842,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblDireccionCliente" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtCalleCliente" min="-2" pref="149" max="-2" attributes="0"/>
+                                      <Component id="txtDireccionCliente" min="-2" pref="149" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="lblProvinciaCliente" min="-2" pref="61" max="-2" attributes="0"/>
@@ -940,7 +864,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblDireccionCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtCalleCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtDireccionCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -964,10 +888,7 @@
                         <Property name="text" type="java.lang.String" value="Direccion:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtCalleCliente">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCalleClienteActionPerformed"/>
-                      </Events>
+                    <Component class="javax.swing.JTextField" name="txtDireccionCliente">
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblProvinciaCliente">
                       <Properties>
@@ -980,9 +901,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtProvinciaCliente">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtProvinciaClienteActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtLocalidadCliente">
                     </Component>
@@ -992,26 +910,41 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Guardar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarClienteActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnNuevoCliente">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nuevo"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNuevoClienteActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnEditarCliente">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Editar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarClienteActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnCancelarCliente">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cancelar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarClienteActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnEliminarCliente">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Eliminar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarClienteActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1111,7 +1044,7 @@
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="lblFechaIngEmpleado" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="txtlFechaIngEmpleado" min="-2" pref="70" max="-2" attributes="0"/>
+                                          <Component id="txtFechaIngEmpleado" min="-2" pref="70" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -1154,7 +1087,7 @@
                               <Component id="lblEstadoCivilEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="cmbEstadoCivilEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblFechaIngEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtlFechaIngEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtFechaIngEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtCuilEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblCuilEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1185,9 +1118,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtApellidoEmpleado">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtApellidoEmpleadoActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblNombreEmpleado">
                   <Properties>
@@ -1195,9 +1125,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNombreEmpleado">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreEmpleadoActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblFechaNacEmpleado">
                   <Properties>
@@ -1217,9 +1144,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCuilEmpleado">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCuilEmpleadoActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblSexoEmpleado">
                   <Properties>
@@ -1252,24 +1176,18 @@
                       </StringArray>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbEstadoCivilEmpleadoActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblFechaIngEmpleado">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Fecha de ingreso:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JFormattedTextField" name="txtlFechaIngEmpleado">
+                <Component class="javax.swing.JFormattedTextField" name="txtFechaIngEmpleado">
                   <Properties>
                     <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                       <Format subtype="0" type="1"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtlFechaIngEmpleadoActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblCargoEmpleado">
                   <Properties>
@@ -1277,9 +1195,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCargoEmpleado">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCargoEmpleadoActionPerformed"/>
-                  </Events>
                 </Component>
                 <Container class="javax.swing.JPanel" name="jPanel13">
                   <Properties>
@@ -1351,9 +1266,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDireccionEmpleado">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDireccionEmpleadoActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblProvinciaEmpleado">
                       <Properties>
@@ -1366,9 +1278,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtProvinciaEmpleado">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtProvinciaEmpleadoActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtLocalidadEmpleado">
                     </Component>
@@ -1378,11 +1287,17 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nuevo"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNuevoEmpleadoActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnEditarEmpleado">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Editar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarEmpleadoActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnGuardarEmpleado">
                   <Properties>
@@ -1470,42 +1385,10 @@
                     <Component class="javax.swing.JTable" name="tblEmpleado">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="8">
-                            <Column editable="false" title="#" type="java.lang.Object"/>
-                            <Column editable="true" title="Apellido" type="java.lang.Object"/>
-                            <Column editable="true" title="Nombre" type="java.lang.Object"/>
-                            <Column editable="false" title="DNI" type="java.lang.Object"/>
-                            <Column editable="true" title="Razon Social" type="java.lang.Object"/>
-                          </Table>
+                          <Table columnCount="0" rowCount="0"/>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                          <TableColumnModel selectionModel="0">
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                          </TableColumnModel>
+                          <TableColumnModel selectionModel="0"/>
                         </Property>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
