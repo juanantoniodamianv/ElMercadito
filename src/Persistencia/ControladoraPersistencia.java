@@ -44,7 +44,6 @@ import model.RegistroVtaMay;
 import model.Repositor;
 import model.Seccion;
 import model.SectorEstante;
-import model.SituacionTributaria;
 import model.Sucursal;
 import model.TicketVta;
 import model.Transferencia;
