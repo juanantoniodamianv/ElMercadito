@@ -137,7 +137,8 @@ public class Sucursal implements Serializable {
     }
    
     @SuppressWarnings("unchecked")
-    public List<Proveedor> cargarListaProveedores(){
+    public ArrayList<Proveedor> cargarListaProveedores(){
+        
 //     return this.listaProveedores= (ArrayList) Sucursal.persistencia.BuscarListaProveedores();
      return (ArrayList<Proveedor>) Sucursal.persistencia.BuscarListaProveedores();
      
@@ -155,23 +156,17 @@ public class Sucursal implements Serializable {
     public Proveedor BuscarProveedorCuit(String idPersona){
     
 //    
-//     Proveedor aux=null,pro;
-//     Iterator it= this.cargarListaProveedores().iterator();
-//     while (it.hasNext()){
-//         pro= (Proveedor) it.next();
-//         if ( pro.getIdPersona().equals(idPersona)){
-//             aux=pro;
-//         }
-//         if (aux ==null){
-//             System.out.println("Proveedor no encontrado");
-//         }
-//     }
-        Proveedor aux=new Proveedor();
-        aux.getRazonSocial();
-        aux.getSituacionTributaria();
-        aux.getTipoProveduria();
-        
-        
+     Proveedor aux=null,pro;
+     Iterator it= this.cargarListaProveedores().iterator();
+     while (it.hasNext()){
+         pro= (Proveedor) it.next();
+         if ( pro.getIdPersona().equals(idPersona)){
+             aux=pro;
+         }
+         if (aux ==null){
+             System.out.println("Proveedor no encontrado");
+         }
+     }
     return aux;
 //    JOptionPane.showMessageDialog(this, "Proveedor no encontrado);
    }

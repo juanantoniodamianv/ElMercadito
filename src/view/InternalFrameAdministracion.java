@@ -1259,6 +1259,10 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             btnNuevoProveedor.setEnabled(true);
             btnGuardarProveedor.setEnabled(false);
             btnCancelarProveedor.setEnabled(false);
+            
+             this.ListProveedor.setModel(modeloProveedor);
+                this.CargarListaProveedor(this.unMercadito.getUnaEmpresa().getListaProveedores());
+            
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,e.toString()+"Error al crear proveedor.");
         }

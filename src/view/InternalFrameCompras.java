@@ -34,6 +34,7 @@ import Persistencia.exceptions.PreexistingEntityException;
  * @author daniel
  */
 public class InternalFrameCompras extends javax.swing.JInternalFrame {
+    private static final long serialVersionUID = 1L;
     ElMercadito unMercadito;
      ProveedorJpaController jpaProv = new ProveedorJpaController();
    
@@ -437,11 +438,32 @@ public class InternalFrameCompras extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField10ActionPerformed
 
     private void btnBuscarProveedorCuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProveedorCuitActionPerformed
-    Proveedor unProveedor;
+     try {
+        Proveedor unProveedor=new Proveedor();
         unProveedor=unMercadito.getUnaSucursal().BuscarProveedorCuit(this.txtCuitProveedor.getText());   
         this.txtRazonSocial.setText(unProveedor.getRazonSocial());
+        } catch (NullPointerException ex) {
+            Logger.getLogger(InternalFrameCompras.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Error con la base de datos, no existe");
+        }    
     }//GEN-LAST:event_btnBuscarProveedorCuitActionPerformed
-public static DefaultTableModel modeloOrdenCompra;
+
+    
+                                   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public static DefaultTableModel modeloOrdenCompra;
 
     private void CrearmodeloOrdenCompra(){
         try {
@@ -449,6 +471,7 @@ public static DefaultTableModel modeloOrdenCompra;
             null, new String [] {
             "Nº","Código artículo",
             "Cantidad","Precio Unitario","Precio Total"}){
+                private static final long serialVersionUID = 1L;
             Class[] types = new Class [] {
             java.lang.String.class,
             java.lang.String.class,
