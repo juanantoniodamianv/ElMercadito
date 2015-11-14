@@ -27,7 +27,7 @@ public class OrdenCompraJpaController implements Serializable{
 }
     private EntityManagerFactory emf = null;
     public OrdenCompraJpaController() {
-   emf= Persistence.createEntityManagerFactory("ElMercaditoPU");
+        
     }
     
     public EntityManager getEntityManager() {

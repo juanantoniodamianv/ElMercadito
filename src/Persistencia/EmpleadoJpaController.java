@@ -27,9 +27,11 @@ public class EmpleadoJpaController implements Serializable {
     public EmpleadoJpaController() {
         this.emf = Persistence.createEntityManagerFactory("El_mercaditoPU");
     }
+    public EmpleadoJpaController(EntityManagerFactory emf){
+        this.emf = emf;
+    }
     private EntityManagerFactory emf = null;
 
-    
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();

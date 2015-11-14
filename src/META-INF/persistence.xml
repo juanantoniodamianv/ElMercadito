@@ -6,15 +6,15 @@
     <class>model.Caja</class>
     <class>model.Persona</class>
     <class>model.Proveedor</class>
-    <class>model.Empleado</class>
     <class>model.Cajero</class>
     <class>model.Cliente</class>
+    <class>model.Empleado</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/ElMercaditoPU"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
       <property name="javax.persistence.jdbc.password" value="avanzada2"/>
-      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>
 </persistence>

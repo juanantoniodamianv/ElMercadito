@@ -28,7 +28,7 @@ public class TicketVtaJpaController implements Serializable {
 }
     private EntityManagerFactory emf = null;
     public TicketVtaJpaController() {
-   emf= Persistence.createEntityManagerFactory("ElMercaditoPU");
+//   emf= Persistence.createEntityManagerFactory("ElMercaditoPU");
     }
     
     public EntityManager getEntityManager() {

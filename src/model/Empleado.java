@@ -43,7 +43,7 @@ public class Empleado extends Persona implements Serializable{
         this.cargo = cargo;
     }
 
-    public Empleado(String apellido, String nombre, String fechaNac, String sexo, String estadoCivil, String fechaIngreso, String cargo, String idPersona, String telefono, String direccion, String localidad, String provincia) {
+    public Empleado(String idPersona, String apellido, String nombre, String fechaNac, String sexo, String estadoCivil, String fechaIngreso, String cargo, String telefono, String direccion, String localidad, String provincia) {
         super(idPersona, telefono, direccion, localidad, provincia);
         this.apellido = apellido;
         this.nombre = nombre;
@@ -53,7 +53,12 @@ public class Empleado extends Persona implements Serializable{
         this.fechaIngreso = fechaIngreso;
         this.cargo = cargo;
     }
-
+    
+    @Override
+    public String toString(){
+        return "CUIL: " + super.getIdPersona() + "| Apellido: " + apellido + "| Nombre: " + nombre + "| Fecha de ingreso: " + fechaIngreso + "| Cargo: " + cargo;
+    }
+    
     public String getApellido() {
         return apellido;
     }

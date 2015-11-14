@@ -27,7 +27,7 @@ public class VentaMayoristaJpaController implements Serializable{
 }
     private EntityManagerFactory emf = null;
     public VentaMayoristaJpaController() {
-   emf= Persistence.createEntityManagerFactory("ElMercaditoPU");
+//   emf= Persistence.createEntityManagerFactory("ElMercaditoPU");
     }
     
     public EntityManager getEntityManager() {

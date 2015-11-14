@@ -25,7 +25,7 @@ public class RemitoVtaJpaController implements Serializable {
 }
     private EntityManagerFactory emf = null;
     public RemitoVtaJpaController() {
-   emf= Persistence.createEntityManagerFactory("ElMercaditoPU");
+//   emf= Persistence.createEntityManagerFactory("ElMercaditoPU");
     }
     
     public EntityManager getEntityManager() {

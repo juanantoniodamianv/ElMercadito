@@ -24,28 +24,35 @@ public class DescripcionArticulo implements Serializable {
     @Basic
      private String nombreArticulo;
     @Basic
-    private String unidadMedida;
-    @Basic
-    private float cantidadUnidadMedida;
-    @Basic
     private String descripcion;
     @Basic
     private String tipoEnvase;
     @Basic
+    private String unidadMedida;
+    @Basic
+    private float cantidadUnidadMedida;
+    @Basic
+    private float precioCompra;
+    @Basic
     private float precioVenta;
+    @Basic 
+    private float precioVentaMay;
+    
     @OneToMany
-     private ArrayList<Articulo>ListaArticulos;
+    private ArrayList<Articulo>ListaArticulos;
     
     public DescripcionArticulo(){}
 
-    public DescripcionArticulo(String codigoBarra, String nombreArticulo, String unidadMedida, float cantidadUnidadMedida, String descripcion, String tipoEnvase, float precioVenta, ArrayList<Articulo> ListaArticulos) {
+    public DescripcionArticulo(String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay, ArrayList<Articulo> ListaArticulos) {
         this.codigoBarra = codigoBarra;
         this.nombreArticulo = nombreArticulo;
-        this.unidadMedida = unidadMedida;
-        this.cantidadUnidadMedida = cantidadUnidadMedida;
         this.descripcion = descripcion;
         this.tipoEnvase = tipoEnvase;
+        this.unidadMedida = unidadMedida;
+        this.cantidadUnidadMedida = cantidadUnidadMedida;
+        this.precioCompra = precioCompra;
         this.precioVenta = precioVenta;
+        this.precioVentaMay = precioVentaMay;
         this.ListaArticulos = ListaArticulos;
     }
 
@@ -53,65 +60,80 @@ public class DescripcionArticulo implements Serializable {
         return codigoBarra;
     }
 
-    public String getNombreArticulo() {
-        return nombreArticulo;
-    }
-
-    public String getUnidadMedida() {
-        return unidadMedida;
-    }
-
-    public float getCantidadUnidadMedida() {
-        return cantidadUnidadMedida;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public String getTipoEnvase() {
-        return tipoEnvase;
-    }
-
-    public float getPrecioVenta() {
-        return precioVenta;
-    }
-
-    public ArrayList<Articulo> getListaArticulos() {
-        return ListaArticulos;
-    }
-
     public void setCodigoBarra(String codigoBarra) {
         this.codigoBarra = codigoBarra;
+    }
+
+    public String getNombreArticulo() {
+        return nombreArticulo;
     }
 
     public void setNombreArticulo(String nombreArticulo) {
         this.nombreArticulo = nombreArticulo;
     }
 
-    public void setUnidadMedida(String unidadMedida) {
-        this.unidadMedida = unidadMedida;
-    }
-
-    public void setCantidadUnidadMedida(float cantidadUnidadMedida) {
-        this.cantidadUnidadMedida = cantidadUnidadMedida;
+    public String getDescripcion() {
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
+    public String getTipoEnvase() {
+        return tipoEnvase;
+    }
+
     public void setTipoEnvase(String tipoEnvase) {
         this.tipoEnvase = tipoEnvase;
+    }
+
+    public String getUnidadMedida() {
+        return unidadMedida;
+    }
+
+    public void setUnidadMedida(String unidadMedida) {
+        this.unidadMedida = unidadMedida;
+    }
+
+    public float getCantidadUnidadMedida() {
+        return cantidadUnidadMedida;
+    }
+
+    public void setCantidadUnidadMedida(float cantidadUnidadMedida) {
+        this.cantidadUnidadMedida = cantidadUnidadMedida;
+    }
+
+    public float getPrecioCompra() {
+        return precioCompra;
+    }
+
+    public void setPrecioCompra(float precioCompra) {
+        this.precioCompra = precioCompra;
+    }
+
+    public float getPrecioVenta() {
+        return precioVenta;
     }
 
     public void setPrecioVenta(float precioVenta) {
         this.precioVenta = precioVenta;
     }
 
+    public float getPrecioVentaMay() {
+        return precioVentaMay;
+    }
+
+    public void setPrecioVentaMay(float precioVentaMay) {
+        this.precioVentaMay = precioVentaMay;
+    }
+
+    public ArrayList<Articulo> getListaArticulos() {
+        return ListaArticulos;
+    }
+
     public void setListaArticulos(ArrayList<Articulo> ListaArticulos) {
         this.ListaArticulos = ListaArticulos;
     }
-    
 
 }

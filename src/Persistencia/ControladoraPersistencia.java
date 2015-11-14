@@ -54,13 +54,11 @@ import model.VentaMinorista;
 //import model.Zona;
 import Persistencia.exceptions.NonexistentEntityException;
 import Persistencia.exceptions.PreexistingEntityException;
-import java.util.LinkedList;
 import java.util.List;
 // * @author daniel
 
 public class ControladoraPersistencia {
     public ControladoraPersistencia() {
-        this.articuloPersistencia = new ArticuloJpaController();
     }
     ArticuloJpaController articuloPersistencia;
     BultoJpaController bultoPersistencia=new BultoJpaController();
@@ -71,7 +69,6 @@ public class ControladoraPersistencia {
     ComprobanteJpaController comprobantePersistencia = new ComprobanteJpaController();
     DepositoJpaController depositoPersistencia = new DepositoJpaController();
     DescripcionArticuloJpaController descripcionArticuloPersistencia=new DescripcionArticuloJpaController();
-    //DireccionJpaController direccionPersistencia = new DireccionJpaController();
     EmpleadoJpaController empleadoPersistencia = new EmpleadoJpaController();
     EncabezadoJpaController encabezadoPersistencia= new EncabezadoJpaController();
     EncargadoJpaController encargadoPersistencia = new EncargadoJpaController();
@@ -81,27 +78,23 @@ public class ControladoraPersistencia {
     LineaDeCompraJpaController lineaDeCompraPersistencia = new LineaDeCompraJpaController();
     LineaDeTransferenciaJpaController lineaDeTransferenciaPersistencia = new LineaDeTransferenciaJpaController();  
     LineaVtaMayJpaController lineaVtaMayPersistencia = new LineaVtaMayJpaController();
-    LineaVtaMinJpaController lineaVtaMinPersistencia = new LineaVtaMinJpaController();  
-    //LocalidadJpaController localidadPersistencia = new LocalidadJpaController();
+    LineaVtaMinJpaController lineaVtaMinPersistencia = new LineaVtaMinJpaController();
     OrdenCompraJpaController ordenCompraPersistencia = new OrdenCompraJpaController();
     PagoJpaController pagoPersistencia = new PagoJpaController();
     PersonaJpaController personaPersistencia = new PersonaJpaController();
     ProveedorJpaController proveedorPersistencia = new ProveedorJpaController();
-    //ProvinciaJpaController provinciaPersistencia = new ProvinciaJpaController();
     RemitoTransferenciaJpaController remitoTransferenciaPersistencia = new RemitoTransferenciaJpaController();
     RemitoVtaJpaController remitoVtaPersistencia = new RemitoVtaJpaController(); 
     RepositorJpaController repositorPersistencia = new RepositorJpaController();  
     SeccionJpaController seccionPersistencia = new SeccionJpaController();
     SectorEstanteJpaController sectorEstantePersistencia = new SectorEstanteJpaController();
     SituacionTributariaJpaController situacionTributariaPersistencia = new SituacionTributariaJpaController();
-    SucursalJpaController sucursalPersistencia = new SucursalJpaController();
+    //SucursalJpaController sucursalPersistencia = new SucursalJpaController();
     TicketVtaJpaController  ticketVtaPersistencia = new TicketVtaJpaController();
     TransferenciaJpaController transferenciaPersistencia= new TransferenciaJpaController ();
     VentaJpaController ventaPersistencia = new VentaJpaController();
     VentaMayoristaJpaController  ventaMayoristaPersistencia = new VentaMayoristaJpaController();
     VentaMinoristaJpaController ventaMinoristaPersistencia = new VentaMinoristaJpaController();
-    //ZonaJpaController zonaPersistencia = new ZonaJpaController();
-    
      
 
 
@@ -226,4 +219,22 @@ public class ControladoraPersistencia {
     public Object BuscarUnPersona(String id){
         return this.personaPersistencia.findPersona(id);
     }
+    
+    //Empleado
+    public void AgregarUnEmpleadoPersis(Empleado emp) throws PreexistingEntityException, Exception{
+       this.empleadoPersistencia.create(emp);
+    }
+    public void ModificarUnEmpleadoPersis(Empleado emp) throws NonexistentEntityException, Exception{
+        this.empleadoPersistencia.edit(emp);
+    }
+    public void BorrarEmpleadoPersis(String idPersona) throws NonexistentEntityException{
+        this.empleadoPersistencia.destroy(idPersona) ;
+    }
+    public Empleado BuscarEmpleadoPersis(String idPersona){
+        return (Empleado) this.empleadoPersistencia.findEmpleado(idPersona);
+    }
+    public List<Empleado> BuscarListaEmpleadoPersis(){
+        return this.empleadoPersistencia.findEmpleadoEntities();
+    }
+    ///////////////////////////////////////////////////////
 }

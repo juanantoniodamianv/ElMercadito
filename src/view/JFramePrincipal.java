@@ -6,17 +6,21 @@
 
 package view;
 
+import ElMercadito.ElMercadito;
+
 
 /**
  *
  * @author Antonio
  */
 public class JFramePrincipal extends javax.swing.JFrame {
-
+    private ElMercadito unMercadito;
     /**
      * Creates new form JFramePrincipal
      */
-    public JFramePrincipal() {
+    public JFramePrincipal(ElMercadito unMercadito) {
+        this.unMercadito=unMercadito;             
+        this.setVisible(true);
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
     }
@@ -296,7 +300,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     private void btnAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministracionActionPerformed
         // TODO add your handling code here:
-       InternalFrameAdministracion ventanaAdministracion = new InternalFrameAdministracion();
+       InternalFrameAdministracion ventanaAdministracion = new InternalFrameAdministracion(this.unMercadito);
        escritorio.add(ventanaAdministracion);
        ventanaAdministracion.show();
     }//GEN-LAST:event_btnAdministracionActionPerformed
