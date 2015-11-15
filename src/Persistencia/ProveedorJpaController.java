@@ -106,12 +106,12 @@ public class ProveedorJpaController implements Serializable {
         return findProveedorEntities(false, maxResults, firstResult);
     }
 
+
+    @SuppressWarnings("unchecked")
     private List<Proveedor> findProveedorEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Proveedor.class));
-            Query q = em.createQuery(cq);
+            Query q = em.createQuery("select object(o) from Proveedor as o");
             if (!all) {
                 q.setMaxResults(maxResults);
                 q.setFirstResult(firstResult);

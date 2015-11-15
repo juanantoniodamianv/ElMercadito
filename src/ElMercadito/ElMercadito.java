@@ -30,9 +30,15 @@ import view.*;
  */
 public class ElMercadito {
 private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","razon social");
+
+    public Sucursal getUnaSucursal() {
+        return unaSucursal;
+    }
     private ControladoraPersistencia unaControlPersistencia;
     
     public static void main(String[] args) throws Exception{
+        ElMercadito unMercadito = new ElMercadito();
+//        unMercadito.getUnaControladoraVisual().crearMenu(unaAplicacion);
         //Carga el estilo look and feel
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -126,6 +132,10 @@ private static final Sucursal unaSucursal = new Sucursal(1,"cuil","telefono","ra
     
     public ElMercadito(ControladoraPersistencia unaControlPersistencia) {
         this.unaControlPersistencia = unaControlPersistencia;
+    }
+
+    private ElMercadito() {
+        
     }
 
 
