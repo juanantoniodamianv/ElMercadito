@@ -15,7 +15,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import model.Cliente;
 import model.Empleado;
+import model.Proveedor;
 
 
 /**
@@ -24,7 +26,9 @@ import model.Empleado;
  */
 public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private ElMercadito unMercadito;
-    private DefaultListModel modeloEmpleados = new DefaultListModel();   
+    private DefaultListModel modeloEmpleados = new DefaultListModel();
+    private DefaultListModel modeloClientes = new DefaultListModel();
+    private DefaultListModel modeloProveedor = new DefaultListModel();
     
     /**
      * Creates new form InternalFrameAdministracion
@@ -52,7 +56,9 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         txtEditableArticulo(false);
         //###################################///////
         //##########PROVEEDOR##############///
+        this.ListProveedor.setModel(modeloProveedor);
         btnGuardarProveedor.setEnabled(false);
+        btnGuardarEditProveedor.setEnabled(false);
         btnNuevoProveedor.setEnabled(true);
         btnEditarProveedor.setEnabled(false);
         btnEliminarProveedor.setEnabled(false);
@@ -60,7 +66,9 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         txtEditableProveedor(false);
         //###################################///////
         //##########CLIENTE##############///
+        this.ListClientes.setModel(modeloEmpleados);
         btnGuardarCliente.setEnabled(false);
+        btnGuardarEditCliente.setEnabled(false);
         btnNuevoCliente.setEnabled(true);
         btnEditarCliente.setEnabled(false);
         btnEliminarCliente.setEnabled(false);
@@ -201,18 +209,19 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         btnGuardarProveedor = new javax.swing.JButton();
         btnCancelarProveedor = new javax.swing.JButton();
         btnEliminarProveedor = new javax.swing.JButton();
+        btnGuardarEditProveedor = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
         lblBuscarProveedor = new javax.swing.JLabel();
         txtBuscarProveedor = new javax.swing.JTextField();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tblProveedor = new javax.swing.JTable();
         btnBuscarProveedor = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ListProveedor = new javax.swing.JList();
         jPanelClientes = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        lblBuscarCliente = new javax.swing.JLabel();
         txtBuscarCliente = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblCliente = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        ListClientes = new javax.swing.JList();
+        btnBuscarCliente = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         lblApellidoCliente = new javax.swing.JLabel();
@@ -241,6 +250,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         btnEditarCliente = new javax.swing.JButton();
         btnCancelarCliente = new javax.swing.JButton();
         btnEliminarCliente = new javax.swing.JButton();
+        btnGuardarEditCliente = new javax.swing.JButton();
         jPanelEmpleados = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
         lblApellidoEmpleado = new javax.swing.JLabel();
@@ -469,6 +479,13 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         btnEliminarProveedor.setText("Eliminar");
 
+        btnGuardarEditProveedor.setText("Guardar Edición");
+        btnGuardarEditProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarEditProveedorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -478,12 +495,14 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                 .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(176, 176, 176)
+                .addGap(110, 110, 110)
                 .addComponent(btnNuevoProveedor)
+                .addGap(18, 18, 18)
+                .addComponent(btnGuardarProveedor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEditarProveedor)
-                .addGap(8, 8, 8)
-                .addComponent(btnGuardarProveedor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGuardarEditProveedor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEliminarProveedor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -501,23 +520,26 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addComponent(btnNuevoProveedor)
                     .addComponent(btnEditarProveedor)
                     .addComponent(btnCancelarProveedor)
-                    .addComponent(btnEliminarProveedor))
+                    .addComponent(btnEliminarProveedor)
+                    .addComponent(btnGuardarEditProveedor))
                 .addGap(11, 11, 11))
         );
 
         jPanel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        tblProveedor.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
+        btnBuscarProveedor.setText("Buscar por CUIT");
+        btnBuscarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarProveedorActionPerformed(evt);
             }
-        ));
-        jScrollPane4.setViewportView(tblProveedor);
+        });
 
-        btnBuscarProveedor.setText("Buscar");
+        ListProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListProveedorMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(ListProveedor);
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -526,7 +548,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 673, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel17Layout.createSequentialGroup()
                         .addComponent(lblBuscarProveedor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -545,8 +567,8 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblBuscarProveedor)
                         .addComponent(btnBuscarProveedor)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -567,30 +589,26 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         jTabbedPaneAdministracion.addTab("Proveedores", jPanelProveedores);
 
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lblBuscarCliente.setText("Buscar:");
-
-        txtBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscarClienteActionPerformed(evt);
+        ListClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListClientesMouseClicked(evt);
             }
         });
+        jScrollPane5.setViewportView(ListClientes);
 
-        tblCliente.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
+        btnBuscarCliente.setText("Buscar por CUIT o DNI");
+        btnBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarClienteActionPerformed(evt);
             }
-        ));
-        jScrollPane1.setViewportView(tblCliente);
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -599,11 +617,11 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane5)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(lblBuscarCliente)
+                        .addComponent(txtBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscarCliente)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -612,10 +630,10 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblBuscarCliente)
-                    .addComponent(txtBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                    .addComponent(txtBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarCliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -788,6 +806,13 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             }
         });
 
+        btnGuardarEditCliente.setText("Guardar Edición");
+        btnGuardarEditCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarEditClienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -795,17 +820,19 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(193, 193, 193)
+                        .addGap(113, 113, 113)
                         .addComponent(btnNuevoCliente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEditarCliente)
-                        .addGap(8, 8, 8)
+                        .addGap(5, 5, 5)
                         .addComponent(btnGuardarCliente)
-                        .addGap(10, 10, 10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnEditarCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnGuardarEditCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEliminarCliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCancelarCliente)
-                        .addGap(0, 121, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -827,7 +854,8 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addComponent(btnNuevoCliente)
                     .addComponent(btnEditarCliente)
                     .addComponent(btnCancelarCliente)
-                    .addComponent(btnEliminarCliente))
+                    .addComponent(btnEliminarCliente)
+                    .addComponent(btnGuardarEditCliente))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -847,7 +875,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             .addGroup(jPanelClientesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
@@ -1071,12 +1099,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         );
 
         jPanel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        txtBuscarEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscarEmpleadoActionPerformed(evt);
-            }
-        });
 
         ListEmpleados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1365,14 +1387,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtBuscarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarEmpleadoActionPerformed
-
-    private void txtBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarClienteActionPerformed
-
     private void btnNuevoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProveedorActionPerformed
         txtEditableProveedor(true);
         btnNuevoProveedor.setEnabled(false);
@@ -1419,7 +1433,23 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGuardarEmpleadoActionPerformed
 
     private void btnGuardarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarProveedorActionPerformed
-       
+        try{          
+            this.unMercadito.getUnaSucursal().AgregarUnProveedor(this.txtCuitProveedor.getText(), this.txtRazonSocialProveedor.getText(), this.cmbSituacTribProveedor.getSelectedItem().toString(), this.txtTipoProveeduriaProveedor.getText(), this.txtTelProveedor.getText(), this.txtDireccionProveedor.getText(), this.txtLocalidadProveedor.getText(), this.txtProvinciaProveedor.getText());
+            limpiarTxtProveedor();
+            txtEditableProveedor(false);
+            btnNuevoProveedor.setEnabled(true);
+            btnGuardarProveedor.setEnabled(false);
+            btnCancelarProveedor.setEnabled(false);
+            JOptionPane.showMessageDialog(this, "¡Proveedor agregado correctamente!");
+            this.CargarListaProveedor(this.unMercadito.getUnaSucursal().getListaProveedores());
+            this.ListProveedor.setModel(modeloProveedor);
+        } catch (PreexistingEntityException ex) {
+            Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Error con la base de datos, ya existe");
+        } catch (Exception ex) {
+            Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Error con la base de datos");
+        }   
     }//GEN-LAST:event_btnGuardarProveedorActionPerformed
 
     private void btnCancelarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarProveedorActionPerformed
@@ -1428,13 +1458,23 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         btnNuevoProveedor.setEnabled(true);
         btnGuardarProveedor.setEnabled(false);
         btnCancelarProveedor.setEnabled(false);
+        btnGuardarEditProveedor.setEnabled(false);
     }//GEN-LAST:event_btnCancelarProveedorActionPerformed
-
+    
+    public void CargarListaProveedor(List listaComun){
+        Iterator iter = listaComun.iterator();
+        this.modeloProveedor.clear();
+        while(iter.hasNext()){
+            this.modeloProveedor.addElement(iter.next());
+        }
+    }
+    
     private void btnEditarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarProveedorActionPerformed
         txtEditableProveedor(true);
         btnEditarProveedor.setEnabled(false);
         btnNuevoProveedor.setEnabled(false);
         btnGuardarProveedor.setEnabled(true);
+        btnGuardarEditProveedor.setEnabled(true);
         btnCancelarProveedor.setEnabled(true);
     }//GEN-LAST:event_btnEditarProveedorActionPerformed
 
@@ -1447,14 +1487,31 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnNuevoClienteActionPerformed
 
     private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
-        
+        try{          
+        this.unMercadito.getUnaSucursal().AgregarUnCliente(this.txtCuitCliente.getText(), this.txtApellidoCliente.getText(), this.txtNombreCliente.getText(), this.txtRazonSocialCliente.getText(), this.cmbTipoCliente.getSelectedItem().toString(), this.cmbCondIvaCliente.getSelectedItem().toString(), this.txtTelCliente.getText(), this.txtDireccionCliente.getText(), this.txtProvinciaCliente.getText(), this.txtLocalidadCliente.getText());
+        limpiarTxtCliente();
+        txtEditableCliente(false);
+        btnNuevoCliente.setEnabled(true);
+        btnGuardarCliente.setEnabled(false);
+        btnCancelarCliente.setEnabled(false);
+        JOptionPane.showMessageDialog(this, "¡Cliente agregado correctamente!");
+        this.CargarListaClientes(this.unMercadito.getUnaSucursal().getListaClientes());
+        this.ListClientes.setModel(modeloClientes);
+        } catch (PreexistingEntityException ex) {
+            Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Error con la base de datos, ya existe");
+        } catch (Exception ex) {
+            Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Error con la base de datos");
+        }    
     }//GEN-LAST:event_btnGuardarClienteActionPerformed
 
     private void btnEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClienteActionPerformed
         txtEditableCliente(true);
         btnEditarCliente.setEnabled(false);
         btnNuevoCliente.setEnabled(false);
-        btnGuardarCliente.setEnabled(true);
+        btnGuardarCliente.setEnabled(false);
+        btnGuardarEditCliente.setEnabled(true);
         btnCancelarCliente.setEnabled(true);
     }//GEN-LAST:event_btnEditarClienteActionPerformed
 
@@ -1468,6 +1525,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         btnNuevoCliente.setEnabled(true);
         btnGuardarCliente.setEnabled(false);
         btnCancelarCliente.setEnabled(false);
+        btnGuardarEditCliente.setEnabled(false);
     }//GEN-LAST:event_btnCancelarClienteActionPerformed
 
     private void btnNuevoEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoEmpleadoActionPerformed
@@ -1578,11 +1636,142 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnGuardarEditEmpleadoActionPerformed
 
-    
+    private void btnGuardarEditClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEditClienteActionPerformed
+        int confirmar;
+        confirmar=JOptionPane.showConfirmDialog(this, "Esta accion modificara los datos de la Persona seleccionada ¿Desea continuar?", "Modificar",  JOptionPane.YES_NO_OPTION);
+        if(confirmar==JOptionPane.YES_OPTION){
+             try {
+                Cliente unCliente = this.unMercadito.getUnaSucursal().BuscarCliente(this.txtCuitCliente.getText());
+                this.unMercadito.getUnaSucursal().ModificarUnCliente(unCliente, this.txtCuitCliente.getText(), this.txtApellidoCliente.getText(), this.txtNombreCliente.getText(), this.txtRazonSocialCliente.getText(), this.cmbTipoCliente.getSelectedItem().toString(), this.cmbCondIvaCliente.getSelectedItem().toString(), this.txtTelCliente.getText(), this.txtDireccionCliente.getText(), this.txtProvinciaCliente.getText(), this.txtLocalidadCliente.getText());
+                JOptionPane.showMessageDialog(this, "Se modificaron correctamente los datos");
+                btnNuevoCliente.setEnabled(true);
+                btnGuardarEditCliente.setEnabled(false);
+                btnCancelarCliente.setEnabled(false);
+                txtEditableCliente(false);
+             } catch (NonexistentEntityException ex) {
+                 Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+                 JOptionPane.showMessageDialog(this, "Error con la base de datos, no existe");
+             } catch (Exception ex) {
+                 Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+                 JOptionPane.showMessageDialog(this, "Error con la base de datos");
+             }
+        }else{
+            btnNuevoCliente.setEnabled(true);
+            btnGuardarEditCliente.setEnabled(false);
+            btnCancelarCliente.setEnabled(false);
+            txtEditableCliente(false);
+        }
+    }//GEN-LAST:event_btnGuardarEditClienteActionPerformed
+
+    private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
+        try{
+        Cliente unCliente;
+        unCliente=unMercadito.getUnaSucursal().BuscarCliente(this.txtBuscarCliente.getText());
+        this.txtApellidoCliente.setText(unCliente.getApellido());
+        this.txtNombreCliente.setText(unCliente.getNombre());
+        this.txtCuitCliente.setText(unCliente.getIdPersona());
+        this.txtRazonSocialCliente.setText(unCliente.getRazonSocial());
+        this.cmbTipoCliente.setSelectedItem(unCliente.getTipoCliente());
+        this.cmbCondIvaCliente.setSelectedItem(unCliente.getIvaCondicion());
+        this.txtTelCliente.setText(unCliente.getTelefono());
+        this.txtDireccionCliente.setText(unCliente.getDireccion());
+        this.txtProvinciaCliente.setText(unCliente.getProvincia());
+        this.txtLocalidadCliente.setText(unCliente.getLocalidad());    
+        btnEditarCliente.setEnabled(true);
+        }catch (Exception ex){
+                 Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+                 JOptionPane.showMessageDialog(this, "CUIT Inexistente");
+        }   
+    }//GEN-LAST:event_btnBuscarClienteActionPerformed
+
+    private void ListClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListClientesMouseClicked
+        Cliente unCliente = (Cliente) this.modeloClientes.getElementAt(this.ListClientes.getSelectedIndex());
+        this.txtApellidoCliente.setText(unCliente.getApellido());
+        this.txtNombreCliente.setText(unCliente.getNombre());
+        this.txtCuitCliente.setText(unCliente.getIdPersona());
+        this.txtRazonSocialCliente.setText(unCliente.getRazonSocial());
+        this.cmbTipoCliente.setSelectedItem(unCliente.getTipoCliente());
+        this.cmbCondIvaCliente.setSelectedItem(unCliente.getIvaCondicion());
+        this.txtTelCliente.setText(unCliente.getTelefono());
+        this.txtDireccionCliente.setText(unCliente.getDireccion());
+        this.txtProvinciaCliente.setText(unCliente.getProvincia());
+        this.txtLocalidadCliente.setText(unCliente.getLocalidad());
+        btnEditarCliente.setEnabled(true);
+    }//GEN-LAST:event_ListClientesMouseClicked
+
+    private void btnBuscarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProveedorActionPerformed
+        try{
+            Proveedor unProveedor;
+            unProveedor=unMercadito.getUnaSucursal().BuscarProveedor(this.txtBuscarProveedor.getText());
+            this.txtCuitProveedor.setText(unProveedor.getIdPersona());
+            this.txtRazonSocialProveedor.setText(unProveedor.getRazonSocial());
+            this.cmbSituacTribProveedor.setSelectedItem(unProveedor.getSituacionTributaria());
+            this.txtTipoProveeduriaProveedor.setText(unProveedor.getTipoProveduria());
+            this.txtTelProveedor.setText(unProveedor.getTelefono());
+            this.txtDireccionProveedor.setText(unProveedor.getDireccion());
+            this.txtProvinciaProveedor.setText(unProveedor.getProvincia());
+            this.txtLocalidadProveedor.setText(unProveedor.getLocalidad());
+            btnEditarProveedor.setEnabled(true);
+        }catch (Exception ex){
+                 Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+                 JOptionPane.showMessageDialog(this, "¡CUIT Inexistente!");
+        }   
+    }//GEN-LAST:event_btnBuscarProveedorActionPerformed
+
+    private void ListProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListProveedorMouseClicked
+        Proveedor unProveedor = (Proveedor) this.modeloProveedor.getElementAt(this.ListProveedor.getSelectedIndex());
+        this.txtCuitProveedor.setText(unProveedor.getIdPersona());
+        this.txtRazonSocialProveedor.setText(unProveedor.getRazonSocial());
+        this.cmbSituacTribProveedor.setSelectedItem(unProveedor.getSituacionTributaria());
+        this.txtTipoProveeduriaProveedor.setText(unProveedor.getTipoProveduria());
+        this.txtTelProveedor.setText(unProveedor.getTelefono());
+        this.txtDireccionProveedor.setText(unProveedor.getDireccion());
+        this.txtProvinciaProveedor.setText(unProveedor.getProvincia());
+        this.txtLocalidadProveedor.setText(unProveedor.getLocalidad());
+        btnEditarProveedor.setEnabled(true);
+    }//GEN-LAST:event_ListProveedorMouseClicked
+
+    private void btnGuardarEditProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEditProveedorActionPerformed
+        int confirmar;
+        confirmar=JOptionPane.showConfirmDialog(this, "Esta accion modificara los datos de la Persona seleccionada ¿Desea continuar?", "Modificar",  JOptionPane.YES_NO_OPTION);
+        if(confirmar==JOptionPane.YES_OPTION){
+             try {
+                Proveedor unProveedor = this.unMercadito.getUnaSucursal().BuscarProveedor(this.txtCuitProveedor.getText());
+                this.unMercadito.getUnaSucursal().ModificarUnProveedor(unProveedor, this.txtCuitProveedor.getText(), this.txtRazonSocialProveedor.getText(), this.cmbSituacTribProveedor.getSelectedItem().toString(), this.txtTipoProveeduriaProveedor.getText(), this.txtTelProveedor.getText(), this.txtDireccionProveedor.getText(), this.txtLocalidadProveedor.getText(), this.txtProvinciaProveedor.getText());
+                JOptionPane.showMessageDialog(this, "Se modificaron correctamente los datos");
+                btnNuevoProveedor.setEnabled(true);
+                btnGuardarEditProveedor.setEnabled(false);
+                btnCancelarProveedor.setEnabled(false);
+                txtEditableProveedor(false);
+             } catch (NonexistentEntityException ex) {
+                 Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+                 JOptionPane.showMessageDialog(this, "Error con la base de datos, no existe");
+             } catch (Exception ex) {
+                 Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+                 JOptionPane.showMessageDialog(this, "Error con la base de datos");
+             }
+        }else{
+            btnNuevoProveedor.setEnabled(true);
+            btnGuardarEditProveedor.setEnabled(false);
+            btnCancelarProveedor.setEnabled(false);
+            txtEditableProveedor(false);
+        }
+    }//GEN-LAST:event_btnGuardarEditProveedorActionPerformed
+
+    public void CargarListaClientes(List listaComun){
+    Iterator iter = listaComun.iterator();
+    this.modeloClientes.clear();
+    while(iter.hasNext()){
+        this.modeloClientes.addElement(iter.next());
+    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList ListArticulosDetalles;
+    private javax.swing.JList ListClientes;
     private javax.swing.JList ListEmpleados;
+    private javax.swing.JList ListProveedor;
+    private javax.swing.JButton btnBuscarCliente;
     private javax.swing.JButton btnBuscarEmpleado;
     private javax.swing.JButton btnBuscarProveedor;
     private javax.swing.JButton btnCancelarArticulo;
@@ -1599,7 +1788,9 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEliminarProveedor;
     private javax.swing.JButton btnGuardarArticulo;
     private javax.swing.JButton btnGuardarCliente;
+    private javax.swing.JButton btnGuardarEditCliente;
     private javax.swing.JButton btnGuardarEditEmpleado;
+    private javax.swing.JButton btnGuardarEditProveedor;
     private javax.swing.JButton btnGuardarEmpleado;
     private javax.swing.JButton btnGuardarProveedor;
     private javax.swing.JButton btnNuevoArticulo;
@@ -1638,11 +1829,10 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPaneAdministracion;
     private javax.swing.JLabel lblApellidoCliente;
     private javax.swing.JLabel lblApellidoEmpleado;
-    private javax.swing.JLabel lblBuscarCliente;
     private javax.swing.JLabel lblBuscarProveedor;
     private javax.swing.JLabel lblCargoEmpleado;
     private javax.swing.JLabel lblCodBarraArticulo;
@@ -1677,8 +1867,6 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblTipoCliente;
     private javax.swing.JLabel lblTipoEnvaseArticulo;
     private javax.swing.JLabel lblTipoProveeduriaProveedor;
-    private javax.swing.JTable tblCliente;
-    private javax.swing.JTable tblProveedor;
     private javax.swing.JTextField txtApellidoCliente;
     private javax.swing.JTextField txtApellidoEmpleado;
     private javax.swing.JTextField txtBuscarCliente;

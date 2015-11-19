@@ -31,7 +31,7 @@ public class Proveedor extends Persona implements Serializable{
         this.tipoProveduria = tipoProveduria;
     }
 
-    public Proveedor(String razonSocial, String situacionTributaria, String tipoProveduria, String idPersona, String telefono, String direccion, String localidad, String provincia) {
+    public Proveedor(String idPersona, String razonSocial, String situacionTributaria, String tipoProveduria, String telefono, String direccion, String localidad, String provincia) {
         super(idPersona, telefono, direccion, localidad, provincia);
         this.razonSocial = razonSocial;
         this.situacionTributaria = situacionTributaria;

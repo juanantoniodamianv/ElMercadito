@@ -30,7 +30,7 @@ public class Cliente extends Persona implements Serializable{
     public Cliente() {
     }
 
-    public Cliente(String apellido, String nombre, String tipoCliente, String razonSocial, String ivaCondicion) {
+    public Cliente(String apellido, String nombre, String razonSocial, String tipoCliente, String ivaCondicion) {
         this.apellido = apellido;
         this.nombre = nombre;
         this.tipoCliente = tipoCliente;
@@ -38,7 +38,7 @@ public class Cliente extends Persona implements Serializable{
         this.ivaCondicion = ivaCondicion;
     }
 
-    public Cliente(String apellido, String nombre, String tipoCliente, String razonSocial, String ivaCondicion, String idPersona, String telefono, String direccion, String localidad, String provincia) {
+    public Cliente(String idPersona, String apellido, String nombre, String razonSocial, String tipoCliente, String ivaCondicion, String telefono, String direccion, String localidad, String provincia) {
         super(idPersona, telefono, direccion, localidad, provincia);
         this.apellido = apellido;
         this.nombre = nombre;
@@ -46,7 +46,11 @@ public class Cliente extends Persona implements Serializable{
         this.razonSocial = razonSocial;
         this.ivaCondicion = ivaCondicion;
     }
-
+    @Override
+    public String toString(){
+        return "CUIT/DNI: " + super.getIdPersona() + " | Apellido y Nombre: " + apellido + nombre + " | Razon Social: " + razonSocial;
+    }
+    
     public String getApellido() {
         return apellido;
     }

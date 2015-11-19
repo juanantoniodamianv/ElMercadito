@@ -177,11 +177,11 @@ public class ControladoraPersistencia {
     public void BorrarClientePersis(int id) throws NonexistentEntityException{
         this.clientePersistencia.destroy(id);
     }
-    public List<Cliente> BuscarListaClientes(){
+    public List<Cliente> BuscarListaClientesPersis(){
        return this.clientePersistencia.findClienteEntities();
     }
-    public Object BuscarUnCliente(String id){
-        return this.clientePersistencia.findCliente(id);
+    public Object BuscarUnCliente(String idPersona){
+        return this.clientePersistencia.findCliente(idPersona);
     }
 
 
@@ -196,7 +196,7 @@ public class ControladoraPersistencia {
     public void BorrarProveedorPersis(int id) throws NonexistentEntityException{
         this.proveedorPersistencia.destroy(id);
     }
-    public List<Proveedor> BuscarListaProveedores(){
+    public List<Proveedor> BuscarListaProveedoresPersis(){
        return this.proveedorPersistencia.findProveedorEntities();
     }
     public Object BuscarUnProveedor(String id){

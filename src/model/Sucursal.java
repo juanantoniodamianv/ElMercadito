@@ -33,18 +33,15 @@ public class Sucursal implements Serializable {
     private String telefono;
     @Basic
     private String razonSocial;
-    
     private Deposito unDeposito;
-    
     private String direccion;
-    
     private ArrayList<Persona> listaPersonas;
-    
     private ArrayList<Caja> listaCajas;
-    
-    private ArrayList<ListaDePrecio> ListaDePrecios;
-    
+    private ArrayList<ListaDePrecio> ListaDePrecios; 
     private List<Empleado> listaEmpleados = new LinkedList();
+    private List<Cliente> listaClientes = new LinkedList();
+    private List<Proveedor> listaProveedores = new LinkedList();
+    
     public static final ControladoraPersistencia persistencia = new ControladoraPersistencia();
 //    constructor nulo
     public Sucursal(){}
@@ -62,7 +59,7 @@ public class Sucursal implements Serializable {
         this.listaCajas = listaCajas;
         this.ListaDePrecios = ListaDePrecios;
     }
-
+    
     public int getNroSucursal() {
         return nroSucursal;
     }
@@ -145,6 +142,10 @@ public class Sucursal implements Serializable {
     private List<Empleado> cargarListaEmpleadosBD() {
         return this.listaEmpleados = Sucursal.persistencia.BuscarListaEmpleadoPersis();
     }
+    private List<Proveedor> cargarListaProveedoresBD(){
+        return this.listaProveedores = Sucursal.persistencia.BuscarListaProveedoresPersis();
+    }
+
     
     //EMPLEADO
     public void ModificarUnEmpleado(Empleado unEmpleado, String idPersona, String apellido, String nombre, String fechaNac, String sexo, String estadoCivil, String fechaIngreso, String cargo, String telefono, String direccion, String provincia, String localidad) throws PreexistingEntityException, Exception{
@@ -179,6 +180,90 @@ public class Sucursal implements Serializable {
         return aux;
     }
     ////////////////////////////////////////////////////////////////////////////////////
+    
+    //CLIENTE
+    public void ModificarUnCliente(Cliente unCliente, String idPersona, String apellido, String nombre, String razonSocial, String tipoCliente, String ivaCondicion, String telefono, String direccion, String localidad, String provincia) throws PreexistingEntityException, Exception{
+        unCliente.setIdPersona(idPersona);
+        unCliente.setApellido(apellido);
+        unCliente.setNombre(nombre);
+        unCliente.setRazonSocial(razonSocial);
+        unCliente.setTipoCliente(tipoCliente);
+        unCliente.setIvaCondicion(ivaCondicion);
+        unCliente.setTelefono(telefono);
+        unCliente.setDireccion(direccion);
+        unCliente.setProvincia(provincia);
+        unCliente.setLocalidad(localidad);
+        Sucursal.persistencia.ModificarClientePersis(unCliente);
+    }
+    public void AgregarUnCliente(String idPersona, String apellido, String nombre, String razonSocial, String tipoCliente, String ivaCondicion, String telefono, String direccion, String localidad, String provincia) throws PreexistingEntityException, Exception{
+        Cliente unCliente = new Cliente(idPersona, apellido, nombre, razonSocial, tipoCliente, ivaCondicion, telefono, direccion, localidad, provincia);
+        this.listaClientes.add(unCliente);
+        Sucursal.persistencia.AgregarClientePersis(unCliente);
+    }
+    public Cliente BuscarCliente(String idPersona){
+        Cliente aux=null, cli;
+        Iterator it = this.cargarListaClientesBD().iterator();
+        while(it.hasNext()){
+            cli=(Cliente) it.next();
+            if(cli.getIdPersona().equals(idPersona)){
+                aux=cli;
+            }
+        }
+        return aux;
+    }
 
+    public List<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+
+    public void setListaClientes(List<Cliente> listaClientes) {
+        this.listaClientes = listaClientes;
+    }
+    
+    private List<Cliente> cargarListaClientesBD(){
+        return this.listaClientes = Sucursal.persistencia.BuscarListaClientesPersis();
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////
+    
+    //PROVEEDOR
+    public void ModificarUnProveedor(Proveedor unProveedor, String idPersona, String razonSocial, String situacionTributaria, String tipoProveduria, String telefono, String direccion, String localidad, String provincia)  throws PreexistingEntityException, Exception{
+        unProveedor.setIdPersona(idPersona);
+        unProveedor.setRazonSocial(razonSocial);
+        unProveedor.setSituacionTributaria(situacionTributaria);
+        unProveedor.setTipoProveduria(tipoProveduria);
+        unProveedor.setTelefono(telefono);
+        unProveedor.setDireccion(direccion);
+        unProveedor.setLocalidad(localidad);
+        unProveedor.setProvincia(provincia);
+        Sucursal.persistencia.ModificarProveedorPersis(unProveedor);
+    
+    }
+    
+    public void AgregarUnProveedor(String idPersona, String razonSocial, String situacionTributaria, String tipoProveduria, String telefono, String direccion, String localidad, String provincia) throws PreexistingEntityException, Exception{
+        Proveedor unProveedor = new Proveedor(idPersona, razonSocial, situacionTributaria, tipoProveduria, telefono, direccion, localidad, provincia);
+        this.listaProveedores.add(unProveedor);
+        Sucursal.persistencia.AgregarProveedorPersis(unProveedor);
+    }
+    
+    public Proveedor BuscarProveedor(String idPersona){
+        Proveedor aux=null, pro;
+        Iterator it = this.cargarListaProveedoresBD().iterator();
+        while(it.hasNext()){
+            pro=(Proveedor) it.next();
+            if(pro.getIdPersona().equals(idPersona)){
+                aux=pro;
+            }
+        }
+        return aux;
+    }
+    
+    public List<Proveedor> getListaProveedores() {
+        return listaProveedores;
+    }
+
+    public void setListaProveedores(List<Proveedor> listaProveedores) {
+        this.listaProveedores = listaProveedores;
+    }
     
 }
