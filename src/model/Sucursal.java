@@ -41,6 +41,7 @@ public class Sucursal implements Serializable {
     private List<Empleado> listaEmpleados = new LinkedList();
     private List<Cliente> listaClientes = new LinkedList();
     private List<Proveedor> listaProveedores = new LinkedList();
+    private List<DescripcionArticulo> listaDescripcionArticulo = new LinkedList();
     
     public static final ControladoraPersistencia persistencia = new ControladoraPersistencia();
 //    constructor nulo
@@ -145,6 +146,9 @@ public class Sucursal implements Serializable {
     private List<Proveedor> cargarListaProveedoresBD(){
         return this.listaProveedores = Sucursal.persistencia.BuscarListaProveedoresPersis();
     }
+    private List<DescripcionArticulo> cargarListaDescripcionArticuloBD(){
+        return this.listaDescripcionArticulo = Sucursal.persistencia.BuscarListaDescripcionArticuloPersis();
+    }
 
     
     //EMPLEADO
@@ -237,7 +241,6 @@ public class Sucursal implements Serializable {
         unProveedor.setLocalidad(localidad);
         unProveedor.setProvincia(provincia);
         Sucursal.persistencia.ModificarProveedorPersis(unProveedor);
-    
     }
     
     public void AgregarUnProveedor(String idPersona, String razonSocial, String situacionTributaria, String tipoProveduria, String telefono, String direccion, String localidad, String provincia) throws PreexistingEntityException, Exception{
@@ -265,5 +268,47 @@ public class Sucursal implements Serializable {
     public void setListaProveedores(List<Proveedor> listaProveedores) {
         this.listaProveedores = listaProveedores;
     }
+    //ARTICULO////////////////////////////////////////////////
+    public void ModificarUnaDescripcionArticulo(DescripcionArticulo unaDescripcionArticulo, String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay) throws PreexistingEntityException, Exception { 
+        unaDescripcionArticulo.setCodigoBarra(codigoBarra);
+        unaDescripcionArticulo.setNombreArticulo(nombreArticulo);
+        unaDescripcionArticulo.setDescripcion(descripcion);
+        unaDescripcionArticulo.setTipoEnvase(tipoEnvase);
+        unaDescripcionArticulo.setUnidadMedida(unidadMedida);
+        unaDescripcionArticulo.setCantidadUnidadMedida(cantidadUnidadMedida);
+        unaDescripcionArticulo.setPrecioCompra(precioCompra);
+        unaDescripcionArticulo.setPrecioVenta(precioVenta);
+        unaDescripcionArticulo.setPrecioVentaMay(precioVentaMay);
+        Sucursal.persistencia.ModificarUnaDescripcionArticuloPersis(unaDescripcionArticulo);    
+    }
+    
+    public void AgregarUnaDescripcionArticulo(String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay) throws PreexistingEntityException, Exception { 
+        DescripcionArticulo unaDescripcionArticulo = new DescripcionArticulo(codigoBarra, nombreArticulo, descripcion, tipoEnvase, unidadMedida, cantidadUnidadMedida, precioCompra, precioVenta, precioVentaMay);
+        this.listaDescripcionArticulo.add(unaDescripcionArticulo);
+        Sucursal.persistencia.AgregarUnaDescripcionArticuloPersis(unaDescripcionArticulo);
+    }
+    public DescripcionArticulo BuscarDescripcionArticulo(String codigoBarra){
+        DescripcionArticulo aux=null, descArt;
+        Iterator it = this.cargarListaDescripcionArticuloBD().iterator();
+        while(it.hasNext()){
+            descArt=(DescripcionArticulo) it.next();
+            if(descArt.getCodigoBarra().equals(codigoBarra)){
+                aux=descArt;
+            }
+        }
+        return aux;
+    }
+
+    public List<DescripcionArticulo> getListaDescripcionArticulo() {
+        return listaDescripcionArticulo;
+    }
+
+    public void setListaDescripcionArticulo(List<DescripcionArticulo> listaDescripcionArticulo) {
+        this.listaDescripcionArticulo = listaDescripcionArticulo;
+    }
+    /////////////////////////////////////////////////////////////////////////////
+    
+    
+    
     
 }

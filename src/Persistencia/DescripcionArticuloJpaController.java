@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import model.DescripcionArticulo;
@@ -23,14 +24,10 @@ import model.DescripcionArticulo;
  */
 public class DescripcionArticuloJpaController implements Serializable {
 
-    public DescripcionArticuloJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public DescripcionArticuloJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("El_mercaditoPU");
     }
     private EntityManagerFactory emf = null;
-
-    DescripcionArticuloJpaController() {
-    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();

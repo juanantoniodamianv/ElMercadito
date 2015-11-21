@@ -237,4 +237,22 @@ public class ControladoraPersistencia {
         return this.empleadoPersistencia.findEmpleadoEntities();
     }
     ///////////////////////////////////////////////////////
+    
+    //Descripcion Articulo
+    public void AgregarUnaDescripcionArticuloPersis(DescripcionArticulo DescArt) throws PreexistingEntityException, Exception{
+        this.descripcionArticuloPersistencia.create(DescArt);
+    }
+    public void ModificarUnaDescripcionArticuloPersis(DescripcionArticulo DescArt) throws PreexistingEntityException, Exception{
+        this.descripcionArticuloPersistencia.edit(DescArt);
+    }
+    public void BorrarDescripcionArticuloPersis(String codigoBarra) throws NonexistentEntityException{
+        this.descripcionArticuloPersistencia.destroy(codigoBarra);
+    }
+    public DescripcionArticulo BuscarDescripcionArticuloPersis(String codigoBarra){
+        return (DescripcionArticulo) this.descripcionArticuloPersistencia.findDescripcionArticulo(codigoBarra);
+    }
+    public List<DescripcionArticulo> BuscarListaDescripcionArticuloPersis(){
+        return this.descripcionArticuloPersistencia.findDescripcionArticuloEntities();
+    }
+    ///////////////////////////////////////////////////////////
 }

@@ -13,9 +13,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javax.management.Query.gt;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import model.Cliente;
+import model.DescripcionArticulo;
 import model.Empleado;
 import model.Proveedor;
 
@@ -29,6 +31,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private DefaultListModel modeloEmpleados = new DefaultListModel();
     private DefaultListModel modeloClientes = new DefaultListModel();
     private DefaultListModel modeloProveedor = new DefaultListModel();
+    private DefaultListModel modeloArticulo = new DefaultListModel();
     
     /**
      * Creates new form InternalFrameAdministracion
@@ -48,7 +51,9 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         txtEditableEmpleado(false);
         //###################################///////
         //##########ARTICULOS##############///
+        this.ListArticulosDetalles.setModel(modeloArticulo);
         btnGuardarArticulo.setEnabled(false);
+        btnGuardarEditArticulo.setEnabled(false);
         btnNuevoArticulo.setEnabled(true);
         btnEditarArticulo.setEnabled(false);
         btnEliminarArticulo.setEnabled(false);
@@ -313,9 +318,12 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         btnGuardarArticulo = new javax.swing.JButton();
         btnEliminarArticulo = new javax.swing.JButton();
         btnCancelarArticulo = new javax.swing.JButton();
+        btnGuardarEditArticulo = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         ListArticulosDetalles = new javax.swing.JList();
+        txtBuscarDescripcionArticulo = new javax.swing.JTextField();
+        btnBuscarCodDeBarraArticulo = new javax.swing.JButton();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -368,7 +376,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                         .addComponent(lblDireccionProveedor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtDireccionProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -677,7 +685,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                         .addGap(16, 16, 16)
                         .addComponent(lblRazonSocialCliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtRazonSocialCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
+                        .addComponent(txtRazonSocialCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
@@ -1040,7 +1048,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                                         .addComponent(lblFechaIngEmpleado)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtFechaIngEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 21, Short.MAX_VALUE))
+                        .addGap(0, 52, Short.MAX_VALUE))
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(jPanel21Layout.createSequentialGroup()
@@ -1121,7 +1129,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             .addGroup(jPanel23Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 673, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
                     .addGroup(jPanel23Layout.createSequentialGroup()
                         .addComponent(txtBuscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1180,9 +1188,27 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         lblPrecioCompraArticulo.setText("Precio de compra (unitario en $ARS):");
 
+        txtPrecioUnitCompraArticulo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPrecioUnitCompraArticuloKeyTyped(evt);
+            }
+        });
+
         lblPrecioVentaArticulo.setText("Precio de venta (unitario en $ARS:)");
 
+        txtPrecioUnitMayVentaArticulo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPrecioUnitMayVentaArticuloKeyTyped(evt);
+            }
+        });
+
         jLabel3.setText("Precio de venta (unitario MAY en $ARS):");
+
+        txtPrecioUnitVentaArticulo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPrecioUnitVentaArticuloKeyTyped(evt);
+            }
+        });
 
         btnNuevoArticulo.setText("Nuevo");
         btnNuevoArticulo.addActionListener(new java.awt.event.ActionListener() {
@@ -1216,6 +1242,13 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         btnCancelarArticulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarArticuloActionPerformed(evt);
+            }
+        });
+
+        btnGuardarEditArticulo.setText("Guardar Edición");
+        btnGuardarEditArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarEditArticuloActionPerformed(evt);
             }
         });
 
@@ -1270,14 +1303,16 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtPrecioUnitVentaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(69, 69, 69)
                 .addComponent(btnNuevoArticulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEditarArticulo)
-                .addGap(8, 8, 8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnGuardarArticulo)
+                .addGap(18, 18, 18)
+                .addComponent(btnEditarArticulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGuardarEditArticulo)
                 .addGap(10, 10, 10)
                 .addComponent(btnEliminarArticulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1323,13 +1358,26 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addComponent(btnNuevoArticulo)
                     .addComponent(btnEditarArticulo)
                     .addComponent(btnCancelarArticulo)
-                    .addComponent(btnEliminarArticulo))
+                    .addComponent(btnEliminarArticulo)
+                    .addComponent(btnGuardarEditArticulo))
                 .addContainerGap())
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.MatteBorder(null), "Listado de Artículos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
+        ListArticulosDetalles.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListArticulosDetallesMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(ListArticulosDetalles);
+
+        btnBuscarCodDeBarraArticulo.setText("Buscar por Cód. de Barras");
+        btnBuscarCodDeBarraArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarCodDeBarraArticuloActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1337,14 +1385,24 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtBuscarDescripcionArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBuscarCodDeBarraArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBuscarDescripcionArticulo, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(btnBuscarCodDeBarraArticulo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1554,11 +1612,32 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnNuevoArticuloActionPerformed
 
     private void btnEditarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarArticuloActionPerformed
-        // TODO add your handling code here:
+        txtEditableArticulo(true);
+        btnEditarArticulo.setEnabled(false);
+        btnNuevoArticulo.setEnabled(false);
+        btnGuardarArticulo.setEnabled(false);
+        btnGuardarEditArticulo.setEnabled(true);
+        btnCancelarArticulo.setEnabled(true);
     }//GEN-LAST:event_btnEditarArticuloActionPerformed
 
     private void btnGuardarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarArticuloActionPerformed
-        // TODO add your handling code here:
+        try{ 
+        this.unMercadito.getUnaSucursal().AgregarUnaDescripcionArticulo(this.txtCodBarraArticulo.getText(), this.txtNombreArticulo.getText(), this.txtDescripcionArticulo.getText(), this.txtTipoEnvaseArticulo.getText(), this.cmbUnDeMedidaArticulo.getSelectedItem().toString(), Float.parseFloat(this.txtCantMedidaArticulo.getText().toString()), Float.parseFloat(this.txtPrecioUnitCompraArticulo.getText().toString()),Float.parseFloat(this.txtPrecioUnitVentaArticulo.getText().toString()), Float.parseFloat(this.txtPrecioUnitMayVentaArticulo.getText().toString()));
+        limpiarTxtArticulo();
+        txtEditableArticulo(false);
+        btnNuevoArticulo.setEnabled(true);
+        btnGuardarArticulo.setEnabled(false);
+        btnCancelarArticulo.setEnabled(false);
+        JOptionPane.showMessageDialog(this, "¡Articulo agregado correctamente!");
+        this.CargarListaArticulos(this.unMercadito.getUnaSucursal().getListaDescripcionArticulo());
+        this.ListArticulosDetalles.setModel(modeloArticulo);
+        } catch (PreexistingEntityException ex) {
+            Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Error con la base de datos, el código de barras ingresado ya existe");
+        } catch (Exception ex) {
+            Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Error con la base de datos");
+        } 
     }//GEN-LAST:event_btnGuardarArticuloActionPerformed
 
     private void btnEliminarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarArticuloActionPerformed
@@ -1566,9 +1645,22 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEliminarArticuloActionPerformed
 
     private void btnCancelarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarArticuloActionPerformed
-        // TODO add your handling code here:
+        txtEditableArticulo(false);
+        limpiarTxtArticulo();
+        btnCancelarArticulo.setEnabled(false);
+        btnGuardarEditArticulo.setEnabled(false);
+        btnNuevoArticulo.setEnabled(true);
+        btnGuardarArticulo.setEnabled(false);
     }//GEN-LAST:event_btnCancelarArticuloActionPerformed
-
+    
+    public void CargarListaArticulos(List listaComun){
+        Iterator iter = listaComun.iterator();
+        this.modeloArticulo.clear();
+        while(iter.hasNext()){
+            this.modeloArticulo.addElement(iter.next());
+        }
+    }
+    
     private void btnBuscarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarEmpleadoActionPerformed
         try{
             Empleado unEmpleado;
@@ -1758,6 +1850,94 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnGuardarEditProveedorActionPerformed
 
+    private void btnBuscarCodDeBarraArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCodDeBarraArticuloActionPerformed
+        try{
+        DescripcionArticulo unaDescripcionArticulo;
+        unaDescripcionArticulo=unMercadito.getUnaSucursal().BuscarDescripcionArticulo(this.txtBuscarDescripcionArticulo.getText());
+        this.txtCodBarraArticulo.setText(unaDescripcionArticulo.getCodigoBarra());
+        this.txtNombreArticulo.setText(unaDescripcionArticulo.getNombreArticulo());
+        this.txtDescripcionArticulo.setText(unaDescripcionArticulo.getDescripcion());
+        this.txtTipoEnvaseArticulo.setText(unaDescripcionArticulo.getTipoEnvase());
+        this.cmbUnDeMedidaArticulo.setSelectedItem(unaDescripcionArticulo.getUnidadMedida());        
+        this.txtCantMedidaArticulo.setText(String.valueOf(unaDescripcionArticulo.getCantidadUnidadMedida()));
+        this.txtPrecioUnitCompraArticulo.setText(String.valueOf(unaDescripcionArticulo.getPrecioCompra()));
+        this.txtPrecioUnitVentaArticulo.setText(String.valueOf(unaDescripcionArticulo.getPrecioVenta()));
+        this.txtPrecioUnitMayVentaArticulo.setText(String.valueOf(unaDescripcionArticulo.getPrecioVentaMay()));
+        btnEditarArticulo.setEnabled(true);
+        }catch (Exception ex){
+                 Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+                 JOptionPane.showMessageDialog(this, "¡Codigo de Barras Inexistente!");
+        }    
+    }//GEN-LAST:event_btnBuscarCodDeBarraArticuloActionPerformed
+
+    private void ListArticulosDetallesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListArticulosDetallesMouseClicked
+        DescripcionArticulo unaDescripcionArticulo = (DescripcionArticulo) this.modeloArticulo.getElementAt(this.ListArticulosDetalles.getSelectedIndex());
+        this.txtCodBarraArticulo.setText(unaDescripcionArticulo.getCodigoBarra());
+        this.txtNombreArticulo.setText(unaDescripcionArticulo.getNombreArticulo());
+        this.txtDescripcionArticulo.setText(unaDescripcionArticulo.getDescripcion());
+        this.txtTipoEnvaseArticulo.setText(unaDescripcionArticulo.getTipoEnvase());
+        this.cmbUnDeMedidaArticulo.setSelectedItem(unaDescripcionArticulo.getUnidadMedida());        
+        this.txtCantMedidaArticulo.setText(String.valueOf(unaDescripcionArticulo.getCantidadUnidadMedida()));
+        this.txtPrecioUnitCompraArticulo.setText(String.valueOf(unaDescripcionArticulo.getPrecioCompra()));
+        this.txtPrecioUnitVentaArticulo.setText(String.valueOf(unaDescripcionArticulo.getPrecioVenta()));
+        this.txtPrecioUnitMayVentaArticulo.setText(String.valueOf(unaDescripcionArticulo.getPrecioVentaMay()));
+        btnEditarArticulo.setEnabled(true);
+    }//GEN-LAST:event_ListArticulosDetallesMouseClicked
+
+    private void btnGuardarEditArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEditArticuloActionPerformed
+        int confirmar;
+        confirmar=JOptionPane.showConfirmDialog(this, "Esta accion modificara los datos del Articulo seleccionado ¿Desea continuar?", "Modificar",  JOptionPane.YES_NO_OPTION);
+        if(confirmar==JOptionPane.YES_OPTION){
+             try {
+                DescripcionArticulo unaDescripcionArticulo = this.unMercadito.getUnaSucursal().BuscarDescripcionArticulo(this.txtCodBarraArticulo.getText());
+                this.unMercadito.getUnaSucursal().ModificarUnaDescripcionArticulo(unaDescripcionArticulo, this.txtCodBarraArticulo.getText(), this.txtNombreArticulo.getText(), this.txtDescripcionArticulo.getText(), this.txtTipoEnvaseArticulo.getText(), this.cmbUnDeMedidaArticulo.getSelectedItem().toString(), Float.parseFloat(this.txtCantMedidaArticulo.getText()), Float.parseFloat(this.txtPrecioUnitCompraArticulo.getText()),Float.parseFloat(this.txtPrecioUnitVentaArticulo.getText()), Float.parseFloat(this.txtPrecioUnitMayVentaArticulo.getText()));
+                JOptionPane.showMessageDialog(this, "Se modificaron correctamente los datos");
+                btnNuevoArticulo.setEnabled(true);
+                btnGuardarEditArticulo.setEnabled(false);
+                btnCancelarArticulo.setEnabled(false);
+                txtEditableArticulo(false);
+             } catch (NonexistentEntityException ex) {
+                 Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+                 JOptionPane.showMessageDialog(this, "Error con la base de datos, no existe");
+             } catch (Exception ex) {
+                 Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+                 JOptionPane.showMessageDialog(this, "Error con la base de datos");
+             }
+        }else{
+            btnNuevoArticulo.setEnabled(true);
+            btnGuardarEditArticulo.setEnabled(false);
+            btnCancelarArticulo.setEnabled(false);
+            txtEditableArticulo(false);
+        }
+    }//GEN-LAST:event_btnGuardarEditArticuloActionPerformed
+
+    private void txtPrecioUnitCompraArticuloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioUnitCompraArticuloKeyTyped
+        char c=evt.getKeyChar();          
+        if(Character.isLetter(c)) { 
+            getToolkit().beep();     
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Este campo solo permite numeros.");
+          } 
+    }//GEN-LAST:event_txtPrecioUnitCompraArticuloKeyTyped
+
+    private void txtPrecioUnitVentaArticuloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioUnitVentaArticuloKeyTyped
+        char c=evt.getKeyChar();          
+        if(Character.isLetter(c)) { 
+            getToolkit().beep();     
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Este campo solo permite numeros.");
+        }
+    }//GEN-LAST:event_txtPrecioUnitVentaArticuloKeyTyped
+
+    private void txtPrecioUnitMayVentaArticuloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioUnitMayVentaArticuloKeyTyped
+        char c=evt.getKeyChar();          
+        if(Character.isLetter(c)) { 
+            getToolkit().beep();     
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Este campo solo permite numeros.");
+        }
+    }//GEN-LAST:event_txtPrecioUnitMayVentaArticuloKeyTyped
+
     public void CargarListaClientes(List listaComun){
     Iterator iter = listaComun.iterator();
     this.modeloClientes.clear();
@@ -1772,6 +1952,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JList ListEmpleados;
     private javax.swing.JList ListProveedor;
     private javax.swing.JButton btnBuscarCliente;
+    private javax.swing.JButton btnBuscarCodDeBarraArticulo;
     private javax.swing.JButton btnBuscarEmpleado;
     private javax.swing.JButton btnBuscarProveedor;
     private javax.swing.JButton btnCancelarArticulo;
@@ -1788,6 +1969,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEliminarProveedor;
     private javax.swing.JButton btnGuardarArticulo;
     private javax.swing.JButton btnGuardarCliente;
+    private javax.swing.JButton btnGuardarEditArticulo;
     private javax.swing.JButton btnGuardarEditCliente;
     private javax.swing.JButton btnGuardarEditEmpleado;
     private javax.swing.JButton btnGuardarEditProveedor;
@@ -1870,6 +2052,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtApellidoCliente;
     private javax.swing.JTextField txtApellidoEmpleado;
     private javax.swing.JTextField txtBuscarCliente;
+    private javax.swing.JTextField txtBuscarDescripcionArticulo;
     private javax.swing.JTextField txtBuscarEmpleado;
     private javax.swing.JTextField txtBuscarProveedor;
     private javax.swing.JTextField txtCantMedidaArticulo;

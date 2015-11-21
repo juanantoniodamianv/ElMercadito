@@ -38,12 +38,12 @@ public class DescripcionArticulo implements Serializable {
     @Basic 
     private float precioVentaMay;
     
-    @OneToMany
-    private ArrayList<Articulo>ListaArticulos;
+    //@OneToMany
+    //private ArrayList<Articulo>ListaArticulos;
     
     public DescripcionArticulo(){}
 
-    public DescripcionArticulo(String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay, ArrayList<Articulo> ListaArticulos) {
+    public DescripcionArticulo(String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay) {
         this.codigoBarra = codigoBarra;
         this.nombreArticulo = nombreArticulo;
         this.descripcion = descripcion;
@@ -53,9 +53,14 @@ public class DescripcionArticulo implements Serializable {
         this.precioCompra = precioCompra;
         this.precioVenta = precioVenta;
         this.precioVentaMay = precioVentaMay;
-        this.ListaArticulos = ListaArticulos;
+        //this.ListaArticulos = ListaArticulos;
     }
-
+    
+    @Override
+    public String toString(){
+        return "Cod. Barras: " + codigoBarra + "| Articulo: " + nombreArticulo + "| P. Compra: " + precioCompra + "| P. Vta: " + precioVenta + "| P. Vta May: " + precioVentaMay;
+    }
+    
     public String getCodigoBarra() {
         return codigoBarra;
     }
@@ -127,7 +132,7 @@ public class DescripcionArticulo implements Serializable {
     public void setPrecioVentaMay(float precioVentaMay) {
         this.precioVentaMay = precioVentaMay;
     }
-
+    /*
     public ArrayList<Articulo> getListaArticulos() {
         return ListaArticulos;
     }
@@ -135,5 +140,5 @@ public class DescripcionArticulo implements Serializable {
     public void setListaArticulos(ArrayList<Articulo> ListaArticulos) {
         this.ListaArticulos = ListaArticulos;
     }
-
+    */
 }

@@ -37,7 +37,11 @@ public class Proveedor extends Persona implements Serializable{
         this.situacionTributaria = situacionTributaria;
         this.tipoProveduria = tipoProveduria;
     }
-
+    @Override
+    public String toString(){
+        return "CUIT: " + super.getIdPersona() + "| Razón Social: " + razonSocial + "| Tipo de Proveduria: " + tipoProveduria; 
+    }
+    
     public String getRazonSocial() {
         return razonSocial;
     }

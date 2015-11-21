@@ -9,11 +9,13 @@
     <class>model.Cliente</class>
     <class>model.Empleado</class>
     <class>model.Cajero</class>
+    <class>model.DescripcionArticulo</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/ElMercaditoPU"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
       <property name="javax.persistence.jdbc.password" value="avanzada2"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>
 </persistence>
