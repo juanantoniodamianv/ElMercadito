@@ -37,13 +37,15 @@ public class DescripcionArticulo implements Serializable {
     private float precioVenta;
     @Basic 
     private float precioVentaMay;
+    @Basic
+    private int stockActual;
     
     //@OneToMany
     //private ArrayList<Articulo>ListaArticulos;
     
     public DescripcionArticulo(){}
 
-    public DescripcionArticulo(String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay) {
+    public DescripcionArticulo(String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay, int stockActual) {
         this.codigoBarra = codigoBarra;
         this.nombreArticulo = nombreArticulo;
         this.descripcion = descripcion;
@@ -53,7 +55,7 @@ public class DescripcionArticulo implements Serializable {
         this.precioCompra = precioCompra;
         this.precioVenta = precioVenta;
         this.precioVentaMay = precioVentaMay;
-        //this.ListaArticulos = ListaArticulos;
+        this.stockActual = stockActual;
     }
     
     @Override
@@ -132,13 +134,13 @@ public class DescripcionArticulo implements Serializable {
     public void setPrecioVentaMay(float precioVentaMay) {
         this.precioVentaMay = precioVentaMay;
     }
-    /*
-    public ArrayList<Articulo> getListaArticulos() {
-        return ListaArticulos;
+
+    public int getStockActual() {
+        return stockActual;
     }
 
-    public void setListaArticulos(ArrayList<Articulo> ListaArticulos) {
-        this.ListaArticulos = ListaArticulos;
+    public void setStockActual(int stockActual) {
+        this.stockActual = stockActual;
     }
-    */
+    
 }

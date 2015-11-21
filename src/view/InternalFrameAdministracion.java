@@ -58,6 +58,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         btnEditarArticulo.setEnabled(false);
         btnEliminarArticulo.setEnabled(false);
         btnCancelarArticulo.setEnabled(false);
+        txtStockActualArticulo.setEnabled(false);
         txtEditableArticulo(false);
         //###################################///////
         //##########PROVEEDOR##############///
@@ -319,6 +320,8 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         btnEliminarArticulo = new javax.swing.JButton();
         btnCancelarArticulo = new javax.swing.JButton();
         btnGuardarEditArticulo = new javax.swing.JButton();
+        lblStockActualArticulo = new javax.swing.JLabel();
+        txtStockActualArticulo = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         ListArticulosDetalles = new javax.swing.JList();
@@ -1252,6 +1255,8 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             }
         });
 
+        lblStockActualArticulo.setText("Stock Actual:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1293,11 +1298,14 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(cmbUnDeMedidaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtCantMedidaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(txtPrecioUnitMayVentaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblStockActualArticulo)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtStockActualArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblPrecioVentaArticulo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1351,7 +1359,9 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPrecioUnitMayVentaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPrecioUnitMayVentaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblStockActualArticulo)
+                    .addComponent(txtStockActualArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardarArticulo)
@@ -1472,7 +1482,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     //GUARDAR EMPLEADO
     private void btnGuardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEmpleadoActionPerformed
         try{          
-            this.unMercadito.getUnaSucursal().AgregarUnEmpleado(this.txtCuilEmpleado.getText(), this.txtApellidoEmpleado.getText(), this.txtNombreEmpleado.getText(), this.txtFechaNacEmpleado.getText(), this.cmbSexoEmpleado.getSelectedItem().toString(), this.cmbEstadoCivilEmpleado.getSelectedItem().toString(), this.txtFechaIngEmpleado.getText(), this.txtCargoEmpleado.getText(), this.txtTelEmpleado.getText(), this.txtDireccionEmpleado.getText(), this.txtProvinciaEmpleado.getText(), this.txtLocalidadEmpleado.getText());
+            this.unMercadito.getUnaSucursal().AgregarUnEmpleado(this.txtCuilEmpleado.getText(), this.txtApellidoEmpleado.getText(), this.txtNombreEmpleado.getText(), this.txtFechaNacEmpleado.getText(), this.cmbSexoEmpleado.getSelectedItem().toString(), this.cmbEstadoCivilEmpleado.getSelectedItem().toString(), this.txtFechaIngEmpleado.getText(), this.txtCargoEmpleado.getText(), this.txtTelEmpleado.getText(), this.txtDireccionEmpleado.getText(), this.txtLocalidadEmpleado.getText(), this.txtProvinciaEmpleado.getText());
             limpiarTxtEmpleado();
             txtEditableEmpleado(false);
             btnNuevoEmpleado.setEnabled(true);
@@ -1546,7 +1556,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
     private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
         try{          
-        this.unMercadito.getUnaSucursal().AgregarUnCliente(this.txtCuitCliente.getText(), this.txtApellidoCliente.getText(), this.txtNombreCliente.getText(), this.txtRazonSocialCliente.getText(), this.cmbTipoCliente.getSelectedItem().toString(), this.cmbCondIvaCliente.getSelectedItem().toString(), this.txtTelCliente.getText(), this.txtDireccionCliente.getText(), this.txtProvinciaCliente.getText(), this.txtLocalidadCliente.getText());
+        this.unMercadito.getUnaSucursal().AgregarUnCliente(this.txtCuitCliente.getText(), this.txtApellidoCliente.getText(), this.txtNombreCliente.getText(), this.txtRazonSocialCliente.getText(), this.cmbTipoCliente.getSelectedItem().toString(), this.cmbCondIvaCliente.getSelectedItem().toString(), this.txtTelCliente.getText(), this.txtDireccionCliente.getText(), this.txtLocalidadCliente.getText(), this.txtProvinciaCliente.getText());
         limpiarTxtCliente();
         txtEditableCliente(false);
         btnNuevoCliente.setEnabled(true);
@@ -1622,7 +1632,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
     private void btnGuardarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarArticuloActionPerformed
         try{ 
-        this.unMercadito.getUnaSucursal().AgregarUnaDescripcionArticulo(this.txtCodBarraArticulo.getText(), this.txtNombreArticulo.getText(), this.txtDescripcionArticulo.getText(), this.txtTipoEnvaseArticulo.getText(), this.cmbUnDeMedidaArticulo.getSelectedItem().toString(), Float.parseFloat(this.txtCantMedidaArticulo.getText().toString()), Float.parseFloat(this.txtPrecioUnitCompraArticulo.getText().toString()),Float.parseFloat(this.txtPrecioUnitVentaArticulo.getText().toString()), Float.parseFloat(this.txtPrecioUnitMayVentaArticulo.getText().toString()));
+        this.unMercadito.getUnaSucursal().AgregarUnaDescripcionArticulo(this.txtCodBarraArticulo.getText(), this.txtNombreArticulo.getText(), this.txtDescripcionArticulo.getText(), this.txtTipoEnvaseArticulo.getText(), this.cmbUnDeMedidaArticulo.getSelectedItem().toString(), Float.parseFloat(this.txtCantMedidaArticulo.getText().toString()), Float.parseFloat(this.txtPrecioUnitCompraArticulo.getText().toString()),Float.parseFloat(this.txtPrecioUnitVentaArticulo.getText().toString()), Float.parseFloat(this.txtPrecioUnitMayVentaArticulo.getText().toString()), Integer.parseInt(this.txtStockActualArticulo.getText()));
         limpiarTxtArticulo();
         txtEditableArticulo(false);
         btnNuevoArticulo.setEnabled(true);
@@ -1707,7 +1717,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         if(confirmar==JOptionPane.YES_OPTION){
              try {
                 Empleado unEmpleado = this.unMercadito.getUnaSucursal().BuscarEmpleado(this.txtCuilEmpleado.getText());
-                this.unMercadito.getUnaSucursal().ModificarUnEmpleado(unEmpleado, this.txtCuilEmpleado.getText(), this.txtApellidoEmpleado.getText(), this.txtNombreEmpleado.getText(), this.txtFechaNacEmpleado.getText(), this.cmbSexoEmpleado.getSelectedItem().toString(), this.cmbEstadoCivilEmpleado.getSelectedItem().toString(), this.txtFechaIngEmpleado.getText(), this.txtCargoEmpleado.getText(), this.txtTelEmpleado.getText(), this.txtDireccionEmpleado.getText(), this.txtProvinciaEmpleado.getText(), this.txtLocalidadEmpleado.getText());
+                this.unMercadito.getUnaSucursal().ModificarUnEmpleado(unEmpleado, this.txtCuilEmpleado.getText(), this.txtApellidoEmpleado.getText(), this.txtNombreEmpleado.getText(), this.txtFechaNacEmpleado.getText(), this.cmbSexoEmpleado.getSelectedItem().toString(), this.cmbEstadoCivilEmpleado.getSelectedItem().toString(), this.txtFechaIngEmpleado.getText(), this.txtCargoEmpleado.getText(), this.txtTelEmpleado.getText(), this.txtDireccionEmpleado.getText(), this.txtLocalidadEmpleado.getText(), this.txtProvinciaEmpleado.getText());
                 JOptionPane.showMessageDialog(this, "Se modificaron correctamente los datos");
                 btnNuevoEmpleado.setEnabled(true);
                 btnGuardarEditEmpleado.setEnabled(false);
@@ -1734,7 +1744,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         if(confirmar==JOptionPane.YES_OPTION){
              try {
                 Cliente unCliente = this.unMercadito.getUnaSucursal().BuscarCliente(this.txtCuitCliente.getText());
-                this.unMercadito.getUnaSucursal().ModificarUnCliente(unCliente, this.txtCuitCliente.getText(), this.txtApellidoCliente.getText(), this.txtNombreCliente.getText(), this.txtRazonSocialCliente.getText(), this.cmbTipoCliente.getSelectedItem().toString(), this.cmbCondIvaCliente.getSelectedItem().toString(), this.txtTelCliente.getText(), this.txtDireccionCliente.getText(), this.txtProvinciaCliente.getText(), this.txtLocalidadCliente.getText());
+                this.unMercadito.getUnaSucursal().ModificarUnCliente(unCliente, this.txtCuitCliente.getText(), this.txtApellidoCliente.getText(), this.txtNombreCliente.getText(), this.txtRazonSocialCliente.getText(), this.cmbTipoCliente.getSelectedItem().toString(), this.cmbCondIvaCliente.getSelectedItem().toString(), this.txtTelCliente.getText(), this.txtDireccionCliente.getText(), this.txtLocalidadCliente.getText(), this.txtProvinciaCliente.getText());
                 JOptionPane.showMessageDialog(this, "Se modificaron correctamente los datos");
                 btnNuevoCliente.setEnabled(true);
                 btnGuardarEditCliente.setEnabled(false);
@@ -1863,6 +1873,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         this.txtPrecioUnitCompraArticulo.setText(String.valueOf(unaDescripcionArticulo.getPrecioCompra()));
         this.txtPrecioUnitVentaArticulo.setText(String.valueOf(unaDescripcionArticulo.getPrecioVenta()));
         this.txtPrecioUnitMayVentaArticulo.setText(String.valueOf(unaDescripcionArticulo.getPrecioVentaMay()));
+        this.txtStockActualArticulo.setText(String.valueOf(unaDescripcionArticulo.getStockActual()));
         btnEditarArticulo.setEnabled(true);
         }catch (Exception ex){
                  Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
@@ -1881,6 +1892,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         this.txtPrecioUnitCompraArticulo.setText(String.valueOf(unaDescripcionArticulo.getPrecioCompra()));
         this.txtPrecioUnitVentaArticulo.setText(String.valueOf(unaDescripcionArticulo.getPrecioVenta()));
         this.txtPrecioUnitMayVentaArticulo.setText(String.valueOf(unaDescripcionArticulo.getPrecioVentaMay()));
+        this.txtStockActualArticulo.setText(String.valueOf(unaDescripcionArticulo.getStockActual()));
         btnEditarArticulo.setEnabled(true);
     }//GEN-LAST:event_ListArticulosDetallesMouseClicked
 
@@ -1890,7 +1902,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         if(confirmar==JOptionPane.YES_OPTION){
              try {
                 DescripcionArticulo unaDescripcionArticulo = this.unMercadito.getUnaSucursal().BuscarDescripcionArticulo(this.txtCodBarraArticulo.getText());
-                this.unMercadito.getUnaSucursal().ModificarUnaDescripcionArticulo(unaDescripcionArticulo, this.txtCodBarraArticulo.getText(), this.txtNombreArticulo.getText(), this.txtDescripcionArticulo.getText(), this.txtTipoEnvaseArticulo.getText(), this.cmbUnDeMedidaArticulo.getSelectedItem().toString(), Float.parseFloat(this.txtCantMedidaArticulo.getText()), Float.parseFloat(this.txtPrecioUnitCompraArticulo.getText()),Float.parseFloat(this.txtPrecioUnitVentaArticulo.getText()), Float.parseFloat(this.txtPrecioUnitMayVentaArticulo.getText()));
+                this.unMercadito.getUnaSucursal().ModificarUnaDescripcionArticulo(unaDescripcionArticulo, this.txtCodBarraArticulo.getText(), this.txtNombreArticulo.getText(), this.txtDescripcionArticulo.getText(), this.txtTipoEnvaseArticulo.getText(), this.cmbUnDeMedidaArticulo.getSelectedItem().toString(), Float.parseFloat(this.txtCantMedidaArticulo.getText()), Float.parseFloat(this.txtPrecioUnitCompraArticulo.getText()),Float.parseFloat(this.txtPrecioUnitVentaArticulo.getText()), Float.parseFloat(this.txtPrecioUnitMayVentaArticulo.getText()), Integer.parseInt(this.txtStockActualArticulo.getText()));
                 JOptionPane.showMessageDialog(this, "Se modificaron correctamente los datos");
                 btnNuevoArticulo.setEnabled(true);
                 btnGuardarEditArticulo.setEnabled(false);
@@ -2043,6 +2055,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblRazonSocialProveedor;
     private javax.swing.JLabel lblSexoEmpleado;
     private javax.swing.JLabel lblSituacTribProveedor;
+    private javax.swing.JLabel lblStockActualArticulo;
     private javax.swing.JLabel lblTelCliente;
     private javax.swing.JLabel lblTelEmpleado;
     private javax.swing.JLabel lblTelProveedor;
@@ -2081,6 +2094,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtProvinciaProveedor;
     private javax.swing.JTextField txtRazonSocialCliente;
     private javax.swing.JTextField txtRazonSocialProveedor;
+    private javax.swing.JTextField txtStockActualArticulo;
     private javax.swing.JTextField txtTelCliente;
     private javax.swing.JTextField txtTelEmpleado;
     private javax.swing.JTextField txtTelProveedor;

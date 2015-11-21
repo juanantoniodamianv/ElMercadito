@@ -152,7 +152,7 @@ public class Sucursal implements Serializable {
 
     
     //EMPLEADO
-    public void ModificarUnEmpleado(Empleado unEmpleado, String idPersona, String apellido, String nombre, String fechaNac, String sexo, String estadoCivil, String fechaIngreso, String cargo, String telefono, String direccion, String provincia, String localidad) throws PreexistingEntityException, Exception{
+    public void ModificarUnEmpleado(Empleado unEmpleado, String idPersona, String apellido, String nombre, String fechaNac, String sexo, String estadoCivil, String fechaIngreso, String cargo, String telefono, String direccion, String localidad, String provincia) throws PreexistingEntityException, Exception{
         unEmpleado.setIdPersona(idPersona);
         unEmpleado.setApellido(apellido);
         unEmpleado.setNombre(nombre);
@@ -167,8 +167,8 @@ public class Sucursal implements Serializable {
         unEmpleado.setLocalidad(localidad);
         Sucursal.persistencia.ModificarUnEmpleadoPersis(unEmpleado);
     }    
-    public void AgregarUnEmpleado(String idPersona, String apellido, String nombre, String fechaNac, String sexo, String estadoCivil, String fechaIngreso, String cargo, String telefono, String direccion, String provincia, String localidad) throws PreexistingEntityException, Exception{
-	Empleado unEmpleado = new Empleado(idPersona, apellido, nombre, fechaNac, sexo, estadoCivil, fechaIngreso, cargo, telefono, direccion, provincia, localidad);
+    public void AgregarUnEmpleado(String idPersona, String apellido, String nombre, String fechaNac, String sexo, String estadoCivil, String fechaIngreso, String cargo, String telefono, String direccion, String localidad, String provincia) throws PreexistingEntityException, Exception{
+	Empleado unEmpleado = new Empleado(idPersona, apellido, nombre, fechaNac, sexo, estadoCivil, fechaIngreso, cargo, telefono, direccion, localidad, provincia);
 	this.listaEmpleados.add(unEmpleado);
 	Sucursal.persistencia.AgregarUnEmpleadoPersis(unEmpleado);    
     }
@@ -269,7 +269,7 @@ public class Sucursal implements Serializable {
         this.listaProveedores = listaProveedores;
     }
     //ARTICULO////////////////////////////////////////////////
-    public void ModificarUnaDescripcionArticulo(DescripcionArticulo unaDescripcionArticulo, String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay) throws PreexistingEntityException, Exception { 
+    public void ModificarUnaDescripcionArticulo(DescripcionArticulo unaDescripcionArticulo, String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay, int stockActual) throws PreexistingEntityException, Exception { 
         unaDescripcionArticulo.setCodigoBarra(codigoBarra);
         unaDescripcionArticulo.setNombreArticulo(nombreArticulo);
         unaDescripcionArticulo.setDescripcion(descripcion);
@@ -279,11 +279,12 @@ public class Sucursal implements Serializable {
         unaDescripcionArticulo.setPrecioCompra(precioCompra);
         unaDescripcionArticulo.setPrecioVenta(precioVenta);
         unaDescripcionArticulo.setPrecioVentaMay(precioVentaMay);
+        unaDescripcionArticulo.setStockActual(stockActual);
         Sucursal.persistencia.ModificarUnaDescripcionArticuloPersis(unaDescripcionArticulo);    
     }
     
-    public void AgregarUnaDescripcionArticulo(String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay) throws PreexistingEntityException, Exception { 
-        DescripcionArticulo unaDescripcionArticulo = new DescripcionArticulo(codigoBarra, nombreArticulo, descripcion, tipoEnvase, unidadMedida, cantidadUnidadMedida, precioCompra, precioVenta, precioVentaMay);
+    public void AgregarUnaDescripcionArticulo(String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay, int stockActual) throws PreexistingEntityException, Exception { 
+        DescripcionArticulo unaDescripcionArticulo = new DescripcionArticulo(codigoBarra, nombreArticulo, descripcion, tipoEnvase, unidadMedida, cantidadUnidadMedida, precioCompra, precioVenta, precioVentaMay, stockActual);
         this.listaDescripcionArticulo.add(unaDescripcionArticulo);
         Sucursal.persistencia.AgregarUnaDescripcionArticuloPersis(unaDescripcionArticulo);
     }

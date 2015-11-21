@@ -281,7 +281,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     private void btnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentaActionPerformed
         // TODO add your handling code here:
-       InternalFrameCaja ventanaCaja = new InternalFrameCaja();
+       InternalFrameCaja ventanaCaja = new InternalFrameCaja(this.unMercadito);
        escritorio.add(ventanaCaja);
        ventanaCaja.show();
     }//GEN-LAST:event_btnVentaActionPerformed
@@ -351,7 +351,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnFinanza;
     private javax.swing.JButton btnTranferencia;
     private javax.swing.JButton btnVenta;
-    private javax.swing.JDesktopPane escritorio;
+    public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuBar jMenuBarPrincipal;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItemCerrarSesion;

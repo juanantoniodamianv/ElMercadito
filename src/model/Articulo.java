@@ -23,14 +23,17 @@ public class Articulo implements Serializable{
     private String fechaExpira;
     @Basic
     private String fechaElabora;
+    @Basic
+    private int stock;
     
     public Articulo(){}
 
-    public Articulo(int nroArticulo, String lote, String fechaExpira, String fechaElabora) {
+    public Articulo(int nroArticulo, String lote, String fechaExpira, String fechaElabora, int stock) {
         this.nroArticulo = nroArticulo;
         this.lote = lote;
         this.fechaExpira = fechaExpira;
         this.fechaElabora = fechaElabora;
+        this.stock = stock;
     }
 
     public int getNroArticulo() {
@@ -64,6 +67,12 @@ public class Articulo implements Serializable{
     public void setFechaElabora(String fechaElabora) {
         this.fechaElabora = fechaElabora;
     }
-    
-    
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }   
 }
