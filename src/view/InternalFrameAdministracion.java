@@ -93,6 +93,9 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         txtPrecioUnitCompraArticulo.setEditable(bool);
         txtPrecioUnitVentaArticulo.setEditable(bool);
         txtPrecioUnitMayVentaArticulo.setEditable(bool);
+        //txtStockActualArticulo.setEditable(bool);
+        txtStockMinimoArticulo.setEditable(bool);
+        txtStockReposicionArticulo.setEditable(bool);
     }
     //LIMPIA LOS CAMPOS DEL FORMULARIO DETALLE ARTICULOS
     public void limpiarTxtArticulo(){
@@ -104,6 +107,9 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         txtPrecioUnitCompraArticulo.setText("");
         txtPrecioUnitVentaArticulo.setText("");
         txtPrecioUnitMayVentaArticulo.setText("");
+        //txtStockActualArticulo.setText("");
+        txtStockMinimoArticulo.setText("");
+        txtStockReposicionArticulo.setText("");
     }
     //
     //Hace editable los campos del formulario PROVEEDOR
@@ -322,6 +328,10 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         btnGuardarEditArticulo = new javax.swing.JButton();
         lblStockActualArticulo = new javax.swing.JLabel();
         txtStockActualArticulo = new javax.swing.JTextField();
+        lblStockMinimoArticulo = new javax.swing.JLabel();
+        txtStockMinimoArticulo = new javax.swing.JTextField();
+        lblStockReposicionArticulo = new javax.swing.JLabel();
+        txtStockReposicionArticulo = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         ListArticulosDetalles = new javax.swing.JList();
@@ -338,6 +348,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setTitle("Administración");
+        setPreferredSize(new java.awt.Dimension(767, 657));
 
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1189,6 +1200,12 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         cmbUnDeMedidaArticulo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kilogramos", "Gramos", "Litros" }));
 
+        txtCantMedidaArticulo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCantMedidaArticuloKeyTyped(evt);
+            }
+        });
+
         lblPrecioCompraArticulo.setText("Precio de compra (unitario en $ARS):");
 
         txtPrecioUnitCompraArticulo.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1197,7 +1214,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             }
         });
 
-        lblPrecioVentaArticulo.setText("Precio de venta (unitario en $ARS:)");
+        lblPrecioVentaArticulo.setText("Precio Vta (unitario en $ARS:)");
 
         txtPrecioUnitMayVentaArticulo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1205,7 +1222,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel3.setText("Precio de venta (unitario MAY en $ARS):");
+        jLabel3.setText("Precio Vta (unitario MAY en $ARS):");
 
         txtPrecioUnitVentaArticulo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1257,6 +1274,24 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
         lblStockActualArticulo.setText("Stock Actual:");
 
+        txtStockActualArticulo.setText("0");
+
+        lblStockMinimoArticulo.setText("Stock Minimo (Góndola):");
+
+        txtStockMinimoArticulo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtStockMinimoArticuloKeyTyped(evt);
+            }
+        });
+
+        lblStockReposicionArticulo.setText("Stock Reposición (Depósito):");
+
+        txtStockReposicionArticulo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtStockReposicionArticuloKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1264,6 +1299,15 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblStockActualArticulo)
+                        .addGap(10, 10, 10)
+                        .addComponent(txtStockActualArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblStockMinimoArticulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtStockMinimoArticulo)
+                        .addGap(379, 379, 379))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblCodBarraArticulo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1277,40 +1321,27 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtDescripcionArticulo))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblPrecioCompraArticulo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtPrecioUnitCompraArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblTipoEnvaseArticulo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTipoEnvaseArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblTipoEnvaseArticulo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jLabel2)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(cmbUnDeMedidaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtCantMedidaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtPrecioUnitMayVentaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblStockActualArticulo)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtStockActualArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblPrecioVentaArticulo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtPrecioUnitVentaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addComponent(txtTipoEnvaseArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmbUnDeMedidaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtCantMedidaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblPrecioCompraArticulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPrecioUnitCompraArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblPrecioVentaArticulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtPrecioUnitVentaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPrecioUnitMayVentaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(69, 69, 69)
@@ -1320,9 +1351,15 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnEditarArticulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnGuardarEditArticulo)
-                .addGap(10, 10, 10)
-                .addComponent(btnEliminarArticulo)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnGuardarEditArticulo)
+                        .addGap(10, 10, 10)
+                        .addComponent(btnEliminarArticulo))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblStockReposicionArticulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtStockReposicionArticulo)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCancelarArticulo)
                 .addGap(155, 155, 155))
@@ -1355,14 +1392,18 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtPrecioUnitCompraArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblPrecioVentaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPrecioUnitVentaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtPrecioUnitVentaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPrecioUnitMayVentaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPrecioUnitMayVentaArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblStockActualArticulo)
-                    .addComponent(txtStockActualArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtStockActualArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblStockMinimoArticulo)
+                    .addComponent(txtStockMinimoArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblStockReposicionArticulo)
+                    .addComponent(txtStockReposicionArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardarArticulo)
                     .addComponent(btnNuevoArticulo)
@@ -1632,7 +1673,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
 
     private void btnGuardarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarArticuloActionPerformed
         try{ 
-        this.unMercadito.getUnaSucursal().AgregarUnaDescripcionArticulo(this.txtCodBarraArticulo.getText(), this.txtNombreArticulo.getText(), this.txtDescripcionArticulo.getText(), this.txtTipoEnvaseArticulo.getText(), this.cmbUnDeMedidaArticulo.getSelectedItem().toString(), Float.parseFloat(this.txtCantMedidaArticulo.getText().toString()), Float.parseFloat(this.txtPrecioUnitCompraArticulo.getText().toString()),Float.parseFloat(this.txtPrecioUnitVentaArticulo.getText().toString()), Float.parseFloat(this.txtPrecioUnitMayVentaArticulo.getText().toString()), Integer.parseInt(this.txtStockActualArticulo.getText()));
+        this.unMercadito.getUnaSucursal().AgregarUnaDescripcionArticulo(this.txtCodBarraArticulo.getText(), this.txtNombreArticulo.getText(), this.txtDescripcionArticulo.getText(), this.txtTipoEnvaseArticulo.getText(), this.cmbUnDeMedidaArticulo.getSelectedItem().toString(), Float.parseFloat(this.txtCantMedidaArticulo.getText().toString()), Float.parseFloat(this.txtPrecioUnitCompraArticulo.getText().toString()),Float.parseFloat(this.txtPrecioUnitVentaArticulo.getText().toString()), Float.parseFloat(this.txtPrecioUnitMayVentaArticulo.getText().toString()), Integer.parseInt(this.txtStockActualArticulo.getText().toString()), Integer.parseInt(this.txtStockMinimoArticulo.getText().toString()), Integer.parseInt(this.txtStockReposicionArticulo.getText().toString()));
         limpiarTxtArticulo();
         txtEditableArticulo(false);
         btnNuevoArticulo.setEnabled(true);
@@ -1874,6 +1915,8 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         this.txtPrecioUnitVentaArticulo.setText(String.valueOf(unaDescripcionArticulo.getPrecioVenta()));
         this.txtPrecioUnitMayVentaArticulo.setText(String.valueOf(unaDescripcionArticulo.getPrecioVentaMay()));
         this.txtStockActualArticulo.setText(String.valueOf(unaDescripcionArticulo.getStockActual()));
+        this.txtStockMinimoArticulo.setText(String.valueOf(unaDescripcionArticulo.getStockMinimo()));
+        this.txtStockReposicionArticulo.setText(String.valueOf(unaDescripcionArticulo.getStockReposicion()));
         btnEditarArticulo.setEnabled(true);
         }catch (Exception ex){
                  Logger.getLogger(InternalFrameAdministracion.class.getName()).log(Level.SEVERE, null, ex);
@@ -1893,6 +1936,8 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         this.txtPrecioUnitVentaArticulo.setText(String.valueOf(unaDescripcionArticulo.getPrecioVenta()));
         this.txtPrecioUnitMayVentaArticulo.setText(String.valueOf(unaDescripcionArticulo.getPrecioVentaMay()));
         this.txtStockActualArticulo.setText(String.valueOf(unaDescripcionArticulo.getStockActual()));
+        this.txtStockMinimoArticulo.setText(String.valueOf(unaDescripcionArticulo.getStockMinimo()));
+        this.txtStockReposicionArticulo.setText(String.valueOf(unaDescripcionArticulo.getStockReposicion()));
         btnEditarArticulo.setEnabled(true);
     }//GEN-LAST:event_ListArticulosDetallesMouseClicked
 
@@ -1902,7 +1947,7 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
         if(confirmar==JOptionPane.YES_OPTION){
              try {
                 DescripcionArticulo unaDescripcionArticulo = this.unMercadito.getUnaSucursal().BuscarDescripcionArticulo(this.txtCodBarraArticulo.getText());
-                this.unMercadito.getUnaSucursal().ModificarUnaDescripcionArticulo(unaDescripcionArticulo, this.txtCodBarraArticulo.getText(), this.txtNombreArticulo.getText(), this.txtDescripcionArticulo.getText(), this.txtTipoEnvaseArticulo.getText(), this.cmbUnDeMedidaArticulo.getSelectedItem().toString(), Float.parseFloat(this.txtCantMedidaArticulo.getText()), Float.parseFloat(this.txtPrecioUnitCompraArticulo.getText()),Float.parseFloat(this.txtPrecioUnitVentaArticulo.getText()), Float.parseFloat(this.txtPrecioUnitMayVentaArticulo.getText()), Integer.parseInt(this.txtStockActualArticulo.getText()));
+                this.unMercadito.getUnaSucursal().ModificarUnaDescripcionArticulo(unaDescripcionArticulo, this.txtCodBarraArticulo.getText(), this.txtNombreArticulo.getText(), this.txtDescripcionArticulo.getText(), this.txtTipoEnvaseArticulo.getText(), this.cmbUnDeMedidaArticulo.getSelectedItem().toString(), Float.parseFloat(this.txtCantMedidaArticulo.getText()), Float.parseFloat(this.txtPrecioUnitCompraArticulo.getText()),Float.parseFloat(this.txtPrecioUnitVentaArticulo.getText()), Float.parseFloat(this.txtPrecioUnitMayVentaArticulo.getText()), Integer.parseInt(this.txtStockActualArticulo.getText()), Integer.parseInt(this.txtStockMinimoArticulo.getText()), Integer.parseInt(this.txtStockReposicionArticulo.getText()));
                 JOptionPane.showMessageDialog(this, "Se modificaron correctamente los datos");
                 btnNuevoArticulo.setEnabled(true);
                 btnGuardarEditArticulo.setEnabled(false);
@@ -1949,6 +1994,33 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Este campo solo permite numeros.");
         }
     }//GEN-LAST:event_txtPrecioUnitMayVentaArticuloKeyTyped
+
+    private void txtStockMinimoArticuloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStockMinimoArticuloKeyTyped
+        char c=evt.getKeyChar();          
+        if(Character.isLetter(c)) { 
+            getToolkit().beep();     
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Este campo solo permite numeros.");
+          }
+    }//GEN-LAST:event_txtStockMinimoArticuloKeyTyped
+
+    private void txtStockReposicionArticuloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStockReposicionArticuloKeyTyped
+        char c=evt.getKeyChar();          
+        if(Character.isLetter(c)) { 
+            getToolkit().beep();     
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Este campo solo permite numeros.");
+          }
+    }//GEN-LAST:event_txtStockReposicionArticuloKeyTyped
+
+    private void txtCantMedidaArticuloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantMedidaArticuloKeyTyped
+        char c=evt.getKeyChar();          
+        if(Character.isLetter(c)) { 
+            getToolkit().beep();     
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Este campo solo permite numeros.");
+          }
+    }//GEN-LAST:event_txtCantMedidaArticuloKeyTyped
 
     public void CargarListaClientes(List listaComun){
     Iterator iter = listaComun.iterator();
@@ -2056,6 +2128,8 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblSexoEmpleado;
     private javax.swing.JLabel lblSituacTribProveedor;
     private javax.swing.JLabel lblStockActualArticulo;
+    private javax.swing.JLabel lblStockMinimoArticulo;
+    private javax.swing.JLabel lblStockReposicionArticulo;
     private javax.swing.JLabel lblTelCliente;
     private javax.swing.JLabel lblTelEmpleado;
     private javax.swing.JLabel lblTelProveedor;
@@ -2095,6 +2169,8 @@ public class InternalFrameAdministracion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtRazonSocialCliente;
     private javax.swing.JTextField txtRazonSocialProveedor;
     private javax.swing.JTextField txtStockActualArticulo;
+    private javax.swing.JTextField txtStockMinimoArticulo;
+    private javax.swing.JTextField txtStockReposicionArticulo;
     private javax.swing.JTextField txtTelCliente;
     private javax.swing.JTextField txtTelEmpleado;
     private javax.swing.JTextField txtTelProveedor;

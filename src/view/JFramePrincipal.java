@@ -291,7 +291,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFinanzaActionPerformed
 
     private void btnCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompraActionPerformed
-        // TODO add your handling code here:
+       InternalFrameCompra ventanaCompra = new InternalFrameCompra(this.unMercadito);
+       escritorio.add(ventanaCompra);
+       ventanaCompra.show();
     }//GEN-LAST:event_btnCompraActionPerformed
 
     private void menuArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuArchivoActionPerformed

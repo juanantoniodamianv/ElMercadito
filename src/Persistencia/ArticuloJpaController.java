@@ -44,7 +44,7 @@ public class ArticuloJpaController implements Serializable {
             em.persist(articulo);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findArticulo(articulo.getNroArticulo()) != null) {
+            if (findArticulo(articulo.getCodigoBarra()) != null) {
                 throw new PreexistingEntityException("Articulo " + articulo + " already exists.", ex);
             }
             throw ex;
@@ -65,7 +65,7 @@ public class ArticuloJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                int id = articulo.getNroArticulo();
+                int id = articulo.getCodigoBarra();
                 if (findArticulo(id) == null) {
                     throw new NonexistentEntityException("The articulo with id " + id + " no longer exists.");
                 }
@@ -86,7 +86,7 @@ public class ArticuloJpaController implements Serializable {
             Articulo articulo;
             try {
                 articulo = em.getReference(Articulo.class, id);
-                articulo.getNroArticulo();
+                articulo.getCodigoBarra();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The articulo with id " + id + " no longer exists.", enfe);
             }

@@ -39,13 +39,17 @@ public class DescripcionArticulo implements Serializable {
     private float precioVentaMay;
     @Basic
     private int stockActual;
+    @Basic
+    private int stockMinimo; //(GONDOLA)Es el minimo de articulos en góndola (Promedio de ventas por dia)
+    @Basic
+    private int stockReposicion; //(DEPOSITO) Es el minimo de bultos cerrados que tiene el depósito (Promedio de ventas semanal)
     
     //@OneToMany
     //private ArrayList<Articulo>ListaArticulos;
     
     public DescripcionArticulo(){}
 
-    public DescripcionArticulo(String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay, int stockActual) {
+    public DescripcionArticulo(String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay, int stockActual, int stockMinimo, int stockReposicion) {
         this.codigoBarra = codigoBarra;
         this.nombreArticulo = nombreArticulo;
         this.descripcion = descripcion;
@@ -56,6 +60,8 @@ public class DescripcionArticulo implements Serializable {
         this.precioVenta = precioVenta;
         this.precioVentaMay = precioVentaMay;
         this.stockActual = stockActual;
+        this.stockMinimo = stockMinimo;
+        this.stockReposicion = stockReposicion;
     }
     
     @Override
@@ -141,6 +147,22 @@ public class DescripcionArticulo implements Serializable {
 
     public void setStockActual(int stockActual) {
         this.stockActual = stockActual;
+    }
+
+    public int getStockMinimo() {
+        return stockMinimo;
+    }
+
+    public void setStockMinimo(int stockMinimo) {
+        this.stockMinimo = stockMinimo;
+    }
+
+    public int getStockReposicion() {
+        return stockReposicion;
+    }
+
+    public void setStockReposicion(int stockReposicion) {
+        this.stockReposicion = stockReposicion;
     }
     
 }

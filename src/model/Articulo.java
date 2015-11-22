@@ -8,6 +8,8 @@ package model;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 /**
  *
@@ -16,63 +18,67 @@ import javax.persistence.Id;
 @Entity
 public class Articulo implements Serializable{
     @Id
-    private int nroArticulo;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int idArticulo;    
+    @Basic
+    private int codigoBarra;
     @Basic
     private String lote;
     @Basic
     private String fechaExpira;
     @Basic
     private String fechaElabora;
-    @Basic
-    private int stock;
     
     public Articulo(){}
 
-    public Articulo(int nroArticulo, String lote, String fechaExpira, String fechaElabora, int stock) {
-        this.nroArticulo = nroArticulo;
+    public Articulo(int idArticulo, int codigoBarra, String lote, String fechaExpira, String fechaElabora) {
+        this.idArticulo = idArticulo;
+        this.codigoBarra = codigoBarra;
         this.lote = lote;
         this.fechaExpira = fechaExpira;
         this.fechaElabora = fechaElabora;
-        this.stock = stock;
     }
 
-    public int getNroArticulo() {
-        return nroArticulo;
+    public int getIdArticulo() {
+        return idArticulo;
+    }
+
+    public void setIdArticulo(int idArticulo) {
+        this.idArticulo = idArticulo;
+    }
+
+    public int getCodigoBarra() {
+        return codigoBarra;
+    }
+
+    public void setCodigoBarra(int codigoBarra) {
+        this.codigoBarra = codigoBarra;
     }
 
     public String getLote() {
         return lote;
     }
 
-    public String getFechaExpira() {
-        return fechaExpira;
-    }
-
-    public String getFechaElabora() {
-        return fechaElabora;
-    }
-
-    public void setNroArticulo(int nroArticulo) {
-        this.nroArticulo = nroArticulo;
-    }
-
     public void setLote(String lote) {
         this.lote = lote;
+    }
+
+    public String getFechaExpira() {
+        return fechaExpira;
     }
 
     public void setFechaExpira(String fechaExpira) {
         this.fechaExpira = fechaExpira;
     }
 
+    public String getFechaElabora() {
+        return fechaElabora;
+    }
+
     public void setFechaElabora(String fechaElabora) {
         this.fechaElabora = fechaElabora;
     }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }   
+    
+   
+  
 }

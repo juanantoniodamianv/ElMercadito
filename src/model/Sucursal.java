@@ -268,8 +268,8 @@ public class Sucursal implements Serializable {
     public void setListaProveedores(List<Proveedor> listaProveedores) {
         this.listaProveedores = listaProveedores;
     }
-    //ARTICULO////////////////////////////////////////////////
-    public void ModificarUnaDescripcionArticulo(DescripcionArticulo unaDescripcionArticulo, String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay, int stockActual) throws PreexistingEntityException, Exception { 
+    //DESCRIPCION ARTICULO////////////////////////////////////////////////
+    public void ModificarUnaDescripcionArticulo(DescripcionArticulo unaDescripcionArticulo, String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay, int stockActual, int stockMinimo, int stockReposicion) throws PreexistingEntityException, Exception { 
         unaDescripcionArticulo.setCodigoBarra(codigoBarra);
         unaDescripcionArticulo.setNombreArticulo(nombreArticulo);
         unaDescripcionArticulo.setDescripcion(descripcion);
@@ -280,11 +280,13 @@ public class Sucursal implements Serializable {
         unaDescripcionArticulo.setPrecioVenta(precioVenta);
         unaDescripcionArticulo.setPrecioVentaMay(precioVentaMay);
         unaDescripcionArticulo.setStockActual(stockActual);
+        unaDescripcionArticulo.setStockMinimo(stockMinimo);
+        unaDescripcionArticulo.setStockReposicion(stockReposicion);
         Sucursal.persistencia.ModificarUnaDescripcionArticuloPersis(unaDescripcionArticulo);    
     }
     
-    public void AgregarUnaDescripcionArticulo(String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay, int stockActual) throws PreexistingEntityException, Exception { 
-        DescripcionArticulo unaDescripcionArticulo = new DescripcionArticulo(codigoBarra, nombreArticulo, descripcion, tipoEnvase, unidadMedida, cantidadUnidadMedida, precioCompra, precioVenta, precioVentaMay, stockActual);
+    public void AgregarUnaDescripcionArticulo(String codigoBarra, String nombreArticulo, String descripcion, String tipoEnvase, String unidadMedida, float cantidadUnidadMedida, float precioCompra, float precioVenta, float precioVentaMay, int stockActual, int stockMinimo, int stockReposicion) throws PreexistingEntityException, Exception { 
+        DescripcionArticulo unaDescripcionArticulo = new DescripcionArticulo(codigoBarra, nombreArticulo, descripcion, tipoEnvase, unidadMedida, cantidadUnidadMedida, precioCompra, precioVenta, precioVentaMay, stockActual, stockMinimo, stockReposicion);
         this.listaDescripcionArticulo.add(unaDescripcionArticulo);
         Sucursal.persistencia.AgregarUnaDescripcionArticuloPersis(unaDescripcionArticulo);
     }
@@ -308,6 +310,7 @@ public class Sucursal implements Serializable {
         this.listaDescripcionArticulo = listaDescripcionArticulo;
     }
     /////////////////////////////////////////////////////////////////////////////
+    ///ARTICULO/////////////////////////////////////////////////////////////////
     
     
     
