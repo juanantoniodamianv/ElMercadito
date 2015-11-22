@@ -7,19 +7,31 @@
 package view;
 
 import ElMercadito.ElMercadito;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.DescripcionArticulo;
 
 /**
  *
  * @author Antonio
  */
 public class agregarArticulo extends javax.swing.JInternalFrame {
+    double contotal=0;
     private ElMercadito unMercadito;
-    /**
-     * Creates new form agregarArticulo
-     */
+    private DefaultTableModel modeloArt = new DefaultTableModel();
+
     public agregarArticulo(ElMercadito unMercadito) {
         initComponents();
+        modeloArt.addColumn("Producto");
+	modeloArt.addColumn("Precio");
+	modeloArt.addColumn("Cantidad");
+	modeloArt.addColumn("Total");
+	this.JTableArticulos.setModel(modeloArt);
     }
     
     /**
@@ -33,15 +45,15 @@ public class agregarArticulo extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtBuscarArt = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        btnBuscarArticulo = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtCantArt = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        JTableArticulos = new javax.swing.JTable();
 
         setClosable(true);
         setTitle("Articulos");
@@ -50,16 +62,19 @@ public class agregarArticulo extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Nombre Articulo:");
 
-        jButton1.setText("Buscar");
-
-        jScrollPane1.setViewportView(jList1);
+        btnBuscarArticulo.setText("Buscar");
+        btnBuscarArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarArticuloActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Cantidad:");
 
-        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCantArt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField3KeyTyped(evt);
+                txtCantArtKeyTyped(evt);
             }
         });
 
@@ -67,16 +82,26 @@ public class agregarArticulo extends javax.swing.JInternalFrame {
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("Agregar");
 
+        JTableArticulos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(JTableArticulos);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -86,18 +111,18 @@ public class agregarArticulo extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel1)
                                         .addGap(12, 12, 12)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                                    .addComponent(txtBuscarArt, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                                     .addComponent(jTextField2))
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(66, 66, 66)
-                                .addComponent(jButton2)))
-                        .addGap(0, 85, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(btnBuscarArticulo))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCantArt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addComponent(jButton2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,20 +130,20 @@ public class agregarArticulo extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(txtBuscarArt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarArticulo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCantArt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -135,27 +160,49 @@ public class agregarArticulo extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
+    private void txtCantArtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantArtKeyTyped
         char c=evt.getKeyChar();          
         if(Character.isLetter(c)) { 
             getToolkit().beep();     
             evt.consume();
             JOptionPane.showMessageDialog(this, "Este campo solo permite numeros.");
         }
-    }//GEN-LAST:event_jTextField3KeyTyped
+    }//GEN-LAST:event_txtCantArtKeyTyped
+
+    private void btnBuscarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarArticuloActionPerformed
+        try{
+            DescripcionArticulo unaDescripcionArticulo;
+            unaDescripcionArticulo=this.unMercadito.getUnaSucursal().BuscarDescripcionArticulo(this.txtBuscarArt.getText());
+            float precioUnitario = unaDescripcionArticulo.getPrecioVenta();
+            int cantidad = Integer.parseInt(this.txtCantArt.getText().toString());
+            float total = precioUnitario * cantidad;
+            contotal = contotal + total;
+            Vector <String> datos = new Vector();
+            datos.add(unaDescripcionArticulo.getNombreArticulo());
+            datos.add(String.valueOf(unaDescripcionArticulo.getPrecioVenta()));
+            datos.add(this.txtCantArt.getText());
+            datos.add(String.valueOf(total));
+            this.modeloArt.addRow(datos);
+            this.JTableArticulos.setModel(modeloArt);
+            //txtcontador.setText(modeloArt.getRowCount()+"");
+        }catch (Exception ex){
+            Logger.getLogger(agregarArticulo.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "¡Codigo de Barras Inexistente!");
+        }
+    }//GEN-LAST:event_btnBuscarArticuloActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTable JTableArticulos;
+    private javax.swing.JButton btnBuscarArticulo;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txtBuscarArt;
+    private javax.swing.JTextField txtCantArt;
     // End of variables declaration//GEN-END:variables
 }
